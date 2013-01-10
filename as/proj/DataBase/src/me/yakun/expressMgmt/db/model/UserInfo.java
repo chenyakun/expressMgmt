@@ -17,5 +17,29 @@ package me.yakun.expressMgmt.db.model;
 public class UserInfo {
 
 	private String userid;
-	private String username; 
+	private String username;
+	/**  
+	 * @return userid  
+	 */
+	public String getUserid() {
+		return userid;
+	}
+	/**    
+	 * @param userid the userid to set    
+	 */
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	/**  
+	 * @return username  
+	 */
+	public String getUsername() {
+		return username;
+	}
+	/**    
+	 * @param username the username to set    
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	} 
 }
