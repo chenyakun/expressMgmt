@@ -16,4 +16,8 @@ package me.yakun.expressMgmt.db;
  */
 public class BaseDao {
 
+	public String save(){
+		System.out.println("saved() ");
+		return null;
+	}
 }
