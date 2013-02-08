@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<project name="JMSClient" default="clean">
+
+	<!-- properies -->
+	<property name="src.dir" value="src" />
+	<property name="classes.dir" value="classes" />
+	<property name="lib.dir" value="lib" />
+	<property name="dist.dir" value="dist" />
+	<property name="doc.dir" value="doc" />
+
+	<!-- 定义classpath
+	<path id="compile.classpath">
+		<fileset dir="${lib.dir}">
+			<include name = "*.jar"/>
+		</fileset>
+	</path>
+	 -->
+	
+	<path id="compile.classpath">
+			<fileset file="${lib.dir}/*.jar" />
+			<pathelement path="${classes.dir}" />
+	</path>
+	
+
+	<!-- 初始化任务 -->
+	<target name="init">
+		<mkdir dir="${classes.dir}" />
+	</target>
+
+	<!-- 编译 -->
+	<target name="compile" depends="init" description="compile the source files">
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" target="1.6" includeantruntime="on" >
+			<classpath refid="compile.classpath" />
+		</javac>
+	</target>
+	
+	<!-- 打包成jar -->
+	<target name="pack" depends="compile" description="make .jar file">
+		<mkdir dir="${dist.dir}" />
+		<jar destfile="../../${lib.dir}/JMSClient.jar" basedir="${classes.dir}">
+			<exclude name="**/*Test.*" />
+			<exclude name="**/Test*.*" />
+
+		</jar>
+	</target>
+
+	<!-- 清理 -->
+	<target name="clean"  depends = "pack" description="Clean dirs">
+		<delete dir="${lib.dir}" />
+		<delete dir="${dist.dir}" />
+	</target>
+
+
+</project>

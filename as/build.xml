@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<project name="as" basedir="." default="jar">
+	<description>description</description>
+
+	<!-- properies -->
+	<property name="lib.home" value="${basedir}/lib" />
+	<property name="bin" value="${basedir}/bin" />
+	<property name="proj" value="${basedir}/proj" />
+	<property name="classpath" value="${basedir}/lib" /> 
+ 
+	<target name="init">
+		<echo>${basedir}</echo>
+		<echo>${lib.home}</echo>
+	</target>
+
+	<target name="jar" depends="init">
+		<ant dir="${proj}/JMSClient"/>
+		<ant dir="${proj}/DataBase"/>
+		<ant dir="${proj}/AS"/>
+	</target>
+
+	<target name="clean" >
+		<ant target="clean" dir="${proj}/JMSClient" />
+		<ant target="clean" dir="${proj}/DataBase" />
+		<ant target="clean" dir="${proj}/AS" />
+	</target>	
+	 
+
+
+</project>
