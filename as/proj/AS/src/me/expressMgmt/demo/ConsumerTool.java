@@ -55,7 +55,7 @@ public class ConsumerTool extends Thread implements MessageListener, ExceptionLi
     private boolean verbose = true;
     private int maxiumMessages;
     private static int parallelThreads = 1;
-    private String subject = "TOOL.DEFAULT";
+    private String subject = "myQueue";
     private boolean topic;
     private String user = ActiveMQConnection.DEFAULT_USER;
     private String password = ActiveMQConnection.DEFAULT_PASSWORD;

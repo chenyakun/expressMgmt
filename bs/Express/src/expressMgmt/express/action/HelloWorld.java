@@ -1,61 +1,143 @@
-/*
- * $Id: HelloWorld.java 471756 2006-11-06 15:01:43Z husted $
- *
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
 package expressMgmt.express.action;
+
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
+import javax.jms.DeliveryMode;
+import javax.jms.Destination;
+import javax.jms.MessageConsumer;
+import javax.jms.MessageProducer;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+
+import org.apache.activemq.ActiveMQConnection;
+import org.apache.activemq.ActiveMQConnectionFactory;
+
+import expressMgmt.express.mq.Client;
 
 /**
  * <code>Set welcome message.</code>
  */
 public class HelloWorld extends ExampleSupport {
 
-    public String execute() throws Exception {
-        setMessage(getText(MESSAGE));
-        return SUCCESS;
-    }
+	private String name;
+	private String inch;
+	private String result;
 
-    /**
-     * Provide default valuie for Message property.
-     */
-    public static final String MESSAGE = "HelloWorld.message";
+	public String execute() throws Exception {
 
-    /**
-     * Field for Message property.
-     */
-    private String message;
+//		Client client = new Client();
+//		client.start();
+//		client.request("liu neng ...");
 
-    /**
-     * Return Message property.
-     *
-     * @return Message property
-     */
-    public String getMessage() {
-        return message;
-    }
+		setName("name...");
 
-    /**
-     * Set Message property.
-     *
-     * @param message Text to display on HelloWorld page.
-     */
-    public void setMessage(String message) {
-        this.message = message;
-    }
+		result = "hello world ....";
+
+		// ConnectionFactory ：连接工厂，JMS 用它创建连接
+
+		ConnectionFactory connectionFactory;
+		Connection connection = null;
+		Session session;
+
+		MessageConsumer consumer;
+		MessageProducer producer;
+
+		connectionFactory = new ActiveMQConnectionFactory(
+
+		ActiveMQConnection.DEFAULT_USER,
+
+		ActiveMQConnection.DEFAULT_PASSWORD,
+
+		"tcp://localhost:61616");
+
+		try {
+			
+			connection = connectionFactory.createConnection();
+			connection.start();
+			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+			Destination dest = session.createQueue("TEST.QUEUE");
+
+			// 创建生产者，并设定分配模式
+			producer = session.createProducer(dest);
+			producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+ 
+			// 获取操作连接
+
+			session = connection.createSession(Boolean.FALSE,
+
+			Session.AUTO_ACKNOWLEDGE);
+			
+			TextMessage response = session.createTextMessage();
+			response.setText("questing ...");
+			
+			producer.send(dest, response);
+
+			// 获取session注意参数是一个服务器的queue，须在在ActiveMq的console配置
+
+			Destination	destination = session.createQueue("controlQ");
+
+			consumer = session.createConsumer(destination);
+
+			while (true) {
+
+				TextMessage message = (TextMessage) consumer.receive(1000);
+
+				if (null != message) {
+
+					System.out.println("收到消息" + message.getText());
+
+				} else {
+
+					break;
+
+				}
+
+			}
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				if (null != connection)
+
+					connection.close();
+
+			} catch (Throwable ignore) {
+
+			}
+
+		}
+
+		return SUCCESS;
+
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getInch() {
+		return inch;
+	}
+
+	public void setInch(String inch) {
+		this.inch = inch;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
 }

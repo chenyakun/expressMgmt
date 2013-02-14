@@ -1,8 +1,25 @@
 package expressMgmt.express.mq;
 
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.jms.Connection;
@@ -26,324 +43,303 @@ import org.apache.activemq.ActiveMQConnectionFactory;
  * 
  * 
  */
-public class ConsumerTool extends Thread implements MessageListener,
-		ExceptionListener {
+public class ConsumerTool extends Thread implements MessageListener, ExceptionListener {
 
-	private boolean running;
+    private boolean running;
 
-	private Session session;
-	private Destination destination;
-	private MessageProducer replyProducer;
+    private Session session;
+    private Destination destination;
+    private MessageProducer replyProducer;
 
-	private boolean pauseBeforeShutdown = false;
-	private int maxiumMessages;
-	private static int parallelThreads = 1;
-	private String subject = "myQueue";
-	private boolean topic = false;
-	private String user = ActiveMQConnection.DEFAULT_USER;
-	private String password = ActiveMQConnection.DEFAULT_PASSWORD;
-	private String url = ActiveMQConnection.DEFAULT_BROKER_URL;
-	private boolean transacted;
-	private boolean durable;
-	private String clientId;
-	private int ackMode = Session.AUTO_ACKNOWLEDGE;
-	private String consumerName = "James";
-	private long sleepTime;
-	private long receiveTimeOut;
-	private long batch = 10; // Default batch size for CLIENT_ACKNOWLEDGEMENT or
-								// SESSION_TRANSACTED
+    private boolean pauseBeforeShutdown = false;
+    private boolean verbose = true;
+    private int maxiumMessages;
+    private static int parallelThreads = 1;
+    private String subject = "controlQ";
+    private boolean topic;
+    private String user = ActiveMQConnection.DEFAULT_USER;
+    private String password = ActiveMQConnection.DEFAULT_PASSWORD;
+    private String url = ActiveMQConnection.DEFAULT_BROKER_URL;
+    private boolean transacted;
+    private boolean durable;
+    private String clientId;
+    private int ackMode = Session.AUTO_ACKNOWLEDGE;
+    private String consumerName = "James";
+    private long sleepTime;
+    private long receiveTimeOut;
+	private long batch = 10; // Default batch size for CLIENT_ACKNOWLEDGEMENT or SESSION_TRANSACTED
 	private long messagesReceived = 0;
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
+        ArrayList<ConsumerTool> threads = new ArrayList();
+        ConsumerTool consumerTool = new ConsumerTool();
+       
+        consumerTool.showParameters();
+        for (int threadCount = 1; threadCount <= parallelThreads; threadCount++) {
+            consumerTool = new ConsumerTool();
+            consumerTool.start();
+            threads.add(consumerTool);
+        }
 
-		System.out.println(args.length);
+        while (true) {
+            Iterator<ConsumerTool> itr = threads.iterator();
+            int running = 0;
+            while (itr.hasNext()) {
+                ConsumerTool thread = itr.next();
+                if (thread.isAlive()) {
+                    running++;
+                }
+            }
 
-		for (String tempArgs : args) {
+            if (running <= 0) {
+                System.out.println("All threads completed their work");
+                break;
+            }
 
-			System.out.println(tempArgs);
-		}
-		System.out.println("-------------");
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+            }
+        }
+        Iterator<ConsumerTool> itr = threads.iterator();
+        while (itr.hasNext()) {
+            ConsumerTool thread = itr.next();
+        }
+    }
 
-		ArrayList<ConsumerTool> threads = new ArrayList();
-		ConsumerTool consumerTool = new ConsumerTool();
-		 
-		consumerTool.showParameters();
-		for (int threadCount = 1; threadCount <= parallelThreads; threadCount++) {
-			consumerTool = new ConsumerTool();
-			consumerTool.start();
-			threads.add(consumerTool);
-		}
+    public void showParameters() {
+        System.out.println("Connecting to URL: " + url + " (" + user + ":" + password + ")");
+        System.out.println("Consuming " + (topic ? "topic" : "queue") + ": " + subject);
+        System.out.println("Using a " + (durable ? "durable" : "non-durable") + " subscription");
+        System.out.println("Running " + parallelThreads + " parallel threads");
+    }
 
-		while (true) {
-			Iterator<ConsumerTool> itr = threads.iterator();
-			int running = 0;
-			while (itr.hasNext()) {
-				ConsumerTool thread = itr.next();
-				if (thread.isAlive()) {
-					running++;
-				}
-			}
+    public void run() {
+        try {
+            running = true;
 
-			if (running <= 0) {
-				System.out.println("All threads completed their work");
-				break;
-			}
+            ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(user, password, url);
+            Connection connection = connectionFactory.createConnection();
+            if (durable && clientId != null && clientId.length() > 0 && !"null".equals(clientId)) {
+                connection.setClientID(clientId);
+            }
+            connection.setExceptionListener(this);
+            connection.start();
 
-			try {
-				Thread.sleep(1000);
-			} catch (Exception e) {
-			}
-		}
-		Iterator<ConsumerTool> itr = threads.iterator();
-		while (itr.hasNext()) {
-			ConsumerTool thread = itr.next();
-		}
-	}
+            session = connection.createSession(transacted, ackMode);
+            if (topic) {
+                destination = session.createTopic(subject);
+            } else {
+                destination = session.createQueue(subject);
+            }
 
-	public void showParameters() {
-		System.out.println("Connecting to URL: " + url + " (" + user + ":"
-				+ password + ")");
-		System.out.println("Consuming " + (topic ? "topic" : "queue") + ": "
-				+ subject);
-		System.out.println("Using a " + (durable ? "durable" : "non-durable")
-				+ " subscription");
-		System.out.println("Running " + parallelThreads + " parallel threads");
-	}
+            replyProducer = session.createProducer(null);
+            replyProducer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
 
-	public void run() {
-		try {
-			running = true;
+            MessageConsumer consumer = null;
+            if (durable && topic) {
+                consumer = session.createDurableSubscriber((Topic) destination, consumerName);
+            } else {
+                consumer = session.createConsumer(destination);
+            }
 
-			ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(
-					user, password, url);
-			Connection connection = connectionFactory.createConnection();
-			if (durable && clientId != null && clientId.length() > 0
-					&& !"null".equals(clientId)) {
-				connection.setClientID(clientId);
-			}
-			connection.setExceptionListener(this);
-			connection.start();
+            if (maxiumMessages > 0) {
+                consumeMessagesAndClose(connection, session, consumer);
+            } else {
+                if (receiveTimeOut == 0) {
+                    consumer.setMessageListener(this);
+                } else {
+                    consumeMessagesAndClose(connection, session, consumer, receiveTimeOut);
+                }
+            }
 
-			session = connection.createSession(transacted, ackMode);
-			if (topic) {
-				destination = session.createTopic(subject);
-			} else {
-				destination = session.createQueue(subject);
-			}
+        } catch (Exception e) {
+            System.out.println("[" + this.getName() + "] Caught: " + e);
+            e.printStackTrace();
+        }
+    }
 
-			replyProducer = session.createProducer(destination);
-			replyProducer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
-
-			MessageConsumer consumer = null;
-			 
-				consumer = session.createConsumer(destination);
-			 
-			if (maxiumMessages > 0) {
-				consumeMessagesAndClose(connection, session, consumer);
-			} else {
-				if (receiveTimeOut == 0) {
-					consumer.setMessageListener(this);
-				} else {
-					consumeMessagesAndClose(connection, session, consumer,
-							receiveTimeOut);
-				}
-			}
-
-		} catch (Exception e) {
-			System.out.println("[" + this.getName() + "] Caught: " + e);
-			e.printStackTrace();
-		}
-	}
-
-	public void onMessage(Message message) {
+    public void onMessage(Message message) {
 
 		messagesReceived++;
 
-		try {
+        try {
+        	
+        	Destination replyTo = session.createQueue("replyQ");
+        	message.setJMSReplyTo(replyTo);
 
-			if (message instanceof TextMessage) {
-				TextMessage txtMsg = (TextMessage) message;
-				replyProducer.send(txtMsg);
-				System.out.println("sended txtMsg");
-				
-			}
+            if (message instanceof TextMessage) {
+                TextMessage txtMsg = (TextMessage) message;
+             
+           
+                    System.out.println("[" + this.getName() + "] Received: '" + message + "'");
+            }
 
-			if (message.getJMSReplyTo() != null) {
-				replyProducer.send(
-						message.getJMSReplyTo(),
-						session.createTextMessage("Reply: "
-								+ message.getJMSMessageID()));
-			}
+            System.out.println(message.getJMSReplyTo()+" message.getJMSReplyTo()");
+           
+            if (message.getJMSReplyTo() != null) {
+                replyProducer.send(message.getJMSReplyTo(), session.createTextMessage("Reply: " + message.getJMSMessageID()));
+            }
 
-			if (transacted) {
+            if (transacted) {
 				if ((messagesReceived % batch) == 0) {
-					System.out.println("Commiting transaction for last "
-							+ batch + " messages; messages so far = "
-							+ messagesReceived);
+					System.out.println("Commiting transaction for last " + batch + " messages; messages so far = " + messagesReceived);
 					session.commit();
 				}
-			} else if (ackMode == Session.CLIENT_ACKNOWLEDGE) {
+            } else if (ackMode == Session.CLIENT_ACKNOWLEDGE) {
 				if ((messagesReceived % batch) == 0) {
-					System.out.println("Acknowledging last " + batch
-							+ " messages; messages so far = "
-							+ messagesReceived);
+					System.out.println("Acknowledging last " + batch + " messages; messages so far = " + messagesReceived);
 					message.acknowledge();
 				}
-			}
+            }
 
-		} catch (JMSException e) {
-			System.out.println("[" + this.getName() + "] Caught: " + e);
-			e.printStackTrace();
-		} finally {
-			if (sleepTime > 0) {
-				try {
-					Thread.sleep(sleepTime);
-				} catch (InterruptedException e) {
-				}
-			}
-		}
-	}
+        } catch (JMSException e) {
+            System.out.println("[" + this.getName() + "] Caught: " + e);
+            e.printStackTrace();
+        } finally {
+            if (sleepTime > 0) {
+                try {
+                    Thread.sleep(sleepTime);
+                } catch (InterruptedException e) {
+                }
+            }
+        }
+    }
 
-	public synchronized void onException(JMSException ex) {
-		System.out.println("[" + this.getName()
-				+ "] JMS Exception occured.  Shutting down client.");
-		running = false;
-	}
+    public synchronized void onException(JMSException ex) {
+        System.out.println("[" + this.getName() + "] JMS Exception occured.  Shutting down client.");
+        running = false;
+    }
 
-	synchronized boolean isRunning() {
-		return running;
-	}
+    synchronized boolean isRunning() {
+        return running;
+    }
 
-	protected void consumeMessagesAndClose(Connection connection,
-			Session session, MessageConsumer consumer) throws JMSException,
-			IOException {
-		System.out.println("[" + this.getName()
-				+ "] We are about to wait until we consume: " + maxiumMessages
-				+ " message(s) then we will shutdown");
+    protected void consumeMessagesAndClose(Connection connection, Session session, MessageConsumer consumer) throws JMSException,
+            IOException {
+        System.out.println("[" + this.getName() + "] We are about to wait until we consume: " + maxiumMessages
+                + " message(s) then we will shutdown");
 
-		for (int i = 0; i < maxiumMessages && isRunning();) {
-			Message message = consumer.receive(1000);
-			if (message != null) {
-				i++;
-				onMessage(message);
-			}
-		}
-		System.out.println("[" + this.getName() + "] Closing connection");
-		consumer.close();
-		session.close();
-		connection.close();
-		if (pauseBeforeShutdown) {
-			System.out.println("[" + this.getName()
-					+ "] Press return to shut down");
-			System.in.read();
-		}
-	}
+        for (int i = 0; i < maxiumMessages && isRunning();) {
+            Message message = consumer.receive(1000);
+            if (message != null) {
+                i++;
+                onMessage(message);
+            }
+        }
+        System.out.println("[" + this.getName() + "] Closing connection");
+        consumer.close();
+        session.close();
+        connection.close();
+        if (pauseBeforeShutdown) {
+            System.out.println("[" + this.getName() + "] Press return to shut down");
+            System.in.read();
+        }
+    }
 
-	protected void consumeMessagesAndClose(Connection connection,
-			Session session, MessageConsumer consumer, long timeout)
-			throws JMSException, IOException {
-		System.out
-				.println("["
-						+ this.getName()
-						+ "] We will consume messages while they continue to be delivered within: "
-						+ timeout + " ms, and then we will shutdown");
+    protected void consumeMessagesAndClose(Connection connection, Session session, MessageConsumer consumer, long timeout)
+            throws JMSException, IOException {
+        System.out.println("[" + this.getName() + "] We will consume messages while they continue to be delivered within: " + timeout
+                + " ms, and then we will shutdown");
 
-		Message message;
-		while ((message = consumer.receive(timeout)) != null) {
-			onMessage(message);
-		}
+        Message message;
+        while ((message = consumer.receive(timeout)) != null) {
+            onMessage(message);
+        }
 
-		System.out.println("[" + this.getName() + "] Closing connection");
-		consumer.close();
-		session.close();
-		connection.close();
-		if (pauseBeforeShutdown) {
-			System.out.println("[" + this.getName()
-					+ "] Press return to shut down");
-			System.in.read();
-		}
-	}
+        System.out.println("[" + this.getName() + "] Closing connection");
+        consumer.close();
+        session.close();
+        connection.close();
+        if (pauseBeforeShutdown) {
+            System.out.println("[" + this.getName() + "] Press return to shut down");
+            System.in.read();
+        }
+    }
 
-	public void setAckMode(String ackMode) {
-		if ("CLIENT_ACKNOWLEDGE".equals(ackMode)) {
-			this.ackMode = Session.CLIENT_ACKNOWLEDGE;
-		}
-		if ("AUTO_ACKNOWLEDGE".equals(ackMode)) {
-			this.ackMode = Session.AUTO_ACKNOWLEDGE;
-		}
-		if ("DUPS_OK_ACKNOWLEDGE".equals(ackMode)) {
-			this.ackMode = Session.DUPS_OK_ACKNOWLEDGE;
-		}
-		if ("SESSION_TRANSACTED".equals(ackMode)) {
-			this.ackMode = Session.SESSION_TRANSACTED;
-		}
-	}
+    public void setAckMode(String ackMode) {
+        if ("CLIENT_ACKNOWLEDGE".equals(ackMode)) {
+            this.ackMode = Session.CLIENT_ACKNOWLEDGE;
+        }
+        if ("AUTO_ACKNOWLEDGE".equals(ackMode)) {
+            this.ackMode = Session.AUTO_ACKNOWLEDGE;
+        }
+        if ("DUPS_OK_ACKNOWLEDGE".equals(ackMode)) {
+            this.ackMode = Session.DUPS_OK_ACKNOWLEDGE;
+        }
+        if ("SESSION_TRANSACTED".equals(ackMode)) {
+            this.ackMode = Session.SESSION_TRANSACTED;
+        }
+    }
 
-	public void setClientId(String clientID) {
-		this.clientId = clientID;
-	}
+    public void setClientId(String clientID) {
+        this.clientId = clientID;
+    }
 
-	public void setConsumerName(String consumerName) {
-		this.consumerName = consumerName;
-	}
+    public void setConsumerName(String consumerName) {
+        this.consumerName = consumerName;
+    }
 
-	public void setDurable(boolean durable) {
-		this.durable = durable;
-	}
+    public void setDurable(boolean durable) {
+        this.durable = durable;
+    }
 
-	public void setMaxiumMessages(int maxiumMessages) {
-		this.maxiumMessages = maxiumMessages;
-	}
+    public void setMaxiumMessages(int maxiumMessages) {
+        this.maxiumMessages = maxiumMessages;
+    }
 
-	public void setPauseBeforeShutdown(boolean pauseBeforeShutdown) {
-		this.pauseBeforeShutdown = pauseBeforeShutdown;
-	}
+    public void setPauseBeforeShutdown(boolean pauseBeforeShutdown) {
+        this.pauseBeforeShutdown = pauseBeforeShutdown;
+    }
 
-	public void setPassword(String pwd) {
-		this.password = pwd;
-	}
+    public void setPassword(String pwd) {
+        this.password = pwd;
+    }
 
-	public void setReceiveTimeOut(long receiveTimeOut) {
-		this.receiveTimeOut = receiveTimeOut;
-	}
+    public void setReceiveTimeOut(long receiveTimeOut) {
+        this.receiveTimeOut = receiveTimeOut;
+    }
 
-	public void setSleepTime(long sleepTime) {
-		this.sleepTime = sleepTime;
-	}
+    public void setSleepTime(long sleepTime) {
+        this.sleepTime = sleepTime;
+    }
 
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
 
-	public void setParallelThreads(int parallelThreads) {
-		if (parallelThreads < 1) {
-			parallelThreads = 1;
-		}
-		this.parallelThreads = parallelThreads;
-	}
+    public void setParallelThreads(int parallelThreads) {
+        if (parallelThreads < 1) {
+            parallelThreads = 1;
+        }
+        this.parallelThreads = parallelThreads;
+    }
 
-	public void setTopic(boolean topic) {
-		this.topic = topic;
-	}
+    public void setTopic(boolean topic) {
+        this.topic = topic;
+    }
 
-	public void setQueue(boolean queue) {
-		this.topic = !queue;
-	}
+    public void setQueue(boolean queue) {
+        this.topic = !queue;
+    }
 
-	public void setTransacted(boolean transacted) {
-		this.transacted = transacted;
-	}
+    public void setTransacted(boolean transacted) {
+        this.transacted = transacted;
+    }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-	public void setUser(String user) {
-		this.user = user;
-	}
+    public void setUser(String user) {
+        this.user = user;
+    }
 
+    public void setVerbose(boolean verbose) {
+        this.verbose = verbose;
+    }
 
-	public void setBatch(long batch) {
-		this.batch = batch;
-	}
+    public void setBatch(long batch) {
+        this.batch = batch;
+    }
 }

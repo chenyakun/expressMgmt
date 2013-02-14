@@ -5,12 +5,12 @@
 
 <struts>
 
-    <package name="example" namespace="/example" extends="default">
+    <package name="example" namespace="/example" extends="json-default">
 
         <action name="HelloWorld" class="expressMgmt.express.action.HelloWorld">
-            <result>/HelloWorld.jsp</result>
+            <result type="json"></result>
         </action>
-
+	<!-- 
         <action name="Login_*" method="{1}" class="expressMgmt.express.action.Login">
             <result name="input">/Login.jsp</result>
             <result type="redirectAction">Menu</result>
@@ -19,7 +19,7 @@
         <action name="*" class="expressMgmt.express.action.ExampleSupport">
             <result>/{1}.jsp</result>
         </action>
-
-        <!-- Add actions here -->
+ 	-->
+    
     </package>
 </struts>

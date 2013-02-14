@@ -1,7 +1,6 @@
 package expressMgmt.express.mq;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 
 import javax.jms.Connection;
@@ -14,7 +13,6 @@ import javax.jms.MessageListener;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
-import javax.jms.Topic;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -30,14 +28,13 @@ public class ProducerTool extends Thread implements MessageListener{
 	private Destination destination;
 	private int messageCount = 10;
 	private long sleepTime;
-	private boolean verbose = true;
 	private int messageSize = 255;
 	private static int parallelThreads = 1;
 	private long timeToLive;
 	private String user = ActiveMQConnection.DEFAULT_USER;
 	private String password = ActiveMQConnection.DEFAULT_PASSWORD;
 	private String url = ActiveMQConnection.DEFAULT_BROKER_URL;
-	private String subject = "myQueue";
+	private String subject = "controlQ";
 	private boolean topic = false;
 	private boolean transacted;
 	private boolean persistent;
@@ -159,6 +156,8 @@ public class ProducerTool extends Thread implements MessageListener{
 			
 			System.out.println(message.getJMSMessageID()+" "+message.getJMSReplyTo());
 			
+//			connection.close();
+			
 		} catch (JMSException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -221,10 +220,6 @@ public class ProducerTool extends Thread implements MessageListener{
 
 	public void setUser(String user) {
 		this.user = user;
-	}
-
-	public void setVerbose(boolean verbose) {
-		this.verbose = verbose;
 	}
 
 }
