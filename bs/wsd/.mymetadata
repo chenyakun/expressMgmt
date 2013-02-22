@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="wsd"
+  id="myeclipse.1360859753030"
+  context-root="/wsd"
+  j2ee-spec="5.0"
+  archive="wsd.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
