@@ -4,4 +4,7 @@
 	<endpoint name="1989"
 		implementation="com.test.webservice.CounterDelegate"
 		url-pattern="/1989">
+	</endpoint>
+	<endpoint name="80" implementation="com.test.webservice.AddDelegate"
+		url-pattern="/80">
 	</endpoint></endpoints>
