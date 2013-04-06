@@ -129,7 +129,7 @@ public class RepairServiceImpl implements RepairServiceI {
 
 		repairResource();
 
-		repairRole();
+	 	repairRole();
 
 		repairUser();
 
@@ -167,11 +167,15 @@ public class RepairServiceImpl implements RepairServiceI {
 		admin.setId("0");
 		admin.setText("超管角色");
 		roleDao.saveOrUpdate(admin);
-		
+	
+//		TODO: why ? brach
+	/*
 		Branch branch = new Branch();
 		branch.setBranchAddr("1");
 		branch.setBranchId("121");
 		branchDao.saveOrUpdate(branch);
+	 */
+		
 //		customerDao.executeHql("delete Customer");
 //		employeeDao.executeHql("delete Employee");
 //		expUserEmpDao.executeHql("delete expUserEmp");
@@ -414,13 +418,16 @@ public class RepairServiceImpl implements RepairServiceI {
 		bugglUpdate.setSeq(BigDecimal.valueOf(5));
 		bugglUpdate.setUrl("/bugController/upload.action");
 		resourceDao.saveOrUpdate(bugglUpdate);
+
 		
+		//		TODO: why ? brach
+	/*	
 		
 		Branch branch = new Branch();
 		branch.setBranchAddr("1");
 		branch.setBranchId("121");
 		branchDao.saveOrUpdate(branch);
-
+*/
 	}
 
 	private void repairMenu() {
@@ -501,11 +508,13 @@ public class RepairServiceImpl implements RepairServiceI {
 		druidjk.setIconcls("icon-tip");
 		menuDao.saveOrUpdate(druidjk);
 		
-		
+//		TODO: why ? brach
+	/*	
 		Branch branch = new Branch();
 		branch.setBranchAddr("1");
 		branch.setBranchId("121");
 		branchDao.saveOrUpdate(branch);
+		*/
 	}
 
 	private void repairUser() {
@@ -535,10 +544,13 @@ public class RepairServiceImpl implements RepairServiceI {
 			userDao.save(guest);
 		}
 		
+//		TODO: branch
+	/*
 		Branch branch = new Branch();
 		branch.setBranchAddr("1");
 		branch.setBranchId("121");
 		branchDao.saveOrUpdate(branch);
+		*/
 	}
 
 	public BaseDaoI<Branch> getBranchDao() {

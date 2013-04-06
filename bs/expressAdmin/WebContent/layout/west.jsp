@@ -35,7 +35,7 @@
 	});
 </script>
 <div class="easyui-accordion" data-options="fit:true,border:false">
-	<div title="树形系" data-options="isonCls:'icon-save',tools : [ {
+	<div title="快递业务" data-options="isonCls:'icon-save',tools : [ {
 				iconCls : 'icon-reload',
 				handler : function() {
 					$('#layout_west_tree').tree('reload');
@@ -62,8 +62,5 @@
 				}
 			} ]">
 		<ul id="layout_west_tree"></ul>
-	</div>
-	<div title="普通系统菜单" data-options="iconCls:'icon-reload'">
-		<jsp:include page="../easyuiDemo.jsp"></jsp:include>
 	</div>
 </div>

@@ -3,41 +3,31 @@
 	$(function() {
 		panels = [ {
 			id : 'p1',
-			title : 'about',
+			title : '公司简介',
 			height : 200,
 			collapsible : true,
 			href:'${pageContext.request.contextPath}/layout/portal/about.jsp'
 		}, {
 			id : 'p2',
-			title : 'link',
+			title : 'XX新闻',
 			height : 200,
 			collapsible : true,
-			href:'${pageContext.request.contextPath}/layout/portal/link.jsp'
+			href:'${pageContext.request.contextPath}/layout/portal/news.jsp'
 		}, {
 			id : 'p3',
-			title : '修复数据库',
+			title : '通知公告',
 			height : 200,
 			collapsible : true,
-			href:'${pageContext.request.contextPath}/layout/portal/repair.jsp'
-		}, {
+			href:'${pageContext.request.contextPath}/layout/portal/bulletin.jsp'
+		}
+		, {
 			id : 'p4',
 			title : '说明',
 			height : 200,
 			collapsible : true,
 			content : '<h1>可以拖动面板的顺序，他会记住的，下次打开的时候，还是你之前调节过的顺序哦</h1>'
-		}, {
-			id : 'p5',
-			title : '说明2',
-			height : 200,
-			collapsible : true,
-			href:'${pageContext.request.contextPath}/layout/portal/about2.jsp'
-		} , {
-			id : 'p6',
-			title : 'EasyUI的QQ群',
-			height : 200,
-			collapsible : true,
-			href:'${pageContext.request.contextPath}/layout/portal/qun.jsp'
-		} ];
+		}
+		];
 
 		 $('#layout_portal_portal').portal({
 			border : false,
@@ -50,7 +40,7 @@
 		});
 		var state = $.cookie('portal-state');
 		if (!state) {
-			state = 'p1,p2,p3:p4,p5,p6';/*冒号代表列，逗号代表行*/
+			state = 'p1,p2,p3:p4';/*冒号代表列，逗号代表行*/
 		}
 		addPortalPanels(state);
 		$('#layout_portal_portal').portal('resize');

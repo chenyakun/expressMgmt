@@ -1,6 +1,13 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<div>●SyPro，是一个EasyUI整站示例系统</div>
-<div>●前台由EasyUI1.3.1编写，后台是JAVA编写，应用框架spring mvc+hibernate4+maven</div>
-<div>●目前已经过测试通过的数据库有MySql5、Oracle10g、SqlServer2005</div>
-<div>●Web容器测试通过的有Jetty和Tomcat7</div>
-<div>●要求JDK1.6+</div>
+<div>
+	<ul>
+		<li><a href="#"> 功能描述：管理员(administrators)用户、快递网点(Express Store)账户。</a>
+		<li>内容管理：管理公告(bulletin)、新闻(new)、公司简介(introduction)。
+		<li>快件管理：网店管理/查询、快件管理/查询、邮件订阅快件(package)状态。
+		<li>网上下单：根据位置自动指派快递员(courier)收件。
+		<li>聚合查询：可查询其他快递公司的快件信息。
+	</ul>
+</div>
+<div>
+	<button value="全部显示" name="全部显示">全部显示</button>
+</div>

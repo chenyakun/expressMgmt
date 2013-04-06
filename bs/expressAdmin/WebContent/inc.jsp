@@ -3,7 +3,7 @@
 <!-- my97日期控件 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/jslib/My97DatePickerBeta4.8b2/My97DatePicker/WdatePicker.js" charset="utf-8"></script>
 <!-- easyui控件 -->
-<link id="easyuiTheme" rel="stylesheet" href="${pageContext.request.contextPath}/jslib/jquery-easyui-1.3.1/themes/<c:out value="${cookie.easyuiThemeName.value}" default="default"/>/easyui.css" type="text/css"></link>
+<link id="easyuiTheme" rel="stylesheet" href="${pageContext.request.contextPath}/jslib/jquery-easyui-1.3.1/themes/<c:out value="${cookie.easyuiThemeName.value}" default="gray"/>/easyui.css" type="text/css"></link>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/jslib/jquery-easyui-1.3.1/themes/icon.css" type="text/css"></link>
 <script type="text/javascript" src="${pageContext.request.contextPath}/jslib/jquery-easyui-1.3.1/jquery-1.8.0.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/jslib/jquery-easyui-1.3.1/jquery.easyui.min.js" charset="utf-8"></script>
