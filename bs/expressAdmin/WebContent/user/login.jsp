@@ -25,27 +25,7 @@
 		$('#user_login_loginDatagridForm').form(formParam);
 		$('#user_login_loginCombogridForm').form(formParam);
 
-		$('#user_login_loginTab').tabs({
-			fit : true,
-			border : false,
-			onSelect : function(title, index) {
-				if (index == 1) {
-					var opts = $('#user_login_loginCombogrid').combogrid('options');
-					if (!opts.url) {
-						$('#user_login_loginCombogrid').combogrid({
-							url : '${pageContext.request.contextPath}/userController/combogrid.action'
-						});
-					}
-				} else if (index == 2) {
-					var opts = $('#user_login_loginCombobox').combobox('options');
-					if (!opts.url) {
-						$('#user_login_loginCombobox').combobox({
-							url : '${pageContext.request.contextPath}/userController/combobox.action'
-						});
-					}
-				}
-			}
-		});
+	 
 
 		$('#user_login_loginDialog').show().dialog({
 			modal : true,
@@ -59,8 +39,9 @@
 			}, {
 				text : '登录',
 				handler : function() {
-					var tab = $('#user_login_loginTab').tabs('getSelected');
-					tab.find('form').submit();
+					//var tab = $('#user_login_loginTab').tabs('getSelected');
+					//tab.find('form').submit();
+					$("#user_login_loginInputForm").submit();
 				}
 			} ]
 		});
@@ -109,12 +90,12 @@
 	});
 </script>
 <div id="user_login_loginDialog" style="display: none;width: 300px;height: 210px;overflow: hidden;">
-	<div id="user_login_loginTab">
+
 		<div title="输入方式" style="overflow: hidden;">
 			<div>
 				<div class="info">
 					<div class="tip icon-tip"></div>
-					<div>用户名是"孙宇"，密码是"admin"</div>
+					<div>演示用户名是"admin"，密码是"admin"</div>
 				</div>
 			</div>
 			<div align="center">
@@ -122,58 +103,16 @@
 					<table class="tableForm">
 						<tr>
 							<th>登录名</th>
-							<td><input name="name" class="easyui-validatebox" data-options="required:true" value="孙宇" />
+							<td><input name="name" class="easyui-validatebox" data-options="required:true" value="" />
 							</td>
 						</tr>
 						<tr>
 							<th>密码</th>
-							<td><input type="password" name="pwd" class="easyui-validatebox" data-options="required:true" style="width: 150px;" value="admin" /></td>
+							<td><input type="password" name="pwd" class="easyui-validatebox" data-options="required:true" style="width: 150px;" value="" /></td>
 						</tr>
 					</table>
 				</form>
 			</div>
 		</div>
-		<div title="表格方式" style="overflow: hidden;">
-			<div class="info">
-				<div class="tip icon-tip"></div>
-				<div>可模糊检索用户名</div>
-			</div>
-			<div align="center">
-				<form method="post" id="user_login_loginDatagridForm">
-					<table class="tableForm">
-						<tr>
-							<th>登录名</th>
-							<td><input id="user_login_loginCombogrid" name="name" style="width: 155px;" value="孙宇" />
-							</td>
-						</tr>
-						<tr>
-							<th>密码</th>
-							<td><input type="password" name="pwd" class="easyui-validatebox" data-options="required:true" style="width: 150px;" value="admin" /></td>
-						</tr>
-					</table>
-				</form>
-			</div>
-		</div>
-		<div title="补全方式" style="overflow: hidden;">
-			<div class="info">
-				<div class="tip icon-tip"></div>
-				<div>可自动补全用户名</div>
-			</div>
-			<div align="center">
-				<form method="post" id="user_login_loginCombogridForm">
-					<table class="tableForm">
-						<tr>
-							<th>登录名</th>
-							<td><input name="name" id="user_login_loginCombobox" style="width: 155px;" value="孙宇" />
-							</td>
-						</tr>
-						<tr>
-							<th>密码</th>
-							<td><input type="password" name="pwd" class="easyui-validatebox" data-options="required:true" style="width: 150px;" value="admin" /></td>
-						</tr>
-					</table>
-				</form>
-			</div>
-		</div>
-	</div>
+ 
 </div>
