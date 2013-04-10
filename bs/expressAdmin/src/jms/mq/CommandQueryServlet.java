@@ -141,7 +141,8 @@ public class CommandQueryServlet extends HttpServlet {
 
 		MessageConsumer receiveConsumer = session
 //				.createConsumer(senderReceiveAddr);
-				.createConsumer(tempQueue);
+				
+		.createConsumer(tempQueue);
 
 		MessageProducer sender = getMessageProducer(queuename);
 

@@ -24,8 +24,6 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 /**
  * A simple tool for consuming messages
- * 
- * 
  */
 public class ConsumerTool extends Thread implements MessageListener, ExceptionListener {
 
