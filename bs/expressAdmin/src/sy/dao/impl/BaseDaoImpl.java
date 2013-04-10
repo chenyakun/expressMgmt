@@ -19,7 +19,7 @@ public class BaseDaoImpl<T> implements BaseDaoI<T> {
 
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
-	}
+	} 
 
 	@Autowired
 	public void setSessionFactory(SessionFactory sessionFactory) {

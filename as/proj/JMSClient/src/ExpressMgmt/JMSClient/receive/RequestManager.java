@@ -90,6 +90,8 @@ public class RequestManager extends Thread implements MessageListener,
 
 			try {
 				Thread.sleep(1000);
+				
+				System.out.println("adfasdf");
 			} catch (Exception e) {
 			}
 		}
