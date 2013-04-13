@@ -77,13 +77,7 @@ public class MenuServiceImpl implements MenuServiceI {
 	public void setBranchDao(BaseDaoI<Branch> branchDao) {
 		this.branchDao = branchDao;
 	}
-	
-	
-	
-	
-	
-	
-
+	 
 	public static Logger getLogger() {
 		return logger;
 	}

@@ -102,12 +102,14 @@ public class CommandQueryServlet extends HttpServlet {
 //		inputStream.read(bytes);
 //		String jsonStr = new String(bytes);
 
+		String reqData = request.getParameter("data");
+		
 		String cmdData = "hello";
 		String queuetype = "demo";
 		try {
 			this.initActiveMQ();
 
-			String responseText = getReplyMessage(queuetype, cmdData);
+			String responseText = getReplyMessage(queuetype, reqData);
 
 			out.print(responseText);
 		} catch (JMSException e) {
@@ -151,8 +153,18 @@ public class CommandQueryServlet extends HttpServlet {
 		}
 
 		message = receiveConsumer.receive(delayTime);
+		
+	   
+	    
+	    if (message.getJMSDestination() != null) {
+			
+	    	System.out.println(message.getJMSDestination()+"  "+tempQueue.getQueueName()) ;
+	    	
+		}
+	    
 
 		if (message == null) {
+			System.out.println("message is null ");
 			return "";
 		}
 		TextMessage textMessage = (TextMessage) message;
@@ -187,7 +199,7 @@ public class CommandQueryServlet extends HttpServlet {
 		try {
 			connection = connectionFactory.createConnection();
 			connection.start();
-			// 第一个参数表示是否支持事务
+			// 第一个参数表示是否支持事物
 			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 		} catch (JMSException e) {
 			e.printStackTrace();
