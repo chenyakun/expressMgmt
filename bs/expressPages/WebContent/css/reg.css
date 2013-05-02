@@ -15,9 +15,9 @@
 .outerDiv .gotoReg{margin-left:165px;padding:20px 0;width:267px;text-align:center;font-size:12px;color:#878787;border-bottom:1px dashed #c7c7c7}
 .outerDiv .gotoReg a{color:#317ee7;background-position:right -105px}
 
-h2.loginTitle{width:950px;height:41px;background:url("http://cdn.kuaidi100.com/images/user/bg_loginTitle.png") 0 -2px no-repeat #90bfff}
-h2.regTitle{width:950px;height:41px;background:url("http://cdn.kuaidi100.com/images/user/bg_loginTitle.png") 0 -42px no-repeat #90bfff}
-h2.findTitle{width:950px;height:41px;background:url("http://cdn.kuaidi100.com/images/user/bg_loginTitle.png") 0 -82px no-repeat #90bfff}
+h2.loginTitle{width:950px;height:41px;background:url("../images/bg_loginTitle.png") 0 -2px no-repeat #90bfff}
+h2.regTitle{width:950px;height:41px;background:url("../images/bg_loginTitle.png") 0 -42px no-repeat #90bfff}
+h2.findTitle{width:950px;height:41px;background:url("../images/bg_loginTitle.png") 0 -82px no-repeat #90bfff}
 
 .innerDiv{padding:50px 155px 0px;width:640px;overflow:hidden;}
 .regTag{position:relative;height:42px;border-bottom:1px solid #90bfff}

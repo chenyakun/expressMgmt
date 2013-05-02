@@ -24,29 +24,8 @@
 		<!--wfull-->
 		<div class="fix-box-middle" id="floatCtrl">
 			<a href="login.html#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
-			<a href="login.html#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
 			<a href="login.html#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
-		</div><!--fix-box-middle-->
-		<div class="fix-box-bottom" id="feedbackDiv">
-			<div class="fb-box" style="display:none">
-				<a href="login.html#" class="fb-close" onclick="feedbackInit();return false;"></a>
-				<span id="fb-error" class="fb-errortips"></span>
-				<textarea id="fb-context" placeholder="请输入您的建议"></textarea>
-				<div id="fb-input1">
-					<label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');">
-						<input id="fb-checkbox" class="checkbox" type="checkbox" />
-						我愿意接受回馈</label>
-				</div>
-				<div id="fb-input2" style="display:none">
-					<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
-					<a href="login.html#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
-				</div>
-				<a href="login.html#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
-			</div>
-			<div class="fb-finish" style="display:none">
-				<a href="login.html#" onclick="$('.fb-finish').hide();return false;"></a>
-			</div>
-		</div>
+		</div> 
 		<!--fix-box-bottom-->
 		<div class="container w960">
 			<div class="column-1">
