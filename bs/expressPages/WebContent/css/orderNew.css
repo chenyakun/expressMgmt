@@ -1,0 +1,30 @@
+/*补全运单css*/
+em{font-style:normal;}
+.orderNew-title{font:20px Tahoma,Arial,sans-serif;margin:10px;font-weight:bold;}
+.orderNew-top{width:960px;height:44px;background:url("../images/orderNew.gif?vesion=201206201100") 0px 0px;margin-bottom:10px;}
+
+.orderNew-left{float:left;display:inline;width:248px;background-color:#f7f7f7;border:1px solid #e9e9e9;margin-left:10px;margin-right:10px;}
+.orderNew-left .left-title{height:28px;line-height:28px;background-color:#f9fdff;}
+.orderNew-left .left-info{padding:20px 10px 10px 10px;}
+.orderNew-left .left-img{text-align:center;margin-bottom:15px;}
+.orderNew-left .left-totle{font-size:14px;margin-bottom:15px;}
+.orderNew-left .left-detai-title{text-align:center;border-top:1px solid #e9e9e9;padding-top:10px;}
+.orderNew-left table{}
+.orderNew-left table .left-td1{vertical-align:top;text-align:right;width:60px;}
+.addService span{display:block;}
+.orderNew-right{float:left;display:inline;}
+.orderNew-info{width:680px;border-top:1px solid #dddddd;margin-bottom:10px;}
+.orderNew-info .info-title{width:640px;margin:0px auto;padding-left:30px;background:url("../../images/base.gif") -984px 10px no-repeat;background-color:#f9fdff;line-height:28px;height:28px;font-size:14px;}
+.orderNew-info .info-table{line-height:28px;margin:5px 0px;}
+.orderNew-info .info-table .info-td1{width:140px;text-align:right;vertical-align:top;}
+.orderNew-info .info-table .info-td2{}
+.orderNew-info .info-table .inp-info{border:1px solid #9395a2;width:230px;padding:1px 5px;height:21px;line-height:21px;}
+.orderNew-info .info-table .text-info{border:1px solid #9395a2;width:466px;padding:1px 5px;height:63px;line-height:21px;}
+.orderNew-info .info-pay{padding:10px 0px 20px 30px;border-bottom:1px solid #dddddd;}
+.orderNew-info .info-pay .codpay{margin-left:20px;}
+.orderNew-opt{position:relative;margin:20px 0px 20px 0px;padding-left:270px;font-size:14px;font-weight:bold;}
+/* .orderNew-opt .back{margin-left:320px;} */
+.orderNew-opt .send{margin-left:30px;width:121px;height:43px;background:url("../images/orderNew.gif") 0px -56px;border:0px;cursor:pointer;}
+.backToFirst{position:absolute;left:455px;top:15px;font-size:12px;font-weight:normal;}
+/* .backToFirst{position:absolute;left:455px;top:15px;display:inline-block;background:url("../images/orderNew.gif?vesion=201206201100?version=1") -146px -56px;width:93px;height:26px;}
+.backToFirst:hover{background:url("../images/orderNew.gif?vesion=201206201100?version=1") -266px -56px;} */

@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>补全运单</title>
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=7">
+		<meta http-equiv="Content-Language" content="zh-cn">
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+		<link rel="stylesheet" type="text/css" href="css/orderNew.css">
+		<link rel="stylesheet" type="text/css" href="css/base_m.css" />
+		<link rel="stylesheet" type="text/css" href="css/index_m.css" />
+		
+	</head>
+	<body>
+
+		<!--header-begin -->
+
+		<script type="text/javascript" src="js/header_index.js"></script>
+
+		<!--header end-->
+
+	 
+	<div class="container w960 pt10px">
+	
+		<div class="main">
+			<div class="orderNew-top"></div>
+			<div class="orderNew-left">
+				<div class="left-info">
+				 
+					<div class="left-totle">
+						预计费用<em class="color-org"><strong>16.0元</strong></em>(按重量计价)=运费<em class="color-org">16.0元</em>+增值服务费<em class="color-org">0.0元</em>
+					</div>
+					<div class="left-detai-title">
+						运价明细
+					</div>
+					<table>
+						<tbody>
+							<tr>
+								<td class="left-td1">出发地：</td>
+								<td>北京市,市辖区,朝阳区</td>
+							</tr>
+							<tr>
+								<td class="left-td1">到达地：</td>
+								<td>上海市,市辖区,宝山区</td>
+							</tr>
+							<tr>
+								<td class="left-td1">重量：</td>
+								<td>2.0公斤</td>
+							</tr>
+							<tr>
+								<td class="left-td1">体积：</td>
+								<td>0.0立方米</td>
+							</tr>
+							<tr>
+								<td class="left-td1">时间：</td>
+								<td>2-3天</td>
+							</tr>
+							<tr>
+								<td class="left-td1">运输方式：</td>
+								<td>普通快递</td>
+							</tr>
+							<tr>
+								<td class="left-td1">首重：</td>
+								<td>10元/公斤</td>
+							</tr>
+							<tr>
+								<td class="left-td1">续重：</td>
+								<td>6元/公斤</td>
+							</tr>
+							<tr>
+								<td class="left-td1">增值服务：</td>
+								<td class="addService"><span>上门接货&nbsp;&nbsp;<em class="color-org">必选，0.0元</em>&nbsp;&nbsp;(免费上门接货。)</span><span>送货上门&nbsp;&nbsp;<em class="color-org">必选，0.0元</em>&nbsp;&nbsp;(免费送货上门。)</span></td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="orderNew-right">
+				<form id="queryForm" action="order.do?action=addNewOrder" method="post">
+					<input type="hidden" id="source" name="source" value="kuaidi100">
+					<input type="hidden" id="orderSource" name="orderSource" value="orderIndex">
+					<input type="hidden" id="priceId" name="priceId" value="2233273">
+					<input type="hidden" id="type" name="type" value="EXPRESS">
+					<input type="hidden" id="startPlace" name="startPlace" value="110105">
+					<input type="hidden" id="endPlace" name="endPlace" value="310113">
+					<input type="hidden" name="weight" value="2.0">
+					<input type="hidden" name="volume" value="0.0">
+					<input type="hidden" id="orderJsonStr" name="orderJsonStr" value="{&quot;receiver&quot;:{&quot;phone&quot;:&quot;&quot;,&quot;postCode&quot;:&quot;&quot;,&quot;city&quot;:&quot;&quot;,&quot;addrFullName&quot;:&quot;&quot;,&quot;area&quot;:&quot;&quot;,&quot;address&quot;:&quot;&quot;,&quot;county&quot;:&quot;&quot;,&quot;networkCode&quot;:&quot;&quot;,&quot;company&quot;:&quot;&quot;,&quot;name&quot;:&quot;&quot;,&quot;province&quot;:&quot;&quot;,&quot;networkName&quot;:&quot;&quot;,&quot;mobile&quot;:&quot;&quot;},&quot;remark&quot;:&quot;&quot;,&quot;notSupportServiceCount&quot;:0,&quot;companyNum&quot;:&quot;yunda&quot;,&quot;memberType&quot;:&quot;FREE&quot;,&quot;totalAmt&quot;:16,&quot;transportAmt&quot;:16,&quot;cargo&quot;:{&quot;totalVolume&quot;:0,&quot;height&quot;:0,&quot;desc&quot;:&quot;&quot;,&quot;width&quot;:0,&quot;totalWeight&quot;:2,&quot;name&quot;:&quot;&quot;,&quot;totalNumber&quot;:0,&quot;priceType&quot;:&quot;weight&quot;,&quot;length&quot;:0,&quot;totalAmt&quot;:0},&quot;totalOrigAmt&quot;:16,&quot;transportName&quot;:&quot;普通快递&quot;,&quot;orderCount&quot;:0,&quot;opLog&quot;:null,&quot;notSupportServiceDesc&quot;:&quot;&quot;,&quot;mailNo&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;sender&quot;:{&quot;phone&quot;:&quot;&quot;,&quot;postCode&quot;:&quot;&quot;,&quot;city&quot;:&quot;&quot;,&quot;addrFullName&quot;:&quot;&quot;,&quot;area&quot;:&quot;&quot;,&quot;address&quot;:&quot;&quot;,&quot;county&quot;:&quot;&quot;,&quot;networkCode&quot;:&quot;&quot;,&quot;company&quot;:&quot;&quot;,&quot;name&quot;:&quot;&quot;,&quot;province&quot;:&quot;&quot;,&quot;networkName&quot;:&quot;&quot;,&quot;mobile&quot;:&quot;&quot;},&quot;selectedServiceDesc&quot;:&quot;&lt;span&gt;上门接货&amp;nbsp;&amp;nbsp;&lt;em class='color-org'&gt;必选，0.0元&lt;\/em&gt;&amp;nbsp;&amp;nbsp;(免费上门接货。)&lt;\/span&gt;&lt;span&gt;送货上门&amp;nbsp;&amp;nbsp;&lt;em class='color-org'&gt;必选，0.0元&lt;\/em&gt;&amp;nbsp;&amp;nbsp;(免费送货上门。)&lt;\/span&gt;&quot;,&quot;commitTime&quot;:{&quot;time&quot;:1366639586409,&quot;minutes&quot;:6,&quot;seconds&quot;:26,&quot;hours&quot;:22,&quot;month&quot;:3,&quot;year&quot;:113,&quot;timezoneOffset&quot;:-480,&quot;day&quot;:1,&quot;date&quot;:22},&quot;valueAdds&quot;:{&quot;isCanBackSignBill&quot;:false,&quot;isBackSignBill&quot;:&quot;NO&quot;,&quot;isFuelSurCharge&quot;:&quot;UNKNOWN&quot;,&quot;smsNotifyAmt&quot;:0,&quot;insuranceDesc&quot;:&quot;&quot;,&quot;isCanSmsNotify&quot;:false,&quot;codAmt&quot;:0,&quot;otherAmtDesc&quot;:&quot;&quot;,&quot;isOtherAmt&quot;:&quot;UNKNOWN&quot;,&quot;isPackageService&quot;:&quot;NO&quot;,&quot;waitNotifySend&quot;:&quot;NO&quot;,&quot;isSmsNotify&quot;:&quot;NO&quot;,&quot;insuranceValue&quot;:0,&quot;deliveryAmt&quot;:0,&quot;isCanWaitNotifySend&quot;:false,&quot;backSignBill&quot;:&quot;NO&quot;,&quot;otherType&quot;:&quot;UNKNOWN&quot;,&quot;vistReceiveAmt&quot;:0,&quot;isCanCod&quot;:false,&quot;codType&quot;:&quot;NO&quot;,&quot;isDelivery&quot;:&quot;FORCE&quot;,&quot;otherAmt&quot;:0,&quot;codDesc&quot;:&quot;不支持代收货款服务。&quot;,&quot;fuelSurChargeAmt&quot;:0,&quot;waitNotifySendDesc&quot;:&quot;不提供等通知发货服务。&quot;,&quot;backSignBillAmt&quot;:0,&quot;isCanOtherAmt&quot;:false,&quot;isVistReceive&quot;:&quot;FORCE&quot;,&quot;isCanVistReceive&quot;:true,&quot;packageServiceAmt&quot;:0,&quot;packageServiceDesc&quot;:&quot;常规的文件袋 防水袋免费包装。&quot;,&quot;vistReceive&quot;:&quot;YES&quot;,&quot;deliveryDesc&quot;:&quot;免费送货上门。&quot;,&quot;fuelSurCharge&quot;:&quot;UNKNOWN&quot;,&quot;isCanDelivery&quot;:true,&quot;isWaitNotifySend&quot;:&quot;NO&quot;,&quot;fuelSurChargeDesc&quot;:&quot;&quot;,&quot;isCanPackageService&quot;:false,&quot;isCanInsurance&quot;:true,&quot;backSignBillDesc&quot;:&quot;不提供签收回单服务。&quot;,&quot;isInsurance&quot;:&quot;NO&quot;,&quot;vistReceiveDesc&quot;:&quot;免费上门接货。&quot;,&quot;isCod&quot;:&quot;NO&quot;,&quot;packageService&quot;:&quot;NO&quot;,&quot;waitNotifySendAmt&quot;:0,&quot;deliveryType&quot;:&quot;TO_DOOR&quot;,&quot;isCanFuelSurCharge&quot;:false,&quot;insuranceAmt&quot;:0,&quot;codValue&quot;:0,&quot;smsNotify&quot;:&quot;NO&quot;,&quot;smsNotifyDesc&quot;:&quot;不提供短信通知。&quot;},&quot;modifyTime&quot;:null,&quot;orderType&quot;:&quot;EXPRESS&quot;,&quot;status&quot;:&quot;INITIALIZE&quot;,&quot;priceInfo&quot;:{&quot;to&quot;:&quot;310000&quot;,&quot;pTimeTo&quot;:&quot;&quot;,&quot;weightprice&quot;:0,&quot;tel&quot;:&quot;400-821-6789&quot;,&quot;from&quot;:&quot;110000&quot;,&quot;expressCode&quot;:&quot;&quot;,&quot;type&quot;:&quot;EXPRESS&quot;,&quot;productType&quot;:&quot;普通快递&quot;,&quot;id&quot;:2233273,&quot;isOrder&quot;:1,&quot;time&quot;:&quot;2-3天&quot;,&quot;qq&quot;:&quot;&quot;,&quot;totalPrice&quot;:16,&quot;volumeprice&quot;:0,&quot;clickCount&quot;:0,&quot;sendAddress&quot;:&quot;朝阳区&quot;,&quot;followprice&quot;:6,&quot;productCode&quot;:&quot;PTKD&quot;,&quot;priceType&quot;:&quot;weight&quot;,&quot;sendFullName&quot;:&quot;北京市,市辖区,朝阳区&quot;,&quot;factor&quot;:6000,&quot;companyName&quot;:&quot;韵达快递&quot;,&quot;companyCode&quot;:&quot;yunda&quot;,&quot;pTimeFrom&quot;:&quot;&quot;,&quot;firstprice&quot;:10,&quot;minprice&quot;:10,&quot;receiveAddress&quot;:&quot;宝山区&quot;,&quot;companyId&quot;:2,&quot;receiveFullName&quot;:&quot;上海市,市辖区,宝山区&quot;},&quot;company&quot;:null,&quot;payType&quot;:&quot;PREPAID&quot;,&quot;transportType&quot;:&quot;PTKD&quot;}">
+					<div class="orderNew-info">
+						<div class="info-title">
+							发货人信息
+						</div>
+						<table class="info-table">
+							<tbody>
+								<tr>
+									<td class="info-td1"><span class="color-red">*</span>发货联系人：</td>
+									<td class="info-td2">
+									<input type="text" class="inp-info" style="width:100px;" maxlength="32" id="sender_name" name="sender_name" autocomplete="off">
+									&nbsp;&nbsp;&nbsp;&nbsp;公司/个人名称：
+									<input type="text" id="sender_company" maxlength="32" name="sender_company" class="inp-info watermark" autocomplete="off">
+									</td>
+								</tr>
+								<tr>
+									<td class="info-td1"><span class="color-red">*</span>详细发货地址：</td>
+									<td class="info-td2">&nbsp;&nbsp;北京市,市辖区,朝阳区&nbsp;
+									<input type="text" id="sender_address1" name="sender_address1" maxlength="64" class="inp-info watermark" style="width:105px;" autocomplete="off">
+									&nbsp;
+									<input type="text" id="sender_address2" name="sender_address2" maxlength="64" class="inp-info watermark" style="width:205px;" autocomplete="off">
+									<br>
+									<span class="color-org">无需重复填写省/市/区信息，请填写附近知名的街道名/路名</span></td>
+								</tr>
+								<tr>
+									<td class="info-td1"><span class="color-red">*</span>手机号码：</td>
+									<td class="info-td2">
+									<input type="text" id="sender_mobile" name="sender_mobile" maxlength="11" class="inp-info" autocomplete="off">
+									&nbsp;&nbsp;<span class="color-org">下单后可以用手机号码查找订单</span></td>
+								</tr>
+								<tr style="display:none;">
+									<td class="info-td1">电话号码：</td>
+									<td class="info-td2">
+									<input type="text" class="inp-info" id="sender_tel1" name="sender_tel1" maxlength="4" style="width:40px;" autocomplete="off">
+									&nbsp;-
+									<input type="text" class="inp-info" id="sender_tel2" name="sender_tel2" maxlength="8" style="width:90px;" autocomplete="off">
+									&nbsp;-
+									<input type="text" class="inp-info" id="sender_tel3" name="sender_tel3" maxlength="10" style="width:52px;" autocomplete="off">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="orderNew-info">
+						<div class="info-title">
+							收货人信息
+						</div>
+						<table class="info-table">
+							<tbody>
+								<tr>
+									<td class="info-td1"><span class="color-red">*</span>收货联系人：</td>
+									<td class="info-td2">
+									<input type="text" id="receive_name" name="receive_name" maxlength="32" class="inp-info" style="width:100px;" autocomplete="off">
+									&nbsp;&nbsp;&nbsp;&nbsp;公司/个人名称：
+									<input type="text" id="receive_company" name="receive_company" maxlength="32" class="inp-info watermark" autocomplete="off">
+									</td>
+								</tr>
+								<tr>
+									<td class="info-td1"><span class="color-red">*</span>详细收货地址：</td>
+									<td class="info-td2">&nbsp;&nbsp;上海市,市辖区,宝山区&nbsp;
+									<input type="text" id="receive_address1" name="receive_address1" maxlength="64" class="inp-info watermark" style="width:105px;" autocomplete="off">
+									&nbsp;
+									<input type="text" id="receive_address2" name="receive_address2" maxlength="64" class="inp-info watermark" style="width:205px;" autocomplete="off">
+									<br>
+									<span class="color-org">无需重复填写省/市/区信息，请填写附近知名的街道名/路名</span></td>
+								</tr>
+								<tr>
+									<td class="info-td1">手机号码：</td>
+									<td class="info-td2">
+									<input type="text" id="receive_mobile" name="receive_mobile" maxlength="11" class="inp-info watermark" autocomplete="off">
+									&nbsp;&nbsp;<span class="color-sug"></span></td>
+								</tr>
+								<tr>
+									<td class="info-td1">电话号码：</td>
+									<td class="info-td2">
+									<input type="text" class="inp-info" id="receive_tel1" name="receive_tel1" maxlength="10" style="width:40px;" autocomplete="off">
+									&nbsp;-
+									<input type="text" class="inp-info" id="receive_tel2" name="receive_tel2" maxlength="10" style="width:90px;" autocomplete="off">
+									&nbsp;-
+									<input type="text" class="inp-info" id="receive_tel3" name="receive_tel3" maxlength="10" style="width:52px;" autocomplete="off">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="orderNew-info">
+						<div class="info-title">
+							货物基本信息
+						</div>
+						<table class="info-table">
+							<tbody>
+								<tr>
+									<td class="info-td1"><span class="color-red">*</span>货物名称：</td>
+									<td class="info-td2">
+									<input type="text" id="cargo_name" name="cargo_name" maxlength="32" class="inp-info" autocomplete="off">
+									&nbsp;&nbsp;<a href="/order/unlogin/ban/yundaban.jsp" target="_blank" class="color-org">禁运品说明</a></td>
+								</tr>
+								<tr>
+									<td class="info-td1"><span class="color-red">*</span>包装总件数：</td>
+									<td class="info-td2">
+									<input type="text" id="cargo_total_number" name="cargo_total_number" maxlength="20" class="inp-info" style="width:100px;" autocomplete="off">
+									&nbsp;&nbsp;件</td>
+								</tr>
+								<tr>
+									<td class="info-td1">注意事项/备注：</td>
+									<td class="info-td2">									<textarea name="cargo_desc" id="cargo_desc" maxlength="64" value="" class="text-info"></textarea></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="orderNew-info">
+						<div class="info-title">
+							费用支付方式
+						</div>
+						<div class="info-pay">
+							<label>
+								<input type="radio" name="pay_type" checked="checked" value="PREPAID">
+					
+								发货人支付(现付)&nbsp;&nbsp;&nbsp;&nbsp;<span class="color-org">如需收件人支付（到付），请在快递员上门取件时说明</span></label>
+					    	</div>
+					</div>
+
+					<div class="orderNew-opt">
+						<!-- <a href="#" class="color-org" onclick="viewOrder();return false;">预览</a> -->
+						<span id="submiting" class="color-blue hide">正在提交订单...</span>
+						<span id="submitOrder">
+							<input type="button" class="send" onclick="isLogined();">
+							<a href="#" class="backToFirst" onclick="backToFirstKuaidi100();return false;">返回上一步&gt;&gt;</a> </span>
+					</div>
+				</form>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+ 
+		<div class="footer w960 mt10px">
+			<script type="text/javascript" src="js/footer_index.js"></script>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/base.js"></script>
+		<script type="text/javascript" src="js/orderNew.js"></script>
+			
+	</div>			
+	</body>
+</html>

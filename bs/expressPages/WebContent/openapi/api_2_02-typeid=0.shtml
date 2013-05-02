@@ -1,0 +1,919 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>EMS快递查询API接口_</title>
+<meta name="keywords" content="EMS快递查询API接口,快递查询API" />
+<meta name="description" content="EMS快递查询API接口支持超过100家国内外快递公司,返回XML、JSON等格式的快递单号信息,免费使用,速度最快、最专业最稳定最可靠" /> 
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" media="screen" href="http://www.kuaidi100.com/css/api/api.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" media="screen" href="http://cdn.kuaidi100.com/css/api/doc.css?version=201303201326" />
+</head>
+<body>
+<input type="hidden" id="headerMenu" value="apiQuery" />
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="../network/distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="../claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="../network/applyJoin.shtml">网点发布申请</a></li><li><a href="../network/invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="../claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="../help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="../help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="../help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="../login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="../login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="../login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="../login.html">登录</a>&nbsp;|&nbsp;<a href="../user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="api_2_02-typeid=0.shtml#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="../index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="../index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="../orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="../user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="../index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="../wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="../luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="../guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="../all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="../auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="../network/clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="api_2_02-typeid=0.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="api_2_02-typeid=0.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="api_2_02-typeid=0.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="api_2_02-typeid=0.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="api_2_02-typeid=0.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="api_2_02-typeid=0.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="api_2_02-typeid=0.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<div class="wrapper"> 
+  <!-----------主体部分开始 ----------------------------->
+  <div class="api02_main" >
+    <div class="api_kaifang">
+      <div class="api_kaifang_child"> <a href="http://www.kuaidi100.com/index.shtml" class="api_kfc_a01">首页</a><span class="">></span><a href="http://www.kuaidi100.com/openapi/index.shtml" class="api_kfc_a01">快递查询接口(API)</a><span class="">></span><a href="api_2_02.shtml" class="api_kfc_a02">快递查询API</a> </div>
+      <!--api_kaifang_child --> 
+    </div>
+    <!-- api_kaifang-->
+    <div class="wuyanzheng pr">   
+      <div class="wuyanzheng_right">
+        <div class="wyz_right_pad">
+          <div class="chanjianProblem_box">
+            <h1 class="wyz_r_title" style="font-weight:normal;">快递查询API</h1>
+            <div class="chanjianProblem"><a href="../help/qa.shtml" class="" target="_blank">常见问题</a></div>
+          </div>
+          <!-- chanjianProblem_box--> 
+          <!--wyz_r_title -->
+          <div class="wyz_r_content">
+            <div class="wyz_r_c01"> <span class="strg">产品优势：</span>无需输入验证码，返回快递单状态的参数，多种返回格式。<br />
+              <span class="strg">返回快递单状态参数：</span>已发货、疑难件、已签收、已退货<br />
+              <span class="strg">商家案例：</span><span class="paipai">[<a href="http://www.kuaidi100.com/app/paipai.shtml" class="" target="_blank">拍拍</a>]</span><span class="paipai">[<a href="http://www.kuaidi100.com/app/nanrenwa.shtml" class="" target="_blank">男人袜</a>]</span><span class="paipai">[<span  class="paiper"  >Justyle</span>]</span><span class="paipai">[<span  class="paiper">好乐买</span>]</span><span class="paipai">[<span  class="paiper">大众点评网</span>]</span><span class="paipai">[<span  class="paiper">美团网</span>]</span><br />
+              <span class="strg">申请条件：</span>免费，但需要在贵网站先添加上我们的友情链接。 <span  class="chakan">查看详细</span> </div>
+            <!--wyz_r_c01 -->
+            <div class="wyz_r_c02">
+              <div class="xiangxi_pad">
+                <div class="veryhuosjx"></div>
+                <div class="detail">
+                  <div class="detail_pad">
+                    <div class="detail_self">
+                      <div class="detail_self_pad"  id="detail_self_pad" >
+                        <div class="please">　　请先在您网站中添加的友情链接，如未添加本站友情链接的将不予通过审核。 <br />
+                          链接代码及样式： <a href="javascript:void(0)" class="shengtong" id="flexible00"  style="display:none;"></a></div>
+                        <div class="sentence_3">
+                          <p class=""><span class="w01">文字：</span><span class="w02" id="sen_w01_sp01"></span></p>
+                          <p class=""><span class="w01">链接：</span><span class="w02" id="geek00"></span></p>
+                          <p class=""><span class="w01">代码：</span><textarea name="" id="flexible01"  class="flexible01"></textarea></p>
+                        </div>
+                        <!-- sentence_3-->
+						<div class="div_clb"></div>
+                  
+                          
+                       
+                      </div>
+                      <!-- detail_self_pad--> 
+                    </div>
+                    <!-- detail_self--> 
+                  </div>
+                  <!--detail_pad --> 
+                </div>
+                <!--detail --> 
+              </div>
+              <!--xiangxi_pad --> 
+            </div>
+            <!--wyz_r_c02 -->
+			<div class="div_clb"></div>
+            <div class="wyz_r_c04_sibling01"> <span class="strg">申请流程:</span>
+              <div class="w0h0"></div>
+            </div>
+            <!--wyz_r_c04_sibling01 -->
+            <div class="wra_develop">
+              <div class="develop">
+                <div class="develop_gif"><a  href="api_2_02-typeid=0.shtml#behereStrong" id="yu007" ><img src="http://cdn.kuaidi100.com/images/api/develop02.gif" alt="" /></a></div>
+                <!-- develop_gif-->
+                <div class="develop_doc" ><a href="javascript:void(0)" class=""  style="visibility:hidden;">开发文档</a></div>
+                <!--develop_doc --> 
+                <div id="bdshare" class="bdshare_b bdshare_t bds_tools get-codes-bdshare" style="line-height:12px;margin-top:6px"><span class="bds_more">分享到：</span><a class="bds_qzone"></a><a class="bds_tsina"></a><a class="bds_baidu"></a> <a class="bds_taobao"></a><a class="bds_tqq"></a><a class="shareCount"></a></div>
+                <div class="box"></div> 
+              </div>
+              <!--develop --> 
+            </div>
+            <!--wra_develop--> 
+          </div>
+          <!--wyz_r_content --> 
+        </div>
+        <!--wyz_right_pad --> 
+      </div>
+      <!--wuyanzheng_right --> 
+       <div class="wyz01_change"><img src="http://cdn.kuaidi100.com/images/api/kdic01.png" alt="" class="png_img" /></div>
+    </div>
+    <!--wuyanzheng --> 
+    
+    <!--主体部分第二部分开始 -->
+    <div class="api02_main_part02"  >
+      <div class="nav_saaa"> <a href="javascript:void(0)"  class="preBorder"  id="order">1.效果试用</a> <a href="javascript:void(0)"  class="nexBorder" id="behereStrong">2.立即申请</a> <a href="javascript:void(0)"  class="preBorder"  id="piliang">3.开发文档与支持</a> <span class="coverThree"  id="count">&nbsp;&nbsp;&nbsp; </span> <!--用来作边框 --> 
+      </div>
+      <!--nav_saaa -->
+      
+      <div class="onlyBorder0802"> 
+        
+        <!--下半部分开始 包含三个切换 -->
+        <div class="threeBigTab"> 
+          <!--切换一开始 -->
+          <div class="threeBigTab01"  style="display:none;"> 
+            
+              
+   <div class="userstory">
+     <div class="result01">
+	    <p class="resu_p">快递查询API的作用、应用案例与效果示例：</p>
+
+
+		<div class="resu_unit">
+           <table  cellspacing="0" class="result_tab">
+  <tr>
+    <td ><div class="resu_title"><img src="http://cdn.kuaidi100.com/images/api/aflower.gif" alt="" /> <span class="">应用一：在“我的订单
+”页面直接显示物流信息 </span></div></td>
+    </tr>
+  <tr>
+    <td class="retab_td01"><span class="td_step">应用简介：</span>使用我们的API，在我们网站中“我的订单”页面，点击“我的订单”，便可在订单详情页看到这个订单的物流跟踪信息。这样用户不需要咨询网站的客服人员，就能知道自己订单的最新状态，既方便了用户，又减少了客服人员的工作量。 <br />另外，如果您用的是ShopEx、Ecshop、Hishop、最土等网站系统，可以直接用我们的插件，安装后即可以拥有该功能，不用再去开发。 <a href="api_6_02-typeid=1.shtml" class=""  target="_blank">立即下载插件>></a>
+</td>
+    </tr>
+  <tr>
+    <td ><span class="td_step">成功案例：</span>拍拍网 </td>
+    </tr>
+  <tr>
+    <td >
+	<div class="result_pai_left">
+                <div class="pai_unit">
+                  <div class="pai_gif"><a href="http://www.paipai.com" class=""><img src="http://cdn.kuaidi100.com/images/api/pai.gif" alt="" /></a></div>
+                  <div class="pai_word">腾讯拍拍网中，采用提供的快递查询服务，为用户提供更加快捷准确的订单发货信息。在拍拍网的 "我的订单"中，客户可随时查看物流信息，了解当前订单的发货状态。这样的功能，您也可以免费拥有！</div>
+                </div>
+                <!--pai_unit --> 
+                
+              </div> <!--result_pai_left --> 
+ 
+ 
+	  <div class="result_pai_right">
+                <div class="pai_yan"><img src="http://cdn.kuaidi100.com/images/api/paiyan.gif" alt="" /></div><!--pai_yan --> 
+          </div><!--result_pai_right --> 
+    </td>
+  </tr>
+</table>
+	
+		</div><!-- resu_unit-->
+	    <!--拍拍结束 --> 
+	 
+	 
+		<div class="resu_unit">
+           <table  cellspacing="0" class="result_tab">
+  <tr>
+    <td ><div class="resu_title"><img src="http://cdn.kuaidi100.com/images/api/aflower.gif" alt="" /> <span class="">应用二：用API实现批量的、自动的查运单功能</span></div></td>
+    </tr>
+  <tr>
+    <td class="retab_td01"><span class="td_step">应用简介：</span>运单太多，难以跟踪？用我们的API自动过滤掉“已签收”的，筛选出在指定时间前仍未签收的、存在异常的单号，然后让跟单人员专门跟进这些未及时签收的、存在异常的，便可省去大量的查单工作。
+</td>
+    </tr>
+  <tr>
+    <td ><span class="td_step">成功案例：</span>Justyle </td>
+    </tr>
+  <tr>
+    <td >
+	<div class="result_pai_left">
+                <div class="pai_unit">
+                  <div class="pai_gif"><img src="http://cdn.kuaidi100.com/images/api/justyle.gif" alt="" /></div>
+                  <div class="pai_word" style="display:none;">腾讯拍拍网中，采用提供的快递查询服务，为用户提供更加快捷准确的订单发货信息。在拍拍网的 "我的订单"中，客户可随时查看物流信息，了解当前订单的发货状态。这样的功能，您也可以免费拥有！</div>
+                </div>
+                <!--pai_unit --> 
+                
+              </div> <!--result_pai_left --> 
+ 
+ 
+	  <div class="result_pai_right">
+                <div class="pai_yan"><img src="http://cdn.kuaidi100.com/images/api/justyle01.gif" alt="" /></div><!--pai_yan --> 
+          </div><!--result_pai_right --> 
+    </td>
+  </tr>
+</table>
+	
+		</div><!-- resu_unit-->
+            <!--justyle结束   -->
+
+
+			<div class="resu_unit">
+           <table  cellspacing="0" class="result_tab">
+  <tr>
+    <td ><div class="resu_title"><img src="http://cdn.kuaidi100.com/images/api/aflower.gif" alt="" /> <span class="">应用三：通过API获得“已签收”等状态，从而改变订单的状态与交易流程</span></div></td>
+    </tr>
+  <tr>
+    <td class="retab_td01"><span class="td_step">应用简介：</span>电子商务网站中，需要确认用户签收成功后，才能让用户点击“确认收货”、申请退换货，让系统向用户发放优惠券，或向商家划款。用我们API返回的运单当前状态，如已发货、已签收、已退回等，即可让系统自动改变订单状态或交易流程。</td>
+    </tr>
+  <tr>
+    <td ><span class="td_step">成功案例：</span>Doin、拼团网</td>
+    </tr>
+  <tr style="display:none;">
+    <td >
+	<div class="result_pai_left">
+                <div class="pai_unit">
+                  <div class="pai_gif"><img src="http://cdn.kuaidi100.com/images/api/justyle.gif" alt="" /></div>
+                  <div class="pai_word" style="display:none;">腾讯拍拍网中，采用提供的快递查询服务，为用户提供更加快捷准确的订单发货信息。在拍拍网的 "我的订单"中，客户可随时查看物流信息，了解当前订单的发货状态。这样的功能，您也可以免费拥有！</div>
+                </div>
+                <!--pai_unit --> 
+                
+              </div> <!--result_pai_left --> 
+ 
+ 
+	  <div class="result_pai_right">
+                <div class="pai_yan"><img src="http://cdn.kuaidi100.com/images/api/justyle01.gif" alt="" /></div><!--pai_yan --> 
+          </div><!--result_pai_right --> 
+    </td>
+  </tr>
+</table>
+	
+		</div><!-- resu_unit-->
+			<!--应用三 结束 --> 
+
+
+			<div class="resu_unit">
+           <table  cellspacing="0" class="result_tab">
+  <tr>
+    <td ><div class="resu_title"><img src="http://cdn.kuaidi100.com/images/api/aflower.gif" alt="" /> <span class="">应用四：用API考核销售人员和快递公司的绩效</span></div></td>
+    </tr>
+  <tr>
+    <td class="retab_td01"><span class="td_step">应用简介：</span>如果发货方式是货到付款，需要根据“已签收“的单量来确定公司和售前客服的销售业绩；如果承诺了到货时间，则需要根据妥投率、及时率等指标来评估快递公司的绩效。这时用API返回的“已签收”状态，同时抽出已签收对应的时间，可以实现系统自动统计妥投量、及时率等指标。</td>
+    </tr>
+  <tr>
+    <td ><span class="td_step">成功案例：</span>苏州纤纤手服饰、17Link</td>
+    </tr>
+  <tr style="display:none;">
+    <td >
+	<div class="result_pai_left">
+                <div class="pai_unit">
+                  <div class="pai_gif"><img src="http://cdn.kuaidi100.com/images/api/justyle.gif" alt="" /></div>
+                  <div class="pai_word" style="display:none;">腾讯拍拍网中，采用提供的快递查询服务，为用户提供更加快捷准确的订单发货信息。在拍拍网的 "我的订单"中，客户可随时查看物流信息，了解当前订单的发货状态。这样的功能，您也可以免费拥有！</div>
+                </div>
+                <!--pai_unit --> 
+                
+              </div> <!--result_pai_left --> 
+ 
+ 
+	  <div class="result_pai_right">
+                <div class="pai_yan"><img src="http://cdn.kuaidi100.com/images/api/justyle01.gif" alt="" /></div><!--pai_yan --> 
+          </div><!--result_pai_right --> 
+    </td>
+  </tr>
+</table>
+	
+		</div><!-- resu_unit-->
+			<!--应用四 结束 --> 
+
+
+			
+			<div class="resu_unit">
+           <table  cellspacing="0" class="result_tab">
+  <tr>
+    <td ><div class="resu_title"><img src="http://cdn.kuaidi100.com/images/api/aflower.gif" alt="" /> <span class="">应用五：用API辅助结算运费</span></div></td>
+    </tr>
+  <tr>
+    <td class="retab_td01"><span class="td_step">应用简介：</span>由于货到付款，月结时需要根据是否“已签收”和签收时间来进行结算对帐，用API可以轻松统计指定时间之前的妥投单量。</td>
+    </tr>
+  <tr>
+    <td ><span class="td_step">成功案例：</span>小米科技</td>
+    </tr>
+  <tr style="display:none;">
+    <td >
+	<div class="result_pai_left">
+                <div class="pai_unit">
+                  <div class="pai_gif"><img src="http://cdn.kuaidi100.com/images/api/justyle.gif" alt="" /></div>
+                  <div class="pai_word" style="display:none;">腾讯拍拍网中，采用提供的快递查询服务，为用户提供更加快捷准确的订单发货信息。在拍拍网的 "我的订单"中，客户可随时查看物流信息，了解当前订单的发货状态。这样的功能，您也可以免费拥有！</div>
+                </div>
+                <!--pai_unit --> 
+                
+              </div> <!--result_pai_left --> 
+ 
+ 
+	  <div class="result_pai_right">
+                <div class="pai_yan"><img src="http://cdn.kuaidi100.com/images/api/justyle01.gif" alt="" /></div><!--pai_yan --> 
+          </div><!--result_pai_right --> 
+    </td>
+  </tr>
+</table>
+	
+		</div><!-- resu_unit-->
+			<!--应用五 结束 --> 
+
+             
+
+	 </div><!--result01 --> 
+   </div><!--userstory -->
+              
+              
+              
+           
+              
+              
+              
+           
+          </div>
+          <!--threeBigTab01 --> 
+          <!--切换一结束--> 
+          
+          <!--切换二开始 -->
+          <div class="threeBigTab01"  >
+            <link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/app.css?version=201303201326" />
+            <!-- 表格注册开始 -->
+            
+            <div class="tianjia" >
+              <div class="tianjia_child">
+                <div class="tianjia_self">
+                  <div class="api-apply-form xboxcontent_a"  id="loginTableBox">
+                    <div style="line-height:26px;" class="noname">
+                      <div class="please"><img src="http://cdn.kuaidi100.com/images/ico_api_1.gif" alt="申请API第一步" width="28" height="22" align="absmiddle"  /> 请先在您网站中添加的友情链接，如未添加本站友情链接的将不予通过审核。 <br />
+                        链接代码及样式： <a href="javascript:void(0)" class="shengtong" id="flex00" style="display:none;"></a></div>
+                      <div class="sentence_3">
+                        <p class=""><span class="w01">文字：</span><span class="w02" id="sen_w01_sp03"></span></p>
+                        <p class=""><span class="w01">链接：</span><span class="w02" id="geek01"></span></p>
+                        <p class=""><span class="w01">代码：</span><textarea name="" id="flex01"  class="flexible01"></textarea></p>
+                      </div>
+                      <!-- sentence_3-->
+                      <div class="div_clb"></div>
+                   
+                        
+                      
+                      <p class="font14px mb10px" style="margin-top:10px;"><img src="http://cdn.kuaidi100.com/images/ico_api_2.gif" alt="申请API第二步" width="28" height="22" align="absmiddle" /> 请完整的填写下列信息，以便您的API申请能顺利的通过审核。(注：带 <font color="red">*</font> 为必填项)</p>
+                    </div>
+                    <!--noname-->
+                    <form method="post" name="apiform" id="apiform" onsubmit="sendapply();return false;">
+                      <input type="hidden" id="fapplysrc" name="fapplysrc" value="kuaidi100"/>
+                      <table width="576" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td width="74" align="right" class="a-right"><font color="red">*</font> 联系人：</td>
+                          <td colspan="2"><input name="username" type="text" class="inp-a" id="username" onclick="$('#showmessage').hide();" maxlength="20" /></td>
+                        </tr>
+                        <tr>
+                          <td align="right" class="a-right"><font color="red">*</font> 常用邮箱：</td>
+                          <td colspan="2"><input name="usermail" type="text" class="inp-a" id="usermail" maxlength="48"  />
+                            &nbsp;我们将通过邮箱发送审核通知</td>
+                        </tr>
+                        <tr>
+                          <td align="right" class="a-right"><font color="red">*</font> 公司类型：</td>
+                          <td colspan="2" class="orgtype"><label for="ra01">
+                              <input type="radio" name="userorgtype" id="ra01" value="1" checked="checked" onclick="orgTypeClick(this)">
+                              公司</label>
+                            <label for="ra02">
+                              <input type="radio" name="userorgtype" id="ra02" value="2" onclick="orgTypeClick(this)">
+                              个体工商</label>
+                            <label for="ra03">
+                              <input type="radio" name="userorgtype" id="ra03" value="3" onclick="orgTypeClick(this)">
+                              小团队</label>
+                            <label for="ra04">
+                              <input type="radio" name="userorgtype" id="ra04" value="4" onclick="orgTypeClick(this)">
+                              个人</label>
+                            <label for="ra00">
+                              <input type="radio" name="userorgtype" id="ra00" value="0" onclick="orgTypeClick(this)">
+                              其它</label></td>
+                        </tr>
+                        <tr>
+                          <td align="right" class="a-right"><font color="red">*</font> 公司名称：</td>
+                          <td colspan="2"><input  name="usercompany" type="text" class="inp-a" id="usercompany" onclick="$('#showmessage').hide();" maxlength="25" />
+                            &nbsp;无注册企业者可填写"个人"</td>
+                        </tr>
+                        <tr>
+                          <td align="right" class="a-right"><font color="red">*</font> 应用类别：</td>
+                          <td colspan="2"><select id="usertype" name="usertype" class="inp-a2" style="z-index:-9999;">
+                              <option value="B2C等网站集成">B2C等网站集成</option>
+                              <option value="管理软件集成">管理软件集成</option>
+                              <option value="手机应用">手机应用</option>
+                              <option value="软件应用">软件应用</option>
+                              <option value="其它">其它</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                          <td align="right" class="a-right" style="padding-top:4px;">网站网址：</td>
+                          <td colspan="2" style="padding-top:4px;"><input name="userlink" type="text" class="inp-a" id="userlink" onclick="$('#showmessage').hide();" value="http://" maxlength="100" />
+                            &nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td align="right" class="a-right"><font color="red">*</font>友链网址：</td>
+                          <td colspan="2"><input name="friendlink" type="text" class="inp-a" id="friendlink" onclick="$('#showmessage').hide();" value="http://" maxlength="100" />
+                            &nbsp;添加了本站友情链接的网址</td>
+                        </tr>
+                        <tr>
+                          <td align="right" class="a-right"><font color="red">*</font> 联系电话：</td>
+                          <td colspan="2"><input  name="usertele" type="text" class="inp-a" id="usertele" onclick="$('#showmessage').hide();" maxlength="15" />
+                          &nbsp;请连续输入您的手机号或座机号</td>
+                        </tr>
+                        <tr>
+                          <td align="right" class="a-right"><font color="red">*</font>QQ/MSN：</td>
+                          <td colspan="2"><input name="userqq" type="text" class="inp-a" id="userqq" onclick="$('#showmessage').hide();" maxlength="50" />
+                            &nbsp;请输入您的QQ号或MSN</td>
+                        </tr>
+                        <tr>
+                          <td rowspan="2" align="right" class="a-right"><font color="red">*</font> 应用描述：</td>
+                          <td><textarea rows="5" class="inp-b" id="userdescript" name="userdescript" style="width:320px;height:90px;"></textarea></td>
+                          <td><div style="display:block;width:160px">注意：填写完整详细的应用描述，有助于客服人员更快的为您通过API申请的审核工作。</div></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2"><span id="descriptTips" style="display:none;color:#FF0000">抱歉，您的应用描述超出了字数。</span></td>
+                        </tr>
+                        <tr>
+                          <td align="right" valign="top" class="a-right"><font color="red">*</font> 调用频率：</td>
+                          <td colspan="2"><select id="usershedul" name="usershedul" class="inp-a2 mb10px">
+                              <option  value="100" selected="selected">100 次/每天</option>
+                              <option  value="500">500 次/每天</option>
+                              <option  value="2000">2000 次/每天</option>
+                            </select>
+                            <p>我们保留阻止任何我们视为滥用行为的权利。如果您认为您的服务每天会进行2000次以上的API调用，请发邮件至<a href="mailto:kuaidi@kingdee.com" target="_blank">kuaidi@kingdee.com</a>。</p>
+                            <input id="isagree" name="isagree" type="checkbox" value="1" onclick="$('#showmessage').hide();" />
+                            <strong><a href="http://www.kuaidi100.com/about/law.shtml" target="_blank">同意相关版权和免责说明</a></strong></td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                          <td colspan="2"><a href="index.html" class="btn-default" style="display:inline-block" onclick="sendapply();return false;">提交申请</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="api_2_02-typeid=0.shtml#" style="visibility:hidden;" onclick="$('.api-apply-form').hide();$('#apiAbut').toggleClass('api-apply-select');$('#showmessage').hide();return false;">[&nbsp;关闭&nbsp;]</a></td>
+                        </tr>
+                      </table>
+                    </form>
+                    <div class="clear"></div>
+                  </div>
+                  <!--api-apply-form   i---d--- loginTableBox-->
+                  
+                  <div id="showmessage" class="tips" style="display:none;"> <a onclick="$('#showmessage').hide();return false;" href="api_2_02-typeid=0.shtml#" class="tips-close" title="关闭提示"></a>
+                    <p id="message"></p>
+                  </div>
+                  <!--  i--d--showmessage-->
+                  
+                  <div id="showmessage2" class="tips" style="display:none;margin-top:10px"> <a onclick="$('#showmessage2').hide(); document.getElementById('loginTableBox').style.display='block';	return false;" href="javascript:void(0)"  class="tips-close" title="关闭提示"></a>
+                    <p id="message2"></p>
+                    <!--<img src="http://cdn.kuaidi100.com/images/api/api_finish.gif" width="578" height="62"  class="mt10px"/> --> 
+                  </div>
+                  <!--  i-- d ---showmessage2--> 
+                  
+                </div>
+                <!--tianjia_self --> 
+              </div>
+              <!-- tianjia_child--> 
+            </div>
+            <!--tianjia --> 
+            <!-- 表格注册结束 --> 
+            
+          </div>
+          <!--threeBigTab01 --> 
+          <!--切换二结束 --> 
+          
+          <!--切换三开始 -->
+          <div class="threeBigTab01"  style="display:none;"> 
+            <!----------- 中间 API URL部分开始-------------------------------->
+            <div class="apiurl"  >
+            
+            
+   <div class="apidoc">
+
+   <!--part02   start--> 
+		 <div class="consult">
+		     <div class="consult_title"><img src="http://cdn.kuaidi100.com/images/api/abook.gif" alt="" /><span class="">API URL使用说明</span></div> 
+			 <div class="consult_content">
+			        
+
+
+				 <div class="con_unit"> 
+				 <div class="con_t02">			
+				    <table class="tab_useness"   cellspacing="0">
+				    <tr>
+				      <td class="td_step">1、API地址：</td>				 
+				    </tr>
+					<tr>
+				      <td >http://api.kuaidi100.com/api?id=[]&com=[]&nu=[]&valicode=[]&show=[0|1|2|3]&muti=[0|1]&order=[desc|asc]</td>				 
+				    </tr>					
+					<tr>
+				      <td class="td_step">2、传入参数：</td>				 
+				    </tr>
+					<tr>
+				      <td >
+                  <!--table里套table 开始 --> 
+<table width="796" class="tab_use_child"  cellspacing="0">
+<tr>
+<th scope="col"  width="90">名称</th>
+<th scope="col"   width="90">类型</th>
+<th scope="col"  width="100">是否必需</th>
+<th scope="col"  style="text-align:left;" > 　　描述</th>
+</tr>
+<tr>
+<td	 >id</td>
+<td	> String</td>
+<td>是</td>              
+<td	style="text-align:left;">身份授权key，请 <a href="api_2_02-typeid=0.shtml#behereStrong" class="aco" id="yu009">快递查询接口</a> 进行申请（大小写敏感）</td>
+</tr>
+<tr>
+<td>com</td>
+<td>String</td>
+<td>是</td>
+<td	style="text-align:left;">要查询的快递公司代码，不支持中文，对应的公司代码见 <br />《<a href="http://code.google.com/p/kuaidi-api/wiki/Open_API_API_URL" class="aco" target="_blank">API URL 所支持的快递公司及参数说明</a>》。 <br />如果找不到您所需的公司，请发邮件至 <a href="mailto:kuaidi@kingdee"  class="aco"> kuaidi@kingdee </a>咨询（大小写不敏感）</td>
+</tr>
+<tr>
+<td	>nu</td>
+<td	> String</td>
+<td	>是</td>
+<td	style="text-align:left;">要查询的快递单号，请勿带特殊符号，不支持中文（大小写不敏感）</td>
+</tr>
+<tr>
+<td>valicode</td>
+<td>String</td>
+<td>是</td>
+<td	style="text-align:left;">查询快递的电话号码，目前只有佳吉物流需要这个参数，其他公司请忽略。</td>
+</tr>
+<tr>
+<td	>show</td>
+<td	> String</td>
+<td	>是</td>
+<td	style="text-align:left;">返回类型： <br />
+0：返回json字符串， <br />
+1：返回xml对象， <br />
+2：返回html对象， <br />
+3：返回text文本。 <br />
+如果不填，默认返回json字符串。
+</td>
+</tr>
+<tr>
+<td	>muti</td>
+<td	> String</td>
+<td	>是</td>
+<td	style="text-align:left;">返回信息数量： <br />
+1:返回多行完整的信息， <br />
+0:只返回一行信息。 <br />
+不填默认返回多行。 <br />
+</td>
+</tr>
+<tr>
+<td	>order</td>
+<td	> String</td>
+<td	>是</td>
+<td	style="text-align:left;">排序： <br />
+desc：按时间由新到旧排列， <br />
+asc：按时间由旧到新排列。 <br />
+不填默认返回倒序（大小写不敏感）
+</td>
+</tr>
+</table>
+				  <!--table里套table 结束 --> 
+                      </td>				 
+				    </tr>	
+					<tr>
+				      <td class="td_step">3、返回结果：</td>				 
+				    </tr>
+					<tr>
+				      <td >
+<!--table里套table 开始 --> 
+<table width="796" class="tab_use_child"  cellspacing="0">
+<tr>
+<th scope="col"  width="260">字段名称</th>
+<th scope="col"   style="text-align:left;">　　字段含义</th>
+</tr>
+<tr>
+<td	 >Message</td>
+<td	style="text-align:left;">消息体</td>
+</tr>
+<tr>
+<td	 >Data</td>
+<td	style="text-align:left;">数据集合</td>
+</tr>
+<tr>
+<td	 >Time</td>
+<td	style="text-align:left;">每条数据的时间</td>
+</tr>
+<tr>
+<td	 >Context</td>
+<td	style="text-align:left;">每条数据的状态</td>
+</tr>
+<tr>
+<td	 >state</td>
+<td	style="text-align:left;">快递单当前的状态 ：　 <br />
+0：在途中, <br />
+1：已发货， <br />
+2：疑难件， <br />
+3：已签收， <br />
+4：已退货。 <br />
+该状态还在不断完善中，若您有更多的参数需求，欢迎发邮件至 <a href="mailto:kuaidi@kingdee.com" class="aco  ff"> kuaidi@kingdee.com</a> 提出。
+</td>
+</tr>
+<tr>
+<td	 >status</td>
+<td	style="text-align:left;">查询结果状态： <br />
+0：运单暂无结果， <br />
+1：查询成功， <br />
+2：接口出现异常， <br />
+408：验证码出错（仅适用于APICode url) 。 <br />
+遇到其他情况，请按获得身份授权key的邮件中的方法获得技术支持。
+</td>
+</tr>
+
+</table>
+				  <!--table里套table 结束 --> 
+
+
+                     </td>				 
+				    </tr>				
+				    </table>				 
+				 </div><!-- con_t02-->
+                 </div><!--con_unit -->
+
+
+
+
+			    
+			 </div><!--consult_content --> 		 
+		 </div><!-- consult-->
+   
+     <!--part02  end--> 
+   
+  <!--part03   start--> 
+   <div class="consult"  >
+		     <div class="consult_title"><img src="http://cdn.kuaidi100.com/images/api/aplay.gif" alt="" /><span class="">API URL开发实例及插件推荐</span></div> 
+			 <div class="consult_content" style="padding-top:6px;">
+			   <table cellspacing="0"  class="tab_tent">
+			   <tr>
+			     <td  width="400">>> 查询范例ASP版（38.2KB）</td>
+			     <td ><a href="http://www.kuaidi100.com/download/kuaidi100_asp.rar" class="aco">下载</a></td>
+			   </tr>
+			   <tr>
+			     <td >>> 查询范例PHP版（43.7KB）</td>
+			     <td ><a href="http://www.kuaidi100.com/download/kuaidi100_php.rar" class="aco">下载</a></td>
+			   </tr>
+			    <tr>
+			     <td >>> 查询范例.NET版（38.6KB）</td>
+			     <td ><a href="http://www.kuaidi100.com/download/kuaidi100_net.rar" class="aco">下载</a></td>
+			   </tr>
+			    <tr>
+			     <td >>> 查询范例JAVA版（8.40KB）</td>
+			     <td ><a href="http://www.kuaidi100.com/download/kuaidi100_java.rar" class="aco">下载</a></td>
+			   </tr>
+			   <tr>
+			     <td >>> Shopex、Ecshop、Hishop和最土团购等快递查询插件</td>
+			     <td ><a href="api_6_02-typeid=1.shtml" class="aco"  target="_blank">下载</a></td>
+			   </tr>
+			   </table><div class="w0h0"></div><div class="w0h0"></div>
+			 </div> <!--consult_content --> 		 
+ </div><!-- consult-->
+   <!--part03   end--> 
+
+
+     <!--part04   start--> 
+   <div class="consult"  style="margin-bottom:20px;">
+		     <div class="consult_title"><img src="http://cdn.kuaidi100.com/images/api/aplay.gif" alt="" /><span class="">API URL调用及返回结果示范</span></div>
+			 <p class="tent_p"><a href="http://code.google.com/p/kuaidi-api/wiki/Open_API_API_URL" class="aco" target="_blank">点击查看详情</a></p>
+ </div><!-- consult-->
+   <!--part04   end--> 
+   
+   
+        <!--part01   start--> 
+         <div class="consult"  style="margin-bottom:10px;">
+		     <div class="consult_title"><img src="http://cdn.kuaidi100.com/images/api/aflower.gif" alt="" /><span class="">咨询与技术支持</span></div> 
+			 <div class="consult_content">
+			   <p class="p_den">1.去<a href="http://blog.kuaidi100.com/?cat=6" class="aco"  target="_blank">博客</a>看看常见问题</p>
+			   <p class="p_den">2.发邮件到 <a href="mailto:kuaidi@kingdee.com" class="aco  ff">kuaidi@kingdee.com</a></p>
+			 </div> 		 
+		 </div><!-- consult-->
+		   <!--part01   end--> 
+           
+           
+           
+   <div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div>
+   
+     
+   
+   
+   </div><!--apidoc -->
+              
+              
+              
+              
+              
+              
+              
+            </div>
+            <!--apiurl --> 
+            
+            <!----------- 中间 API URL部分结束------------------------------------------------> 
+          </div>
+          <!--threeBigTab01 --> 
+          <!--切换三结束 --> 
+          
+        </div>
+        <!-- threeBigTab--> 
+        <!--下半部分结束 包含三个切换 --> 
+      </div>
+      <!--onlyBorder0802--> 
+    </div>
+    <!-- api02_main_part02--> 
+    <!--主体部分第二部分结束 --> 
+  </div>
+  <!--api02_main --> 
+  <!-----------主体部分结束 ------------------------------------------------------------> 
+
+
+
+
+<!--友商网发票   --//start --> 
+   <div class="invoice">
+        <a href="http://fapiao.youshang.com/api.html?from=kuaidi100" class="different_a" target="_blank">
+      <div class="jerk">快捷、便利的一站式发票真伪查询工具，每天10万财务人员使用！</div><!--jerk -->
+	  <div class="certainly">
+	     <div class="certainly_pad">
+		    <div  class="hugged" >申请开放接口</div>
+			<div class="relationship"></div><div class="relationship"></div>
+		</div><!-- certainly_pad-->
+	  </div><!-- certainly-->  
+	  </a>
+   </div><!-- invoice-->
+
+<!--友商网发票   --//end --> 
+
+</div><!--wrapper --> 
+
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div> 
+
+<!-- 弹窗开始 -->
+<div class="htmlApi"  id="htmlAp01">
+      <div class="htmlApiTop01"><span class="apiCha">×</span></div>
+	  <div class="yinYong">手机应用请直接使用我们的 <a href="http://www.kuaidi100.com/openapi/mobileapi.shtml" class="" target="_blank">Wap Api</a> 或 <a href="http://www.kuaidi100.com/openapi/mobileapi.shtml" class="" target="_blank">Html5 Api</a> 进行开发。</div>
+	  <div class="apiQue"><a href="http://www.kuaidi100.com/openapi/mobileapi.shtml" class="apiQue_a" target="_blank">确定</a></div>
+</div><!--htmlApi -->
+
+<div class="htmlApi"  id="htmlAp02">
+      <div class="htmlApiTop02"><span class="apiCha">×</span></div>
+	  <div class="yinYong">因为您是淘宝卖家，请直接使用 <a href="http://fuwu.taobao.com/ser/detail.htm?spm=0.0.0.154.2OloMc&service_code=ts-1812327" class="" target="_blank">_卖家版</a> ，具有批量导入运单、自动跟综与状态更新、短信提醒等功能。</div>
+	  <div class="apiQue"><a href="http://fuwu.taobao.com/ser/detail.htm?spm=0.0.0.154.2OloMc&service_code=ts-1812327" class="apiQue_a" target="_blank">立即使用</a></div>
+</div><!--htmlApi -->
+
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/security_valid.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/page/api/index.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/util/jQselect.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-mail.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script> 
+
+<script type="text/javascript" src="http://www.kuaidi100.com/js/page/api/randomshunfeng.js"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script> 
+<!--[if IE 6]> 
+  <script src="/js/page/api/DD_belatedPNG.js" mce_src="/js/page/api/DD_belatedPNG.js"></script> 
+  <script type="text/javascript">DD_belatedPNG.fix('.png_img');</script>
+<![endif]--> 
+<script>
+$(document).ready(function(){
+	$("#yu007, #yu009").click(
+		function(){$(".nav_saaa a:eq(1)").click()} 
+	); 
+
+	/*查看详细 */
+	$(".chakan").toggle(
+		function(){$(".wyz_r_c02").show()},function(){$(".wyz_r_c02").hide()}
+	); 
+	/*nav导航切换效果*/
+	$(".nav_saaa a").each(function(i){
+		$(this).click(function(){
+			$(this).removeClass("preBorder").addClass("nexBorder").siblings().removeClass("nexBorder").addClass("preBorder");
+			$(".threeBigTab01").hide().eq(i).show();
+		})
+	});
+ 
+ 
+ 
+ 	  /* 以下是typeid=0  typeid=1  typeid=2 的js代码*/    
+	  var str = location.href;
+	  var index = str.indexOf('?'); 
+		  str01 = str.substring(index+1);
+		    //alert(str01);
+		var arr=str01.split("=");
+		//alert(arr[1]);
+		var hao=arr[1];
+		//alert(hao); 
+	$('.nav_saaa a:eq('+parseInt(hao)+')').click();	
+	
+	  $(".tab_use_child tr:gt(0)").hover(
+	    function(){$(this).css("background-color", "#eee")},    function(){$(this).css("background-color", "#fff")}
+	  );//api文档 表格tr变色
+
+	     /*点 开发文档 即是点 3.开发文档和支持*/
+	   $(".develop_doc a").click(
+	    function(){$(".preBorder:contains('3.开发文档与支持')").click()} 
+	   );
+	$("#usertype").selectbox();       
+	$("#usershedul").selectbox();   
+	$("#usermail").mailAutoComplete({boxClass:"out_box"}); 
+//超出长度提示
+	$("#userdescript").keyup(function(){
+		var str = $("#userdescript").val();
+		var count = countStr(str);
+		if(count > 500){
+			$(this).css("border","1px solid #FF0000");
+			$("#descriptTips").show();
+		}else{
+			$(this).css("border","1px solid #DDDDDD");
+			$("#descriptTips").hide();
+		}
+	});  	
+});
+</script>
+
+<script>
+$(function(){   
+$("#htmlAp01").draggable({handle:".htmlApiTop01", containment:"window"}); 
+$("#htmlAp02").draggable({handle:".htmlApiTop02", containment:"window"}); 
+$(".apiCha, .apiQue_a").click(function(){$(this).parents(".htmlApi").hide()});
+ center($("#htmlAp01"));
+ center($("#htmlAp02"));
+function center(obj){	         
+       screenWidth = $(window).width();
+       screenHeight = $(window).height();   	     
+       objLeft = (screenWidth - obj.width())/2 ;
+       objTop = (screenHeight - obj.height())/2;	
+       var hidtop=$(document).scrollTop(); 	   
+       obj.css({left: objLeft + 'px', top: objTop+ hidtop + 'px'});
+	         
+      $(window).resize(function(){
+	    screenWidth = $(window).width();
+	    screenHeight = $(window).height();     
+	    var hidtop=$(document).scrollTop(); 	             
+	    objLeft = (screenWidth - obj.width())/2 ;
+	    objTop = (screenHeight - obj.height())/2;	             
+	    obj.css({left: objLeft + 'px', top: objTop+ hidtop + 'px'});	             
+      });
+	   
+     $(window).scroll(function(){
+	   screenWidth = $(window).width();
+	   screenHeight = $(window).height();
+	   var hidtop=$(document).scrollTop(); 	             
+	   objLeft = (screenWidth - obj.width())/2 ;
+	   objTop = (screenHeight - obj.height())/2;	             
+	   obj.css({left: objLeft + 'px', top: objTop+ hidtop + 'px'});
+      });	        
+} 
+});
+</script>
+<script src="http://www.kuaidi100.com/js/share/jq_ui/jquery.ui.core.js"></script>
+<script src="http://www.kuaidi100.com/js/share/jq_ui/jquery.ui.widget.js"></script>
+<script src="http://www.kuaidi100.com/js/share/jq_ui/jquery.ui.mouse.js"></script>
+<script src="http://www.kuaidi100.com/js/share/jq_ui/jquery.ui.draggable.js"></script>
+ 
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=70060" ></script> 
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>
+
+
+ 

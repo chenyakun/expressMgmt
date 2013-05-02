@@ -1,0 +1,498 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="apple-itunes-app" content="app-id=458270120"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物流查询网_货运查询_</title>
+<meta name="Keywords" content="德邦物流单号查询,华宇物流单号查询,佳吉物流单号查询,新邦物流单号查询" />
+<meta name="Description" content="一站式的物流查询网，涵盖近百家常用物流公司查询，支持手机查询。支持常用的德邦物流、华宇物流、佳吉物流、盛辉物流等单号查询服务。" />
+<meta name="mobile-agent" content="format=wml; url=http://wap.kuaidi100.com/wap_guoji.jsp"> 
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://www.kuaidi100.com/css/guoji.css?version=201303201326" />
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script>
+</head>
+<body>
+<input type="hidden" id="headerMenu" value="kuaidiQuery guojiQuery" />
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="network/distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="network/applyJoin.shtml">网点发布申请</a></li><li><a href="network/invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="user/login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="user/login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="user/login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="user/login.html">登录</a>&nbsp;|&nbsp;<a href="user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="guoji.shtml#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="openapi/index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="network/clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="guoji.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="guoji.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="guoji.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="guoji.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="guoji.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="guoji.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="guoji.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<div class="mtforie6">
+  <div class="tips-top w960"></div>
+  <div class="container w960">
+    <div class="conwarsix">
+      <div class="column-1">
+        <div class="column_child01">
+          <div class="fdunit_parent">
+            <div class="fdunit">
+              <div class="fdunit_img"><a href="all/yzgj.shtml"><img src="http://cdn.kuaidi100.com/images/all/yzgn_logo.gif" width="148" height="48" alt="中国邮政包裹查询 " /></a></div>
+              <!--fdunit_img -->
+              
+              <div class="fdright">
+                <div class="fdright_pad">
+                  <div class="fdright_child">
+                    <form action="/all/yzgj.shtml?mscomcode=yzgj" method="get" target="_blank">
+                      <input name="mscomnu" type="text" class="inp_ww" id="mscomnu0" onblur="toggleColorSearch('mscomnu0');" onfocus="toggleSearch('mscomnu0');"  value="请输入您要查询的单号" x-webkit-speech x-webkit-grammar="builtin:translate"/>
+                      <input name="but" type="submit" class="but01w" id="query" onmouseover="this.className='but01w_hover'" onmouseout="this.className='but01w'" value="查询" />
+                    </form>
+                  </div>
+                  <!--fdright_child --> 
+                </div>
+                <!--fdright_pad --> 
+              </div>
+              <!--fdright --> 
+              
+            </div>
+            <!--fdunit --> 
+          </div>
+          <!--fdunit_parent -->
+          
+          <div class="fdunit_parent">
+            <div class="fdunit">
+              <div class="fdunit_img"><a href="all/dhl.shtml"><img src="http://cdn.kuaidi100.com/images/all/dhl_logo.gif" width="148" height="48" alt="DHL国际快递" /></a></div>
+              <!--fdunit_img -->
+              
+              <div class="fdright">
+                <div class="fdright_pad">
+                  <div class="fdright_child">
+                    <form action="/all/dhl.shtml?mscomcode=dhl" method="get" target="_blank">
+                      <input name="mscomnu" type="text" class="inp_ww" id="mscomnu1"  onblur="toggleColorSearch('mscomnu1');" onfocus="toggleSearch('mscomnu1');"   value="请输入您要查询的单号" x-webkit-speech x-webkit-grammar="builtin:translate"/>
+                      <input name="but" type="submit" class="but01w" id="query"  onmouseover="this.className='but01w_hover'" onmouseout="this.className='but01w'" value="查询" />
+                    </form>
+                  </div>
+                  <!--fdright_child --> 
+                </div>
+                <!--fdright_pad --> 
+              </div>
+              <!--fdright --> 
+              
+            </div>
+            <!--fdunit --> 
+          </div>
+          <!--fdunit_parent -->
+          
+          <div class="fdunit_parent">
+            <div class="fdunit">
+              <div class="fdunit_img"><a href="all/fedex.shtml"><img src="http://cdn.kuaidi100.com/images/all/fedex_logo.gif" width="148" height="48" alt="FedEx国际快递" /></a></div>
+              <!--fdunit_img -->
+              
+              <div class="fdright">
+                <div class="fdright_pad">
+                  <div class="fdright_child">
+                    <form action="/all/fedex.shtml?mscomcode=fedex"  method="get" target="_blank">
+                      <input name="mscomnu" type="text" class="inp_ww" id="mscomnu2"  onblur="toggleColorSearch('mscomnu2');" onfocus="toggleSearch('mscomnu2');"   value="请输入您要查询的单号" x-webkit-speech x-webkit-grammar="builtin:translate"/>
+                      <input name="but" type="submit" class="but01w" id="query"  onmouseover="this.className='but01w_hover'" onmouseout="this.className='but01w'" value="查询" />
+                    </form>
+                  </div>
+                  <!--fdright_child --> 
+                </div>
+                <!--fdright_pad --> 
+              </div>
+              <!--fdright --> 
+              
+            </div>
+            <!--fdunit --> 
+          </div>
+          <!--fdunit_parent --> 
+          <div class="box"></div>
+          <div class="fdunit_parent" id="PAGE_AD_418911" style="height:60px"></div>
+        </div>
+        <!-- column_child01--> 
+      </div>
+      <!-- column-1--> 
+      
+   
+      
+      <div class="column-2">
+        <div class="column_child02">
+          <div class="fdunit_parent">
+            <div class="fdunit">
+              <div class="fdunit_img"><a href="all/ems.shtml"><img src="http://cdn.kuaidi100.com/images/all/ems_logo.gif" width="148" height="48" alt="EMS国际快递查询" /></a></div>
+              <!--fdunit_img -->
+              
+              <div class="fdright">
+                <div class="fdright_pad">
+                  <div class="fdright_child">
+                    <form action="/all/ems.shtml?mscomcode=ems" method="get" target="_blank">
+                      <input name="mscomnu" type="text" class="inp_ww" id="mscomnu3"  onblur="toggleColorSearch('mscomnu3');" onfocus="toggleSearch('mscomnu3');"   value="请输入您要查询的单号" x-webkit-speech x-webkit-grammar="builtin:translate"/>
+                      <input name="but" type="submit" class="but01w" id="query"  onmouseover="this.className='but01w_hover'" onmouseout="this.className='but01w'" value="查询" />
+                    </form>
+                  </div>
+                  <!--fdright_child --> 
+                </div>
+                <!--fdright_pad --> 
+              </div>
+              <!--fdright --> 
+              
+            </div>
+            <!--fdunit --> 
+          </div>
+          <!--fdunit_parent -->
+          
+          <div class="fdunit_parent">
+            <div class="fdunit">
+              <div class="fdunit_img"><a href="all/ups.shtml"><img src="http://cdn.kuaidi100.com/images/all/ups_logo.gif" width="148" height="48" alt="UPS国际快递" /></a></div>
+              <!--fdunit_img -->
+              
+              <div class="fdright">
+                <div class="fdright_pad">
+                  <div class="fdright_child">
+                    <form action="/all/ups.shtml?mscomcode=ups" method="get" target="_blank">
+                      <input name="mscomnu" type="text" class="inp_ww" id="mscomnu4" onblur="toggleColorSearch('mscomnu4');" onfocus="toggleSearch('mscomnu4');"   value="请输入您要查询的单号" x-webkit-speech x-webkit-grammar="builtin:translate"/>
+                      <input name="but" type="submit" class="but01w" id="query"  onmouseover="this.className='but01w_hover'" onmouseout="this.className='but01w'" value="查询" />
+                    </form>
+                  </div>
+                  <!--fdright_child --> 
+                </div>
+                <!--fdright_pad --> 
+              </div>
+              <!--fdright --> 
+              
+            </div>
+            <!--fdunit --> 
+          </div>
+          <!--fdunit_parent -->
+          
+          <div class="fdunit_parent">
+            <div class="fdunit">
+              <div class="fdunit_img"><a href="all/tnt.shtml"><img src="http://cdn.kuaidi100.com/images/all/tnt_logo.gif" width="148" height="48" alt="TNT国际快递" /></a></div>
+              <!--fdunit_img -->
+              
+              <div class="fdright">
+                <div class="fdright_pad">
+                  <div class="fdright_child">
+                    <form action="/all/tnt.shtml?mscomcode=tnt" method="get" target="_blank">
+                      <input name="mscomnu" type="text" class="inp_ww" id="mscomnu5"  onblur="toggleColorSearch('mscomnu5');" onfocus="toggleSearch('mscomnu5');"   value="请输入您要查询的单号" x-webkit-speech x-webkit-grammar="builtin:translate"/>
+                      <input name="but" type="submit" class="but01w" id="query"  onmouseover="this.className='but01w_hover'" onmouseout="this.className='but01w'" value="查询" />
+                    </form>
+                  </div>
+                  <!--fdright_child --> 
+                </div>
+                <!--fdright_pad --> 
+              </div>
+              <!--fdright --> 
+              
+            </div>
+            <!--fdunit --> 
+          </div>
+          <!--fdunit_parent --> 
+          <div class="box"></div>
+          <div class="fdunit_parent" id="PAGE_AD_418910" style="height:60px"></div>
+        </div>
+        <!--column_child02 --> 
+      </div>
+      <!-- column-2--> 
+      
+    </div>
+    <!--conwarsix --> 
+
+    <div class="clear"></div>
+    <div class="wrapartbo">
+      <div class="hisNav">
+        <div class="hisulwra">
+          <div class="hisulwra_childe"> <a href="guoji.shtml" class="selectSet"  id="setBut01">航空货运查询(Air cargo tracking)</a> <a href="guoji_2.shtml" id="setBut02"  class="ccco">集装箱跟踪(Container tracking)</a> <a href="guoji_3.shtml"  id="setBut03" class="ccco">提单跟踪(Bill Of Lading tracking)</a>
+            <div class="onlybotline">&nbsp;&nbsp;</div>
+            <!--onlybotline -->
+            <div class="w0h0"></div>
+            <div class="w0h0"></div>
+            <div class="w0h0"></div>
+          </div>
+          <!--hisulwra_childe -->
+          <div class="w0h0"></div>
+        </div>
+        <!--hisulwra --> 
+      </div>
+      <div class="clear"></div>
+      <div class="column-3">
+        <div class="chuck01">
+          <div><a href="http://www.abanair.com/" target="_blank" rel="nofollow">Aban Air(K5)</a></div>
+          <div><a href="http://www.absacargo.com.br/" target="_blank" rel="nofollow">ABSA Cargo(M3)</a></div>
+          <div><a href="http://www.adria.si/en/services.cp2?cid=1982ED20-69B1-FC00-615D-A9BA9622BA27&linkid=cargoSide" target="_blank" rel="nofollow">Adria Airways(JP)</a></div>
+          <div><a href="http://en.aegeanair.com/travel-information/cargo-services/" target="_blank" rel="nofollow">Aegean Airlines(A3)</a></div>
+          <div><a href="http://www.aerlinguscargo.com/" target="_blank" rel="nofollow">Aer Lingus(EI)</a></div>
+          <div><a href="http://www.aeroflot.co.uk/cargo_index.asp" target="_blank" rel="nofollow">Aeroflot Cargo(SU)</a></div>
+          <div><a href="http://www.aerolineas.com.ar/Arg/main.asp?idSitio=US&idPagina=165&idIdioma=en" target="_blank" rel="nofollow">Aerolineas Argentinas(AR)</a></div>
+          <div><a href="http://www.aeromexpress.com.mx/" target="_blank" rel="nofollow">Aeromexpress Cargo(QO)</a></div>
+          <div><a href="http://www.aerosvit.ua/eng.html" target="_blank" rel="nofollow">Aerosvit(V1)</a></div>
+          <div><a href="http://www.afklcargo.com/" target="_blank" rel="nofollow">AF-KL Cargo(AF/KL)</a></div>
+          <div><a href="http://www.africawestcargo.com/" target="_blank" rel="nofollow">Africa West Cargo(FK)</a></div>
+          <div><a href="http://www.airalgerie.dz/sessionconfig" target="_blank" rel="nofollow">Air Algerie(AH)</a></div>
+          <div><a href="http://cargo.airasia.com/" target="_blank" rel="nofollow">Air Asia Cargo(D7)</a></div>
+          <div><a href="http://cargo.airbaltic.com/" target="_blank" rel="nofollow">Air Baltic(BT)</a></div>
+          <div><a href="http://www.airberlin.com/" target="_blank" rel="nofollow">Air Berlin</a></div>
+          <div><a href="http://www.aircanada.com/cargo/en/" target="_blank" rel="nofollow">Air Canada Cargo(AC)</a></div>
+          <div><a href="http://www.acg.aero/" target="_blank" rel="nofollow">Air Cargo Germany(6U)</a></div>
+          <div><a href="http://www.airchinacargo.com/en/" target="_blank" rel="nofollow">Air China(CA)</a></div>
+          <div><a href="http://cargo.air-europa.com/" target="_blank" rel="nofollow">Air Europa(UX)</a></div>
+          <div><a href="http://airgreenland.com/cargo/" target="_blank" rel="nofollow">Air Greenland(GL)</a></div>
+          <div><a href="http://home.airindia.in/SBCMS/Webpages/Cargo-Operations.aspx?MID=200" target="_blank" rel="nofollow">Air India(AI)</a></div>
+          <div><a href="http://www.airjamaica.com/cargo/" target="_blank" rel="nofollow">Air Jamaica(JM)</a></div>
+          <div><a href="http://en.airmacau.com.mo/cargo/introduce.asp" target="_blank" rel="nofollow">Air Macau Cargo(NX)</a></div>
+          <div><a href="http://www.airmadagascar.com/" target="_blank" rel="nofollow">Air Madagascar(MD)</a></div>
+          <div><a href="http://www.airmalta.com/cargo?l=1" target="_blank" rel="nofollow">Air Malta Cargo(KM)</a></div>
+          <div><a href="http://www.airmauritius.com/cargoaboutus.htm" target="_blank" rel="nofollow">Air Mauritius(MK)</a></div>
+          <div><a href="http://www.airnamibia.com.na/cargo" target="_blank" rel="nofollow">Air Namibia(SW)</a></div>
+          <div><a href="http://www.airnewzealand.co.nz/international-cargo/" target="_blank" rel="nofollow">Air New Zealand(NZ)</a></div>
+          <div><a href="http://www.airniugini.com.pg/" target="_blank" rel="nofollow">Air Niugini(PX)</a></div>
+          <div><a href="http://www.airtransatcargo.com/" target="_blank" rel="nofollow">Air Transat(TS)</a></div>
+          <div><a href="http://www.airbridgecargo.com/" target="_blank" rel="nofollow">AirBridge Cargo(RU)</a></div>
+          <div><a href="http://www.airlinkcargo.co.za/" target="_blank" rel="nofollow">Airlink Cargo</a></div>
+          <div><a href="http://www.alaskaair.com/cargo/" target="_blank" rel="nofollow">Alaska Airlines(AS)</a></div>
+          <div><a href="http://www.alitaliacargo.it/en/" target="_blank" rel="nofollow">Alitalia Cargo(AZ)</a></div>
+          <div><a href="http://www.allianceairlines.com/" target="_blank" rel="nofollow">Alliance Airlines(3A)</a></div>
+          <div><a href="http://www.alliedaircargo.com/" target="_blank" rel="nofollow">AlliedAir</a></div>
+          <div><a href="http://www.alohaaircargo.com/" target="_blank" rel="nofollow">Aloha Air Cargo(KH)</a></div>
+          <div><a href="http://www.aacargo.com/" target="_blank" rel="nofollow">American Airlines(AA)</a></div>
+          <div><a href="http://www.amerijet.com/" target="_blank" rel="nofollow">Amerijet International(M6)</a></div>
+          <div><a href="http://www.ana.co.jp/cargo/en/int/" target="_blank" rel="nofollow">ANA Cargo(NH)</a></div>
+          <div><a href="http://www.asianacargo.com/" target="_blank" rel="nofollow">Asiana Cargo(OZ)</a></div>
+          <div><a href="http://www.atlantic.fo/" target="_blank" rel="nofollow">Atlantic Airways(RC)</a></div>
+          <div><a href="http://www.atlasair.com/aa/" target="_blank" rel="nofollow">Atlas Air(5Y)</a></div>
+          <div><a href="http://www.avient.aero/" target="_blank" rel="nofollow">Avient(SMJ)</a></div>
+          <div><a href="http://www.biman-airlines.com/" target="_blank" rel="nofollow">Biman Bangladesh(BG)</a></div>
+          <div><a href="http://bringeraircargo.com/" target="_blank" rel="nofollow">Bringer Air Cargo(E6)</a></div>
+          <div><a href="http://www.baworldcargo.com/" target="_blank" rel="nofollow">British Airways Cargo(BA)</a></div>
+          <div><a href="http://www.bmicargo.com/" target="_blank" rel="nofollow">British Midland(BD)</a></div>
+          <div><a href="http://company.brusselsairlines.com/en_be/corp/b2b-and-corporate/brussels-airlines-cargo/" target="_blank" rel="nofollow">Brussels Cargo</a></div>
+          <div><a href="http://www.cal.co.il/" target="_blank" rel="nofollow">C.A.L. Cargo Airlines(5C)</a></div>
+          <div><a href="http://www.cargoitalia.it/" target="_blank" rel="nofollow">Cargoitalia</a></div>
+          <div><a href="http://cargoluxitalia.com/" target="_blank" rel="nofollow">Cargolux Italia(C8)</a></div>
+          <div><a href="http://www.cargolux.com/" target="_blank" rel="nofollow">Cargolux(CV)</a></div>
+          <div><a href="http://www.caribbean-airlines.com/" target="_blank" rel="nofollow">Caribbean Airlines(BW)</a></div>
+          <div><a href="http://www.cathaypacificcargo.com/" target="_blank" rel="nofollow">Cathay Pacific Cargo(CX)</a></div>
+          <div><a href="https://www.caymanairways.com/Cargo-Offices" target="_blank" rel="nofollow">Cayman Airways(KX)</a></div>
+          <div><a href="http://www.centurioncargo.com/" target="_blank" rel="nofollow">Centurion Air Cargo(WE)</a></div>
+          <div><a href="http://www.china-airlines.com/en/cargo/" target="_blank" rel="nofollow">China Airlines(CI)</a></div>
+        </div><!--chuck01-->
+        <div class="chuck02">
+          <div><a href="http://cargo.ce-air.com/" target="_blank" rel="nofollow">China Eastern Airlines(MU)</a></div>
+          <div><a href="http://tang.cs-air.com/EN/" target="_blank" rel="nofollow">China Southern Airlines(CZ)</a></div>
+          <div><a href="http://www.cocargo.com/" target="_blank" rel="nofollow">Continental Cargo(CO)</a></div>
+          <div><a href="http://www.copacargo.com/" target="_blank" rel="nofollow">COPA(CM)</a></div>
+          <div><a href="http://www.coyneair.com/" target="_blank" rel="nofollow">Coyne Airways</a></div>
+          <div><a href="http://www.croatiaairlines.hr/en/" target="_blank" rel="nofollow">Croatia Airlines</a></div>
+          <div><a href="http://cyprusair.com/480,0,0,0,2-Cargo.aspx" target="_blank" rel="nofollow">Cyprus Airways(CY)</a></div>
+          <div><a href="http://www.czechairlines.com/en/cargo/cargo_home.htm" target="_blank" rel="nofollow">Czech Airlines(OK)</a></div>
+          <div><a href="http://www.delta.com/business_programs_services/delta_cargo/" target="_blank" rel="nofollow">Delta Cargo(DL)</a></div>
+          <div><a href="http://aviationcargo.dhl.com/" target="_blank" rel="nofollow">DHL Aviation(ES/QY/L3)</a></div>
+          <div><a href="http://www.dragonaircargo.com/" target="_blank" rel="nofollow">Dragonair Cargo(KA)</a></div>
+          <div><a href="http://egyptair-cargo.com/" target="_blank" rel="nofollow">Egypt Air(MS)</a></div>
+          <div><a href="http://www.elal.co.il/ELAL/English/ELALCargo/Home.html" target="_blank" rel="nofollow">El Al Israel Airlines(LY)</a></div>
+          <div><a href="http://www.sky-cargo.com/" target="_blank" rel="nofollow">Emirates(EK)</a></div>
+          <div><a href="http://www.estafetacargo.com/" target="_blank" rel="nofollow">Estafeta(E7)</a></div>
+          <div><a href="http://www.estonian-air.ee/cargo" target="_blank" rel="nofollow">Estonian Air(OV)</a></div>
+          <div><a href="http://www.ethiopianairlines.com/en/cargo/default.aspx" target="_blank" rel="nofollow">Ethiopian Airlines(ET)</a></div>
+          <div><a href="http://www.etihadcrystalcargo.com/" target="_blank" rel="nofollow">Etihad Crystal Cargo(EY)</a></div>
+          <div><a href="http://www.evaair.com/html/b2c/english/cargo/Air_cargo_service/" target="_blank" rel="nofollow">EVA Air(BR)</a></div>
+          <div><a href="https://www.fedex.com/" target="_blank" rel="nofollow">Fedex Freight Cargo(FX)</a></div>
+          <div><a href="http://www.finnaircargo.com/" target="_blank" rel="nofollow">Finnair Cargo(AY)</a></div>
+          <div><a href="http://www.flybe.com/flightInfo/cargo.htm" target="_blank" rel="nofollow">Flybe(BE)</a></div>
+          <div><a href="http://cargo.garuda-indonesia.com/" target="_blank" rel="nofollow">Garuda Indonesia(GA)</a></div>
+          <div><a href="http://www.global-aviationgroup.com/" target="_blank" rel="nofollow">GASG(5S)</a></div>
+          <div><a href="http://www.grandstarcargo.com/" target="_blank" rel="nofollow">Grandstar Cargo</a></div>
+          <div><a href="http://www.gwairlines.com/" target="_blank" rel="nofollow">Great Wall Airlines(IJ)</a></div>
+          <div><a href="http://www.gfcargo.com/" target="_blank" rel="nofollow">Gulf Air Cargo(GF)</a></div>
+          <div><a href="http://ecargo.hnair.com/" target="_blank" rel="nofollow">Hainan Airlines Cargo(HU)</a></div>
+          <div><a href="http://www.hawaiianair.com/Cargo" target="_blank" rel="nofollow">Hawaiian Airlines(HA)</a></div>
+          <div><a href="http://www.hkairlines.com/cms/language!dispatchModule.action?pMenuName=Ourteam_Services&menuId=273&country_code=HK" target="_blank" rel="nofollow">Hong Kong Airlines</a></div>
+          <div><a href="http://www.iberia-cargo.com/" target="_blank" rel="nofollow">Iberia(IB)</a></div>
+          <div><a href="http://www.icelandaircargo.is/" target="_blank" rel="nofollow">Icelandair(FI)</a></div>
+          <div><a href="http://www.inselaircargo.com/" target="_blank" rel="nofollow">Insel Air Cargo(7I)</a></div>
+          <div><a href="http://www.iranaircargo.com/" target="_blank" rel="nofollow">IranAir Cargo(IR)</a></div>
+          <div><a href="http://www.jadecargo.com/" target="_blank" rel="nofollow">Jade Cargo(JI)</a></div>
+          <div><a href="http://www.jal.co.jp/en/jalcargo/" target="_blank" rel="nofollow">Japan Airlines(JL)</a></div>
+          <div><a href="http://www.jat.com/active/en/home/main_menu/cargo.html" target="_blank" rel="nofollow">JAT(JU)</a></div>
+          <div><a href="http://www.jetairways.com/EN/GL/ProductAndServices/Cargo.aspx" target="_blank" rel="nofollow">Jet Airways</a></div>
+          <div><a href="http://www.jetblue.com/about/cargo.html" target="_blank" rel="nofollow">JetBlue Cargo(B6)</a></div>
+          <div><a href="http://www.jetpak.com/" target="_blank" rel="nofollow">Jetpak</a></div>
+          <div><a href="http://www.jetstar.com/" target="_blank" rel="nofollow">Jetstar(JQ)</a></div>
+          <div><a href="http://www.jett8airlines.com/" target="_blank" rel="nofollow">Jett8</a></div>
+          <div><a href="http://www.kalittaair.com/" target="_blank" rel="nofollow">Kalitta Air</a></div>
+          <div><a href="http://www.kcs56.com/" target="_blank" rel="nofollow">KCS Express</a></div>
+          <div><a href="http://www.kqcargo.com/" target="_blank" rel="nofollow">Kenya Airways Cargo(KQ)</a></div>
+          <div><a href="http://www.kingfishercargo.com/" target="_blank" rel="nofollow">Kingfisher Cargo</a></div>
+          <div><a href="http://cargo.koreanair.com/" target="_blank" rel="nofollow">Korean Air Cargo(KE)</a></div>
+          <div><a href="http://www.kuwait-airways.com/Default.aspx?pageId=12&mid=22" target="_blank" rel="nofollow">Kuwait Airways(KU)</a></div>
+          <div><a href="http://en.lancargo.com/" target="_blank" rel="nofollow">Lan Cargo(LA)</a></div>
+          <div><a href="http://www.leaderjet.com/" target="_blank" rel="nofollow">Leader Jet</a></div>
+          <div><a href="http://www.leisurecargo.com/" target="_blank" rel="nofollow">Leisure Cargo(L8)</a></div>
+          <div><a href="http://www.lot.com/web/lotcargo/lot-cargo" target="_blank" rel="nofollow">LOT Polish Airlines(LO)</a></div>
+          <div><a href="http://www.lhcargo.com/" target="_blank" rel="nofollow">Lufthansa Cargo(LH)</a></div>
+          <div><a href="http://www.malev.com/companyinformation/cargo/introduction" target="_blank" rel="nofollow">Mal&eacute;v(MA)</a></div>
+          <div><a href="http://www.mandarin-airlines.com/english/" target="_blank" rel="nofollow">Mandarin Airlines(AE)</a></div>
+          <div><a href="http://www.martinaircargo.com/" target="_blank" rel="nofollow">Martinair Cargo(MP)</a></div>
+          <div><a href="http://www.masair.com/" target="_blank" rel="nofollow">MasAir(MY)</a></div>
+          <div><a href="http://www.maskargo.com/" target="_blank" rel="nofollow">MASkargo(MH)</a></div>
+        </div><!--chuck02-->
+        <div class="chuck03">
+          <div><a href="http://www.mea.com.lb/" target="_blank" rel="nofollow">Middle East Airlines(ME)</a></div>
+          <div><a href="http://www.mngairlines.com/ENG/Homepage.aspx" target="_blank" rel="nofollow">MNG Airlines(MB)</a></div>
+          <div><a href="http://www.nca.aero/e/" target="_blank" rel="nofollow">Nippon Cargo Airlines(KZ)</a></div>
+          <div><a href="http://www.northernaircargo.com/" target="_blank" rel="nofollow">Northern Air Cargo(NC)</a></div>
+          <div><a href="http://www.norwegian.no/" target="_blank" rel="nofollow">Norwegian(DY)</a></div>
+          <div><a href="http://www.olympicair.com/Default.aspx?a_id=1668" target="_blank" rel="nofollow">Olympic Air(OA)</a></div>
+          <div><a href="http://www.piac.com.pk/PIA_Cargo/pia-Cargo.asp" target="_blank" rel="nofollow">Pakistan International(PK)</a></div>
+          <div><a href="http://www.philippineairlines.com/products_and_services/cargo/cargo.jsp" target="_blank" rel="nofollow">Philippine Airlines(PR)</a></div>
+          <div><a href="http://www.polaraircargo.com/" target="_blank" rel="nofollow">Polar Air Cargo(PO)</a></div>
+          <div><a href="http://www.precisionairtz.com/" target="_blank" rel="nofollow">Precision Air(PW)</a></div>
+          <div><a href="http://www.qantas.com.au/freight/dyn/menu" target="_blank" rel="nofollow">Qantas(QF)</a></div>
+          <div><a href="http://www.qrcargo.com/" target="_blank" rel="nofollow">Qatar Airways(QR)</a></div>
+          <div><a href="http://www.rossiya-airlines.com/en/" target="_blank" rel="nofollow">Rossiya(FV)</a></div>
+          <div><a href="http://www.royalairmaroc.com/" target="_blank" rel="nofollow">Royal Air Maroc(AT)</a></div>
+          <div><a href="http://www.bruneiair.com/products-services/cargo-services/" target="_blank" rel="nofollow">Royal Brunei(BI)</a></div>
+          <div><a href="http://rj-cargo.com/" target="_blank" rel="nofollow">Royal Jordanian(RJ)</a></div>
+          <div><a href="http://www.royaleinternational.com/" target="_blank" rel="nofollow">Royale International</a></div>
+          <div><a href="http://www.rusaviation.com/#services&cargo&" target="_blank" rel="nofollow">RUS Aviation(R4)</a></div>
+          <div><a href="http://www.sascargo.com/" target="_blank" rel="nofollow">SAS Cargo(SK)</a></div>
+          <div><a href="http://www.sata.pt/en/other-services/products-services" target="_blank" rel="nofollow">SATA</a></div>
+          <div><a href="http://www.saudiairlines.com/" target="_blank" rel="nofollow">Saudi Arabian Airl.(SV)</a></div>
+          <div><a href="http://www.shandongair.com.cn/web/shair_en/cargo" target="_blank" rel="nofollow">Shandong Airlines(SC)</a></div>
+          <div><a href="http://cargo.shanghai-air.com/default_en.aspx" target="_blank" rel="nofollow">Shanghai Airlines(FM/F4)</a></div>
+          <div><a href="http://cargo.shenzhenair.com/index.aspx" target="_blank" rel="nofollow">Shenzhen Airlines</a></div>
+          <div><a href="http://www.scal.com.cn/" target="_blank" rel="nofollow">Sichuan Airlines(3U)</a></div>
+          <div><a href="http://www.silkway-airlines.com/" target="_blank" rel="nofollow">Silk Way Airlines(ZP)</a></div>
+          <div><a href="http://www.siacargo.com/" target="_blank" rel="nofollow">Singapore Airlines(SQ)</a></div>
+          <div><a href="http://www.flysaa.com/za/en/home!loadCargoHome.action" target="_blank" rel="nofollow">South African Airw.(SA)</a></div>
+          <div><a href="http://www.southamericanairways.com/" target="_blank" rel="nofollow">South American Airw.</a></div>
+          <div><a href="http://www.swacargo.com/" target="_blank" rel="nofollow">Southwest Airlines(WN)</a></div>
+          <div><a href="http://www.srilankancargo.com/" target="_blank" rel="nofollow">SriLankan Cargo(UL)</a></div>
+          <div><a href="http://www.starlightairline.com/" target="_blank" rel="nofollow">Starlight Airlines(QP)</a></div>
+          <div><a href="http://www.swissworldcargo.com/" target="_blank" rel="nofollow">Swiss WorldCargo(LX)</a></div>
+          <div><a href="http://www.swissport.com/" target="_blank" rel="nofollow">Swissport</a></div>
+          <div><a href="http://www.syriaair.com/Cargo/Cargo.aspx" target="_blank" rel="nofollow">Syrian Air(RB)</a></div>
+          <div><a href="http://www.tabairlines.com/" target="_blank" rel="nofollow">TAB Cargo(TB)</a></div>
+          <div><a href="http://www.tacacargo.com/" target="_blank" rel="nofollow">TACA(TA)</a></div>
+          <div><a href="http://tampacargo.com/" target="_blank" rel="nofollow">Tampa Cargo(QT)</a></div>
+          <div><a href="http://www.tapcargo.com/en/Homepage/" target="_blank" rel="nofollow">TAP Portugal(TP)</a></div>
+          <div><a href="http://www.tarom.ro/en/cargo-services/" target="_blank" rel="nofollow">Tarom(RO)</a></div>
+          <div><a href="http://www.thaicargo.com/" target="_blank" rel="nofollow">Thai Cargo(TG)</a></div>
+          <div><a href="http://www.thomascookairlines.no/" target="_blank" rel="nofollow">Thomas Cook(DK)</a></div>
+          <div><a href="http://www.thomson.co.uk/editorial/faqs/flights/cargo.html" target="_blank" rel="nofollow">Thomsonfly</a></div>
+          <div><a href="http://www.tntliege.com/" target="_blank" rel="nofollow">TNT Airways(3V)</a></div>
+          <div><a href="http://www.tma.com.lb/" target="_blank" rel="nofollow">Trans-Mediterranean(TL)</a></div>
+          <div><a href="http://www.turkishcargo.com.tr/cargo/" target="_blank" rel="nofollow">Turkish Airlines(TK)</a></div>
+          <div><a href="http://www.taag.com.br/" target="_blank" rel="nofollow">TAAG Angola Airlines(DT)</a></div>
+          <div><a href="http://cargo.ukraine-international.com/eng/" target="_blank" rel="nofollow">Ukraine International(PS)</a></div>
+          <div><a href="http://www.uniair.com.tw/" target="_blank" rel="nofollow">UNI Air(B7)</a></div>
+          <div><a href="http://www.unitedcargo.com/" target="_blank" rel="nofollow">United Cargo(UA)</a></div>
+          <div><a href="http://www.ups.com/aircargo/" target="_blank" rel="nofollow">UPS Air Cargo(5X)</a></div>
+          <div><a href="http://www.usairways.com/en-US/traveltools/cargo/default.html" target="_blank" rel="nofollow">US Airways(US)</a></div>
+          <div><a href="http://www.vensecar.com/" target="_blank" rel="nofollow">Vensecar(V4)</a></div>
+          <div><a href="http://www.vietnamairlines.com/wps/portal/en/cargo_services/home/" target="_blank" rel="nofollow">Vietnam Airlines(VN)</a></div>
+          <div><a href="http://www.virgin-atlantic.com/en/us/cargo/index.jsp" target="_blank" rel="nofollow">Virgin Atlantic(VS)</a></div>
+          <div><a href="http://www.xiamenair.com.cn/" target="_blank" rel="nofollow">Xiamen Airlines(MF)</a></div>
+          <div><a href="http://www.yzr.com.cn/" target="_blank" rel="nofollow">Yangtze River Express(Y8)</a></div>
+          <div><a href="http://yemenia.com/DisplaySectionDetail.aspx?ID=120" target="_blank" rel="nofollow">Yemenia Cargo(IY)</a></div>
+        </div><!--chuck03-->
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div> 
+    
+  </div>
+  <!--wrapartbo --> 
+</div>
+<!-- mtforie6--> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script> 
+<script type="text/javascript">
+function toggleSearch(a) {
+	var b = $("#" + a);
+	if (b.val() == "请输入您要查询的单号") {
+		b.val("");
+		b.css("font-size", "24px");
+		b.css("color", "black")
+	} else {
+		b.css("font-size", "24px");
+		b.css("color", "black")
+	}
+}
+function toggleColorSearch(a) {
+	var b = $("#" + a);
+	if (b.val() == "") {
+		b.css("font-size", "14px");
+		b.css("color", "#B2B2B2");
+		b.val("请输入您要查询的单号")
+	} else {
+		b.css("font-size", "24px");
+		b.css("color", "black")
+	}
+};
+
+
+
+</script> 
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script> 
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('418911','PAGE_AD_418911');BAIDU_CLB_fillSlotAsync('418910','PAGE_AD_418910');BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>

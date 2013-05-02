@@ -1,0 +1,558 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>快递网点入驻申请</title>
+<meta name="keywords" content="快递查询接口,快递api,B2C快递接口" />
+<meta name="description" content="提供一站式的快递查询服务，涵盖近百家常用快递公司，查询无需验证码，支持手机查快递，并提供免费的快递查询接口（API）。帮助企业、网商提升物流环节的客户满意度。" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/applyJoin.css?version=201303201326" />
+</head>
+<body>
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="../claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="applyJoin.shtml">网点发布申请</a></li><li><a href="invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="../claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="../help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="../help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="../help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="../login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="../login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="../login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="../login.html">登录</a>&nbsp;|&nbsp;<a href="../user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="applyJoin.shtml#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="../index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="../index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="../orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="../user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="../openapi/index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="../index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="../wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="../luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="../guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="../all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="../auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="applyJoin.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="applyJoin.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="applyJoin.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="applyJoin.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="applyJoin.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="applyJoin.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="applyJoin.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<div class="container w960">
+  <div class="order-first">
+      <div class="orderfirstyahei">
+	    <div class="ofboxh37">
+		   <div class="ofboxh37_a"><div class="ofonlypadt"><span class="ofnum">①</span><span class="ofword">快递网点申请入驻</span></div></div> 
+		   <div class="ofboxh37_b"><div class="ofonlypadt"><span class="ofnum">②</span><span class="ofword">负责人手机接收激活邀请码短信</span></div></div> 
+		   <div class="ofboxh37_c"><div class="ofonlypadt"><span class="ofnum">③</span><span class="ofword">激活并发布网点电话/价格</span></div></div> 
+		</div>
+	   <div class="ofborderbox">
+	     <div class="ofborderbox01"></div> 
+		 <div class="ofborderbox02"></div> 
+		 <div class="ofborderbox03"></div> 
+	   </div>
+	  </div>
+  </div>
+  <div class="column-1">
+    <h2 class="xboxcontent-t" style="position:relative;">温馨提醒：请尽量保持负责人手机号码和业务联系电话与快递官网一致，我们将人工核实申请人的真实性。<a target="_blank" style="position:absolute;right:10px;top:8px;" href="http://wpa.qq.com/msgrd?v=3&uin=2373316579&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2373316579:42" alt="点击这里给我发消息" title="点击这里给我发消息"></a></h2>
+    	<iframe id="hiddenFrame" name="hiddenFrame" style="display:none"></iframe>
+    	<form id="applyJoinForm" action="/youshang-network/applyJoin?method=applyJoin" target="hiddenFrame" encType="multipart/form-data" encoding="multipart/form-data" method="post">
+    	<div style="position:relative;margin-top:10px;">
+    	<table class="table1">
+    		<tr>
+    			<td class="td1"><span class="s-must">*</span>&nbsp;&nbsp;快递品牌名称：</td>
+    			<td class="td2">
+                
+                    
+        <!--select 美化   --//start --> 
+         <div class="wra_gratuitous">
+           <div class="gratuitous"  id="gratuitous"></div>
+           <input type="hidden" name="expressCode" id="expressCode" />
+           <!-- gratuitous-->
+            <div class="wra_downstairs">
+			     <div class="lip_pad">
+				   <div class="roughly">
+				      <div class="occur"  style=" background-color:#6ca8fa; margin-bottom:6px;">
+					       
+					        <div class="steamy"><div class="steamy02">常</div><div class="steamy02">用</div></div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  style="margin-bottom:5px;"><span class="mention"><a href="javascript:void(0)" code="shentong" class="" >申通</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="yuantong" > 圆通</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="zhongtong"> 中通</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="huitongkuaidi"> 汇通</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="yunda"> 韵达</a></span></div>
+
+<div class="specifically"><span class="mention"><a href="javascript:void(0)"  class=""  code="tiantian" >天天</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="youshuwuliu"> 优速</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="zhaijisong"> 宅急送</a></span><span class="mention"><a href="javascript:void(0)"  class="" code="ganzhongnengda" >能达速递</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="quanfengkuaidi"> 全峰</a></span></div>
+							
+							</div><!--tingly -->
+					  
+					  </div><!--occur -->
+					 
+					 <div class="occur">
+					 <div class="steamy02">A</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="anxindakuaixi">安信达</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="aae" >AAE</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="anjiekuaidi" >安捷</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="auspost" >澳大利亚邮政</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02">B</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="biaojikuaidi" >彪记</a></span><span class="mention"><a href="javascript:void(0)"  class="" code="baifudongfang"  >百福东方</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="bht" >BHT</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="bangsongwuliu">邦送物流</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02">C</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="city100" >城市100</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="changyuwuliu" >长宇</a></span><span class="mention"><a href="javascript:void(0)"  class="" code="coe"  >COE</a></span><span class="mention"><a href="javascript:void(0)"  class="" code="chuanxiwuliu" >传喜物流</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02"  style="height:45px;  line-height:45px;  vertical-align:middle;">D</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  style="margin-bottom:5px;" ><span class="mention"><a href="javascript:void(0)"  class="" code="dsukuaidi" >D速</a> </span><span class="mention"><a href="javascript:void(0)"  class="" code="dhl" >DHL</a></span><span class="mention"><a href="javascript:void(0)"  class="" code="datianwuliu" >大田</a></span><span class="mention"><a href="javascript:void(0)"  class="" code="debangwuliu" >德邦</a></span><span class="mention"><a href="javascript:void(0)"  class="" code="dpex" >DPEX</a></span></div>	
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class="" code="disifang" >递四方</a></span></div>	
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02">E</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="ems" >EMS</a> </span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+					 
+
+					 <div class="occur">
+					 <div class="steamy02">F</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="feibaokuaidi" >飞豹快递</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="feikangda" >飞康达</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="feikuaida" > 飞快达</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="fengxingtianxia" >风行天下</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="fenghuangkuaidi" >凤凰</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02">G</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"><span class="mention"><a href="javascript:void(0)"  class=""  code="guotongkuaidi" >国通快递</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="gongsuda" >共速达</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="gls" >GLS</a></span></div>			 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					  <div class="occur">
+					 <div class="steamy02"  style="height:45px;  line-height:45px;  vertical-align:middle;">H</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  style="margin-bottom:5px;" ><span class="mention"><a href="javascript:void(0)"  class=""  code="huitongkuaidi" >汇通</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="tiandihuayu" >华宇</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="hengluwuliu" >恒路</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="huaxialongwuliu" >华夏龙</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="hongpinwuliu" >宏品</a></span></div>	
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="haiwaihuanqiu" >海外环球</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="haihongwangsong" >海红网送</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="hebeijianhua" >河北建华</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="haimengsudi" >海盟速递</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="huaqikuaiyun" >华企快运</a></span></div>	
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					  <div class="occur">
+					 <div class="steamy02"  style="height:45px;  line-height:45px;  vertical-align:middle;">J</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  style="margin-bottom:5px;" ><span class="mention"><a href="javascript:void(0)"  class=""  code="jiajiwuliu" >佳吉</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="jiayiwuliu" >佳怡</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="jixianda" >急先达</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="jindawuliu" >金大</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="jinguangsudikuaijian" > 京广</a></span></div>	
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="jiayunmeiwuliu" >加运美</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="jinyuekuaidi" >晋越</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="jialidatong" >嘉里大通</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="jietekuaidi" >捷特快递</a></span></div>	
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02">K</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="kuaijiesudi" >快捷</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="kangliwuliu" >康力物流</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="kuayue" >跨越速递</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02"  style="height:45px;  line-height:45px;  vertical-align:middle;">L</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  style="margin-bottom:5px;" ><span class="mention"><a href="javascript:void(0)"  class=""  code="longbanwuliu" >龙邦</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="lejiedi" >乐捷递</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="lanbiaokuaidi" >蓝镖</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="lianbangkuaidi" >联邦快递</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="lianhaowuliu" >联昊通</a></span></div>	
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="lijisong" >立即送</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="longlangkuaidi" >隆浪快递</a></span></div>	
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02">M</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="minghangkuaidi" >民航</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="meiguokuaidi" >美国快递</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="menduimen" >门对门</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="mingliangwuliu" >明亮物流</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+
+					 <div class="occur">
+					 <div class="steamy02">N</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="nanjing" >南京100</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="ganzhongnengda" >能达</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02">O</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="ocs" >OCS</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="ontrac" >OnTrac</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02">P</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="peisihuoyunkuaidi" >配思</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+				 <div class="occur">
+					 <div class="steamy02"  style="height:45px;  line-height:45px;  vertical-align:middle;">Q</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  style="margin-bottom:5px;" ><span class="mention"><a href="javascript:void(0)"  class=""  code="quanfengkuaidi" >全峰快递</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="quanritongkuaidi" >全日通</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="quanchenkuaidi" >全晨</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="quanjitong" >全际通</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="quanyikuaidi" >全一</a></span></div>	
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="sevendays" >七天连锁</a></span></div>	
+					     </div><!--tingly -->
+				</div><!-- occur-->
+
+
+				   <div class="occur">
+					 <div class="steamy02">R</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="rufengda" >如风达</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02"  style="height:70px;  line-height:70px;  vertical-align:middle;">S</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  style="margin-bottom:5px;" ><span class="mention"><a href="javascript:void(0)"  class=""  code="shentong" >申通</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="shunfeng" >顺丰</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="suer" >速尔</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="shenghuiwuliu" >盛辉</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="shengfengwuliu" >盛丰</a></span></div>	
+<div class="specifically"  style="margin-bottom:5px;" ><span class="mention"><a href="javascript:void(0)"  class=""  code="shangda" >上大</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="santaisudi" >三态</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="saiaodi" >赛澳递</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="shenganwuliu" >圣安物流</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="sxhongmajia" > 山西红马甲</a></span></div>	
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="suijiawuliu" >穗佳物流</a></span></div>	
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02">T</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="tiantian" >天天</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="tnt" >TNT</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="tonghetianxia" >通和天下</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02">U</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="ups" >UPS</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					 <div class="occur">
+					 <div class="steamy02">W</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="wanjiawuliu" >万家</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="wenjiesudi" >文捷</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="wuyuansudi" >伍圆</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="weitepai" >微特派</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="wanxiangwuliu" >万象</a></span></div>				 
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+					 <div class="occur">
+					 <div class="steamy02"  style="height:45px;  line-height:45px;  vertical-align:middle;">X</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  style="margin-bottom:5px;" ><span class="mention"><a href="javascript:void(0)"  class=""  code="xinhongyukuaidi" >鑫飞鸿</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="xingchengjibian" >星晨急便</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="xinbangwuliu" >新邦</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="xinfengwuliu" >信丰</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="neweggozzo" >新蛋奥硕</a></span></div>	
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="hkpost" >香港邮政</a></span></div>	
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+					  <div class="occur">
+					 <div class="steamy02"  style="height:95px;  line-height:95px;  vertical-align:middle;">Y</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  style="margin-bottom:5px;" ><span class="mention"><a href="javascript:void(0)"  class=""  code="yuantong" >圆通</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="yunda" >韵达</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="youshuwuliu" >优速</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="yinjiesudi" >银捷速递</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="yuanweifeng" >源伟丰</a></span></div>	
+<div class="specifically"  style="margin-bottom:5px;" ><span class="mention"><a href="javascript:void(0)"  class=""  code="yuanzhijiecheng" >元智捷诚</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="youzhengguonei" >邮政国内</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="youzhengguoji" >邮政国际</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="yuanchengwuliu" >远成</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="yafengsudi" >亚风</a></span></div>	
+<div class="specifically"  style="margin-bottom:5px;" ><span class="mention"><a href="javascript:void(0)"  class=""  code="yuefengwuliu" >越丰</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="yuntongkuaidi" >运通</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="yuananda" >源安达</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="yuanfeihangwuliu" >原飞航</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="yibangwuliu" > 一邦</a></span></div>	
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="yitongfeihong" >一统飞鸿</a></span></div>	
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+
+					 <div class="occur">
+					 <div class="steamy02"  style="height:45px;  line-height:45px;  vertical-align:middle;">Z</div><!--steamy -->
+							<div class="tingly"> 
+<div class="specifically"  style="margin-bottom:5px;" ><span class="mention"><a href="javascript:void(0)"  class=""  code="zhongtong" >中通</a> </span><span class="mention"><a href="javascript:void(0)"  class=""  code="zhaijisong" >宅急送</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="zhongtiewuliu" >中铁物流</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="zhongyouwuliu" >中邮</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="zhongxinda" >忠信达</a></span></div>	
+<div class="specifically"  ><span class="mention"><a href="javascript:void(0)"  class=""  code="zhimakaimen" >芝麻开门</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="zhongsukuaidi" >中速快递</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="zhongtianwanyun" >中天万运</a></span><span class="mention"><a href="javascript:void(0)"  class=""  code="zhengzhoujianhua" >郑州建华</a></span></div>	
+					     </div><!--tingly -->
+					 </div><!-- occur-->
+
+
+         <!--[if lte IE 6]> 
+          <div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div>
+		  <div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div>
+		  <div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div>
+		  <div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div>
+		  <div class="w0h0"></div>
+         <![endif]-->
+
+
+				 
+
+			
+				   
+				   
+				   
+				   
+				   </div><!--roughly -->				 
+				 </div><!--lip_pad -->                  
+            </div><!-- wra_downstairs-->
+      </div><!-- wra_gratuitous-->
+            
+            <span id="expressCodeError_bozo" class="error_tips bozo" ></span>
+ 
+            
+			<!--select 美化   --//end --> 
+            
+          
+	    			 
+     
+
+	    				 
+    			
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="td1"><span class="s-must">*</span>&nbsp;&nbsp;网点收件地区：</td>
+    			<td class="td2">
+    				<input type="hidden" id="startPlace" name="startPlace" value="" />
+                   	<input name="startPlace_input" type="text" class="inp-address" id="startPlace_input" readonly="readonly" url="true" autocomplete="off" />
+                   	<div id="startPlaceDiv" class="location-box" style="display:none;">
+	                    <ul class="tab-list">
+	                        <li class="select-tab"></li>
+	                        <li class="select tab li-common" index="0"><a href="applyJoin.shtml#">常用</a></li>
+	                        <li class="tab li-province" index="1"><a href="applyJoin.shtml#">省份</a></li>
+	                        <li class="tab li-city" index="2"><a href="applyJoin.shtml#">城市</a></li>
+	                        <li class="tab li-county" index="3"><a href="applyJoin.shtml#">县区</a></li>
+	                    </ul>
+	                    <div class="tab-box">
+	                        <a class="place city" href="applyJoin.shtml#" code="310000">上海市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="440300">深圳市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="110000">北京市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="440100">广州市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="320500">苏州市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="510100">成都市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="441900">东莞市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="330200">宁波市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="120000">天津市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="330100">杭州市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="370200">青岛市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="500000">重庆市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="420100">武汉市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="440600">佛山市</a>
+	                        <a class="place city" href="applyJoin.shtml#" code="410100">郑州市</a>
+	                    </div>
+	                    <div class="hidden tab-box province-box">
+	                        <dl>
+	                            <dt>A-G</dt>
+	                            <dd>
+	                                <a class="place province" href="applyJoin.shtml#" code="34">安徽</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="11">北京</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="50">重庆</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="35">福建</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="62">甘肃</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="44">广东</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="45">广西</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="52">贵州</a>
+	                            </dd>
+	                            <dt>H-K</dt>
+	                            <dd>
+	                                <a class="place province" href="applyJoin.shtml#" code="46">海南</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="13">河北</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="41">河南</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="23">黑龙江</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="42">湖北</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="43">湖南</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="22">吉林</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="32">江苏</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="36">江西</a>
+	                            </dd>
+	                            <dt>L-S</dt>
+	                            <dd>
+	                                <a class="place province" href="applyJoin.shtml#" code="21">辽宁</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="15">内蒙古</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="64">宁夏</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="63">青海</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="37">山东</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="14">山西</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="61">陕西</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="31">上海</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="51">四川</a>
+	                            </dd>
+	                            <dt>T-Z</dt>
+	                            <dd>
+	                                <a class="place province" href="applyJoin.shtml#" code="12">天津</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="54">西藏</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="65">新疆</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="53">云南</a>
+	                                <a class="place province" href="applyJoin.shtml#" code="33">浙江</a>
+	                            </dd>
+	                        </dl>
+	                    </div>
+	                    <div class="hidden tab-box"></div>
+	                    <div class="hidden tab-box"></div>
+                	</div>
+    				<span id="startPlaceError" class="error_tips"></span>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="td1"><span class="s-must">*</span>&nbsp;&nbsp;快递网点名称：</td>
+    			<td class="td2">
+    				<input type="text" name="networkName" id="networkName" maxlength="40" class="inp1"/>
+    				<span id="networkNameError" class="error_tips"></span>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="td1"><span class="s-must">*</span>&nbsp;&nbsp;网点业务联系电话：</td>
+    			<td class="td2">
+    				<input type="text" name="serviceTel" id="serviceTel" maxlength="64" class="inp1"/>
+    				<span id="serviceTelError" class="error_tips"></span>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="td1"><span class="s-must">*</span>&nbsp;&nbsp;负责人真实姓名：</td>
+    			<td class="td2">
+    				<input type="text" name="headName" id="headName" maxlength="10" class="inp1"/>
+    				<span id="headNameError" class="error_tips"></span>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="td1"><span class="s-must">*</span>&nbsp;&nbsp;负责人手机号码：</td>
+    			<td class="td2">
+    				<input type="text" name="mobile" id="mobile" maxlength="11" class="inp1"/>
+    				<span id="mobileError" class="error_tips"></span>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="td1"><span class="s-must">*</span>&nbsp;&nbsp;负责人/申请人QQ：</td>
+    			<td class="td2">
+    				<input type="text" name="headQq" id="headQq" maxlength="32" class="inp1"/>
+    				<span id="headQqError" class="error_tips"></span>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="td1"></td>
+    			<td class="td2">
+    				<input type="submit" id="subBtn" value="提 交" onclick="return applyJoin();" class="btn1"/>
+    				<span id="waitSpan" class="waitSpan">正在提交申请，请稍候......</span>
+    			</td>
+    		</tr>
+    	</table>
+    	</div>
+    	</form>
+    	<div id="showmessage" class="tips" style="margin-top:15px;display:none;"><a onclick="$('#showmessage').hide();return false;" href="applyJoin.shtml#" class="tips-close" title="关闭提示"></a>
+        	<p id="message"></p>
+        </div>
+    	<div class="info1">
+    		<p class="p1">快递网点申请说明：</p>
+    		<p>1、您的申请信息将在2个工作日内审核，审核成功后将向您的手机发出入驻邀请码。</p>
+    		<p>2、-快递网点QQ群群号：221090527，进群请说明快递品牌和快递网点名称。</p>
+    	</div>
+    <div class="clear"></div>
+    
+  </div>
+  <div class="column-2">
+  	<div><a href="invite.shtml" class="btn3">网点激活</a><a href="loginNet.shtml" class="btn3">网点登录</a></div>
+    <div class="div-border">
+    	<div class="div-title">最新入驻快递网点</div>
+    	<!-- <a class="a-more" href="#" target="_blank">更多></a> -->
+    	<ul id="newNetworkList">
+    	</ul>
+    </div>
+  </div>
+</div>
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jQselect.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/areas.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script>
+<script type="text/javascript" src="http://www.kuaidi100.com/js/page/network/applyJoin.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+
+
+     <script>
+     $(function(){   
+
+		  $("#gratuitous").html("请选择快递品牌名称").css("color", "#B2B2B2");
+
+
+         $(".wra_gratuitous").toggle(
+            function(){$(this).children(".wra_downstairs").show()},  function(){$(this).children(".wra_downstairs").hide()}
+           );    
+
+       $(".wra_downstairs").find(".occur .tingly .specifically span a").click(
+           function(){ 
+                var frisky=$(this).html();				 
+				$("#gratuitous").html(frisky).css("color", "#000000");  
+
+				var jerk=$(this).attr("code");
+				$("#expressCode").val(jerk);			 
+             }
+         );
+
+
+		 $(".wra_downstairs").hover(
+            function(){$(this).show()},  function(){$(this).delay(10000).hide(1);}
+           );   
+ 
+      });
+   </script>
+ 
+</body>
+</html>

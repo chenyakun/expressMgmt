@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>快递网点大全</title>
+<meta name="keywords" content="快递网点大全,快递网点电话,快递电话大全">
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201301291645" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/citylist.css?version=201301291645" />
+<style type="text/css">.dl-list dd .a-red{color:#EF8200;font-weight:bold;}</style>
+</head>
+<body>
+<input type="hidden" id="headerMenu" value="networkQuery networkAll" />
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="../claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="applyJoin.shtml">网点发布申请</a></li><li><a href="invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="../claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="../help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="../help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="../help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="../login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="../login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="../login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="../login.html">登录</a>&nbsp;|&nbsp;<a href="../user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="clist.shtml#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="../index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="../index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="../orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="../user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="../openapi/index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="../index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="../wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="../luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="../guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="../all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="../auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="clist.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="clist.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="clist.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="clist.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="clist.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="clist.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="clist.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<div class="container w960">
+  <div class="tips-top w960"><a href="../index.html">首页</a>&nbsp;&gt;&nbsp;<strong>快递网点大全</strong></div>
+  <div class="box"></div>
+  <div class="dlbox">
+  <div class="select-city">
+      <form id="cityChange" method="post" action="">
+        <ul>
+          <li>请选择您需要查询网点的城市：</li>
+          <li> <span id="cityName_input"></span> [&nbsp;<a href="clist.shtml#" onclick="$('#provinces').toggle();return false;" class="selectCity">请选择</a>&nbsp;]
+            <input id="cityId_input" name="cityId_input" value="" type='hidden'/>
+            <div id="provinces" class="location-box" style="display:none;">
+              <ul class="tab-list">
+                <li id="select-tab" style="left:70px"></li>
+                <li class="hidden tab"></li>
+                <li class="select tab" id="province" index="1"><a href="clist.shtml#">省份</a></li>
+                <li class="tab" id="city" index="2"><a href="clist.shtml#">城市</a></li>
+              </ul>
+              <div class="hidden tab-box">
+              </div>
+              <div class="tab-box province-box">
+                <dl>
+                  <dt>A-G</dt>
+                  <dd> <a class="place province" href="clist.shtml#" code="34">安徽</a> <a class="place province" href="clist.shtml#" code="11">北京</a> <a class="place province" href="clist.shtml#" code="50">重庆</a> <a class="place province" href="clist.shtml#" code="35">福建</a> <a class="place province" href="clist.shtml#" code="62">甘肃</a> <a class="place province" href="clist.shtml#" code="44">广东</a> <a class="place province" href="clist.shtml#" code="45">广西</a> <a class="place province" href="clist.shtml#" code="52">贵州</a> </dd>
+                  <dt>H-K</dt>
+                  <dd> <a class="place province" href="clist.shtml#" code="46">海南</a> <a class="place province" href="clist.shtml#" code="13">河北</a> <a class="place province" href="clist.shtml#" code="41">河南</a> <a class="place province" href="clist.shtml#" code="23">黑龙江</a> <a class="place province" href="clist.shtml#" code="42">湖北</a> <a class="place province" href="clist.shtml#" code="43">湖南</a> <a class="place province" href="clist.shtml#" code="22">吉林</a> <a class="place province" href="clist.shtml#" code="32">江苏</a> <a class="place province" href="clist.shtml#" code="36">江西</a> </dd>
+                  <dt>L-S</dt>
+                  <dd> <a class="place province" href="clist.shtml#" code="21">辽宁</a> <a class="place province" href="clist.shtml#" code="15">内蒙古</a> <a class="place province" href="clist.shtml#" code="64">宁夏</a> <a class="place province" href="clist.shtml#" code="63">青海</a> <a class="place province" href="clist.shtml#" code="37">山东</a> <a class="place province" href="clist.shtml#" code="14">山西</a> <a class="place province" href="clist.shtml#" code="61">陕西</a> <a class="place province" href="clist.shtml#" code="31">上海</a> <a class="place province" href="clist.shtml#" code="51">四川</a> </dd>
+                  <dt>T-Z</dt>
+                  <dd> <a class="place province" href="clist.shtml#" code="12">天津</a> <a class="place province" href="clist.shtml#" code="54">西藏</a> <a class="place province" href="clist.shtml#" code="65">新疆</a> <a class="place province" href="clist.shtml#" code="53">云南</a> <a class="place province" href="clist.shtml#" code="33">浙江</a> </dd>
+                </dl>
+              </div>
+              <div class="hidden tab-box"></div>
+            </div>
+            <div class="box"></div>
+          </li>
+          <li>
+            <input type="button" name="" value="确 定"  class="input_btn" onclick="query_city()">
+          </li>
+        </ul>
+      </form>
+      <div class="box"></div>
+  </div>
+  <div class="hot-city-list">热门城市： <a href="net_1101_all_all_1.htm">北京</a> <a href="net_3101_all_all_1.htm">上海</a> <a href="net_4401_all_all_1.htm">广州</a> <a href="net_4403_all_all_1.htm">深圳</a> <a href="net_3301_all_all_1.htm">杭州</a> <a href="net_5101_all_all_1.htm">成都</a> <a href="net_3205_all_all_1.htm">苏州</a> <a href="net_4419_all_all_1.htm">东莞</a> <a href="net_4201_all_all_1.htm">武汉</a> <a href="net_1201_all_all_1.htm">天津</a> <a href="net_6101_all_all_1.htm">西安</a> 
+  <a href="net_4101_all_all_1.htm">郑州</a> <a href="net_3201_all_all_1.htm">南京</a> <a href="net_5001_all_all_1.htm">重庆</a> <a href="net_3702_all_all_1.htm">青岛</a> <a href="net_3302_all_all_1.htm">宁波</a> <a href="net_3307_all_all_1.htm">金华</a> <a href="net_3303_all_all_1.htm">温州</a> <a href="net_3202_all_all_1.htm">无锡</a> <a href="net_3701_all_all_1.htm">济南</a></div>
+  <h2>按拼音首字母选择<span></span></h2>
+  <dl class="dl-list">
+    <dt>A</dt>
+    <dd><a href="net_2103_all_all_1.htm">鞍山市</a><a href="net_3408_all_all_1.htm">安庆市</a><a href="net_4105_all_all_1.htm">安阳市</a><a href="net_6529_all_all_1.htm">阿克苏地区</a><a href="net_6109_all_all_1.htm">安康市</a><a href="net_5204_all_all_1.htm">安顺市</a><a href="net_5425_all_all_1.htm">阿里地区</a>
+    <a href="net_1529_all_all_1.htm">阿拉善盟</a><a href="net_6543_all_all_1.htm">阿勒泰地区</a><a href="net_5132_all_all_1.htm">阿坝藏族羌族自治州</a></dd>
+    <dt>B</dt>
+    <dd><a href="net_1101_all_all_1.htm" class="a-red">北京市</a><a href="net_1306_all_all_1.htm">保定市</a><a href="net_1502_all_all_1.htm">包头市</a><a href="net_3716_all_all_1.htm">滨州市</a><a href="net_3403_all_all_1.htm">蚌埠市</a><a href="net_2208_all_all_1.htm">白城市</a><a href="net_6103_all_all_1.htm">宝鸡市</a><a href="net_2105_all_all_1.htm">本溪市</a>
+    <a href="net_3416_all_all_1.htm">亳州市</a><a href="net_4505_all_all_1.htm">北海市</a><a href="net_5305_all_all_1.htm">保山市</a><a href="net_2206_all_all_1.htm">白山市</a><a href="net_6528_all_all_1.htm">巴音郭楞蒙古自治州</a><a href="net_1508_all_all_1.htm">巴彦淖尔市</a><a href="net_4510_all_all_1.htm">百色市</a><a href="net_6204_all_all_1.htm">白银市</a><a href="net_5119_all_all_1.htm">巴中市</a><a href="net_5224_all_all_1.htm">毕节地区</a><a href="net_4645_all_all_1.htm">白沙黎族自治县</a><a href="net_4649_all_all_1.htm">保亭黎族苗族自治县</a><a href="net_6527_all_all_1.htm">博尔塔拉蒙古自治州</a></dd>
+    <dt>C</dt>
+    <dd><a href="net_5101_all_all_1.htm">成都市</a><a href="net_5001_all_all_1.htm" class="a-red">重庆市</a><a href="net_4301_all_all_1.htm">长沙市</a><a href="net_2201_all_all_1.htm">长春市</a><a href="net_3204_all_all_1.htm">常州市</a><a href="net_1309_all_all_1.htm">沧州市</a><a href="net_4310_all_all_1.htm">郴州市</a><a href="net_4451_all_all_1.htm">潮州市</a><a href="net_3411_all_all_1.htm">滁州市</a><a href="net_1308_all_all_1.htm">承德市</a><a href="net_1404_all_all_1.htm">长治市</a><a href="net_5421_all_all_1.htm">昌都地区</a><a href="net_4307_all_all_1.htm">常德市</a>
+    <a href="net_1504_all_all_1.htm">赤峰市</a><a href="net_3414_all_all_1.htm">巢湖市</a><a href="net_2113_all_all_1.htm">朝阳市</a><a href="net_4514_all_all_1.htm">崇左市</a><a href="net_3417_all_all_1.htm">池州市</a><a href="net_6523_all_all_1.htm">昌吉回族自治州</a><a href="net_4646_all_all_1.htm">昌江黎族自治县</a><a href="net_5323_all_all_1.htm">楚雄彝族自治州</a></dd>
+    <dt>D</dt>
+    <dd><a href="net_4419_all_all_1.htm">东莞市</a><a href="net_2102_all_all_1.htm">大连市</a><a href="net_2306_all_all_1.htm">大庆市</a><a href="net_3705_all_all_1.htm">东营市</a><a href="net_3714_all_all_1.htm">德州市</a><a href="net_5106_all_all_1.htm">德阳市</a><a href="net_1402_all_all_1.htm">大同市</a><a href="net_2106_all_all_1.htm">丹东市</a><a href="net_5117_all_all_1.htm">达州市</a><a href="net_5329_all_all_1.htm">大理白族自治州</a><a href="net_6211_all_all_1.htm">定西市</a><a href="net_2327_all_all_1.htm">大兴安岭地区</a><a href="net_4641_all_all_1.htm">定安县</a><a href="net_4627_all_all_1.htm">东方市</a><a href="net_4643_all_all_1.htm">澄迈县</a><a href="net_4623_all_all_1.htm">儋州市</a><a href="net_5331_all_all_1.htm">德宏傣族景颇族自治州</a><a href="net_5334_all_all_1.htm">迪庆藏族自治州</a> <a href="clist.shtml#">钓鱼岛</a></dd>
+    <dt>E</dt>
+    <dd><a href="net_4228_all_all_1.htm">恩施州</a><a href="net_4207_all_all_1.htm">鄂州市</a><a href="net_1506_all_all_1.htm">鄂尔多斯市</a></dd>
+    <dt>F</dt>
+    <dd><a href="net_4406_all_all_1.htm">佛山市</a><a href="net_3501_all_all_1.htm">福州市</a><a href="net_3412_all_all_1.htm">阜阳市</a><a href="net_2104_all_all_1.htm">抚顺市</a><a href="net_3610_all_all_1.htm">抚州市</a><a href="net_2109_all_all_1.htm">阜新市</a><a href="net_4506_all_all_1.htm">防城港市</a></dd>
+    <dt>G</dt>
+    <dd><a href="net_4401_all_all_1.htm" class="a-red">广州市</a><a href="net_5201_all_all_1.htm">贵阳市</a><a href="net_3607_all_all_1.htm">赣州市</a><a href="net_4503_all_all_1.htm">桂林市</a><a href="net_5108_all_all_1.htm">广元市</a><a href="net_4508_all_all_1.htm">贵港市</a><a href="net_5116_all_all_1.htm">广安市</a><a href="net_6404_all_all_1.htm">固原市</a><a href="net_6230_all_all_1.htm">甘南藏族自治州</a><a href="net_5133_all_all_1.htm">甘孜藏族自治州</a></dd>
+    <dt>H</dt>
+    <dd><a href="net_3301_all_all_1.htm" class="a-red">杭州市</a><a href="net_3401_all_all_1.htm">合肥市</a><a href="net_2301_all_all_1.htm">哈尔滨市</a><a href="net_4413_all_all_1.htm">惠州市</a><a href="net_4601_all_all_1.htm">海口市</a><a href="net_1501_all_all_1.htm">呼和浩特市</a><a href="net_3305_all_all_1.htm">湖州市</a><a href="net_1304_all_all_1.htm">邯郸市</a><a href="net_3208_all_all_1.htm">淮安市</a><a href="net_1311_all_all_1.htm">衡水市</a><a href="net_3406_all_all_1.htm">淮北市</a><a href="net_3717_all_all_1.htm">菏泽市</a><a href="net_4304_all_all_1.htm">衡阳市</a>
+    <a href="net_3404_all_all_1.htm">淮南市</a><a href="net_1507_all_all_1.htm">呼伦贝尔市</a><a href="net_4211_all_all_1.htm">黄冈市</a><a href="net_2114_all_all_1.htm">葫芦岛市</a><a href="net_4202_all_all_1.htm">黄石市</a><a href="net_6107_all_all_1.htm">汉中市</a><a href="net_3410_all_all_1.htm">黄山市</a><a href="net_4312_all_all_1.htm">怀化市</a><a href="net_4106_all_all_1.htm">鹤壁市</a><a href="net_4416_all_all_1.htm">河源市</a><a href="net_2311_all_all_1.htm">黑河市</a><a href="net_4512_all_all_1.htm">河池市</a><a href="net_4511_all_all_1.htm">贺州市</a>
+    <a href="net_2304_all_all_1.htm">鹤岗市</a><a href="net_6532_all_all_1.htm">和田地区</a><a href="net_6321_all_all_1.htm">海东地区</a><a href="net_6522_all_all_1.htm">哈密地区</a><a href="net_5325_all_all_1.htm">红河哈尼族彝族自治州</a><a href="net_6325_all_all_1.htm">海南藏族自治州</a><a href="net_6328_all_all_1.htm">海西蒙古族藏族自治州</a></dd>
+    <dt>J</dt>
+    <dd><a href="net_3307_all_all_1.htm">金华市</a><a href="net_3701_all_all_1.htm">济南市</a><a href="net_3304_all_all_1.htm">嘉兴市</a><a href="net_3708_all_all_1.htm">济宁市</a><a href="net_4407_all_all_1.htm">江门市</a><a href="net_2202_all_all_1.htm">吉林市</a><a href="net_4131_all_all_1.htm">济源市</a><a href="net_4210_all_all_1.htm">荆州市</a><a href="net_4108_all_all_1.htm">焦作市</a><a href="net_3604_all_all_1.htm">九江市</a><a href="net_2107_all_all_1.htm">锦州市</a><a href="net_2308_all_all_1.htm">佳木斯市</a><a href="net_3608_all_all_1.htm">吉安市</a><a href="net_6203_all_all_1.htm">金昌市</a><a href="net_1405_all_all_1.htm">晋城市</a><a href="net_3602_all_all_1.htm">景德镇市</a><a href="net_4208_all_all_1.htm">荆门市</a><a href="net_6209_all_all_1.htm">酒泉市</a>
+    <a href="net_2303_all_all_1.htm">鸡西市</a><a href="net_4452_all_all_1.htm">揭阳市</a><a href="net_1407_all_all_1.htm">晋中市</a><a href="net_6202_all_all_1.htm">嘉峪关市</a></dd>
+    <dt>K</dt>
+    <dd><a href="net_5301_all_all_1.htm">昆明市</a><a href="net_4102_all_all_1.htm">开封市</a><a href="net_6531_all_all_1.htm">喀什地区</a><a href="net_6502_all_all_1.htm">克拉玛依市</a><a href="net_6530_all_all_1.htm">克孜勒苏柯尔克孜自治州</a></dd>
+    <dt>L</dt>
+    <dd><a href="net_3713_all_all_1.htm">临沂市</a><a href="net_4103_all_all_1.htm">洛阳市</a><a href="net_6201_all_all_1.htm">兰州市</a><a href="net_1310_all_all_1.htm">廊坊市</a><a href="net_3207_all_all_1.htm">连云港市</a><a href="net_3715_all_all_1.htm">聊城市</a><a href="net_4502_all_all_1.htm">柳州市</a><a href="net_3311_all_all_1.htm">丽水市</a><a href="net_1410_all_all_1.htm">临汾市</a><a href="net_5111_all_all_1.htm">乐山市</a><a href="net_3415_all_all_1.htm">六安市</a><a href="net_3508_all_all_1.htm">龙岩市</a><a href="net_5401_all_all_1.htm">拉萨市</a>
+    <a href="net_5105_all_all_1.htm">泸州市</a><a href="net_2110_all_all_1.htm">辽阳市</a><a href="net_4111_all_all_1.htm">漯河市</a><a href="net_4313_all_all_1.htm">娄底市</a><a href="net_5134_all_all_1.htm">凉山彝族自治州</a><a href="net_3712_all_all_1.htm">莱芜市</a><a href="net_1411_all_all_1.htm">吕梁市</a><a href="net_5202_all_all_1.htm">六盘水市</a><a href="net_2204_all_all_1.htm">辽源市</a><a href="net_5307_all_all_1.htm">丽江市</a><a href="net_6212_all_all_1.htm">陇南市</a><a href="net_4513_all_all_1.htm">来宾市</a><a href="net_5309_all_all_1.htm">临沧市</a><a href="net_6229_all_all_1.htm">临夏回族自治州</a><a href="net_4644_all_all_1.htm">临高县</a><a href="net_4648_all_all_1.htm">陵水黎族自治县</a><a href="net_5426_all_all_1.htm">林芝地区</a></dd>
+    <dt>M</dt>
+    <dd><a href="net_5107_all_all_1.htm">绵阳市</a><a href="net_3405_all_all_1.htm">马鞍山市</a><a href="net_2310_all_all_1.htm">牡丹江市</a><a href="net_4409_all_all_1.htm">茂名市</a><a href="net_5114_all_all_1.htm">眉山市</a><a href="net_4414_all_all_1.htm">梅州市</a></dd>
+    <dt>N</dt>
+    <dd><a href="net_3201_all_all_1.htm" class="a-red">南京市</a><a href="net_3302_all_all_1.htm">宁波市</a><a href="net_3206_all_all_1.htm">南通市</a><a href="net_3601_all_all_1.htm">南昌市</a><a href="net_4501_all_all_1.htm">南宁市</a><a href="net_4113_all_all_1.htm">南阳市</a><a href="net_3509_all_all_1.htm">宁德市</a><a href="net_5113_all_all_1.htm">南充市</a><a href="net_3507_all_all_1.htm">南平市</a><a href="net_5110_all_all_1.htm">内江市</a><a href="net_5333_all_all_1.htm">怒江傈僳族自治州</a><a href="net_5424_all_all_1.htm">那曲地区</a> <a href="clist.shtml#">南沙群岛</a></dd>
+    <dt>P</dt>
+    <dd><a href="net_3503_all_all_1.htm">莆田市</a><a href="net_4104_all_all_1.htm">平顶山市</a><a href="net_2111_all_all_1.htm">盘锦市</a><a href="net_4109_all_all_1.htm">濮阳市</a><a href="net_5104_all_all_1.htm">攀枝花市</a><a href="net_3603_all_all_1.htm">萍乡市</a><a href="net_6208_all_all_1.htm">平凉市</a><a href="net_5308_all_all_1.htm">普洱市</a></dd>
+    <dt>Q</dt>
+    <dd><a href="net_3702_all_all_1.htm">青岛市</a><a href="net_3505_all_all_1.htm">泉州市</a><a href="net_1303_all_all_1.htm">秦皇岛市</a><a href="net_2302_all_all_1.htm">齐齐哈尔市</a><a href="net_3308_all_all_1.htm">衢州市</a><a href="net_4418_all_all_1.htm">清远市</a><a href="net_4507_all_all_1.htm">钦州市</a><a href="net_5303_all_all_1.htm">曲靖市</a><a href="net_4622_all_all_1.htm">琼海市</a><a href="net_4245_all_all_1.htm">潜江市</a><a href="net_2309_all_all_1.htm">七台河市</a><a href="net_6210_all_all_1.htm">庆阳市</a><a href="net_5226_all_all_1.htm">黔东南苗族侗族自治州</a><a href="net_5227_all_all_1.htm">黔南布依族苗族自治州</a><a href="net_5223_all_all_1.htm">黔西南布依族苗族自治州</a><a href="net_4650_all_all_1.htm">琼中黎族苗族自治县</a></dd>
+    <dt>R</dt>
+    <dd><a href="net_3711_all_all_1.htm">日照市</a><a href="net_5423_all_all_1.htm">日喀则地区</a></dd>
+    <dt>S</dt>
+    <dd><a href="net_3101_all_all_1.htm" class="a-red">上海市</a><a href="net_4403_all_all_1.htm" class="a-red">深圳市</a><a href="net_3205_all_all_1.htm" class="a-red">苏州市</a><a href="net_2101_all_all_1.htm">沈阳市</a><a href="net_1301_all_all_1.htm">石家庄市</a><a href="net_3306_all_all_1.htm">绍兴市</a><a href="net_4405_all_all_1.htm">汕头市</a><a href="net_3413_all_all_1.htm">宿州市</a><a href="net_3213_all_all_1.htm">宿迁市</a>                                                                                                                                                                                  <a href="net_4203_all_all_1.htm">十堰市</a><a href="net_4114_all_all_1.htm">商丘市</a><a href="net_4602_all_all_1.htm">三亚市</a><a href="net_3611_all_all_1.htm">上饶市</a>
+    <a href="net_4402_all_all_1.htm">韶关市</a><a href="net_3504_all_all_1.htm">三明市</a><a href="net_4305_all_all_1.htm">邵阳市</a><a href="net_4112_all_all_1.htm">三门峡市</a><a href="net_4415_all_all_1.htm">汕尾市</a><a href="net_2312_all_all_1.htm">绥化市</a><a href="net_2203_all_all_1.htm">四平市</a><a href="net_6110_all_all_1.htm">商洛市</a><a href="net_5422_all_all_1.htm">山南地区</a><a href="net_4261_all_all_1.htm">神农架林区</a><a href="net_5109_all_all_1.htm">遂宁市</a><a href="net_2207_all_all_1.htm">松原市</a><a href="net_2305_all_all_1.htm">双鸭山市</a><a href="net_1406_all_all_1.htm">朔州市</a><a href="net_4213_all_all_1.htm">随州市</a><a href="net_6402_all_all_1.htm">石嘴山市</a></dd>
+    <dt>T</dt>
+    <dd><a href="net_1201_all_all_1.htm" class="a-red">天津市</a><a href="net_1401_all_all_1.htm">太原市</a><a href="net_3310_all_all_1.htm">台州市</a><a href="net_3212_all_all_1.htm">泰州市</a><a href="net_1302_all_all_1.htm">唐山市</a><a href="net_2205_all_all_1.htm">通化市</a><a href="net_3709_all_all_1.htm">泰安市</a><a href="net_1505_all_all_1.htm">通辽市</a><a href="net_2112_all_all_1.htm">铁岭市</a><a href="net_3407_all_all_1.htm">铜陵市</a><a href="net_6102_all_all_1.htm">铜川市</a><a href="net_6205_all_all_1.htm">天水市</a><a href="net_4642_all_all_1.htm">屯昌县</a><a href="net_4246_all_all_1.htm">天门市</a><a href="net_5222_all_all_1.htm">铜仁地区</a><a href="net_6542_all_all_1.htm">塔城地区</a><a href="net_6521_all_all_1.htm">吐鲁番地区</a></dd>
+    <dt>W</dt>
+    <dd><a href="net_4201_all_all_1.htm">武汉市</a><a href="net_3303_all_all_1.htm">温州市</a><a href="net_3202_all_all_1.htm">无锡市</a><a href="net_3707_all_all_1.htm">潍坊市</a><a href="net_6501_all_all_1.htm">乌鲁木齐市</a><a href="net_3402_all_all_1.htm">芜湖市</a><a href="net_5326_all_all_1.htm">文山壮族苗族自治州</a><a href="net_4504_all_all_1.htm">梧州市</a><a href="net_6105_all_all_1.htm">渭南市</a><a href="net_6403_all_all_1.htm">吴忠市</a><a href="net_1503_all_all_1.htm">乌海市</a><a href="net_6206_all_all_1.htm">武威市</a><a href="net_4625_all_all_1.htm">文昌市</a><a href="net_3710_all_all_1.htm">威海市</a><a href="net_4626_all_all_1.htm">万宁市</a><a href="net_1509_all_all_1.htm">乌兰察布市</a><a href="net_4621_all_all_1.htm">五指山市</a></dd>
+    <dt>X</dt>
+    <dd><a href="net_6101_all_all_1.htm">西安市</a><a href="net_3502_all_all_1.htm" class="a-red">厦门市</a><a href="net_3203_all_all_1.htm">徐州市</a><a href="net_1305_all_all_1.htm">邢台市</a><a href="net_4107_all_all_1.htm">新乡市</a><a href="net_4206_all_all_1.htm">襄樊市</a><a href="net_4115_all_all_1.htm">信阳市</a><a href="net_4303_all_all_1.htm">湘潭市</a><a href="net_4209_all_all_1.htm">孝感市</a><a href="net_6301_all_all_1.htm">西宁市</a><a href="net_4110_all_all_1.htm">许昌市</a><a href="net_6104_all_all_1.htm">咸阳市</a><a href="net_3418_all_all_1.htm">宣城市</a>
+    <a href="net_4212_all_all_1.htm">咸宁市</a><a href="net_4244_all_all_1.htm">仙桃市</a><a href="net_3605_all_all_1.htm">新余市</a><a href="net_1409_all_all_1.htm">忻州市</a><a href="net_1522_all_all_1.htm">兴安盟</a><a href="net_1525_all_all_1.htm">锡林郭勒盟</a><a href="net_5328_all_all_1.htm">西双版纳傣族自治州</a><a href="net_4331_all_all_1.htm">湘西土家族苗族自治州</a><a href="clist.shtml#">西沙群岛</a></dd>
+    <dt>Y</dt>
+    <dd><a href="net_3706_all_all_1.htm">烟台市</a><a href="net_3210_all_all_1.htm">扬州市</a><a href="net_3209_all_all_1.htm">盐城市</a><a href="net_4205_all_all_1.htm">宜昌市</a><a href="net_6401_all_all_1.htm">银川市</a><a href="net_4306_all_all_1.htm">岳阳市</a><a href="net_5115_all_all_1.htm">宜宾市</a><a href="net_4509_all_all_1.htm">玉林市</a><a href="net_6106_all_all_1.htm">延安市</a><a href="net_2224_all_all_1.htm">延边朝鲜族自治州</a><a href="net_2108_all_all_1.htm">营口市</a><a href="net_3609_all_all_1.htm">宜春市</a>
+    <a href="net_6108_all_all_1.htm">榆林市</a><a href="net_4311_all_all_1.htm">永州市</a><a href="net_4309_all_all_1.htm">益阳市</a><a href="net_1403_all_all_1.htm">阳泉市</a><a href="net_4417_all_all_1.htm">阳江市</a><a href="net_4453_all_all_1.htm">云浮市</a><a href="net_5118_all_all_1.htm">雅安市</a><a href="net_2307_all_all_1.htm">伊春市</a><a href="net_1408_all_all_1.htm">运城市</a><a href="net_3606_all_all_1.htm">鹰潭市</a><a href="net_5304_all_all_1.htm">玉溪市</a><a href="net_4647_all_all_1.htm">乐东黎族自治县</a><a href="net_6540_all_all_1.htm">伊犁哈萨克自治州</a></dd>
+    <dt>Z</dt>
+    <dd><a href="net_4101_all_all_1.htm">郑州市</a><a href="net_4420_all_all_1.htm">中山市</a><a href="net_4404_all_all_1.htm" class="a-red">珠海市</a><a href="net_3703_all_all_1.htm">淄博市</a><a href="net_3211_all_all_1.htm">镇江市</a><a href="net_4302_all_all_1.htm">株洲市</a><a href="net_3506_all_all_1.htm">漳州市</a><a href="net_3704_all_all_1.htm">枣庄市</a><a href="net_1307_all_all_1.htm">张家口市</a><a href="net_4412_all_all_1.htm">肇庆市</a><a href="net_4408_all_all_1.htm">湛江市</a><a href="net_4116_all_all_1.htm">周口市</a>
+    <a href="net_3309_all_all_1.htm">舟山市</a><a href="net_4117_all_all_1.htm">驻马店市</a><a href="net_5203_all_all_1.htm">遵义市</a><a href="net_5103_all_all_1.htm">自贡市</a><a href="net_5120_all_all_1.htm">资阳市</a><a href="net_6207_all_all_1.htm">张掖市</a><a href="net_5306_all_all_1.htm">昭通市</a><a href="net_4308_all_all_1.htm">张家界市</a><a href="net_6405_all_all_1.htm">中卫市</a></dd>
+  </dl>
+  <div class="clear"></div>
+  </div>
+</div>
+<div class="footer w960 mt10px">
+<script language="javascript" type="text/javascript" src="http://images.youshang.com/kuaidi100/js/util/footer_index.js?version=201212251730"></script> 
+</div>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201301291645"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/areas.js?version=201301291645"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/city.js?version=201301291645"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201301291645"></script>
+<script type="text/javascript" src="http://www.kuaidi100.com/js/page/network/arealist.js?version=201301291645"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201301291645"></script>
+<script type="text/javascript">cityinit("provinces",0);</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201301291645"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>手机查快递_</title>
+<meta name="keywords" content="" />
+<meta name="description" content="随时随地查快递，wap端客户端都可以。iPhone客户端下载,Android客户端下载.wap.kuaidi100.com" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://www.kuaidi100.com/css/mobile_new.css?version=201303201326" />
+</head>
+<body>
+<input type="hidden" id="headerMenu" value="mobileQuery" />
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="../network/distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="../claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="../network/applyJoin.shtml">网点发布申请</a></li><li><a href="../network/invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="../claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="../help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="../help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="../help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="../login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="../login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="../login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="../login.html">登录</a>&nbsp;|&nbsp;<a href="../user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="Android.shtml#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="../index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="../index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="../orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="../user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="../openapi/index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="../index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="../wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="../luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="../guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="../all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="../auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="../network/clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="Android.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="Android.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="Android.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="Android.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="Android.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="Android.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="Android.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<div class="container w960">
+	<div class="banner">
+    	<div class="Android_banner_1"></div>
+    	<div class="Android_banner_2"></div>
+    	<div class="Android_banner_3"></div>
+    	<div class="Android_banner_4"></div>
+        <a href="http://126.am/111SM" class="a-Android-download"></a>
+        <a id="weixin" class="a-weixin"></a>
+        <img id="weixinImg" class="img-weixin hidden" src="http://www.kuaidi100.com/images/mobile/weixinImg.png" width="403" height="231" alt="微信二维码" />
+    </div>
+    <div class="menu">
+    	<a href="Android.shtml" class="a-Android-selected"></a><a href="iPhone.shtml" class="a-iPhone"></a><a href="http://www.kuaidi100.com/mobile/wap.shtml" class="a-wap"><a href="http://www.kuaidi100.com/mobile/html5.shtml" class="a-html5"></a><a href="http://www.kuaidi100.com/mobile/other.shtml" class="a-other"></a>
+    </div><!--menu --> 
+    <div class="section bbd">
+    	<div class="column fr">
+        	<h2>合作伙伴：</h2>
+            <a href="http://www.kuaipai.cn" target="_blank" class="a-box"><img src="http://cdn.kuaidi100.com/images/mobile/partner_1.png" width="173" height="37" alt="灵动快拍" /></a>
+            <a class="a-box">魅族软件</a>
+            <a href="http://www.anfensi.com/" target="_blank" class="a-box">安卓 游戏下载</a>
+            <a class="a-box">网易应用中心</a>
+        </div>
+    	<div class="column">
+        	<h2>最新版本：V1.1.1</h2>
+            <ul>
+            	<li>1.增加了以下49家快递公司：</li>
+            	<li>&emsp;安捷快递、BHT国际快递、CCES(希伊艾斯)、COE(中国东方)、DHL-</li>
+                <li>&emsp;德国、DPEX、EMS-国际、E邮宝、凡客、FedEx-美国、FedEx-国</li>
+                <li>&emsp;内、飞快达、共速达、GLS、华宇物流、恒路物流、海外环球、华夏</li>
+                <li>&emsp;龙、佳吉快运、嘉里大通、京广速递、金大物流、晋越快递、加运美、</li>
+                <li>&emsp;蓝镖快递、立即送、乐捷递、民航快递、美国快递、门对门、能达物</li>
+                <li>&emsp;流、OCS、全峰快递、速尔快递、盛辉物流、盛丰物流、上大国际、</li>
+                <li>&emsp;山东海红、赛澳递、USPS、万家物流、信丰物流、邮政国际包裹、</li>
+                <li>&emsp;邮政特快专递、源安达、原飞航、银捷速递中铁物流、芝麻开门、忠</li>
+                <li>&emsp;信达；</li>
+                <li>2.更换了"高考录取通知书"loading图。</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section bbs">
+    	<div class="column" style="width:900px;">
+        	<h2>特别提醒：</h2>
+            <ul>
+            	<li>1.安卓电子市场（Android Market）上的1.0.1版本为适应market的证书要求而做的版本，功能与1.0.0版本是一样的，请各位用户不要选择在</li>
+            	<li>&emsp;Android market上更新。从1.0.2版本开始恢复各大平台同步。</li>
+            	<li>2.此版本采用了符合Android Market要求的签名，与1.0.0版本的签名不一致，所以必须卸载原来的版本才可以安装此版本，在安装前请各位把原</li>
+            	<li>&emsp;版本中数据手动做一下备份，对您造成的不便表示深切的歉意！我们会继续为各位提供稳定的优质服务！</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section bbd">
+    	<div class="column fr">
+        	<h2>我的快递单：</h2>
+            <p>自动保存您查过的快递单，可点击查询明细，编辑备注，</p>
+            <p>左右滑动切换，让快递单信息一目了然。</p>
+            <img src="http://cdn.kuaidi100.com/images/mobile/eg_android_02.jpg" width="320" height="534" />
+        </div>
+    	<div class="column">
+        	<h2>快递速查：</h2>
+            <p>无需输入验证码，加上方便的条码扫描，</p>
+            <p>实现真正的一键速查。</p>
+            <img src="http://cdn.kuaidi100.com/images/mobile/eg_android_01.jpg" width="320" height="534" />
+        </div>
+    </div>
+    <div class="section bbd">
+    	<div class="column fr">
+        	<h2>支持百余家快递物流公司：</h2>
+            <p>支持圆通、申通、顺丰、中通、韵达等过百家快递公司，</p>
+            <p>独家支持「无需验证码」的「EMS」快递单号查询。</p>
+            <img src="http://cdn.kuaidi100.com/images/mobile/eg_android_04.jpg" width="320" height="534" />
+        </div>
+    	<div class="column">
+        	<h2>快递大全：</h2>
+            <p>快递怎么还没到？打快递公司电话询问一下吧。</p>
+            <p>或者直接打开快递公司网站，查查你身边最近的网点。</p>
+            <img src="http://cdn.kuaidi100.com/images/mobile/eg_android_03.jpg" width="320" height="534" />
+        </div>
+    </div>
+    <div class="section">
+    	<a href="http://126.am/111XM" class="a-Android-download2"></a>
+    </div>
+</div>
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script>
+<script>
+$(function(){
+	$("#weixin").mouseenter(function(){
+		$("#weixinImg").show();
+	}).mouseleave(function(){
+		$("#weixinImg").hide();
+	});
+});
+</script>
+<script type="text/javascript">function gototop(){acceleration=0.3;time=15;var x=0,y=0;if(document.documentElement){x=document.documentElement.scrollLeft||0;y=document.documentElement.scrollTop||0;}var speed=1+acceleration;window.scrollTo(Math.floor(x/speed),Math.floor(y/speed));if(x>0||y>0){var invokeFunction="gototop()";window.setTimeout(invokeFunction,time);}}</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>

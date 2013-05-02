@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>快递网点管理后台登录</title>
+<meta name="keywords" content="快递网点管理后台登录" />
+<meta name="description" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/netpot.css?version=201303201326" />
+</head>
+<body>
+<div class="header">
+	<div class="header-center">
+		<div class="header-top-logo"></div>
+		<div class="header-top-pic"></div>		 
+	</div><!--header-center --> 
+</div><!--header --> 
+
+<div class="stage">
+   <div class="stageMain">
+        <div class="pad_stageWindow">
+       <div class="stageWindow">
+	       <div class="stage_tit">欢迎登录快递网点管理后台</div><!--stage_tit -->
+	       <form id="loginNetForm">
+			   <div class="career">
+			         <table class="career_table">
+			         <tr>
+			           <td	class="spatular_td">用户名：</td>
+			           <td ><input type="text" id="account" name="name" value="" class="frisky_input"/></td>
+			         </tr>
+					 <tr>
+			           <td class="spatular_td">密　码：</td>
+			           <td ><input type="password" id="password" name="pwd" value="" class="frisky_input"/></td>
+			         </tr>
+					 <tr>
+			           <td ></td>
+			           <td ><div class="spat_deng" onclick="loginNet();return false;">登录</div></td>
+			         </tr>
+			         </table>
+					 <div class="smack" style="visibility:hidden;">还不是入驻合作网点？ <span class=""><a href="../network/applyJoin.shtml" class="">立即申请入驻</a></span> <img src="http://cdn.kuaidi100.com/images/network/faq_arrow.gif" alt="" /></div>
+			   </div><!--career -->	
+		   </form>
+	   </div><!-- stageWindow-->
+     </div><!--pad_stageWindow -->
+   </div><!--stageMain -->		
+</div>
+	
+<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../js/loginNet.js"></script>
+<script type="text/javascript" src="../js/jquery-mail.js"></script>
+</body>
+</html>

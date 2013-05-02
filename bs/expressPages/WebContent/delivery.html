@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>快递价格查询_物流价格查询_</title>
+<meta name="Keywords" content="物流价格查询，快递价格查询" />
+<meta name="Description" content="快递、物流价格查询。如常用的韵达、德邦物流、天地华宇、新邦物流价格查询。" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/delivery.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/page/index.css?version=201303201326" />
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script>
+</head>
+<body>
+<input type="hidden" id="headerMenu" value="orderIndex" />
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="/network/distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="/claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="/network/applyJoin.shtml">网点发布申请</a></li><li><a href="/network/invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="/claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="/help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="/help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236 ">常见问题</a></li><li><a href="/help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="/login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="/login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="/login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="/login.html">登录</a>&nbsp;|&nbsp;<a href="/user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="http://www.kuaidi100.com"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="/" class="fl">快递查询</a>
+        <a id="networkQuery" href="/network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="/orderIndex.jsp?orderSource=orderIndex" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="/user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="/openapi/" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="/" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="/wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="/luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="/guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="/all/" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="/auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="/network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="/network/clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<script type="text/javascript">
+/*获取参数*/
+function GetQueryString1(name){
+	var reg=new RegExp("(^|&)"+name+"=([^&]*)(&|$)","i");
+    var r=window.location.search.substr(1).match(reg);
+    if(r!=null) return decodeURIComponent(r[2]);return "";
+}
+var headerMenu=GetQueryString1("headerMenu");
+if(headerMenu!=""){
+	$("#headerMenu").val(headerMenu);
+}
+function reinitIframe(){
+	var iframe = document.getElementById("frame_content");
+	try{
+		var bHeight = iframe.contentWindow.document.body.scrollHeight;
+		var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+		var height = Math.min(bHeight, dHeight);
+		iframe.height =  height;
+	}catch (ex){}
+}
+</script>
+<div class="container w960">
+	<iframe id="frame_content" name="frame_content" width="960" height="360" src="" frameBorder="0" scrolling="no" onload="reinitIframe()"></iframe>
+	<script type="text/javascript">
+		var frameSrc="trans.html?1=1";
+		//var frameSrc="http://192.168.249.243:8081/order/unlogin/delivery.jsp?source=kuaidi100";
+		var startPlace_input=GetQueryString1("startPlace_input");
+		var startPlace=GetQueryString1("startPlace");
+		var endPlace_input=GetQueryString1("endPlace_input");
+		var endPlace=GetQueryString1("endPlace");
+		var weight=GetQueryString1("weight");
+		var orderSource=GetQueryString1("orderSource");
+		if(orderSource!=""){
+			frameSrc+="&orderSource="+orderSource;
+		}else{
+			frameSrc+="&orderSource=none";
+		}
+		var scrollTop=452;
+		if(startPlace_input!=""&&startPlace!=""&&endPlace_input!=""&&endPlace!=""){
+			document.getElementById("frame_content").src=frameSrc+"&startPlace_input="+encodeURIComponent(startPlace_input)+"&startPlace="+startPlace+"&endPlace_input="+encodeURIComponent(endPlace_input)+"&endPlace="+endPlace+"&weight="+encodeURIComponent(weight);
+			scrollTop=160;
+		}else{
+			document.getElementById("frame_content").src=frameSrc;
+		}
+		document.getElementById("frame_content").height = "388";
+		
+		window.setInterval("reinitIframe()", 100);
+		function setTopShow(){
+			$("body,html,document").animate({
+				scrollTop : scrollTop
+			}, "normal");
+		}
+		function toTop(){
+			$("body,html,document").animate({
+				scrollTop : 0
+			}, "normal");
+		}
+	</script>
+	<input type="button" id="setTopShow" style="display:none;" onclick="setTopShow()"/>
+</div>
+<div class="w960" id="PAGE_AD_373881"></div>
+<div class="box"></div>
+
+<style >
+.color-org{
+text-align:right;
+}
+</style>
+
+
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script>
+<script type="text/javascript">$(document).ready(function(){try{if(window.frames["frame_content"].document.title.substr(0,3)== "404") window.location.href="/404.shtml"}catch (ex){}});</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');BAIDU_CLB_fillSlotAsync('373881','PAGE_AD_373881');</script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>

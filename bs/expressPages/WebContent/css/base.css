@@ -1,0 +1,219 @@
+/*
+主要字体颜色 #333
+次要字体颜色 #878787
+超级链接颜色 #0A8ECE
+标识字体颜色 #FE8D1D
+警示色（标红）#F21818
+全局变量*/
+*{-webkit-text-size-adjust:none;}
+html{overflow-y:scroll}
+html,body{text-align:left;}
+body,input,textarea,select,button{font:12px Tahoma,Arial,sans-serif;line-height:22px}
+input,textarea,select,button{vertical-align:middle}
+body,ul,ol,li,dl,dd,p,h1,h2,h3,h4,h5,h6,form,fieldset,table{margin:0;padding:0}
+img{vertical-align:middle;}
+h1,h2,h3,h4,h5,h6{font-size:1em}
+ul,dl{list-style:none}
+a{text-decoration:none}
+a:hover{outline:none;text-decoration:underline}
+.header,.sub-header,.container,.partner,.footer,.tips-top,.nav-box,.breadcrumbs{clear:both;margin:auto;width:960px}
+.meun-top{clear:both;margin:auto;width:960px}
+.clear{clear:both;font-size:0;line-height:0;height:10px}
+.box{clear:both;height:0px}
+*html .box{display:inline;clear:both}
+/*常用样式简写*/
+.fl{float:left}
+.fr{float:right}
+.hide{display:none}
+.mt5px_ie6{_margin-top:5px;}
+.mt6px_ie6{_margin-top:6px;}
+.mt10px{margin-top:10px}
+.mb10px{margin-bottom:10px}
+.mr10px{margin-right:10px}
+.p5px{padding:5px}
+.p10px{padding:10px}
+.p20px{padding:20px}
+.pl10px{padding-left:10px}
+.pl40px{padding-left:40px}
+.pl5em{padding-left:5em}
+.t2em{text-indent:2em}
+.hidden{display:none}
+.hide_word{text-indent:-65535px;overflow:hidden}
+.pointer{cursor:pointer}
+/*字体样式*/
+.font12px{font-size:12px}
+.font14px{font-size:14px}
+.font16px{font-size:16px}
+.fontnormal{font-weight:normal}
+/*头部*/
+.meun-top{z-index:10;line-height:34px;height:34px}
+.meun-top .div-fr{float:right;text-align:right}
+.meun-top .div-fl{float:left;text-align:left;padding-top:10px;line-height:14px;}
+.header{z-index:9;height:80px;position:relative;}
+.sub-header{width:960px;height:87px;margin:0 auto}
+.logo{float:left;height:80px;width:300px;}
+.sub-logo{float:right;height:35px;width:90px;margin-top:2px;}
+.top468-60{z-index:9;float:right;margin-top:10px;height:60px;width:640px;text-align:center;overflow:hidden}
+#frame_logout{position:absolute;left:-1000px}
+/*导航栏 - 客服中心*/
+.tabSpan{position:relative;z-index:10;width:80px;height:20px}
+.tabSpan-w{width:94px;}
+.tabSpan .service-link,.tabSpan .more-link{position:absolute;z-index:13;top:8px;*top:9px;_top:7px;left:10px;line-height:18px;padding-right:15px;vertical-align:middle;cursor:pointer;color:#0A8ECE;background:url("http://cdn.kuaidi100.com/images/ico_index.gif") 49px -259px no-repeat;*background:url("http://cdn.kuaidi100.com/images/ico_index.gif") 49px -261px no-repeat;_background:url("http://cdn.kuaidi100.com/images/ico_index.gif") 49px -259px no-repeat;}
+.tabSpan .more-link{width:64px;background:url("http://cdn.kuaidi100.com/images/ico_index.gif") 63px -259px no-repeat;*background:url("http://cdn.kuaidi100.com/images/ico_index.gif") 63px -261px no-repeat;_background:url("http://cdn.kuaidi100.com/images/ico_index.gif") 63px -259px no-repeat}
+.tabSpan ul{position:absolute;top:5px;left:-2px;zoom:1;z-index:12;padding:24px 0 0 12px;width:68px;height:112px;text-align:left;line-height:28px;border:1px solid #E4E4E4;background-color:#FFF}
+.tabSpan ul#moreList{width:84px;height:84px;}
+/*公告*/
+#afficheTips{position: absolute;top:16px;right:0px;width:650px;}
+#afficheTips p{padding-left:10px;max-height:40px;min-height:20px;_height:expression(this.scrollHeight < 00 ? "20px" :( this.scrollHeight > 40 ? "40px" :"auto"));font-size:12px;font-weight:normal;line-height:1.8em;text-align:left;overflow:hidden;}
+/*步骤提示*/
+.tips-top{ height:47px }
+.tips-top ul{ list-style-type:none }
+.tips-top ul li{float:left}
+/*公司提示*/
+.companyinfo{height:30px;display:none}
+.companyinfo a{font-size:14px}
+/*菜单*/
+.nav-left,.nav-middle,.nav-right{float:left;height:35px;width:10px;overflow:hidden}
+.nav-middle{width:940px;padding:0;line-height:35px;/*position:relative*/}
+.nav-middle span{display:block;float:left;height:35px}
+.nav-right{float:right}
+.nav-middle div,.nav-middle div a,.nav-middle div a span,.nav-middle div a b{display:block;float:left}
+.nav-middle div{padding:0 5px;font-weight:bold}
+.nav-middle div a{height:35px;font-size:14px}
+.nav-middle div a b{height:35px;width:20px}
+.nav-middle div a span{height:35px;padding-right:20px;cursor:pointer}
+.on-01 .nav-01 a:link,.on-01 .nav-01 a:visited,.on-01 .nav-01 a:hover,.on-02 .nav-02 a:link,.on-02 .nav-02 a:visited,.on-02 .nav-02 a:hover,.on-03 .nav-03 a:link,.on-03 .nav-03 a:visited,.on-03 .nav-03 a:hover,.on-04 .nav-04 a:link,.on-04 .nav-04 a:visited,.on-04 .nav-04 a:hover,.on-05 .nav-05 a:link,.on-05 .nav-05 a:visited,.on-05 .nav-05 a:hover{text-decoration:none;cursor:pointer}
+.nav-middle a:link,.nav-middle a:visited,.nav-middle a:active{text-decoration:none}
+.nav-middle a:hover{text-decoration:none}
+#userSet{display:none;float:right}
+#userSet a:hover{text-decoration:underline;}
+#userSet a{font-size:12px;}
+/*尾部*/
+.footer{text-align:center;padding-top:5px}
+.footer ul{list-style-type:none}
+.footer li{float:left}
+.kingdee-logo{margin-right:10px}
+.kingdee-logo img{margin-top:5px}
+.foot-icons{clear:both;background:#F7F7F7;border-top:1px solid #D9D9D9;border-bottom:1px solid #D9D9D9;width:100%;min-width:960px}
+.foot-icons-box{ width:960px; margin:auto; padding-top:15px; padding-right:0px; padding-bottom:15px; padding-left:0px; }
+.foot-icons-item{ margin-right:30px; float:left; }
+.helpcenter{ border-left:1px solid #D9D9D9; padding-left:25px; height: 128px; width: 205px; }
+/*尾部菜单*/
+.foot-menu {font-size:12px;position:relative;z-index:10;width:400px;margin:auto;}
+.foot-menu ul{list-style:none;}
+.foot-menu li{float:left;position:relative;}
+.foot-menu a{display:block;padding:2px 6px;margin:3px;text-decoration:none;}
+.foot-menu ul li a{color:#0A8ECE}
+.foot-menu a:hover{color:#F21818;text-decoration:underline;}
+.foot-menu ul ul li{clear:both;padding-left:10px;text-align:left;font-size:12px;background:#FFF}
+.foot-menu ul ul li a{display:block;height:15px;width:100px;margin-left:2px;border:0;color:#0A8ECE;}
+/*功能*/
+.favorites{padding-left:15px}
+.wait{line-height:30px;text-align:center;}
+.inp{height:33px;padding:0px 8px!important;padding-top:3px;font:24px Verdana;}
+.inp-send{height:18px;padding:0px 4px!important;padding-top:2px;font:12px Verdana}
+.inp-send2{ width:390px;height:18px;padding:0px 4px!important;padding-top:2px; font:12px Verdana;resize:none;line-height:20px}
+.inp-a{line-height:24px;height:24px;font-size:14px}
+.inp-b{line-height:24px;font-size:14px;resize:none}
+.inp-c{line-height:27px;font-size:14px;height:27px;width:263px;padding-top:0px}
+.links-pre{padding:8px;width:540px!important;width:530px}
+.link-textarea{height:30px;line-height:30px;width:540px}
+/*提示信息*/
+.tips{padding:8px;line-height:24px}
+.tips2{padding:5px;line-height:22px}
+.tips-close{display:block;float:right;height:17px;width:17px;margin-top:-3px!important;margin-right:-2px}
+.tips-close-2{display:block;float:right;height:17px;width:17px;margin-top:-3px!important;margin-right:-2px}
+.tips dl{margin-left:36px}
+.tips dt{font-weight:bold}
+.tips dd{font-family:"宋体"}
+.tips .icon{float:left;width:35px;height:35px}
+.tips p{line-height:30px;padding-left:35px;font-weight:bold;font-size:12px}
+.tips p#errorMessage{padding-left:0}
+#rssTipsTxt a{margin-left:5px}
+
+.tips .tips-icon-2{padding-left:50px;font-size:14px;font-weight:normal;background:url("http://cdn.kuaidi100.com/images/ico_tips.gif") 15px -168px no-repeat;}
+.tips .tips-p-2{padding-left:50px;font-size:14px;font-weight:normal;color:#878787;background:none}
+.tips .tips-p-2 span{display:inline-block;margin:5px 0 15px;padding:0 10px;width:110px;height:35px;line-height:35px;overflow:hidden;vertical-align:top;font-size:14px;font-weight:bold;color:#656565;border:1px solid #bcbcbc;background-color:#FFFFFF;}
+.tips .tips-p-2 span#tips-kuaidi-num{width:200px;border-left:none}
+.tips .tips-a-wrong{display:inline-block;margin-right:15px;width:102px;height:32px;text-align:center;text-decoration:none;font-weight:bold;color:#FFFFFF;background:url("http://cdn.kuaidi100.com/images/ico_tips.gif") 0 -209px no-repeat}
+.tips .tips-a-right{display:inline-block;width:177px;height:32px;text-align:center;font-weight:bold;text-decoration:none;color:#FFFFFF;background:url("http://cdn.kuaidi100.com/images/ico_tips.gif") 0 -254px no-repeat}
+/*绿色提示信息框*/
+.tips-green{display:inline-block;float:right;height:20px;margin-right:40px;padding:2px 10px;line-height:20px;}
+/*订阅短信按钮*/
+.rss-btn-out,.rss-btn-over,.rss-btn-hidden{display:inline-block;width:20px;height:20px;margin-right:5px;_margin-top:6px;line-height:30px;text-decoration:none;vertical-align:middle;}
+.rss-btn-hidden{visibility:hidden;}
+.rss-btn-out span,.rss-btn-over span{display:block;width:20px;height:20px;cursor:pointer;}
+/*斜角框*/
+.div-title{text-align:left;line-height:29px;width:150px;font-weight:bold;padding-left:10px}
+.div-border{padding:10px}
+/*按钮通用*/
+a.btn-default{display:block;line-height:29px;text-align:center;height:29px;width:82px;font-size:14px;font-weight:bold;text-decoration:none}
+a.btn-default:hover,a.btn-default:active,a.btn-default:focus{text-decoration:none}
+a.btn-blue{display:block;line-height:30px;text-align:center;height:30px;width:100px;font-weight:bold;text-decoration:none}
+a.btn-blue:hover,a.btn-blue:active,a.btn-blue:focus{text-decoration:none}
+.btn-out,.btn-over,.btn-out2,.btn-over2{height:36px;line-height:36px;font-size:16px;font-weight:bold;text-align:center;cursor:pointer;letter-spacing:1px;padding:0px 0px 1.5px 5px;margin-top:0px!important;margin-top:2.5px;overflow:visible;}
+.btn-copy,.btn-c-over{height:20px;line-height:16px;*line-height:20px;_line-height:18px;font-size:12px;text-align:center;cursor:pointer;letter-spacing:1px;padding-bottom:5px;overflow:visible;}
+/*蓝色按钮*/
+.btn-out,.btn-over{width:105px;}
+/*绿色按钮*/
+.btn-out2,.btn-over2{width:151px}
+/*浅蓝按钮*/
+.btn-out3,.btn-over3{width:65px;height:27px;line-height:27px;text-align:center;cursor:pointer;letter-spacing:1px;padding-bottom:5px;overflow:visible;}
+/*浅黄按钮*/
+.btn-out4 a{display:block;width:125px;height:27px;line-height:27px;text-align:center;font-weight:bold;letter-spacing:1px}
+.btn-out4 a:hover{text-decoration:none}
+/*蓝色A*/
+.btn-a:hover span{text-decoration:none;}
+.btn-a span{display:block;float:left;width:40px;height:20px;line-height:20px;text-align:center;margin:7px 0px 0px 5px}
+/*确认框“确定和取消”按钮*/
+.btn-ok{display:inline-block;margin-right:10px;width:56px;height:28px;line-height:28px;text-align:center}
+.btn-cancel{display:inline-block;width:56px;height:28px;line-height:28px;text-align:center}
+/*复制按钮*/
+.btn-copy,.btn-c-over{width:40px}
+/*圆角1*/
+.xtop,.xbottom{display:block;font-size:1px}
+.xb1a,.xb2a,.xb3a,.xb4a,.xb1b,.xb2b,.xb3b,.xb4b{display:block;overflow:hidden}
+.xb1a,.xb2a,.xb3a,.xb1b,.xb2b,.xb3b{height:1px}
+.xb1a{margin:0px 2px;}
+.xb1b{margin:0px 2px;}
+.xb2a,.xb2b{margin:0px 1px}
+.xb3a,.xb3b{margin:0px}
+.xb4a,.xb4b{height:2px;margin:0px}
+.xboxcontent_a{display:block;padding:10px}
+.xboxcontent_b{display:block;padding:2px 4px;}
+/*圆角2*/
+.r-t-l,.r-t-r,.r-b-l,.r-b-r{float:left;width:5px;height:5px;overflow:hidden}
+.r-t-m{float:left;height:4px;overflow:hidden}
+.r-b-m{float:left;height:4px;overflow:hidden}
+/*查询输入框-css*/
+.vali-images{display:block;float:left;height:34px;width:100px;text-align:center;margin-top:0px!important;margin-top:3px}
+.vali-images img{cursor:pointer}
+.refresh-a{margin:10px 0px 0px 14px}
+/*查询结果框*/
+.result-info th,.result-info td{padding:4px 5px}
+.result-info th.width-01{width:130px;cursor:pointer}
+.result-info .b-btn{float:right;position:relative}
+.result-info b{font-size: 0;height: 0;line-height: 0;overflow: hidden;position: absolute;width:0}
+.result-info .b-up{border-color: transparent transparent #C9C4CA;border-style: dashed dashed solid;border-width: 4px;border-width: 5px \9;right: 5px;right: 4px \9;top: 1px}
+.result-info .b-down{border-color: #C9C4CA transparent transparent;border-style: solid dashed dashed;border-width: 4px;right: 5px;top: 15px;}
+.result-info .b-up-active{border-color: transparent transparent #488BBF;}
+.result-info .b-down-active{border-color: #488BBF transparent transparent;}
+.send-box{padding:8px}
+.send-box div{font-weight:bold;line-height:22px}
+.lastTag{margin-left:5px;display:inline-block;width:22px;height:9px;background:url("http://cdn.kuaidi100.com/images/ico_tips.gif") -46px -5px no-repeat;vertical-align:top}
+
+/*反馈快捷入口*/
+.fixbox{position:fixed;bottom:10px;right:10px;z-index:999}
+.fb-step1 a{display:block;width:140px;height:40px;background:url("http://cdn.kuaidi100.com/images/feedback.png") -4px -10px no-repeat}
+.fb-step2{position:relative;width:260px;height:180px;background:url("http://cdn.kuaidi100.com/images/feedback.png") -147px -3px no-repeat}
+.fb-step2 .fb-close{position:absolute;top:12px;right:15px;display:block;width:11px;height:11px;background:url("http://cdn.kuaidi100.com/images/feedback.png") -101px -126px no-repeat}
+.fb-step2 .fb-errortips{position:absolute;top:5px;left:7px;color:#FF3300}
+.fb-step2 textarea{position:absolute;top:28px;left:6px;padding:2px;width:231px;height:95px;border:1px solid #d0e7f3;background:#f9fcff;resize:none}
+.fb-step2 div{position:absolute;top:135px;left:6px;}
+.fb-step2 .checkbox{margin-top:2px;margin-right:5px}
+.fb-step2 .input{padding:0 5px;width:165px;height:24px;border:1px solid #6cb4db}
+.fb-step2 .fb-inputclose{position:absolute;top:8px;right:6px;display:block;width:11px;height:11px;background:url("http://cdn.kuaidi100.com/images/feedback.png") -101px -126px no-repeat}
+.fb-step2 .fb-submit{position:absolute;top:135px;right:17px;display:block;width:54px;height:26px;line-height:26px;text-align:center;font-weight:bold;color:#FFFFFF;background:url("http://cdn.kuaidi100.com/images/feedback.png") -12px -118px no-repeat}
+.fb-step3 a{display:block;width:140px;height:40px;background:url("http://cdn.kuaidi100.com/images/feedback.png") -4px -58px no-repeat}
+
+.fixbox{_position:absolute;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)-10));_right:auto;_left:expression(eval(document.documentElement.scrollLeft+document.documentElement.clientWidth-this.offsetWidth)-(parseInt(this.currentStyle.marginLeft,10)||0)-(parseInt(this.currentStyle.marginRight,10)||0)-10);}

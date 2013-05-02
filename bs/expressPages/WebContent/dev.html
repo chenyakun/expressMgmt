@@ -1,0 +1,418 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>快递下单_物流在线下单_</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=7" />
+		<meta http-equiv="Content-Language" content="zh-cn" />
+		<link rel="stylesheet" type="text/css" href="css/base_m.css" />
+		<link rel="stylesheet" type="text/css" href="css/orderIndex.css" />
+
+		<style type="text/css">
+			.container .second-right-1 {
+				position: absolute;
+				z-index: 1000;
+				top: 0;
+				left: 0;
+				background: url("http://cdn.kuaidi100.com/images/order/2-28.jpg") no-repeat 0px 0px;
+				width: 960px;
+				height: 263px;
+			}
+			.container .second-right-2 {
+				display: none;
+				position: absolute;
+				z-index: 1000;
+				top: 0;
+				left: 0;
+				background: url("http://cdn.kuaidi100.com/images/order/christmas1.jpg") no-repeat 0px 0px;
+				width: 960px;
+				height: 263px;
+			}
+			.container .second-right-3 {
+				display: none;
+				position: absolute;
+				z-index: 1000;
+				top: 0;
+				left: 0;
+				background: url("http://cdn.kuaidi100.com/images/order/01.jpg") no-repeat 0px 0px;
+				width: 960px;
+				height: 263px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<!--header-begin -->
+
+		<script type="text/javascript" src="js/header_index.js"></script>
+
+		<!--header end-->
+
+		<!--wfull-->
+		<div class="fix-box-middle" id="floatCtrl">
+			<a href="#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+			<a href="#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+		</div>
+
+		<div class="container w960 pt10px">
+
+			<!--u形框开始 -->
+			<div class="order-first">
+				<div class="orderfirstyahei">
+
+					<div class="ofboxh37">
+						<div class="ofboxh37_a">
+							<div class="ofonlypadt">
+								<span class="ofnum">①</span><span class="ofword">选择起始地点</span>
+							</div>
+						</div>
+						<div class="ofboxh37_b">
+							<div class="ofonlypadt">
+								<span class="ofnum">②</span><span class="ofword">完善订单</span>
+							</div>
+						</div>
+						<div class="ofboxh37_c">
+							<div class="ofonlypadt">
+								<span class="ofnum">③</span><span class="ofword">下单成功</span>
+							</div>
+						</div>
+						<div class="ofboxh37_d">
+							<div class="ofonlypadt">
+								<span class="ofnum">④</span><span class="ofword">查看订单跟踪快递</span>
+							</div>
+						</div>
+					</div><!-- ofboxh37-->
+
+					<div class="ofborderbox">
+						<div class="ofborderbox01"></div>
+						<div class="ofborderbox02"></div>
+						<div class="ofborderbox03"></div>
+						<div class="ofborderbox04"></div>
+					</div><!-- ofborderbox  构成下边的u形框-->
+				</div><!-- orderfirstyahei-->
+			</div><!--order-first -->
+			<!--u形框结束 -->
+
+			<!--套住幻灯的box开始 -->
+			<div class="orslidebox">
+				<!--幻灯开始 -->
+				<div	class='slidescont'>
+					<ul class='slidePic'>
+						<li id="second-right-1" class="cur second-right-1">
+							<a href="#"  rel='nofollow' style="width:960px; height:263px;"></a>
+						</li>
+						<li id="second-right-2" class="second-right-2">
+							<a href="#"  rel='nofollow' style="width:960px; height:263px;"></a>
+						</li>
+						<li id="second-right-3" class="second-right-3">
+							<a href="#"  rel='nofollow' style="width:960px; height:263px;"></a>
+						</li>
+					</ul>
+
+					<ul id="second-right-4" class='slideTxt'>
+						<li>
+							<a href='#' rel='nofollow' id="second-right-4-1" class="cur"  onclick="return true;">1</a>
+						</li>
+						<li>
+							<a href='#' rel='nofollow' id="second-right-4-2" onclick="return true;">2</a>
+						</li>
+						<li>
+							<a href='#' rel='nofollow' id="second-right-4-3" onclick="return true;">3</a>
+						</li>
+					</ul>
+				</div>
+				<!--slidescont -->
+				<!--幻灯结束 -->
+
+				<!--起止点开始-->
+				<div class="second-left">
+					<div class="starting_pad">
+						<form id="queryPriceForm" action="/delivery.html" method="post">
+
+							<div class="geek">
+
+								<p class="fadi01">
+									<input type="hidden" id="startPlace" name="startPlace" value="" />
+									<span class="fajadd" >发件地：</span>
+									<input name="startPlace_input" id="startPlace_input" type="text" class="order-place" readonly autocomplete="off" style="width:274px; cursor:pointer;" />
+								</p><!--fadi01 -->
+
+								<p class="fadi02">
+									<input type="hidden" id="endPlace" name="endPlace" value="" />
+									<span class="fajadd">收件地：</span>
+									<input name="endPlace_input" id="endPlace_input" class="order-place" type="text" readonly autocomplete="off"  style="width:274px; cursor:pointer;" />
+								</p><!--fadi02 -->
+
+								<div class='geekzhong'>
+									<p class="fadi">
+										<span class="fajadd">重　量：</span>
+										<input name="weight" id="weight" class="order-place" type="text"autocomplete="off"   style="width:274px;cursor:text;"    />
+									</p>
+								</div><!--geekzhong -->
+
+							</div><!-- geek-->
+
+							<div class="second-btn">
+								<div class="sokuai">
+									<a  href=''  class="sokuai01"  id="queryPriceHref" onclick="return queryPrice();" >
+									<p class="sokuai01_p01">
+										搜索快递
+									</p>
+									<p class="sokuai01_p02">
+										最近已发<b style="font-size:14px;">1102375</b>单
+									</p> </a><!--sokuai01  背景色加“搜索快递”文字 -->
+								</div><!--sokuai -->
+							</div><!--second-btn -->
+
+						</form>
+					</div><!--starting_pad -->
+				</div><!--second-left -->
+				<!--起止点结束-->
+
+				<!--发件地弹出层 开始  -->
+
+				<div id="startPlaceDiv" class="location-box location_box01" style="display:none;">
+					<ul class="tab-list">
+						<li class="select-tab"></li>
+						<li class="select tab li-common" index="0">
+							<a href="#">常用</a>
+						</li>
+						<li class="tab li-province" index="1">
+							<a href="#">省份</a>
+						</li>
+						<li class="tab li-city" index="2">
+							<a href="#">城市</a>
+						</li>
+						<li class="tab li-county" index="3">
+							<a href="#">县区</a>
+						</li>
+					</ul>
+					<div class="tab-box    bcwhite">
+						<a class="place city" href="#" code="310000">上海市</a><a class="place city" href="#" code="440300">深圳市</a><a class="place city" href="#" code="110000">北京市</a><a class="place city" href="#" code="440100">广州市</a><a class="place city" href="#" code="320500">苏州市</a><a class="place city" href="#" code="510100">成都市</a><a class="place city" href="#" code="441900">东莞市</a><a class="place city" href="#" code="330200">宁波市</a><a class="place city" href="#" code="120000">天津市</a><a class="place city" href="#" code="330100">杭州市</a><a class="place city" href="#" code="370200">青岛市</a><a class="place city" href="#" code="500000">重庆市</a><a class="place city" href="#" code="420100">武汉市</a><a class="place city" href="#" code="440600">佛山市</a><a class="place city" href="#" code="410100">郑州市</a>
+					</div>
+					<div class="hidden tab-box province-box  bcwhite">
+						<dl>
+							<dt>
+								A-G
+							</dt>
+							<dd>
+								<a class="place province" href="#" code="34">安徽</a><a class="place province" href="#" code="11">北京</a><a class="place province" href="#" code="50">重庆</a><a class="place province" href="#" code="35">福建</a><a class="place province" href="#" code="62">甘肃</a><a class="place province" href="#" code="44">广东</a><a class="place province" href="#" code="45">广西</a><a class="place province" href="#" code="52">贵州</a>
+							</dd>
+							<dt>
+								H-K
+							</dt>
+							<dd>
+								<a class="place province" href="#" code="46">海南</a><a class="place province" href="#" code="13">河北</a><a class="place province" href="#" code="41">河南</a><a class="place province" href="#" code="23">黑龙江</a><a class="place province" href="#" code="42">湖北</a><a class="place province" href="#" code="43">湖南</a><a class="place province" href="#" code="22">吉林</a><a class="place province" href="#" code="32">江苏</a><a class="place province" href="#" code="36">江西</a>
+							</dd>
+							<dt>
+								L-S
+							</dt>
+							<dd>
+								<a class="place province" href="#" code="21">辽宁</a><a class="place province" href="#" code="15">内蒙古</a><a class="place province" href="#" code="64">宁夏</a><a class="place province" href="#" code="63">青海</a><a class="place province" href="#" code="37">山东</a><a class="place province" href="#" code="14">山西</a><a class="place province" href="#" code="61">陕西</a><a class="place province" href="#" code="31">上海</a><a class="place province" href="#" code="51">四川</a>
+							</dd>
+							<dt>
+								T-Z
+							</dt>
+							<dd>
+								<a class="place province" href="#" code="12">天津</a><a class="place province" href="#" code="54">西藏</a><a class="place province" href="#" code="65">新疆</a><a class="place province" href="#" code="53">云南</a><a class="place province" href="#" code="33">浙江</a>
+							</dd>
+						</dl>
+					</div>
+					<!--province-box-->
+					<div class="hidden tab-box  bcwhite"></div>
+					<div class="hidden tab-box  bcwhite"></div>
+				</div><!--location-box   location_box01用来定位-->
+
+				<!--发件地弹出层 结束  -->
+
+				<!--收件地弹出层 开始  -->
+				<div id="endPlaceDiv" class="location-box  location_box02" style="display:none;">
+					<ul class="tab-list">
+						<li class="select-tab"></li>
+						<li class="select tab li-common" index="0">
+							<a href="#">常用</a>
+						</li>
+						<li class="tab li-province" index="1">
+							<a href="#">省份</a>
+						</li>
+						<li class="tab li-city" index="2">
+							<a href="#">城市</a>
+						</li>
+						<li class="tab li-county" index="3">
+							<a href="#">县区</a>
+						</li>
+					</ul>
+					<div class="tab-box  bcwhite">
+						<a class="place city" href="#" code="310000">上海市</a><a class="place city" href="#" code="440300">深圳市</a><a class="place city" href="#" code="110000">北京市</a><a class="place city" href="#" code="440100">广州市</a><a class="place city" href="#" code="320500">苏州市</a><a class="place city" href="#" code="510100">成都市</a><a class="place city" href="#" code="441900">东莞市</a><a class="place city" href="#" code="330200">宁波市</a><a class="place city" href="#" code="120000">天津市</a><a class="place city" href="#" code="330100">杭州市</a><a class="place city" href="#" code="370200">青岛市</a><a class="place city" href="#" code="500000">重庆市</a><a class="place city" href="#" code="420100">武汉市</a><a class="place city" href="#" code="440600">佛山市</a><a class="place city" href="#" code="410100">郑州市</a>
+					</div>
+					<div class="hidden tab-box province-box  bcwhite">
+						<dl>
+							<dt>
+								A-G
+							</dt>
+							<dd>
+								<a class="place province" href="#" code="34">安徽</a><a class="place province" href="#" code="11">北京</a><a class="place province" href="#" code="50">重庆</a><a class="place province" href="#" code="35">福建</a><a class="place province" href="#" code="62">甘肃</a><a class="place province" href="#" code="44">广东</a><a class="place province" href="#" code="45">广西</a><a class="place province" href="#" code="52">贵州</a>
+							</dd>
+							<dt>
+								H-K
+							</dt>
+							<dd>
+								<a class="place province" href="#" code="46">海南</a><a class="place province" href="#" code="13">河北</a><a class="place province" href="#" code="41">河南</a><a class="place province" href="#" code="23">黑龙江</a><a class="place province" href="#" code="42">湖北</a><a class="place province" href="#" code="43">湖南</a><a class="place province" href="#" code="22">吉林</a><a class="place province" href="#" code="32">江苏</a><a class="place province" href="#" code="36">江西</a>
+							</dd>
+							<dt>
+								L-S
+							</dt>
+							<dd>
+								<a class="place province" href="#" code="21">辽宁</a><a class="place province" href="#" code="15">内蒙古</a><a class="place province" href="#" code="64">宁夏</a><a class="place province" href="#" code="63">青海</a><a class="place province" href="#" code="37">山东</a><a class="place province" href="#" code="14">山西</a><a class="place province" href="#" code="61">陕西</a><a class="place province" href="#" code="31">上海</a><a class="place province" href="#" code="51">四川</a>
+							</dd>
+							<dt>
+								T-Z
+							</dt>
+							<dd>
+								<a class="place province" href="#" code="12">天津</a><a class="place province" href="#" code="54">西藏</a><a class="place province" href="#" code="65">新疆</a><a class="place province" href="#" code="53">云南</a><a class="place province" href="#" code="33">浙江</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="hidden tab-box  bcwhite"></div>
+					<div class="hidden tab-box  bcwhite"></div>
+				</div><!--location-box   location_box02用来定位-->
+
+				<!--收件地弹出层 结束  -->
+
+			</div><!-- orslidebox-->
+			<!--套住幻灯的box结束 -->
+
+			<!--温馨提示开始 -->
+			<div class="cosy">
+
+			</div>
+			<!--cosy -->
+			<!--温馨提示结束 -->
+
+			<!--叫快递 开始 -->
+			<div class="jiaokuaidi">
+				<div class="jiaokuaidi_pad">
+
+					<div class="jiaokuaidi_unit  jkd_ut_bg01">
+						<div class="jkd_tit">
+							<span class="jkd_sp01">叫快递前</span><span class="jkd_sp02">您需了解的</span>
+						</div>
+						<div class="jkd_content">
+							<ul >
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=33' rel='nofollow' target='_blank'>怎样寄快递？</a>
+								</li>
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=84' rel='nofollow' target='_blank'>快递员什么时候上门取件收货？</a>
+								</li>
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=86' rel='nofollow' target='_blank'>出发地到目的地哪些能上门、寄到</a>
+								</li>
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=88' rel='nofollow' target='_blank'>出发地到目的地要多久才能到？</a>
+								</li>
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=91' rel='nofollow' target='_blank'>从出发地到目的地要多少钱？</a>
+								</li>
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=95' rel='nofollow' target='_blank'>怎样确定重量？怎样包装、付钱？</a>
+								</li>
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=97' rel='nofollow' target='_blank'>其他问题解答</a>
+								</li>
+							</ul>
+						</div><!--jkd_content -->
+					</div><!--jiaokuaidi_unit -->
+					<div class="jkd_line"></div>
+
+					<div class="jiaokuaidi_unit   jkd_ut_bg02"  >
+						<div class="jkd_tit">
+							<span class="jkd_sp01">叫快递后</span><span class="jkd_sp02">您需注意的</span>
+						</div>
+						<div class="jkd_content">
+							<ul >
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=107' rel='nofollow' target='_blank'>怎样查看我的订单？</a>
+								</li>
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=109' rel='nofollow' target='_blank'>快递员没及时上门取件怎么办？</a>
+								</li>
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=111' rel='nofollow' target='_blank'>订单状态显示已揽收或揽收失败？</a>
+								</li>
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=113' rel='nofollow' target='_blank'>怎样取消订单？</a>
+								</li>
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=116' rel='nofollow' target='_blank'>快递员上门时要注意什么？</a>
+								</li>
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=118' rel='nofollow' target='_blank'>为什么快递员收取的价格比网上报价要高？</a>
+								</li>
+								<li>
+									&nbsp;-&nbsp;<a href='http://blog.kuaidi100.com/?p=123' rel='nofollow' target='_blank'>催件时客服繁忙、没有回应，该怎么办？</a>
+								</li>
+							</ul>
+						</div><!--jkd_content -->
+					</div><!--jiaokuaidi_unit -->
+
+				</div><!--jiaokuaidi_pad -->
+			</div><!-- jiaokuaidi-->
+			<!--叫快递 结束 -->
+ 
+			 
+	
+		</div>
+
+		<div class="footer w960">
+			<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script>
+		</div>
+
+		<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script>
+		<script type="text/javascript">
+			$(function() {
+				// 绑定容器的鼠标移入移出事件
+				$('.whi_boxc').bind({
+					'mouseenter' : function() {
+						boxfa.stop();
+					},
+					'mouseleave' : function() {
+						boxfa.start();
+					}
+				});
+				// 页面载入的时候就自动启动滚动
+				boxfa.start();
+			});
+
+			// 封装滚动代码
+			var boxfa = {
+				timeid : null,
+				start : function() {
+					// 启动滚动的时候记录下时钟ID
+					boxfa.timeid = setInterval(function() {
+						$('.whi_boxc').animate({
+							'margin-left' : -$('.whi_tao:first').outerWidth(true)
+						}, {
+							complete : function() {
+								$(this).css('margin-left', '');
+								$('.whi_tao:first').appendTo('.whi_boxc');
+							}
+						});
+					}, 2000);
+				},
+				stop : function() {
+					// 停止滚动
+					clearInterval(boxfa.timeid);
+				}
+			};
+		</script>
+
+	 
+		<script type="text/javascript" src="js/jquery-cookie.js"></script>
+		<script type="text/javascript" src="js/areas.js"></script>
+		<script type="text/javascript" src="js/header.js"></script>
+		<script type="text/javascript" src="js/orderIndex.js"></script>
+		<script type="text/javascript" src="js/loginLogout.js"></script>
+		 
+	</body>
+</html>

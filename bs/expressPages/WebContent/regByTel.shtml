@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="apple-itunes-app" content="app-id=458270120"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户注册</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/reg.css?version=201303201326" />
+</head>
+<body>
+
+		<!--header-begin -->
+
+	 <script type="text/javascript" src="js/header_index.js"></script>
+		<!--header end-->
+
+
+
+<!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="regByTel.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="regByTel.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="regByTel.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="regByTel.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="regByTel.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="regByTel.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="regByTel.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<div class="container w960">
+	<div class="column-1">
+		<div class="outerDiv">
+            <h2 class="regTitle"></h2>
+            <div class="innerDiv">
+                <div class="regTag">
+                    <a class="telReg-selected" id="mobilo_a">手机号码注册</a>
+                    <a href="regByEmail.shtml" class="emailReg-a" id="emailo_a">电子邮箱注册</a>
+                </div>
+                <div class="inputForm" id="telRegBox_1">
+                    <div class="step stepTelReg-1"></div>
+                    <p><span class="col1">手机号码：</span><input type="text" id="tel" class="inp-reg" placeholder="请输入您的手机号码" name="tel" value=""/></p>
+                    <p><span class="col1">登录密码：</span><input type="password" id="regpwd1" class="inp-reg" name="regpwd1"/></span></p>
+                    <p><span class="col1">确认密码：</span><input type="password" id="regpwd2" class="inp-reg" name="regpwd2"/></p>
+                    <p><span class="col1">验证码：</span><input type="text" id="valicode" class="inp-2"/><img id="valicodeImg" width="80" height="28" onclick="refreshTelCode();" class="valiImg" title="点击刷新验证码" /><a href="regByTel.shtml#" class="font12px" onclick="refreshTelCode();return false;">看不清换一张</a></p>
+                    <p style="display:none;" id="error"><span class="col1">&nbsp;</span><span id="errorTips" class="t-error">您输入的密码错误</span></p>
+                    <p style="display:none" id="regWait"><span class="col1">&nbsp;</span><span class="t-wait">正在提交，请稍候...</span></p>
+                    <p><span class="col1"></span><a href="regByTel.shtml#" class="ok_btn mr10px" id="regByTel" onclick="gotoTelReg2();return false;">提交注册</a><span class="gotoLog">已经是用户？<a href="login.html">立即登录</a></span></p>
+                </div>
+                <div class="inputForm" id="telRegBox_2" style="display:none">
+                    <div class="step stepTelReg-2"></div>
+                    <p class="telReg2Tips">已向您的手机发送了免费的校验码短信，请查看您的手机</p>
+                    <p><span class="col1">您的手机号码是：</span><span id="tel2"></span></p>
+                    <p class="valid-p"><span class="col1">短信中收到的校验码：</span><input type="text" id="validMsg" name="validMsg" style="width:100px" class="inp-reg"/><span id="sendAgainSpan" class="getValidBtn"><span id="timeSpan">（<em id="minute">2</em>分<em id="second">00</em>秒后）重新发送短信</span><a href="regByTel.shtml#" id="sendSmsAgain" onclick="sendPwdToMobile(this);return false;" class="valid-a" style="display:none">重新发送短信</a></span></p>
+                    <p style="display:none;" id="error"><span class="col1">&nbsp;</span><span id="errorTips" class="t-error">您输入的密码错误</span></p>
+                    <p style="display:none" id="regWait"><span class="col1">&nbsp;</span><span class="t-wait">正在提交，请稍候...</span></p>
+                    <p><span class="col1"></span><a href="regByTel.shtml#" class="ok_btn mr10px" id="regByTel2" onclick="gotoTelReg3();return false;">完成校验</a><a href="regByTel.shtml#" onclick="gotoTelReg();return false;">返回上一步</a></p>
+                </div>
+                <div class="inputForm" id="telRegBox_3" style="position:relative;display:none">
+                    <div class="step stepTelReg-3"></div>
+                    <div class="successLogo"></div>
+                    <p class="successTips">注册成功</p>
+                    <p class="successTips2">今后您可以使用<span id="tel4"></span>登录</p>
+                    <dl>
+                        <dt>您可以：</dt>
+                        <dd><a href="../index.html" class="link-goto" target="_blank">返回首页查快递</a></dd>
+                        <dd><a href="../orderIndex.jsp-orderSource=orderIndex.html" class="link-goto" target="_blank">寄快递</a></dd>
+                    </dl>
+                </div>
+            </div>
+  		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="clear"></div>
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div>
+<!--以下取传过来的网址，并派给手机注册、邮箱注册 --> 
+<script>
+  var thislohref=self.location.href;
+    //alert(thislohref);
+  var seriabai=thislohref.indexOf("fsource=baidu");
+  var seria360=thislohref.indexOf("fsource=360");
+
+  if (seriabai!=-1) {   
+	 document.getElementById("mobilo_a").href="/user/regByTel.shtml?fsource=baidu";
+	 document.getElementById("emailo_a").href="/user/regByEmail.shtml?fsource=baidu";
+  }
+   if (seria360!=-1) {  
+	 document.getElementById("mobilo_a").href="/user/regByTel.shtml?fsource=360";
+	 document.getElementById("emailo_a").href="/user/regByEmail.shtml?fsource=360";
+  }
+</script> 
+<!--以上取传过来的网址，并派给手机注册、邮箱注册 --> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/setCookie.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/security_valid.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script>
+<script type="text/javascript" src="http://www.kuaidi100.com/js/page/user/regByTel.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>

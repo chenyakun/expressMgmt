@@ -1,0 +1,243 @@
+/*步骤*/
+.tips-top{height:45px;}
+.tips-top .tips-1,.tips-top .tips-2{float:left;height:7px;padding-top:38px;overflow:hidden}
+.tips-top .tips-1{width:420px;background:url("http://cdn.kuaidi100.com/images/bg_index.gif") 20px 8px no-repeat}
+.tips-top .tips-2{width:540px;background:url("http://cdn.kuaidi100.com/images/bg_index.gif") 20px -42px no-repeat}
+.tips-top .wuliu .tips-1{width:420px;background:url("http://cdn.kuaidi100.com/images/bg_wuliu.gif") 20px 8px no-repeat}
+.tips-top .wuliu .tips-2{width:540px;background:url("http://cdn.kuaidi100.com/images/bg_wuliu.gif") 20px -42px no-repeat}
+.tips-top .network .tips-1{width:420px;background:url("http://cdn.kuaidi100.com/images/bg_network.gif") 20px 8px no-repeat}
+.tips-top .network .tips-2{width:540px;background:url("http://cdn.kuaidi100.com/images/bg_network.gif") 20px -42px no-repeat}
+.tips-top span{display:block;height:5px;overflow:hidden;border:2px solid #b9d5fd;}
+.tips-top .tips-1 span{width:416px;border-top:none}
+.tips-top .tips-2 span{width:538px;border-left:none;border-top:none}
+
+/*中部*/
+.column-1{ float:left;width:420px;}
+.column-2{ float:right;width:530px;z-index:2;overflow:hidden;} 
+.com-list dl{float:left;width:100%;font-size:14px;background-color:#fafcff;border-bottom:1px solid #e9eff6; margin:0px; padding: 0px;}
+.com-list dl.common-list{border-top:1px solid #e9eff6}
+.com-list dl.dl-bg{background-color:#f4f9ff;}
+.com-list dl:hover{background-color:#d7e7ff;}
+.com-list dl.common-list{border-top:1px solid #e9eff6}
+.com-list dt{float:left;margin-right:15px;width:26px;line-height:32px;text-align:center;font-size:22px;font-family:"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei","黑体",sans-serif;color:#FFF;background-color:#b9d5fd}
+.com-list dt.double-h{height:64px}
+.com-list .common-list dt{padding:8px 0;line-height:24px;font-size:18px;background-color:#ff9e40}
+.com-list dl:hover dt{background-color:#317ee7}
+.com-list dl.common-list:hover dt{background-color:#ff9229}
+.com-list dd{float:left;width:360px;line-height:32px;}
+.com-list dd a{display:block;float:left;width:90px;height:32px;line-height:32px;overflow:hidden;color:#333333}
+.com-list dd a span{padding:5px}
+.com-list dd a.select-cp span{color:#FFF;background-color:#6ca8fa}
+.com-list dd a.select-cp:hover{color:#FFF}
+.com-list .common-list a{display:block;float:left;width:60px;height:32px;line-height:32px;overflow:hidden}
+.com-list .wuliu-common-list a{width:90px;}
+.more-com{line-height:30px}
+.more-com input{padding:3px 5px;width:150px;height:18px;vertical-align:middle;color:#878787;background-color:#FFF;border:1px solid #DBDBDB}
+.more-com a{display:inline-block;padding-left:32px !important;padding-left:18px;width:43px;height:26px;line-height:26px;vertical-align:middle;font-weight:bold;color:#FFF;background:url("http://cdn.kuaidi100.com/images/ico_opacity.png") -5px -140px no-repeat #6BA8F9 !important;background:#6BA8F9}
+.more-com a:hover{text-decoration:none;background:url("http://cdn.kuaidi100.com/images/ico_opacity.png") -5px -140px no-repeat #90BFFF !important;background:#90BFFF}
+
+.float-num{position:absolute;top:-10px;right:-1px;width:16px;height:16px;line-height:16px;text-align:center;color:#FFF;background-color:#FEA03E;border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px;-o-border-radius:8px}
+
+/*公司提示*/
+.companyinfo{margin-top:10px;height:30px;display:none}
+.companyinfo a{font-size:14px;color:#F60}
+/*转发*/
+.send-box{padding:8px;line-height:40px;border:1px solid #DDD;}
+.send-box div{line-height:22px}
+.send-box hr{border:1px dotted #DDD}
+.inp-send{padding:5px 4px!important;height:18px;line-height:18px;font:12px Verdana;border:1px solid #BCBCBC}
+.inp-send2{width:374px;height:80px;padding:0px 4px!important;font:12px Verdana;resize:none;line-height:20px;border:1px solid #BCBCBC}
+.btn-copy{width:56px;height:30px;line-height:30px;*line-height:26px;_line-height:30px;font-weight:bold;font-size:12px;text-align:center;cursor:pointer;letter-spacing:1px;overflow:hidden;border:0px;color:#FFF;background-color:#81BE01}
+.send-box .hover{background-color:#9edb1d}
+/*订阅*/
+#rssTips{border:1px solid #499B1F;background-color:#E7F4BE}
+#rssTipsTxt{color:#499B1F}
+#rssTipsTxt a{margin-left:5px;color:#499B1F}
+/*查询输入框-css*/
+.vali-images{display:block;float:left;height:34px;width:100px;text-align:center;margin-top:0px!important;margin-top:3px;background:url("http://cdn.kuaidi100.com/images/ajax-loader_2.gif") no-repeat center;border:1px solid #DDD}
+.vali-images img{cursor:pointer}
+.refresh-a{margin:10px 0px 0px 14px}
+/*查询结果框*/
+.result-info2{width:530px;border:1px solid #90bfff}
+.result-info2 td{padding:10px;color:#878787;border-bottom:1px solid #d8d8d8 !important;background-color:#fbfbfb !important}
+.result-info2 .status{width:30px;background:url("http://cdn.kuaidi100.com/images/ico_status.gif") -50px center no-repeat #fbfbfb}
+.result-info2 .status{width:30px;background:url("http://cdn.kuaidi100.com/images/ico_status.gif") -50px center no-repeat #fbfbfb}
+.result-info2 .status-first{background:url("http://cdn.kuaidi100.com/images/ico_status.gif") 0px center no-repeat #fbfbfb}
+.result-info2 .status-check{background:url("http://cdn.kuaidi100.com/images/ico_status.gif") -150px center no-repeat #fbfbfb}
+.result-info2 .status-wait{background:url("http://cdn.kuaidi100.com/images/ico_status.gif") -100px center no-repeat #fbfbfb}
+.result-info2 .last td{color:#FF8c00;border-bottom:none;background-color:#ffffff !important}
+.result-info2 .row1{width:140px;text-align:right;}
+
+.ctrl-btn-1,.ctrl-btn-2,.ctrl-btn-3{display:block;margin-bottom:18px;width:32px;height:30px}
+.ctrl-btn-1{background:url("http://cdn.kuaidi100.com/images/ico_header.png") 0px -126px no-repeat}
+a.ctrl-btn-1:hover{background:url("http://cdn.kuaidi100.com/images/ico_header.png") 0px -256px no-repeat}
+.ctrl-btn-2{background:url("http://cdn.kuaidi100.com/images/ico_header.png") 0px -176px no-repeat}
+a.ctrl-btn-2:hover{background:url("http://cdn.kuaidi100.com/images/ico_header.png") 0px -216px no-repeat}
+.ctrl-btn-3{background:url("http://cdn.kuaidi100.com/images/ico_header.png") 0px -146px no-repeat}
+a.ctrl-btn-3:hover{background:url("http://cdn.kuaidi100.com/images/ico_header.png") 0px -276px no-repeat}
+/*订阅短信按钮*/
+.rss-btn-out,.rss-btn-over,.rss-btn-hidden{display:inline-block;width:20px;height:20px;margin-right:5px;_margin-top:6px;line-height:30px;text-decoration:none;vertical-align:middle;}
+.rss-btn-hidden{visibility:hidden;}
+.rss-btn-out span,.rss-btn-over span{display:block;width:20px;height:20px;cursor:pointer;}
+.rss-btn-over{background:url("http://cdn.kuaidi100.com/images/ico_tel.gif") 0px -80px no-repeat;}
+.rss-btn-not{background:url("http://cdn.kuaidi100.com/images/ico_tel.gif") 0px 0px no-repeat;}
+.rss-btn-ing{background:url("http://cdn.kuaidi100.com/images/ico_tel.gif") 0px -20px no-repeat;}
+.rss-btn-cancel{background:url("http://cdn.kuaidi100.com/images/ico_tel.gif") 0px -40px no-repeat;}
+.rss-btn-end{background:url("http://cdn.kuaidi100.com/images/ico_tel.gif") 0px -60px no-repeat;}
+/*战略*/
+.partner{padding-top:5px;height:40px}
+.partner dl{float:left;margin:0 8px;padding:3px;height:32px;}
+.partner dt{float:left;height:23px;width:65px;text-align:center;margin-top:2px}
+.partner dd{float:left;margin-right:4px}
+/*当前页样式*/
+.result-info{width:100%}
+.companyinfo span{margin-right:10px;}
+.out_box{font:12px/20px Tahoma}
+.user-box{margin-bottom:10px;padding:8px;}
+#friendTip p{font-size:12px;font-weight:normal;padding-left:0px;}
+#inputTips{font-size:14px;}
+/*广告*/
+.adDiv-all{line-height:30px;margin-bottom:10px;}
+.adDiv-all dl{margin-left:8px}
+.adDiv-all dd{margin-left:5px}
+a.but_adm{display:block;line-height:36px;height:36px;width:81px;text-align:center;float:left;margin-right:15px}
+a.but_adm:hover{text-decoration:underline}
+
+.getValidBtn{display:inline-block;margin-left:5px;width:160px;height:24px;line-height:24px;text-align:center;font-size:12px;color:#878787;background:url("http://cdn.kuaidi100.com/images/user/reg.png") -365px -114px no-repeat}
+.getValidBtn em{font-style:normal}
+.getValidBtn a{color:#878787}
+/*选择城市框*/
+.location-box{position:absolute;left:101px;top:133px;z-index:111;width:300px;font-size:12px;overflow:hidden;background-color:#FFF;color:#666;border:1px solid #CCC}
+ul.tab-list{position:relative;height:25px;background-color:#67A1E2}
+li.tab{position:absolute;top:0;width:70px;height:25px;text-align:center;line-height:25px;}
+li#common{left:0}
+li#province{left:70px}
+li#city{left:140px}
+li#select-tab{position:absolute;top:0;left:-1px;width:70px;height:25px;background-color:#FFF;border-left:1px solid #CCC;border-right:1px solid #CCC}
+li.tab a{font-size:14px;color:#FFF}
+li.select a{font-weight:bold;color:#39F}
+div.tab-box{padding:8px 10px;}
+a.place{display:inline-block;width:36px;height:20px;padding:0 3px;margin:2px 3px;text-align:left;line-height:20px;color:#666;border:1px solid #FFF}
+a.place:hover{background-color:#DEF;border:1px solid #69F;text-decoration:none}
+a.city{width:auto}
+a.select{background-color:#06C;color:#FFF}
+a.select:hover{background-color:#06C;color:#FFF}
+.province-box{width:290px;overflow:hidden}
+.province-box dt,.province-box dd{float:left}
+.province-box dt{width:35px;padding:3px 0 0 5px;*padding-top:0px;_padding-top:3px;text-align:left;color:#39F}
+.province-box dd{width:250px}
+.province-box a.place{margin:2px 0}
+.wait2{margin-left:120px;padding:20px 10px 10px 40px;line-height:1em;}
+
+.a-wlgs,.a-ldp{float:left;_float:none;display:block;margin-left:185px;width:235px;height:32px;}
+.a-wlgs{background:url("http://cdn.kuaidi100.com/images/bg_wuliu.gif") 0 -100px no-repeat}
+.a-ldp{background:url("http://cdn.kuaidi100.com/images/bg_wuliu.gif") 0 -150px no-repeat}
+
+.share-div{padding-top:30px;text-align:center}
+.share-div a{display:inline-block;margin:0 15px;width:72px;height:70px;}
+.share-div .share-1{background:url("http://cdn.kuaidi100.com/images/frame/newQplus/icon.png") -50px -186px no-repeat;}
+.share-div .share-2{background:url("http://cdn.kuaidi100.com/images/frame/newQplus/icon.png") -132px -186px no-repeat;}
+.share-div .share-3{background:url("http://cdn.kuaidi100.com/images/frame/newQplus/icon.png") -214px -186px no-repeat;}
+.share-div a.share-1:hover{background:url("http://cdn.kuaidi100.com/images/frame/newQplus/share_01.gif") 0 0 no-repeat;}
+.share-div a.share-2:hover{background:url("http://cdn.kuaidi100.com/images/frame/newQplus/share_02.gif") 0 0 no-repeat;}
+.share-div a.share-3:hover{background:url("http://cdn.kuaidi100.com/images/frame/newQplus/share_03.gif") 0 0 no-repeat;}
+
+/*metro*/
+.tagBox{position:relative;z-index:2;height:26px}
+.tagBox .reusltTag{position:absolute;top:0px;z-index:10;display:block;height:31px;width:73px;text-indent:-65535px}
+.a-tag-list{right:75px;background:url("http://cdn.kuaidi100.com/images/btn_metro.png") -160px -50px no-repeat;}
+.a-tag-map{right:0px;background:url("http://cdn.kuaidi100.com/images/btn_metro.png") -160px -90px no-repeat;}
+.a-tag-list-current{background:url("http://cdn.kuaidi100.com/images/btn_metro.png") -80px -50px no-repeat;}
+.a-tag-map-current{background:url("http://cdn.kuaidi100.com/images/btn_metro.png") -80px -90px no-repeat;}
+a.a-tag-list:hover{background:url("http://cdn.kuaidi100.com/images/btn_metro.png") 0px -50px no-repeat;}
+a.a-tag-map:hover{background:url("http://cdn.kuaidi100.com/images/btn_metro.png") 0px -90px no-repeat;}
+/*操作按钮*/
+.ctrl-box{position:relative;z-index:4;padding-top:10px;height:26px;overflow:visible;}
+.ctrl-box #selectedTag{position:absolute;z-index:5;top:32px;left:0;display:block;width:11px;height:6px;background:url("http://cdn.kuaidi100.com/images/bg_selected.png") -38px -1px no-repeat}
+.ctrl-box span.pos1{left:54px !important;left:44px}
+.ctrl-box span.pos2{left:176px !important;left:146px}
+.ctrl-box a{display:inline-block;margin-right:10px;padding-left:28px !important;padding:0 8px;height:26px;line-height:26px;font-weight:bold;color:#ffffff}
+.ctrl-box a:hover{text-decoration:none}
+.ctrl-box a span{font-weight:normal;}
+.ctrl-box .btn-rss{background:url("http://cdn.kuaidi100.com/images/ico_opacity.png") -10px -38px no-repeat #90bfff !important;background:#90bfff}
+.ctrl-box .btn-save{background:url("http://cdn.kuaidi100.com/images/ico_opacity.png") -9px -74px no-repeat #90bfff !important;background:#90bfff}
+.ctrl-box .btn-share{background:url("http://cdn.kuaidi100.com/images/ico_opacity.png") -10px -109px no-repeat #90bfff !important;background:#90bfff}
+.ctrl-box .btn-history{position:relative;background:url("http://cdn.kuaidi100.com/images/ico_opacity.png") -10px -175px no-repeat #90bfff !important;background:#90bfff}
+.ctrl-box a.btn-rss:hover{background:url("http://cdn.kuaidi100.com/images/ico_opacity.png") -10px -38px no-repeat #317ee7 !important;background:#317ee7}
+.ctrl-box a.btn-save:hover{background:url("http://cdn.kuaidi100.com/images/ico_opacity.png") -9px -74px no-repeat #317ee7 !important;background:#317ee7}
+.ctrl-box a.btn-share:hover{background:url("http://cdn.kuaidi100.com/images/ico_opacity.png") -10px -109px no-repeat #317ee7 !important;background:#317ee7}
+.ctrl-box a.btn-history:hover{background:url("http://cdn.kuaidi100.com/images/ico_opacity.png") -10px -175px no-repeat #317ee7 !important;background:#317ee7}
+/*百度地图*/
+.map-box{position:relative;z-index:1;border:1px solid #67baf7;}
+.map-top{position:absolute;top:0;left:0;z-index:4;width:488px;padding:5px 0 5px 40px;height:30px;line-height:30px;box-shadow:0 3px 3px #CCC;color:#878787;background:url("http://cdn.kuaidi100.com/images/ico_map.gif") 10px 0px no-repeat #fbfbfb}
+.map-top span{vertical-align:middle}
+.map-top .selectCity{display:inline-block;padding-right:23px;height:23px;text-decoration:none;vertical-align:middle;background:url("http://cdn.kuaidi100.com/images/ico_map.gif") right -40px no-repeat;}
+.map-top a.selectCity:hover{text-decoration:none;background:url("http://cdn.kuaidi100.com/images/ico_map.gif") right -63px no-repeat;}
+.map-top .selectCity span{display:block;padding:0 5px;width:60px;height:21px;line-height:21px;overflow:hidden;border:1px solid #E8E8E8;border-right:none}
+.map-top .location-box{top:40px;left:0}
+.map-top2{position:absolute;top:40px;left:0;z-index:3;width:528px;padding:10px 0;height:30px;line-height:30px;text-align:center;font-size:14px;font-weight:bold;filter:alpha(opacity=80);opacity:0.8;color:#FFFFFF;background:url("http://cdn.kuaidi100.com/images/ico_map.gif") 60px -163px no-repeat #fe9218}
+.map-top2 .map_tips_close{position:absolute;top:20px;right:20px;width:9px;height:9px;background:url("http://cdn.kuaidi100.com/images/ico_map.gif") -7px -133px no-repeat}
+.map{width:528px;height:500px}
+.wait-box{position:absolute;top:0;left:0;z-index:5;padding-top:150px;width:528px;height:350px;text-align:center;background:url("http://api.map.baidu.com/images/copyright_logo.png") 1px 468px no-repeat #FBFBFB}
+
+/*广告栏*/
+.foot-ad{height:117px;z-index:1;}
+.mobile-box{position:relative;width:420px;height:117px;overflow:hidden;background:url("http://cdn.kuaidi100.com/images/bg_mobile_foot.gif") no-repeat}
+.mobile-box a{position:absolute;display:block;}
+.mobile-box a span{position:absolute;display:block;top:65px;height:92px;cursor:pointer}
+.a-mobile-1{top:0;left:0;width:69px;height:117px;}
+.a-mobile-2{top:0;left:69px;width:68px;height:117px;}
+.a-mobile-3{top:0;left:137px;width:69px;height:117px;}
+.a-mobile-1 span{left:6px;width:56px;background:url("http://cdn.kuaidi100.com/images/ico_mobile_foot.gif") -52px 0 no-repeat}
+.a-mobile-2 span{left:7px;width:52px;background:url("http://cdn.kuaidi100.com/images/ico_mobile_foot.gif") 0 0 no-repeat}
+.a-mobile-link{top:77px;left:224px;width:85px;height:26px;line-height:20px;text-align:center;font-size:12px;color:#337de6}
+a.a-mobile-link:hover{color:#337de6}
+.ad-box{position:relative;width:340px;height:117px;overflow:hidden}
+.ad-content{position:absolute;top:0;left:0;width:340px;height:431px;cursor:pointer;background:url("http://cdn.kuaidi100.com/images/bg_ad_foot.gif") no-repeat}
+.video-box{width:180px;height:117px;}
+.video-box .a-video-link{display:block;width:180px;height:117px;background:url("http://cdn.kuaidi100.com/images/bg_video_foot.gif") no-repeat}
+.video-box a.a-video-link:hover{background:url("http://cdn.kuaidi100.com/images/bg_video_foot.gif") 0 -117px no-repeat}
+/*战略*/
+/*.partner dl{background-color:#FAFAFA;border:1px solid #DDD;border-bottom:0px}*/
+/*.partner .dl-first{border-bottom:1px dotted #DDD}*/
+.partner dt{color:#333333}
+.partner a{border:1px solid #FFF}
+.partner a:hover{border:1px solid #0A8ECE}
+/*当前页样式*/
+.out_box{border:1px solid #ccc;background:#fff}
+.user-box {border:1px solid #DDD}
+#friendTip p {background-image:none;color:#000;}
+/*广告*/
+a.but_adm{background:url("http://cdn.kuaidi100.com/images/adm/frame_05.gif") no-repeat;color:#FFF}
+a.but_adm:hover{color:#FFF}
+/*首页订阅短信入口*/
+#rss-div{position:relative;width:530px}
+#rss-div .close{display:block;position:absolute;top:18px;right:20px;width:15px;height:15px;cursor:pointer}
+#rss-step{width:528px;height:40px;border:1px solid #90bfff;border-bottom:none}
+.step_state_1{background:url("http://cdn.kuaidi100.com/images/rss_step.png") -15px 0 no-repeat}
+.step_state_2{background:url("http://cdn.kuaidi100.com/images/rss_step.png") -15px -50px no-repeat}
+.step_state_3{background:url("http://cdn.kuaidi100.com/images/rss_step.png") -15px -100px no-repeat}
+.step_state_0{background:url("http://cdn.kuaidi100.com/images/rss_step.png") -15px -150px no-repeat}
+.step_state_01{background:url("http://cdn.kuaidi100.com/images/rss_step.png") -15px -200px no-repeat}
+.step_state_4{background:url("http://cdn.kuaidi100.com/images/rss_step.png") -15px -250px no-repeat}
+#rss-div .step_1,#rss-div .step_2,#rss-div .step_3{padding:10px}
+#rss-div .step_waiting,#rss-div .step_0,#rss-div .step_1,#rss-div .step_2,#rss-div .step_3{border:1px solid #90bfff;border-top:none}
+.step_1 input{margin-right:15px;padding:3px;width:210px;height:18px;line-height:18px;border:1px solid #098FCE}
+.subbtn{display:inline-block;margin-right:20px;width:88px;height:26px;line-height:26px;text-align:center;font-size:12px;font-weight:bold;color:#FFFFFF;background-color:#7FBB01 }
+a.subbtn:hover{color:#FFFFFF}
+.step_2{position:relative}
+.step_2 p{line-height:1.5em}
+.step_3{position:relative}
+.step_3 div p{height:25px}
+.step_3 input{margin-left:-1px}
+.step_2 .float-tips{position:absolute;top:-105px;left:-45px;padding:10px 15px;width:425px}
+.step_3 .float-tips{position:absolute;top:40px;left:158px;padding:5px 10px;width:270px;height:24px}
+.step_2 .float-tips,.step_3 .float-tips{background-color:#FFFAE2;border:1px solid #F2DF92}
+.step_2 .float-tips-icon,.step_3 .float-tips-icon{display:inline-block;width:20px;height:20px;vertical-align:middle;background:url("http://cdn.kuaidi100.com/images/ico-tips-gif.gif") 3px 0 no-repeat}
+.step_3 div{border:1px solid #CAEAFF;background-color:#F2F9FF}
+.step_3 #selectplace{display:inline-block;padding:1px 35px 1px 5px;width:40px;height:22px;cursor:pointer;color:#676767;border:1px solid #DDDDDD;background:url("http://cdn.kuaidi100.com/images/api/bg_select.gif") right -1px no-repeat}
+.step_3 .confirm-div{position:absolute;top:150px;left:170px;padding:30px 20px;width:160px;height:50px;padding-top:5px;text-align:center;border:1px solid #CCC;background-color:#FFF}
+.step_3 .confirm-div p{margin-bottom:10px;text-align:left}
+.wait2{background:url("http://cdn.kuaidi100.com/images/ajax-loader.gif") no-repeat 18px 18px;color:#0F90CF}
+
+.qqGroup{color:#448FF4;font-size:12px;}

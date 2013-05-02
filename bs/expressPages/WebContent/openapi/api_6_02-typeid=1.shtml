@@ -1,0 +1,454 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>快递查询插件_</title>
+<meta name="keywords" content="shopex插件,ecshop插件,hishop插件" />
+<meta name="description" content="提供shopex、ecshop、hishop、最土团购等网店系统的快递查询插件,无需二次开发, 安装即可拥有物流跟踪功能。" />
+<!--[if IE 6]> 
+  <script src="/js/page/api/DD_belatedPNG.js" mce_src="/js/page/api/DD_belatedPNG.js"></script> 
+  <script type="text/javascript">DD_belatedPNG.fix('.png_img');</script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+
+<link  href="http://cdn.kuaidi100.com/css/api/api.css?version=201303201326"  rel="stylesheet"   media="screen" />
+</head>
+<body>
+<input type="hidden" id="headerMenu" value="apiQuery" />
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="../network/distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="../claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="../network/applyJoin.shtml">网点发布申请</a></li><li><a href="../network/invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="../claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="../help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="../help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="../help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="../login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="../login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="../login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="../login.html">登录</a>&nbsp;|&nbsp;<a href="../user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="api_6_02-typeid=1.shtml#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="../index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="../index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="../orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="../user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="../index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="../wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="../luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="../guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="../all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="../auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="../network/clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="api_6_02-typeid=1.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="api_6_02-typeid=1.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="api_6_02-typeid=1.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="api_6_02-typeid=1.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="api_6_02-typeid=1.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="api_6_02-typeid=1.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="api_6_02-typeid=1.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+
+<div class="wrapper"> 
+  
+  <!-----------主体部分开始 ------------->
+  <div class="api02_main"> 
+    
+    <!--top start  -->
+    
+    <div class="api_kaifang">
+      <div class="api_kaifang_child"> <a href="http://www.kuaidi100.com/index.shtml" class="api_kfc_a01">首页</a><span class="">></span><a href="http://www.kuaidi100.com/openapi/index.shtml" class="api_kfc_a01">快递查询接口(API)</a><span class="">></span><a href="api_6_02-typeid=1.shtml#" class="api_kfc_a02">快递查询插件</a> </div>
+      <!--api_kaifang_child --> 
+    </div>
+    <!-- api_kaifang-->
+    
+    <div class="wuyanzheng">
+      <div class="wuyanzheng_left">
+        <div class="wyz_left_pad">
+          <div class="wyz01"><img src="http://cdn.kuaidi100.com/images/api/kdic01.png" alt="" class="png_img" /></div>
+          <!--wyz01 -->
+          <div class="wyz02"  style="visibility:hidden;"><a href="api_6_02-typeid=1.shtml#" class=""><img src="http://cdn.kuaidi100.com/images/api/kaif.png" alt="" class="png_img" /></a></div>
+        </div>
+        <!--wyz_left_pad --> 
+      </div>
+      <!-- wuyanzheng_left-->
+      
+      <div class="wuyanzheng_right">
+        <div class="jump">
+          <div class="wyz_right_pad">
+            <div class="chanjianProblem_box">
+              <div class="wyz_r_title">快递查询插件</div>
+              <!--wyz_r_title -->
+              <div class="chanjianProblem"><a href="../help/qa.shtml" class="" target="_blank">常见问题</a></div>
+            </div>
+            <!-- chanjianProblem_box-->
+            <div class="wyz_r_content">
+              <div class="wyz_r_c01"> <span class="strg">产品简介：</span>可以令商家们免去二次开发的过程，安装即可拥有物流跟踪功能。<br />
+                <span class="strg">适合人群：</span>网站是通过购买网店系统获得的商家。<br />
+                <span class="strg">产品优势：</span>无需进行二次开发，拿到key后安装即可拥有和淘宝、拍拍一样的物流跟踪功能。<br />
+              </div>
+              <!--wyz_r_c01 -->
+              <div class="wyz_r_c04_sibling"> <span class="strg">使用方法:</span>
+                <div class="w0h0"></div>
+              </div>
+              <!--wyz_r_c04_sibling --> 
+              <div class="flewaway">              
+                <div id="bdshare" class="bdshare_b bdshare_t bds_tools get-codes-bdshare" style="line-height:12px; margin-top:6px;"><span class="bds_more">分享到：</span><a class="bds_qzone"></a><a class="bds_tsina"></a><a class="bds_baidu"></a> <a class="bds_taobao"></a><a class="bds_tqq"></a><a class="shareCount"></a></div>
+              </div><!--flewaway--> 
+            </div>
+            <!--wyz_r_content --> 
+          </div>
+          <!--wyz_right_pad --> 
+        </div>
+        <!--jump --> 
+         
+      </div>
+      <!--wuyanzheng_right --> 
+      
+    </div>
+    <!--wuyanzheng --> 
+    
+    <!--top end --> 
+    
+    <!--主体部分第二部分开始 -->
+    <div class="api02_main_part02">
+      <div class="nav_saaa"> <a href="javascript:void(0)"  class="preBorder">1.效果演示</a> <a href="javascript:void(0)"  class="nexBorder">2.插件下载</a> <a href="javascript:void(0)"  class="preBorder">3.技术支持</a> <span class="coverThree">&nbsp;&nbsp;&nbsp; </span> <!--用来作边框 --> 
+      </div>
+      <!--nav_saaa -->
+      
+      <div class="onlyBorder0802"> 
+        <!--下半部分开始 包含三个切换 -->
+        <div class="threeBigTab"> 
+          <!--切换一开始 -->
+          <div class="threeBigTab01" style="display:none;"> 
+            
+            <!----------- 中间 三副大图片开始-------------------------------------------------------------------------------------------------------->
+            <div class="shopex">
+              <div class="shopex_pad">
+                <div class="shop">
+                  <div class="shop_unit">
+                    <div class="shop_unit_left"><img src="http://cdn.kuaidi100.com/images/api/shopex.gif" alt="" /></div>
+                    <!--shop_unit_left -->
+                    <div class="shop_unit_right"><img src="http://cdn.kuaidi100.com/images/api/shopex02.gif" alt="" /></div>
+                    <!-- shop_unit_right--> 
+                  </div>
+                  <!--shop_unit -->
+                  
+                  <div class="shop_unit">
+                    <div class="shop_unit_left"><img src="http://cdn.kuaidi100.com/images/api/ecshop.gif" alt="" /></div>
+                    <!--shop_unit_left -->
+                    <div class="shop_unit_right"><img src="http://cdn.kuaidi100.com/images/api/ecshop02.gif" alt="" /></div>
+                    <!-- shop_unit_right--> 
+                  </div>
+                  <!--shop_unit -->
+                  
+                  <div class="shop_unit" style="border:none;">
+                    <div class="shop_unit_left"><img src="http://cdn.kuaidi100.com/images/api/hishop.gif" alt="" /></div>
+                    <!--shop_unit_left -->
+                    <div class="shop_unit_right"><img src="http://cdn.kuaidi100.com/images/api/hishop02.gif" alt="" /></div>
+                    <!-- shop_unit_right--> 
+                  </div>
+                  <!--shop_unit --> 
+                  
+                </div>
+                <!--shop --> 
+              </div>
+              <!--shopex_pad --> 
+            </div>
+            <!--shopex --> 
+            <!----------- 中间三副大图片结束--------------------------------------------------------------------------------------------------------> 
+            
+          </div>
+          <!--threeBigTab01 --> 
+          <!--切换一结束--> 
+          
+          <!--切换二开始 -->
+          <div class="threeBigTab01"  > 
+            
+            <!----------- 中间 三副大图片开始------------------------------------------------------------------->
+            <div class="shopex">
+              <div class="shopex_pad">
+                <div class="shop">
+                  <div class="shop_unit">
+                    <div class="sixicon">
+                        <div class="sixicon_forie6">
+                      <div class="sixicon_unit" style="height:120px;">
+                        <div class="si_gif"><img src="http://cdn.kuaidi100.com/images/api/app_b2c_01.gif" alt="" title="适用于EcShop_v2.72"/></div>
+                        <!--si_gif -->
+                        <div class="si_wd01">EcShop快递查询插件</div>
+                        <!-- si_wd01-->
+                        <div class="si_wd02">下载　<a href="http://www.kuaidi100.com/download/ecshop_v2.72_plug_v3.rar" class="si_wd02_a" >新版</a>　<a href="http://www.kuaidi100.com/download/b2c_ecshop_v2.72.rar" class="si_wd02_a" >旧版</a></div>
+                        <!--si_wd02 --> 
+                      </div>
+                      <!--sixicon_unit -->
+                      
+                      <div class="sixicon_unit" style="height:120px;">
+                        <div class="si_gif"><img src="http://cdn.kuaidi100.com/images/api/app_b2c_02.gif" alt="" title="适用于ShopEx_v4.85"/></div>
+                        <!--si_gif -->
+                        <div class="si_wd01">ShopEx快递查询插件</div>
+                        <!-- si_wd01-->
+                        <div class="si_wd02"><a href="http://www.kuaidi100.com/download/b2c_shopex_4.8.5.7_new(2013.3.26).rar" class="si_wd02_a">4.8.5.7开头版本</a><br /><a href="http://www.kuaidi100.com/download/shopex_v4.85_plug_v3.rar" class="si_wd02_a">以前版本</a>　<a href="http://www.kuaidi100.com/download/b2c_shopex_v4.85.rar" class="si_wd02_a">无广告版</a></div>
+                        <!--si_wd02 --> 
+                      </div>
+                      <!--sixicon_unit -->
+                      
+                      <div class="sixicon_unit"  style="height:120px;">
+                        <div class="si_gif"><img src="http://cdn.kuaidi100.com/images/api/app_b2c_03.gif" alt="" title="适用于HiShop_v5.3"/></div>
+                        <!--si_gif -->
+                        <div class="si_wd01">HiShop快递查询插件</div>
+                        <!-- si_wd01-->
+                        <div class="si_wd02">下载　<a href="http://www.kuaidi100.com/download/hishop_v5.3_plug_v3.rar" class="si_wd02_a">新版</a>　<a href="http://www.kuaidi100.com/download/b2c_hishop_v5.3.rar" class="si_wd02_a">旧版 </a></div>
+                        <!--si_wd02 --> 
+                      </div>
+                      <!--sixicon_unit -->
+                      
+                      
+                      <div class="sixicon_unit" >
+                        <div class="si_gif"><img src="http://cdn.kuaidi100.com/images/api/zuitu.gif" alt="" /></div>
+                        <!--si_gif -->
+                        <div class="si_wd01">最土快递查询(全展示版)</div>
+                        <!-- si_wd01-->
+                        <div class="si_wd02"><a href="http://www.kuaidi100.com/download/zuituplugin.rar" class="si_wd02_a">下载V1.0全展示版 </a></div>
+                        <!--si_wd02 -->
+                        <div class="si_wd03">(由 <a href="http://www.yz67.com" class="acolor" target="_blank">易站网络</a> 提供)</div>
+                        <!-- si_wd03--> 
+                      </div>
+                      <!--sixicon_unit --> 
+                      
+                      
+                      
+                      <div class="sixicon_unit">
+                        <div class="si_gif"><img src="http://cdn.kuaidi100.com/images/api/app_b2c_04.gif" alt="" /></div>
+                        <!--si_gif -->
+                        <div class="si_wd01">最土团购快递查询插件</div>
+                        <!-- si_wd01-->
+                        <div class="si_wd02"><a href="http://www.kuaidi100.com/download/b2c_zuitu_v1.6.rar" class="si_wd02_a">V1.6版</a> | <a href="http://www.kuaidi100.com/download/b2c_zuitu_v2.0.rar" class="si_wd02_a">V2.0版</a></div>
+                        <!--si_wd02 --> 
+                      </div>
+                      <!--sixicon_unit -->
+                      
+                      <div class="sixicon_unit">
+                        <div class="si_gif"><img src="http://cdn.kuaidi100.com/images/api/app_b2c_05.gif" alt="" /></div>
+                        <!--si_gif -->
+                        <div class="si_wd01">PHPCMS快递查询插件</div>
+                        <!-- si_wd01-->
+                        <div class="si_wd02"><a href="http://www.kuaidi100.com/download/kuaidi100_phpcms.rar" class="si_wd02_a">下载V9通用版</a></div>
+                        <!--si_wd02 -->
+                        <div class="si_wd03">(由 <a href="http://www.zx17.com/" class="acolor"  target="_blank">忠信仪器网</a> 提供)</div>
+                        <!-- si_wd03--> 
+                      </div>
+                      <!--sixicon_unit -->
+                      
+                      <div class="sixicon_unit" >
+                        <div class="si_gif"><img src="http://cdn.kuaidi100.com/images/api/app_b2c_06.gif" alt="" /></div>
+                        <!--si_gif -->
+                        <div class="si_wd01">emlog快递查询插件</div>
+                        <!-- si_wd01-->
+                        <div class="si_wd02"><a href="http://www.kuaidi100.com/download/blog_emlog_v4.0.zip" class="si_wd02_a">下载V4.X通用版 </a></div>
+                        <!--si_wd02 -->
+                        <div class="si_wd03">(由 <a href="http://www.sorson.com/" class="acolor"  target="_blank">Sの秘密基地</a> 提供)</div>
+                        <!-- si_wd03--> 
+                      </div>
+                      <!--sixicon_unit -->
+                      
+                      
+                      
+                      
+                      </div><!--sixicon_forie6-->
+                    </div><!-- sixicon--> 
+                    
+                  </div>
+                  <!--shop_unit -->
+                  
+                  <div class="shop_unit">
+                    <div class="phpbox">
+                      <div class="phpbox01">
+                        <div class="pbximg"><img src="http://cdn.kuaidi100.com/images/api/php.gif" alt="" /></div>
+                        <div class="pbxword">PHP188系统(<a href="http://www.php188.com" class="acolor ff"   target="_blank">http://www.php188.com</a>)开启快递查询功能方法：</div>
+                        <div class="pbxbigpic"><img src="http://cdn.kuaidi100.com/images/api/php01.gif" alt="" /></div>
+                        <!--pbxbigpic --> 
+                      </div>
+                      <!--phpbox01 --> 
+                    </div>
+                    <!-- phpbox--> 
+                  </div>
+                  <!--shop_unit -->
+                  
+                  <div class="shop_unit" style="border:none;">
+                    <div class="phpbox">
+                      <div class="phpbox01">
+                        <div class="pbximg"><img src="http://cdn.kuaidi100.com/images/api/iwebshop.gif" alt="" /></div>
+                        <div class="pbxword">iWebShop系统(<a href="http://www.jooyea.cn/mall/index.html" class="acolor ff"  target="_blank">http://www.jooyea.cn/mall/index.html</a>)开启快递查询功能方法：</div>
+                        <div class="pbxbigpic"><img src="http://cdn.kuaidi100.com/images/api/php02.gif" alt="" /></div>
+                        <!--pbxbigpic --> 
+                      </div>
+                      <!--phpbox01 --> 
+                    </div>
+                    <!-- phpbox--> 
+                  </div>
+                  <!--shop_unit --> 
+                  
+                </div>
+                <!--shop --> 
+              </div>
+              <!--shopex_pad --> 
+            </div>
+            <!--shopex --> 
+            <!----------- 中间三副大图片结束--------------------------------------------------------------------------------------------------------> 
+            
+          </div>
+          <!--threeBigTab01 --> 
+          <!--切换二结束 --> 
+          
+          <!--切换三开始 -->
+          <div class="threeBigTab01"  style="display:none;"> 
+            
+            <!----------- 中间 三副大图片开始-------------------------------------------------------------------------------------------------------->
+            <div class="shopex">
+              <div class="plugin">
+                <div class="bd_pad">
+                  <div class="bdunit"  style="margin-right:40px;">
+                    <div class="bdut_title"  style="position:relative; left:-14px;"><img src="http://cdn.kuaidi100.com/images/api/smile.gif" alt="" />&nbsp;<span class="plugtech">您开发了新的插件？</span></div>
+                    <!-- bdut_title-->
+                    <div class="submail"> <a href="mailto:kuaidi@kingdee.com"  class="submail_maito">提交插件</a> </div>
+                    <!--submail --> 
+                    
+                  </div>
+                  <!-- bdunit-->
+                  
+                  <div class="bdunit">
+                    <div class="bdut_title" ><img src="http://cdn.kuaidi100.com/images/api/flower.gif" alt="" />&nbsp;<span class="plugtech">咨询与技术支持</span></div>
+                    <!-- bdut_title-->
+                    <div class="bdut01" style="padding-left:40px;"> 1.安装插件后出现异常？ 到<a href="http://blog.kuaidi100.com/?cat=6" class="acolor" target="_blank">博客</a>找答案。 <br />
+                      2.更多问题，请发邮件到：<a href="mailto:kuaidi@kingdee.com"  class="acolor">kuaidi@kingdee.com</a> </div>
+                    <!-- bdut02--> 
+                    
+                  </div>
+                  <!-- bdunit--> 
+                  
+                </div>
+                <!-- bd_pad--> 
+                
+              </div>
+              <!--plugin --> 
+            </div>
+            <!--shopex --> 
+            <!----------- 中间三副大图片结束----------------------------------------> 
+            
+          </div>
+          <!--threeBigTab01 --> 
+          <!--切换三结束 --> 
+        </div>
+        <!-- threeBigTab--> 
+        <!--下半部分结束 包含三个切换 --> 
+        
+      </div>
+      <!--onlyBorder0802--> 
+    </div>
+    <!-- api02_main_part02--> 
+    <!--主体部分第二部分结束 --> 
+    
+  </div>
+  <!--api02_main --> 
+  <!-----------主体部分结束 --------------------------------------------------------> 
+
+<!--友商网发票   --//start --> 
+   <div class="invoice">
+        <a href="http://fapiao.youshang.com/api.html?from=kuaidi100" class="different_a" target="_blank">
+      <div class="jerk">快捷、便利的一站式发票真伪查询工具，每天10万财务人员使用！</div><!--jerk -->
+	  <div class="certainly">
+	     <div class="certainly_pad">
+		    <div  class="hugged" >申请开放接口</div>
+			<div class="relationship"></div><div class="relationship"></div>
+		</div><!-- certainly_pad-->
+	  </div><!-- certainly-->  
+	  </a>
+   </div><!-- invoice-->
+
+<!--友商网发票   --//end --> 
+
+  
+</div><!--wrapper --> 
+
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/security_valid.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/page/api/index.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script> 
+<!--[if IE 6]> 
+  <script src="/js/page/api/DD_belatedPNG.js" mce_src="/js/page/api/DD_belatedPNG.js"></script> 
+  <script type="text/javascript">DD_belatedPNG.fix('.png_img');</script>
+<![endif]--> 
+<script>
+$(document).ready(function(){
+	/*nav导航切换效果*/
+	$(".nav_saaa a").each(function(i){
+		$(this).click(function(){
+			$(this).removeClass("preBorder").addClass("nexBorder").siblings().removeClass("nexBorder").addClass("preBorder");
+			$(".threeBigTab01").hide().eq(i).show();
+		})
+	});
+
+	  /* 以下是typeid=0  typeid=1  typeid=2 的js代码*/   		   
+ 
+	  var str = location.href;
+	  var index = str.indexOf('?'); 
+		  str01 = str.substring(index+1);
+		    //alert(str01);
+		var arr=str01.split("=");
+		//alert(arr[1]);
+		var hao=arr[1];
+		//alert(hao); 
+	$('.nav_saaa a:eq('+parseInt(hao)+')').click();	
+	
+	
+	
+		    
+});
+</script> 
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=70060" ></script> 
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>

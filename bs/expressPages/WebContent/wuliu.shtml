@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="apple-itunes-app" content="app-id=458270120"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物流查询网_货运查询_</title>
+<meta name="Keywords" content="德邦物流单号查询,华宇物流单号查询,佳吉物流单号查询,新邦物流单号查询" />
+<meta name="Description" content="一站式的物流查询网，涵盖近百家常用物流公司查询，支持手机查询。支持常用的德邦物流、华宇物流、佳吉物流、盛辉物流等单号查询服务。" />
+<meta name="mobile-agent" content="format=wml; url=http://wap.kuaidi100.com/wap_wuliu.jsp">
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/page/index_m.css?version=201303201326" />
+</head>
+<body>
+<input type="hidden" id="headerMenu" value="kuaidiQuery wuliuQuery" /> 
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="network/distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="network/applyJoin.shtml">网点发布申请</a></li><li><a href="network/invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="user/login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="user/login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="user/login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="user/login.html">登录</a>&nbsp;|&nbsp;<a href="user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="wuliu.shtml#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="openapi/index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="network/clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="wuliu.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="wuliu.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="wuliu.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="wuliu.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="wuliu.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="wuliu.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="wuliu.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom--> 
+<a href="wuliu.shtml#" id="topShow" onclick="return false;"></a>
+<div class="tips-top w960">
+  <ul class="wuliu">
+    <li class="tips-1"><span></span></li>
+    <li class="tips-2"><span></span></li>
+  </ul>
+</div>
+<div class="container w960 mt10px">
+  <div id="companyList" class="column-1 com-list">
+    <dl class="common-list wuliu-common-list">
+      <dt>常用</dt>
+      <dd><a href="all/dbwl.shtml" id="a-debangwuliu" data-code="debangwuliu"><span>德邦物流</span></a><a href="all/tdhy.shtml" id="a-tiandihuayu" data-code="tiandihuayu"><span>天地华宇</span></a><a href="all/sewl.shtml" id="a-suer" data-code="suer"><span>速尔物流</span></a><a href="all/yskd.shtml" id="a-youshuwuliu" data-code="youshuwuliu"><span>优速物流</span></a><a href="all/ycwl.shtml" id="a-yuanchengwuliu" data-code="yuanchengwuliu"><span>远成物流</span></a><a href="all/jywl.shtml" id="a-jiayiwuliu" data-code="jiayiwuliu"><span>佳怡物流</span></a><a href="all/lb.shtml" id="a-longbanwuliu" data-code="longbanwuliu"><span>龙邦速递</span></a><a href="all/st.shtml" id="a-shentong" data-code="shentong"><span>申通物流</span></a></dd>
+    </dl>
+    <dl class="dl-bg">
+      <dt>A</dt>
+      <dd><a href="all/annengwuliu.shtml" id="a-annengwuliu" data-code="annengwuliu"><span>安能物流</span></a></dd>
+    </dl>
+    <dl>
+      <dt>C</dt>
+      <dd><a href="all/chuanxiwuliu.shtml" id="a-chuanxiwuliu" data-code="chuanxiwuliu"><span>传喜物流</span></a><a href="all/city100.shtml" id="a-city100" onclick="selectCompany('city100',this);return false;"><span>城市100</span></a></dd>
+    </dl>
+    <dl class="dl-bg">
+      <dt>D</dt>
+      <dd><a href="all/dtwl.shtml" id="a-datianwuliu" data-code="datianwuliu"><span>大田物流</span></a><a href="all/dbwl.shtml" id="a-debangwuliu" title="德邦物流单号查询" data-code="debangwuliu"><span>德邦物流</span></a></dd>
+    </dl>
+    <dl>
+      <dt>F</dt>
+      <dd><a href="all/fkd.shtml" id="a-feikangda" data-code="feikangda"><span>飞康达</span></a></dd>
+    </dl>
+    <dl class="dl-bg">
+      <dt>G</dt>
+      <dd><a href="all/gls.shtml" id="a-gls" data-code="gls"><span>GLS</span></a><a href="all/gongsuda.shtml" id="a-gongsuda" data-code="gongsuda"><span>共速达</span></a></dd>
+    </dl>
+    <dl>
+      <dt>H</dt>
+      <dd><a href="all/tdhy.shtml" id="a-tiandihuayu" data-code="tiandihuayu"><span>天地华宇</span></a><a href="all/hl.shtml" id="a-hengluwuliu" data-code="hengluwuliu"><span>恒路物流</span></a><a href="all/hxl.shtml" id="a-huaxialongwuliu" data-code="huaxialongwuliu"><span>华夏龙</span></a><a href="all/haosheng.shtml" id="a-haoshengwuliu" data-code="haoshengwuliu"><span>昊盛物流</span></a></dd>
+    </dl>
+    <dl class="dl-bg">
+      <dt class="double-h">J</dt>
+      <dd><a href="all/jjwl.shtml" id="a-jiajiwuliu" data-code="jiajiwuliu"><span>佳吉物流</span></a><a href="all/jywl.shtml" id="a-jiayiwuliu" data-code="jiayiwuliu"><span>佳怡物流</span></a><a href="all/jxd.shtml" id="a-jixianda" data-code="jixianda"><span>急先达</span></a><a href="all/jd.shtml" id="a-jindawuliu" data-code="jindawuliu"><span>金大物流</span></a><a href="all/jietekuaidi.shtml" id="a-jietekuaidi" data-code="jietekuaidi"><span>捷特物流</span></a></dd>
+    </dl>
+    <dl>
+      <dt>K</dt>
+      <dd><a href="all/kangliwuliu.shtml" id="a-kangliwuliu" data-code="kangliwuliu"><span>康力物流</span></a><a href="all/kuayue.shtml" id="a-kuayue" data-code="kuayue"><span>跨越物流</span></a></dd>
+    </dl>
+    <dl class="dl-bg">
+      <dt>L</dt>
+      <dd><a href="all/lb.shtml" id="a-longbanwuliu" data-code="longbanwuliu"><span>龙邦速递</span></a><a href="all/lhtwl.shtml" id="a-lianhaowuliu" data-code="lianhaowuliu"><span>联昊通</span></a></dd>
+    </dl>
+    <dl>
+      <dt>M</dt>
+      <dd><a href="all/mingliangwuliu.shtml" id="a-mingliangwuliu" data-code="mingliangwuliu"><span>明亮物流</span></a></dd>
+    </dl>
+    <dl>
+      <dt class="double-h">S</dt>
+      <dd><a href="all/sh.shtml" id="a-shenghuiwuliu" data-code="shenghuiwuliu"><span>盛辉物流</span></a><a href="all/sewl.shtml" id="a-suer" data-code="suer"><span>速尔物流</span></a><a href="all/shangda.shtml" id="a-shangda" data-code="shangda"><span>上大物流</span></a><a href="all/st.shtml" id="a-shentong" data-code="shentong" style="width:70px"><span>申通E物流</span></a><a href="all/shenganwuliu.shtml" id="a-shenganwuliu" data-code="shenganwuliu"><span>圣安物流</span></a><a href="all/suijiawuliu.shtml" id="a-suijia" data-code="suijiawuliu"><span>穗佳物流</span></a></dd>
+    </dl>
+    <dl class="dl-bg">
+      <dt>T</dt>
+      <dd><a href="all/tdhy.shtml" id="a-tiandihuayu" data-code="tiandihuayu"><span>天地华宇</span></a></dd>
+    </dl>
+    <dl>
+      <dt>W</dt>
+      <dd><a href="all/wjwl.shtml" id="a-wanjiawuliu" data-code="wanjiawuliu"><span>万家物流</span></a></dd>
+    </dl>
+    <dl class="dl-bg">
+      <dt>X</dt>
+      <dd><a href="all/xbwl.shtml" id="a-xinbangwuliu" data-code="xinbangwuliu"><span>新邦物流</span></a><a href="all/xfwl.shtml" id="a-xinfengwuliu" data-code="xinfengwuliu"><span>信丰物流</span></a></dd>
+    </dl>
+    <dl>
+      <dt class="double-h">Y</dt>
+      <dd><a href="all/yzgn.shtml" id="a-youzhengguonei" data-code="youzhengguonei"><span>邮政国内</span></a><a href="all/yzgj.shtml" id="a-youzhengguoji" data-code="youzhengguoji"><span>邮政国际</span></a><a href="all/ycwl.shtml" id="a-yuanchengwuliu" data-code="yuanchengwuliu"><span>远成物流</span></a><a href="all/yskd.shtml" id="a-youshuwuliu" data-code="youshuwuliu"><span>优速物流</span></a><a href="all/yfwl.shtml" id="a-yuefengwuliu" data-code="yuefengwuliu"><span>越丰物流</span></a><a href="all/yfh.shtml" id="a-yuanfeihangwuliu" data-code="yuanfeihangwuliu"><span>原飞航</span></a><a href="all/yuxinwuliu.shtml" id="a-yuxinwuliu" data-code="yuxinwuliu"><span>宇鑫物流</span></a></dd>
+    </dl>
+    <dl class="dl-bg">
+      <dt>Z</dt>
+      <dd><a href="all/ztwl.shtml" id="a-ztky" data-code="ztky"><span>中铁物流</span></a><a href="all/zywl.shtml" id="a-zhongyouwuliu" data-code="zhongyouwuliu"><span>中邮物流</span></a></dd>
+    </dl>
+    <a class="a-wlgs mt10px" href="openapi/apply.shtml"></a> </div>
+  <div class="column-2">
+    <p class="companyinfo" id="companyinfobox"><a href="user/history-from=home.shtml" class="fr link-goto" style="font-size:12px;color:#0A8ECE">查看历史记录</a><span id="companyName"></span><span id="companyTel"></span></p>
+    <div class="search-box">
+      <div class="input-box"> <input name="postid" type="text" class="inp-metro" id="postid" maxlength="26" url="true" autocomplete="off" x-webkit-speech x-webkit-grammar="builtin:translate" /><a id="query" onclick="query();" class="btn-query">查询</a>
+        <p id="valideBox" style="display:none;padding-top:5px;"><span style="float:left;margin-right:5px;">请您输入验证码：<input name="valicode" type="text" class="inp" id="valicode" maxlength="8" style="width:120px;" /></span><span class="vali-images"><img id="valiimages" src="http://cdn.kuaidi100.com/images/clear.gif" onclick="refreshCode()" alt="点击获取新验证码" /></span><a href="wuliu.shtml#" class="font12px refresh-a fl" onclick="refreshCode();return false;">看不清，换一张</a></p>
+        <p id="telBox" style="display:none;padding-top:5px;">请您输入电话号码：<input name="valicodetel" type="text" class="inp" id="valicodetel" maxlength="18" style="width:214px;" /></p>
+        <p class="box"></p>
+      </div>
+    </div>
+    <div class="box"></div>
+    <div id="inputTips" class="mt10px" style="display:none;">例如，您可以输入：<a onclick="useTips();return false;" href="wuliu.shtml#"></a></div>
+    <div class="box"></div>
+    <!--<p id="friendTip" class="tips font14px" style="display:none;margin-top:10px"><a onclick="$('#friendTip').hide();return false;" href="wuliu.shtml#" class="tips-close" title="关闭提示"></a><strong>温馨提醒</strong>：保存历史单号，免除输单麻烦， <a href="user/login.html"><strong>马上试试&gt;&gt;</strong></a></p>-->
+    <div id="errorTips" class="tips mt10px" style="display:none;"><a onclick="$('#errorTips').hide();return false;" href="wuliu.shtml#" class="tips-close" title="关闭提示"></a><span class="icon"></span>
+      <p id="errorMessage">您输入的验证码错误，请重新输入！</p>
+    </div>
+    <div id="adDivs" style="padding:10px;margin-top:10px;border:1px solid #DDD;background-color:#F8F8F8;"><a onclick="$('#adDivs').hide();return false;" href="wuliu.shtml#" class="tips-close" title="关闭广告"></a>
+      <div id="PAGE_AD_316601" style="height:60px"></div>
+    </div>
+    <p id="queryWait" class="wait" style="display:none">正在查询中，请稍等片刻......</p>
+    <div id="queryContext" class="mt10px" style="display:none;">
+      <table id="queryResult2" class="result-info2" cellspacing="0">
+      </table>
+      <p id="ctrlBtn" style="padding-top:10px" class="send-box-on ctrl-box"><a href="user/history.shtml" onclick="historyPageLink();return false;" class="btn-save" title="下次查询无需再输单号，方便快捷">保存单号</a><a href="wuliu.shtml#" onclick="openSenBox();return false;" class="btn-share">分享查询结果</a></p>
+      <div id="sendHistory" style="display:none;" class="send-box"><a href="wuliu.shtml#" class="tips-close-2" title="关闭提示" onclick="closeHisCtrl();return false;"></a>
+        <div>转发给QQ、MSN、旺旺等好友&nbsp;&nbsp;</div>
+        转发地址：<input name="sendUrl" type="text" id="sendUrl" value="" class="inp-send" style="width:374px;" /> <input type="button" value="复制" class="btn-copy" id="sendUrlBtn"/>
+        <hr />
+        转发内容：<textarea name="sendContent" cols="" readonly class="inp-send2" id="sendContent"></textarea> <input type="button" value="复制" id="sendContentBtn" class="btn-copy"/>
+        <div id="sendMsg" class="sendMsg"></div>
+      </div>
+    </div>
+    <!-- queryContext  -->
+    <div id="notFindTip" class="tips mt10px" style="display:none;"> <a onclick="$('#notFindTip').hide();return false;" href="wuliu.shtml#" class="tips-close" title="关闭提示"></a>
+      <p id="notFindErro" style="display:none;">此单号无记录，请核对物流公司名称和运单号码是否正确！</p>
+      <p id="timeOutErro" style="display:none;"><!--<span id="queryCompany"></span>-->网络繁忙，到<strong id="gocompanyUrl"></strong></p>
+      <dl>
+        <dt>操作建议：</dt>
+        <dd id="companyWebTips">·到物流公司<strong id="gocompanyUrl2"></strong></dd>
+        <dd id="voteTips"></dd>
+        <dd>·还没有解决问题？<a href="help/feedback.shtml" onclick="gotofeedback();return false;"><strong>我要报错&gt;&gt;</strong></a></dd>
+      </dl>
+    </div>
+    <!--notFindTip --> 
+  </div>
+</div>
+<div class="clear"></div>
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/setCookie.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/ZeroClipboard.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/share/company.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/share/query.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/hisCtrl.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/page/wuliu.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script> 
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('316601','PAGE_AD_316601');BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>

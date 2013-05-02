@@ -1,0 +1,202 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>快递网点查询_</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/page/index_m_network.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/network_search.css?version=201303201326" />
+</head>
+<body>
+
+
+
+	<!--header-begin -->
+		 	
+			<script type="text/javascript" src="js/header_index.js"></script>
+			
+		<!--header end-->
+
+<!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="network.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="network.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="network.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="network.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="network.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="network.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="network.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div><!--fix-box-bottom-->
+<a onclick="return false;" id="topShow" href="network.shtml#"></a>
+<div class="tips-top w960">
+  <ul class="network">
+    <li class="tips-1"><span></span></li>
+    <li class="tips-2"><span></span></li>
+  </ul>
+</div>
+<div id="container" class="container w960 mt10px">
+  <div id="main" class="layout">
+    <div class="column-1 com-list" id="companyList">
+      <dl class="common-list">
+        <dt>常用</dt>
+        <dd> <a onclick="selectCompany('',this);return false;" id="a-all" title="快递网点查询" href="network.shtml#" class="select-cp"><span>全部</span></a> <a onclick="selectCompany('5',this);return false;" id="a-5" title="申通" href="all/st.shtml"><span>申通</span></a> <a onclick="selectCompany('4',this);return false;" id="a-4" title="圆通" href="all/yt.shtml"><span>圆通</span></a> <a onclick="selectCompany('2',this);return false;" id="a-2" title="韵达" href="network/province_2.htm"><span>韵达</span></a> <a onclick="selectCompany('3',this);return false;" id="a-3" title="中通" href="all/zt.shtml"><span>中通</span></a> <a onclick="selectCompany('7',this);return false;" id="a-7" title="天天" href="all/tt.shtml"><span>天天</span></a> <a onclick="selectCompany('20',this);return false;" id="a-20" title="国通快递网点查询" href="network/province_20.htm"><span>国通</span></a> <a onclick="selectCompany('12',this);return false;" id="a-12" title="宅急送" href="all/zjs.shtml"><span>宅急送</span></a> 
+          <!--<a onclick="selectCompany('6',this);return false;" id="a-6" title="汇通" href="http://www.kuaidi100.com/all/htky.shtml">汇通</a>
+          <a onclick="selectCompany('11',this);return false;" id="a-10" title="速尔" href="all/sewl.shtml">速尔</a>
+          <a onclick="selectCompany('8',this);return false;" id="a-8" title="中铁" href="all/ztwl.shtml">中铁</a>
+          <a onclick="selectCompany('1',this);return false;" id="a-1" title="德邦" href="all/dbwl.shtml">德邦</a>--> 
+        </dd>
+      </dl>
+      <dl class="dl-bg">
+        <dt>D</dt>
+        <dd><a onclick="selectCompany('1',this);return false;" id="a-1" title="德邦物流查询" href="network/province_1.htm"><span>德邦物流</span></a></dd>
+      </dl>    
+      <dl>
+        <dt>G</dt>
+        <dd><a onclick="selectCompany('20',this);return false;" id="a-20" title="国通快递网点查询" href="network/province_20.htm"><span>国通快递</span></a><a onclick="selectCompany('19',this);return false;" id="a-19" title="能达速递网点查询" href="network/province_19.htm"><span>能达速递</span></a></dd>
+      </dl>
+      <dl class="dl-bg">
+        <dt>H</dt>
+        <dd><a onclick="selectCompany('6',this);return false;" id="a-6" title="汇通快递网点查询" href="network/province_6.htm"><span>汇通快递</span></a></dd>
+      </dl>
+      <dl>
+        <dt>J</dt>
+        <dd><a onclick="selectCompany('26',this);return false;" id="a-26" title="佳吉快递网点查询" href="network/province_26.htm"><span>佳吉快递</span></a></dd>
+      </dl>
+      <dl class="dl-bg">
+        <dt>K</dt>
+        <dd><a onclick="selectCompany('18',this);return false;" id="a-18" title="快捷速递网点查询" href="network/province_18.htm"><span>快捷速递</span></a></dd>
+      </dl>
+      <dl>
+        <dt>L</dt>
+        <dd><a onclick="selectCompany('24',this);return false;" id="a-24" title="龙邦速递" href="network/province_24.htm"><span>龙邦速递</span></a></dd>
+      </dl>
+      <dl class="dl-bg">
+        <dt>Q</dt>
+        <dd><a onclick="selectCompany('23',this);return false;" id="a-23" title="全峰快递" href="network/province_23.htm"><span>全峰快递</span></a><a onclick="selectCompany('25',this);return false;" id="a-25" title="全日通快递" href="network/province_25.htm"><span>全日通快递</span></a> </dd>
+      </dl>
+      <dl>
+        <dt>S</dt>
+        <dd><a onclick="selectCompany('5',this);return false;" id="a-5" title="申通快递网点查询" href="network/province_5.htm"><span>申通快递</span></a> <a onclick="selectCompany('10',this);return false;" id="a-10" title="顺丰快递网点查询" href="network/province_10.htm"><span>顺丰快递</span></a> <a onclick="selectCompany('11',this);return false;" id="a-11" title="速尔快递网点查询" href="network/province_11.htm"><span>速尔快递</span></a></dd>
+      </dl>
+      <dl class="dl-bg">
+        <dt>T</dt>
+        <dd><a onclick="selectCompany('7',this);return false;" id="a-7" title="天天快递网点查询" href="network/province_7.htm"><span>天天快递</span></a><a onclick="selectCompany('14',this);return false;" id="a-14" title="天地华宇快递网点查询" href="network/province_14.htm"><span>天地华宇</span></a></dd>
+      </dl>
+      <dl>
+        <dt>X</dt>
+        <dd><a onclick="selectCompany('13',this);return false;" id="a-13" title="新邦物流网点查询" href="network/province_13.htm"><span>新邦物流</span></a></dd>
+      </dl>
+      <dl class="dl-bg">
+        <dt>Y</dt>
+        <dd><a onclick="selectCompany('4',this);return false;" id="a-4" title="圆通快递网点查询" href="network/province_4.htm"><span>圆通快递</span></a> <a onclick="selectCompany('2',this);return false;" id="a-2" title="韵达快递网点查询" href="network/province_2.htm"><span>韵达快运</span></a> <a onclick="selectCompany('17',this);return false;" id="a-17" title="优速物流网点查询" href="network/province_17.htm"><span>优速物流</span></a></dd>
+      </dl>
+      <dl>
+        <dt>Z</dt>
+        <dd><a onclick="selectCompany('3',this);return false;" id="a-3" title="中通快递网点查询" href="network/province_3.htm"><span>中通快递</span></a> <!--<a onclick="selectCompany('8',this);return false;" id="a-8" title="中铁快运网点查询" href="http://www.kuaidi100.com/network/province_8.htm"><span>中铁快运</span></a>--> <a onclick="selectCompany('12',this);return false;" id="a-12" title="宅急送网点查询" href="network/province_12.htm"><span>宅急送</span></a></dd>
+      </dl>
+      <div class="clear"></div>
+      <div class="ad_left" id="PAGE_AD_602208"></div>
+    </div>
+    <div class="column-2 result clearfix">
+      <div class="search-box">
+          <input type="hidden" id="corpId" name="corpId" value="" />
+          <input type="hidden" id="subCorpId" name="subCorpId" value="" />
+          <div class="input-box" style="position:relative;height:40px;">
+          	<a href="network.shtml#" id="provinceSelect" onclick="return false;"></a>
+            <input name="cityName_input" type="text" class="inp-metro inp-city" id="cityName_input" disabled="disabled" autocomplete="off" /><input type="hidden" id="cityId_input" name="cityId_input" value="" /><input type="hidden" id="area" name="area" value="" /><input name="postid" type="text" class="inp-metro" id="postid" maxlength="26" x-webkit-speech x-webkit-grammar="builtin:translate"/><a onclick="queryClick();return false;" class="btn-query"></a>
+            <div id="provinces" class="location-box" style="display:none;"></div>
+          </div><!--input-box-->
+          <ul class="input-tips" id="input-tips"></ul>
+      </div>
+      <div class="clear"></div>
+      <div id="exampleContext" class="example" style="margin-bottom:10px"> 例如：您可以输入<a href="network.shtml#" onclick="exampleClick();return false;">广东-深圳市&nbsp;&nbsp;赛格</a> </div>
+      <div class="box"></div>
+      <div id="countContext">
+        <div id="countDisplay" style="float:left;"></div>
+        <div class="box"></div>
+      </div>
+      <div style="display:none;"><a href="network.shtml#" id="displayView" class="display-view" onclick="changeDisplayView();return false;">查看地图</a></div>
+      <div class="box"></div>
+      <div id="nameDisplay"></div>
+      <div id="notFindTip" class="tips" style="display:none;margin-bottom:10px"> <a onclick="$('#notFindTip').hide();return false;" href="network.shtml#" class="tips-close" title="关闭提示"></a>
+        <p id="notFindErro">抱歉，没有查到网点</p>
+        <dl>
+          <dt>操作建议：</dt>
+          <dd id="notFindS1"></dd>
+          <dd id="notFindS2"></dd>
+          <!--<dd>·还没有解决问题？<a href="help/feedback.shtml" onclick="gotofeedback();return false;"><strong>我要报错&gt;&gt;</strong></a></dd>-->
+        </dl>
+      </div>
+      <div class="mb10px" id="PAGE_AD_257793"></div>
+      <!--<div id="leftad" style="border:1px solid #DDD;background-color:#F8F8F8;padding:5px;display:none;margin-bottom:10px"><a onclick="$('#leftad').hide();return false;" href="network.shtml#" class="tips-close" title="关闭提示"></a><div id="PAGE_AD_330577"></div></div>-->
+      <div id="queryWait" class="wait" style="display:none;margin-bottom:10px;">正在查询中，请稍等片刻......</div>
+      <div id="queryContext">
+        <div id="queryResult" class="network-list" style="float:left;"></div>
+        <div class="box"></div>
+        <div id="mapResult" style="display:none;margin-top:15px;" >
+          <div id="baidumap" style="width:500px;height:500px;"></div>
+        </div>
+        <div id="pager" style="height:24px;margin-bottom:10px;float:left;" class="wl-page"></div>
+        <div class="box"></div>
+        <p id="sendHistoryBtn" style="text-align:right;padding-top:5px;display:none;"><a href="network.shtml#" onclick="$('#sendHistoryBtn').hide();$('#sendHistory').show();return false;">转发查询结果>></a></p>
+        <div id="sendHistory" style="display:none;" class="send-box"><a onclick="$('#sendHistory').hide();$('#sendHistoryBtn').show();return false;" href="network.shtml#" class="tips-close-2" title="关闭提示"></a>
+          <div>转发给QQ、MSN、旺旺等好友&nbsp;&nbsp;</div>
+          转发地址：
+          <input name="sendUrl" type="text" id="sendUrl" value="" class="inp-send" style="width:364px;" />
+          <input type="button" value="复制" class="btn-copy" onclick="copy2Clip('sendUrl');" onmouseover="this.className='btn-c-over';" onmouseout="this.className='btn-copy'"/>
+          <hr />
+          转发内容：
+          <input name="sendContent" type="text" id="sendContent" value="" class="inp-send" style="width:364px;" />
+          <input type="button" value="复制" class="btn-copy" onclick="copy2Clip('sendContent');" onmouseover="this.className='btn-c-over';" onmouseout="this.className='btn-copy'"/>
+          <div id="sendMsg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+<div class="footer w960">
+<script type="text/javascript" src="js/footer_index.js"></script>
+</div>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/city.js"></script>
+<script type="text/javascript" src="js/area.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/network.js"></script> 
+<script type="text/javascript" src="js/loginLogout.js"></script> 
+<script>
+
+ 
+var initSearch = "false";
+var areaCode = "";
+var searchText = "";
+if(initSearch==true){
+	doInitSearch();
+}
+</script> 
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script> 
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('602208','PAGE_AD_602208');BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');BAIDU_CLB_fillSlotAsync('257793','PAGE_AD_257793');BAIDU_CLB_fillSlotAsync('369718','PAGE_AD_369718');</script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>

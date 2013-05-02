@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="apple-itunes-app" content="app-id=458270120"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>用户登录</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta http-equiv="X-UA-Compatible" content="IE=7" />
+		<meta http-equiv="Content-Language" content="zh-cn" />
+		<link rel="stylesheet" type="text/css" href="css/reg.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/base_m.css" />
+		<link rel="stylesheet" type="text/css" href="css/index_m.css" />
+	</head>
+	<body id="regBody">
+
+		<!--header-begin -->
+
+		<script type="text/javascript" src="js/header_index.js"></script>
+
+		<!--header end-->
+
+		<!--wfull-->
+		<div class="fix-box-middle" id="floatCtrl">
+			<a href="login.html#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+			<a href="login.html#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+			<a href="login.html#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+		</div><!--fix-box-middle-->
+		<div class="fix-box-bottom" id="feedbackDiv">
+			<div class="fb-box" style="display:none">
+				<a href="login.html#" class="fb-close" onclick="feedbackInit();return false;"></a>
+				<span id="fb-error" class="fb-errortips"></span>
+				<textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+				<div id="fb-input1">
+					<label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');">
+						<input id="fb-checkbox" class="checkbox" type="checkbox" />
+						我愿意接受回馈</label>
+				</div>
+				<div id="fb-input2" style="display:none">
+					<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+					<a href="login.html#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+				</div>
+				<a href="login.html#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+			</div>
+			<div class="fb-finish" style="display:none">
+				<a href="login.html#" onclick="$('.fb-finish').hide();return false;"></a>
+			</div>
+		</div>
+		<!--fix-box-bottom-->
+		<div class="container w960">
+			<div class="column-1">
+				<div class="outerDiv" id="logBox">
+					<h2 class="loginTitle"></h2>
+					<div class="innerDiv">
+						<div class="gotoReg">
+							还不是用户？<a href="regByTel.shtml" class="link-goto">立即注册</a>
+						</div>
+						<div class="inputForm">
+							<p>
+								<span class="col1">用户名：</span>
+								<input type="text" id="email" class="inp-reg" placeholder="请输入手机号码/电子邮箱" name="username" value=""/>
+							</p>
+							<p>
+								<span class="col1">密&emsp;码：</span>
+								<input type="password" id="logpwd" class="inp-reg" name="logpwd"/>
+							</p>
+							<p>
+								<span class="col1">&nbsp;</span><label for="remember">
+									<input type="checkbox" id="remember" class="rem-cb" name="remember" checked="checked"/>
+									记住我的登录状态</label>
+							</p>
+							<p style="display:none;" id="error">
+								<span class="col1">&nbsp;</span><span id="errorTips" class="t-error">您输入的密码错误</span>
+							</p>
+							<p style="display:none" id="regWait">
+								<span class="col1">&nbsp;</span><span class="t-wait">正在登录，请稍候...</span>
+							</p>
+							<p>
+								<span class="col1">&nbsp;</span><a href="login.html#" class="ok_btn" id="login" onclick="logConfirm();return false;">登&nbsp;&nbsp;录</a><a href="login.html#" class="a-forget" onclick="forgetPwd();return false;">忘记密码？</a>
+							</p>
+							<!--<p><span class="col1">&nbsp;</span><span class="t-sns">使用合作伙伴账号登录：</span><a href="http://www.kuaidi100.com/taobao/oauthlogin?method=gotoOauth" class="sns-tb"></a><a href="login.html#" class="sns-qq"></a><a href="login.html#" class="sns-wb"></a><a href="login.html#" class="sns-bd"></a></p>-->
+							<p class=""  style="visibility:hidden;"></p>
+						</div><!--inputForm-->
+					</div><!--innerDiv-->
+					 
+				</div><!--outerDiv-->
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+		<div class="footer w960 mt10px">
+			<script type="text/javascript" src="js/footer_index.js"></script>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/setCookie.js"></script>
+		<script type="text/javascript" src="js/header.js"></script>
+		<script type="text/javascript" src="js/login.js"></script>
+
+	</body>
+</html>

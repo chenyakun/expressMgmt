@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>一键查快递单,快递单号识别-</title>
+<meta name="keywords" content="自动识别快递单号,智能快递单号查询" />
+<meta name="description" content="自动识别快递单号，一键查询，方便快捷。" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/query.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://www.kuaidi100.com/css/auto.css?version=201303201326" />
+</head>
+<body>
+<input type="hidden" id="headerMenu" value="kuaidiQuery kuaijianAuto" /> 
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="network/distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="network/applyJoin.shtml">网点发布申请</a></li><li><a href="network/invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="user/login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="user/login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="user/login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="user/login.html">登录</a>&nbsp;|&nbsp;<a href="user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="auto.shtml#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="openapi/index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="network/clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="auto.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="auto.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="auto.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="auto.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="auto.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="auto.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="auto.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<div class="container w960 mt10px">
+  <a id="letter" class="letter">的来信</a>
+  <a href="index.html" class="back_btn" onClick="_hmt.push(['_trackEvent', "index", "goto"]);">返回首页</a>
+  <div class="section">
+    <div class="search-box">
+      <div class="input-box"> <input name="postid" type="text" class="inp-metro" id="postid" maxlength="26" url="true" autocomplete="off" x-webkit-speech x-webkit-grammar="builtin:translate" /><a id="query" onclick="query();" class="btn-query">查询</a> </div>
+      <p id="valideBox" style="display:none;padding-top:5px;"><span style="float:left;margin-right:5px;">请您输入验证码：<input name="valicode" type="text" class="inp" id="valicode" maxlength="8" style="width:120px;" /></span><span class="vali-images"><img id="valiimages" src="http://cdn.kuaidi100.com/images/clear.gif" onclick="refreshCode()" alt="点击获取新验证码" /></span><a href="auto.shtml#" class="font12px refresh-a fl" onclick="refreshCode();return false;">看不清，换一张</a></p>
+      <p id="telBox" style="display:none;padding-top:5px;">请您输入电话号码：<input name="valicodetel" type="text" class="inp" id="valicodetel" maxlength="18" style="width:214px;" /></p>
+      <p class="box"></p>
+      <ul class="input-tips" id="input-tips">
+      </ul>
+    </div>
+    <p id="queryWait" class="wait mt10px" style="display:none;">正在查询中，请稍等片刻......</p>
+    <div id="selectCom" class="mt10px select-com hidden">
+    	<a id="selectComBtn">其他快递</a>
+    </div>
+    <div id="comList" class="select-box" style="display:none">
+      <a id="otherComBtn" class="other-com">其他快递</a>
+      <div class="com-list">
+        <div id="suggestList" class="suggest"></div>
+        <ul class="common">
+          <li><span class="li-title">常</span><a data-code="ems">EMS</a><a data-code="shentong">申通</a><a data-code="zhongtong">中通</a><a data-code="yunda">韵达</a><a data-code="zhaijisong">宅急送</a><a data-code="youzhengguonei">邮政包裹</a></li>
+          <li><span class="li-title">用</span><a data-code="shunfeng">顺丰</a><a data-code="yuantong">圆通</a><a data-code="huitongkuaidi">汇通</a><a data-code="tiantian">天天</a><a data-code="quanfengkuaidi">全峰</a><a data-code="rufengda">凡客配送</a></li>
+        </ul>
+        <ul class="all-list fr">
+          <li class="dl-bg"><span class="li-title">L</span><a data-code="lianbangkuaidi">联邦快递</a><a data-code="lianhaowuliu">联昊通</a></li>
+          <li><span class="li-title">Q</span><a data-code="quanfengkuaidi">全峰快递</a><a data-code="quanchenkuaidi">全晨快递</a><a data-code="quanyikuaidi">全一快递</a></li>
+          <li class="dl-bg"><span class="li-title">S</span><a data-code="suer">速尔快递</a><a data-code="shangcheng">尚橙物流</a></li>
+          <li><span class="li-title">T</span><a data-code="tnt">TNT</a><a data-code="tiandihuayu">天地华宇</a></li>
+          <li class="dl-bg"><span class="li-title">U</span><a data-code="usps">USPS</a><a data-code="ups">UPS</a><a data-code="youshuwuliu">优速物流</a></li>
+          <li><span class="li-title">X</span><a data-code="xinbangwuliu">新邦物流</a><a data-code="xinfengwuliu">信丰物流</a><a data-code="neweggozzo">新蛋物流</a></li>
+          <li class="dl-bg"><span class="li-title">Y</span><a data-code="youzhengguonei">邮政国内</a><a data-code="youzhengguoji">邮政国际</a><a data-code="yinjiesudi">银捷速递</a></li>
+          <li><span class="li-title">Z</span><a data-code="zhongyouwuliu">中邮物流</a><a data-code="ztky">中铁物流</a><a data-code="zhongtiewuliu">中铁快运</a></li>
+        </ul>
+        <ul class="all-list fl">
+          <li class="dl-bg"><span class="li-title">B</span><a data-code="youzhengguonei">包裹/平邮</a><a data-code="bangsongwuliu">邦送物流</a></li>
+          <li><span class="li-title">D</span><a data-code="dhl">DHL</a><a data-code="debangwuliu">德邦物流</a><a data-code="disifang">递四方</a></li>
+          <li class="dl-bg"><span class="li-title">E</span><a data-code="ems">E邮宝</a><a data-code="emsguoji">EMS国际</a></li>
+          <li><span class="li-title">F</span><a data-code="fedex">FedEx</a><a data-code="feibaokuaidi">飞豹快递</a><a data-code="feikangda">飞康达</a></li>
+          <li class="dl-bg"><span class="li-title">G</span><a data-code="youzhengguonei">挂号信</a><a data-code="guotongkuaidi">国通快递</a><a data-code="ganzhongnengda">能达速递</a></li>
+          <li><span class="li-title">H</span><a data-code="huitongkuaidi">汇通快运</a><a data-code="huaqikuaiyun">华企快运</a><a data-code="huiqiangkuaidi">汇强快递</a></li>
+          <li class="dl-bg"><span class="li-title">J</span><a data-code="jiajiwuliu">佳吉快运</a><a data-code="jialidatong">嘉里大通</a><a data-code="jixianda">急先达</a></li>
+          <li><span class="li-title">K</span><a data-code="kuaijiesudi">快捷速递</a><a data-code="kuayue">跨越速递</a></li>
+        </ul>
+        <div class="box"></div>
+      </div>
+    </div>
+    <div id="queryContext" class="mt10px" style="display:none;position:relative;z-index:4">
+      <div class="tagBox"><a class="reusltTag a-tag-list a-tag-list-current" onclick="$('#baiduMap').hide();$('#queryContext').show();">列表</a><a class="reusltTag a-tag-map" onclick="hideTips();$('#baiduMap').show();showMap();">地图</a></div>
+      <table id="queryResult2" class="result-info2" cellspacing="0">
+      </table>
+      <div id="ctrlBtn" class="send-box-on ctrl-box">
+        <div class="bdlikebutton fr"></div>
+        <span id="selectedTag" style="display:none"></span><a href="auto.shtml#" onclick="$('#sendHistory').hide();rssMsn();return false;" class="btn-rss png-fix">免费短信通知</a><a href="auto.shtml#" onclick="$('#rss-div').hide();openSenBox();return false;" class="btn-share png-fix">分享查询结果</a><a href="user/history-from=banner.shtml" class="btn-history png-fix">查看我的快递单<span id="hisNum2" class="float-num" style="display:none"></span></a></div>
+      <div id="sendHistory" style="display:none;" class="send-box"> <a href="auto.shtml#" class="tips-close-2" title="关闭提示" onclick="closeHisCtrl();return false;"></a>
+        <div>转发给QQ、MSN、旺旺等好友&nbsp;&nbsp;</div>
+        转发地址：<input name="sendUrl" type="text" id="sendUrl" value="" class="inp-send" style="width:374px;" /><input type="button" value="复制" class="btn-copy" id="sendUrlBtn"/> 转发内容：<textarea name="sendContent" readonly class="inp-send2" id="sendContent"></textarea><input type="button" value="复制" class="btn-copy" id="sendContentBtn"/>
+        <div id="sendMsg" class="sendMsg"></div>
+      </div>
+    </div>
+    <div id="baiduMap" class="mt10px" style="display:none">
+      <div class="tagBox"> <a href="auto.shtml#" class="reusltTag a-tag-list" onclick="$('#baiduMap').hide();$('#queryContext').show();return false;">列表</a> <a href="auto.shtml#" class="reusltTag a-tag-map a-tag-map-current" onclick="hideTips();$('#baiduMap').show();showMap();return false;">地图</a> </div>
+      <div id="mapContent" class="map-box">
+        <div id="mapSetTips" class="map-top2" style="display:none"> <a href="auto.shtml#" class="map_tips_close" onclick="$('#mapSetTips').hide();return false;"></a> 选择准确的到达目的城市，我们帮您预测到货时间。 </div>
+        <div id="mapArrCity" class="map-top" style="display:none"> <span>到达城市：</span><a href="auto.shtml#" onclick="$('#provinces2').toggle();return false;" class="selectCity"><span id="cityName_input_2"></span></a><input id="cityId_input_2" name="cityId_input_2" value="" type='hidden'/>
+          <div id="provinces2" class="location-box" style="display:none;"></div>
+        </div>
+        <div id="map" class="map"></div>
+        <div id="mapWait" class="wait-box" style="display:none"> <img src="http://app.baidu.com/static/appstore/app-1.gif"/>
+          <p class="mt10px">正在为您加载百度地图...</p>
+        </div>
+      </div>
+    </div>
+    <div id="rss-div" style="display:none;z-index:3;">
+      <div id="rss-step" class="step_state_4"></div>
+      <a id="rss-close" class="close" onclick="$('#selectedTag').hide();$('#rss-div').hide();return false;"></a>
+      <div class="step_waiting" style="padding:50px 0;text-align:center;"> <img src="http://cdn.kuaidi100.com/images/ajax-loader.gif" />正在处理，请稍候... </div>
+      <div class="step_0 hidden" style="padding:10px 0">
+        <p class="p5px font14px">&emsp;用户名：<input name="telephone0" id="telephone0" maxlength="11" style="width:230px" /></p>
+        <p class="p5px font14px">&emsp;&emsp;密码：<input name="pwd0" id="pwd0" type="password" maxlength="20" style="width:230px" /></p>
+        <p class="p5px font14px">&emsp;&emsp;&emsp;&emsp;&emsp;<a href="auto.shtml#" class="subbtn" id="rsslogin" onclick="rsslogin();return false;">登&emsp;录</a><span class="font12px">还不是用户？<a href="auto.shtml#" onclick="gotostep1();return false;">立即注册</a></span></p>
+        <p id="step0wait" class="wait2 hidden">正在登录，请稍后...</p>
+      </div>
+      <div class="step_1 hidden">
+        <p class="p5px font14px">您的手机：<input name="telephone" id="telephone" maxlength="11" /></p>
+        <p class="p5px font14px" id="p-pwd1">输入密码：<input name="pwd1" id="pwd1" type="password" maxlength="20" /></p>
+        <p class="p5px font14px" id="p-pwd2">确认密码：<input name="pwd2" id="pwd2" type="password" maxlength="20" /></p>
+        <p class="p5px font14px" id="p-valid">&emsp;验证码：<input name="valid" id="valid" type="text" maxlength="10" style="width:115px"/><img id="valicodeImg" width="80" height="26" onclick="refreshRssCode();" class="pointer mr10px" title="点击刷新验证码" /><a href="auto.shtml#" class="font12px" onclick="refreshRssCode();return false;">看不清，换一张</a></p>
+        <p class="p5px font14px">&emsp;&emsp;&emsp;&emsp;&emsp;<a href="auto.shtml#" class="subbtn" id="gotostep2" onclick="gotostep2();return false;">下一步</a></p>
+        <p id="step1wait" class="wait2 hidden">正在提交，请稍后...</p>
+      </div>
+      <div class="step_2 hidden">
+        <p class="p5px">已向您的手机&nbsp;<span id="telephone2"></span>&nbsp;发送短信校验码，请查看您的手机短信。</p>
+        <p class="p5px">&emsp;&emsp;您的手机号码是：&nbsp;<strong id="telephone3"></strong>&nbsp;</p>
+        <p class="p5px">短信中收到的校验码：<input name="valid2" id="valid2" type="password" maxlength="20" /><span id="sendAgainSpan" class="getValidBtn"><span id="timeSpan">（<em id="minute">2</em>分<em id="second">00</em>秒后）重新发送短信</span><a href="auto.shtml#" id="sendSmsAgain" onclick="sendPwdToMobile(this);return false;" class="valid-a" style="display:none">重新发送短信</a></span></p>
+        <p class="p5px">&emsp;&emsp;&emsp;&emsp;&emsp;<a href="auto.shtml#" class="subbtn" id="gotostep3" style="margin-left:98px" onclick="gotostep3();return false;">下一步</a><a href="auto.shtml#" onclick="gotostep1();return false;">返回第一步</a></p>
+        <p id="step2wait" class="wait2 hidden">正在提交，请稍后...</p>
+      </div>
+      <div class="step_3 hidden">
+        <div class="float-tips" id="city-tips" style="display:none">
+          <p>请设置包裹到达目的城市，别设置为寄件城市噢。</p>
+        </div>
+        <p>您正在订阅<span id="kuaidiinfo"></span>短信提醒服务，本服务免费。</p>
+        <div class="p10px" style="margin-top:5px">
+          <p>提醒内容：<label class="mr10px" for="server_1" title=""><input type="checkbox" id="server_1" name="server_1" checked="checked"/>发货提醒</label><label class="mr10px" for="server_2" title=""><input type="checkbox" id="server_2" name="server_2" checked="checked"/>派件提醒</label><label class="mr10px" for="server_3" title=""><input type="checkbox" id="server_3" name="server_3"/>签收提醒</label></p>
+          <p>收货城市：<span id="cityName_input"></span>[<a href="auto.shtml#" onclick="$('#provinces').toggle();return false;" class="selectCity">切换城市</a>]<span class="float-tips-icon" id="city-tips-switch" onmouseover="$('#city-tips').show();" onmouseout="$('#city-tips').hide();"></span><input id="cityId_input" name="cityId_input" value="" type='hidden'/></p>
+          <p><a href="auto.shtml#" class="subbtn" onclick="submitRss();return false;">完成</a><!--<a href="#" class="calbtn" onclick="$('.confirm-div').slideDown();return false;" style="display:none">取消短信订阅</a>--></p>
+        </div>
+        <!--<div class="confirm-div" style="display:none"><p>您确定要取消订阅此单号的短信提醒服务？</p><a href="auto.shtml#" id="confirm-yes-2" class="btn-ok" onclick="deleteRss();return false;">确定</a><a href="auto.shtml#" id="confirm-no-2" class="btn-cancel" onclick="$('.confirm-div').slideUp();return false;">取消</a></div>-->
+        <p id="step3wait" class="wait2 hidden">正在提交，请稍后...</p>
+      </div>
+      <div id="provinces" class="location-box" style="display:none;"></div>
+    </div>
+    <div id="errorTips" class="tips mt10px" style="display:none;"><a onclick="$('#errorTips').hide();return false;" href="auto.shtml#" class="tips-close" title="关闭提示"></a><span class="icon"></span>
+      <p id="errorMessage">您输入的验证码错误，请重新输入！</p>
+    </div>
+    <div id="rssTips" class="tips mt10px" style="display:none;"><a onclick="$('#rssTips').hide();return false;" href="auto.shtml#" class="tips-close" title="关闭提示"></a><span id="rssTipsTxt">订阅成功，我们将以短信方式通知您。订阅查看请点击<strong><a href='user/history.shtml'>"我的快递单"&gt;&gt;</a></strong></span></div>
+    <div id="notFindTip2" class="notfind mt10px" style="display:none">
+      <p class="notfind-icon">抱歉暂无查询记录</p>
+      <ul class="notfind-ul">
+      	<li class="ico_wrong">
+        	快递公司识别错误？<br />请点击上方重新选择快递公司
+        </li>
+        <li class="ico_right">
+        	快递公司识别正确？<br />请稍后再试，可能是网络拥堵造成
+        </li>
+      </ul>
+      <p class="box"></p>
+    </div>
+  </div>
+</div>
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div>
+<div class="float-letter hidden" id="letterBox">
+    <div class="letter-bg"></div>
+    <div class="letter-body">
+        <div class="letter-div">
+        	<a id="letterClose" class="letter-close"></a>
+            <span class="weibo-share">
+				<script type="text/javascript" charset="utf-8">
+                (function(){
+                  var _w = 106 , _h = 24;
+                  var param = {
+                    url:location.href,
+                    type:'6',
+                    count:'', /**是否显示分享数，1显示(可选)*/
+                    appkey:'1381168010', /**您申请的应用appkey,显示分享来源(可选)*/
+                    title:'#，智能查单#，最便捷的快递查询，直接输入单号，不用选快递直接查询。用 @ 查的越多，识别的越准确，希望你会喜欢。', /**分享的文字内容(可选，默认为所在页面的title)*/
+                    pic:'http://www.kuaidi100.com/images/letter.jpg', /**分享图片的路径(可选)*/
+                    ralateUid:'', /**关联用户的UID，分享微博会@该用户(可选)*/
+                    language:'zh_cn', /**设置语言，zh_cn|zh_tw(可选)*/
+                    rnd:new Date().valueOf()
+                  }
+                  var temp = [];
+                  for( var p in param ){
+                    temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
+                  }
+                  document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
+                })()
+                </script>
+            </span>
+        </div>
+    </div>
+</div> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-mail.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/share/company.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/share/companyBook.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/areas.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/city.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/share/query.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/ZeroClipboard.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/setCookie.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/ie6_png_patch.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/rss.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/hisCtrl.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/baiduMap.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/page/auto.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script> 
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('222483','PAGE_AD_222483');BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>

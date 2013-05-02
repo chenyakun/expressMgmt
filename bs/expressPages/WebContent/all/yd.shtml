@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="apple-itunes-app" content="app-id=458270120"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>韵达快递单号查询_</title>
+<meta name="keywords" content="韵达快递单号查询" />
+<meta name="description" content="为您提供贴心、精准、实时的韵达快递单号查询、韵达网点查询服务，支持韵达快递查询API接口，支持手机查韵达。韵达快递电话：021-39207888" />
+<meta name="mobile-agent" content="format=wml; url=http://wap.kuaidi100.com/wap_query.jsp?fromWeb=null&id=yunda">
+<meta name="mobile-agent" content="format=html5; url=http://m.kuaidi100.com/?type=yunda">
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/page/index_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/express.css?version=201303201326" />
+</head>
+<body>
+	
+	
+<input type="hidden" id="headerMenu" value="kuaidiQuery kuaijianQuery" />
+		<input type="hidden" id="loginAccount" value="" />
+		<input type="hidden" id="loginStatus" value="" />
+		<div class="header w960">
+			<div class="menu-top">
+				<div class="fr" id="weiboLink"  style="display:none;">
+					<a href="network/distribution.shtml" target="_blank">免费发布网点电话</a>
+				</div>
+				<div class="fr tabSpan" id="freeDiv">
+					<a class="service-link02" href="javascript:void(0)">快递网点专区</a>
+					<ul id="serviceList02" style="display:none">
+						<li>
+							<a href="claim/clmReg.shtml" target="_blank">网点注册</a>
+						</li><!--<li><a target="_blank" href="network/applyJoin.shtml">网点发布申请</a></li><li><a href="network/invite.shtml" target="_blank">网点激活</a></li>-->
+						<li>
+							<a target="_blank" href="claim/loginNet.shtml">网点登录</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="fr tabSpan tabSpan-w" style="margin-right:25px">
+					<a class="more-link" href="user/login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a>
+					<ul id="moreList" style="display:none">
+						<li>
+							<a href="user/login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span>
+						</li>
+						<li>
+							<a href="user/login.html" onclick="orderPageLink();return false;">我的订单</a>
+						</li>
+					</ul>
+				</div>
+				<div class="fr mr10px">
+					<span id="welcome">[&nbsp;<a href="user/login.html">登录</a>&nbsp;|&nbsp;<a href="user/regByTel.shtml">注册</a>&nbsp;]</span>
+				</div>
+
+				<img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+			</div><!-- menu-top -->
+			<div class="logo">
+				<a href="index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a>
+			</div>
+			<div id="afficheTips" style="display:none;"></div>
+			<div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+			<div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+		</div><!--header w960-->
+		
+		<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+		<div class="wfull" id="menu">
+			<div class="nav wfull">
+				<div class="nav-box w960">
+					<a id="kuaidiQuery" href="index.html" class="fl">快递查询</a>
+					<a id="networkQuery" href="network.shtml" class="fl">网点查询</a>
+					<a id="orderIndex" href="orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+					<a id="historyQuery" href="user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+					<a id="apiQuery" href="openapi/index.html" class="fr">快递接口(API)</a>
+				</div>
+			</div>
+			<div class="sub-nav wfull">
+				<div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+					<a id="kuaijianQuery" href="index.html" class="fl">快件查询</a>
+					<a id="wuliuQuery" href="wuliu.shtml" class="fl">物流查询</a>
+					<a id="luodipeiQuery" href="luodipei.shtml" class="fl">落地配查询</a>
+					<a id="guojiQuery" href="guoji.shtml" class="fl">国际货运查询</a>
+					<a id="kuaidiAll" href="all/index.html" class="fl menu-goto">快递大全</a>
+					<a id="kuaijianAuto" href="auto.shtml" class="fl a-auto">智能单号识别</a>
+					<span class="underline"></span>
+				</div>
+				<div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+					<a id="wangdianQuery" href="network.shtml" class="fl">网点查询</a>
+					<a id="networkAll" href="network/clist.shtml" class="fl menu-goto">网点大全</a>
+					<span class="underline"></span>
+				</div>
+			</div>
+			
+		</div>
+		
+		<!--header end-->	
+<!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="yd.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="yd.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="yd.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="yd.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="yd.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="yd.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="yd.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<div class="tips-top w960"><a href="../index.html">首页</a> &gt; <a href="index.html">快递公司大全</a> &gt; <strong>韵达快递单号查询</strong></div>
+
+<!--smart--> 
+<div class="box" style="height:5px"></div>
+<p class="companyinfo"><span id="companyName"></span><span id="companyTel"></span></p>
+<!--<p style="position:relative;width:580px;height:20px;margin:0 auto;"><a href="../user/history-from=all.shtml" class="fr link-goto" style="font-size:12px;color:#448FF4">查看历史记录</a><span id="hisNum" class="float-num" style="display:none"></span></p>-->
+<div class="search-box">
+  <div class="input-box">
+    <input name="postid" type="text" class="inp-metro" style="width:413px" id="postid" maxlength="26" url="true" autocomplete="off" x-webkit-speech x-webkit-grammar="builtin:translate"/><input id="query" type="button" onclick="query();" class="btn-query"/>
+    <p id="valideBox" style="display:none;padding-top:5px;"><span style="float:left;margin-right:5px;">请您输入验证码：<input name="valicode" type="text" class="inp" id="valicode" maxlength="8" style="width:120px;" /></span><span class="vali-images"><img id="valiimages" src="http://cdn.kuaidi100.com/images/clear.gif" onclick="refreshCode()" alt="点击获取新验证码" /></span><a href="yd.shtml#" class="font12px refresh-a fl" onclick="refreshCode();return false;">看不清，换一张</a></p>
+    <p id="telBox" style="display:none;padding-top:5px;">请您输入电话号码：<input name="valicodetel" type="text" class="inp" id="valicodetel" maxlength="18" style="width:214px;" /></p>
+    <p class="box"></p>
+  </div>
+  <div id="notFindTip" class="tips mt10px" style="display:none;"><a onclick="$('#notFindTip').hide();return false;" href="yd.shtml#" class="tips-close" title="关闭提示"></a>
+    <p id="notFindErro" style="display:none;">此单号无记录，请核对快递公司名称和运单号码是否正确！</p>
+    <p id="timeOutErro" style="display:none;"><!--<span id="queryCompany"></span>-->网络繁忙，到<strong id="gocompanyUrl"></strong></p>
+    <dl>
+      <dt>操作建议：</dt>
+      <!--<dd id="companyQueryTip"></dd>-->
+      <dd id="companyWebTips">·到快递公司<strong id="gocompanyUrl2"></strong></dd>
+      <dd id="voteTips"></dd>
+      <dd>·还没有解决问题？<a href="../help/feedback.shtml" onclick="gotofeedback();return false;"><strong>我要报错&gt;&gt;</strong></a></dd>
+    </dl>
+  </div>
+  <div id="notFindTipForEMS" class="tips mt10px" style="display:none;"> <a onclick="$('#notFindTipForEMS').hide();return false;" href="yd.shtml#" class="tips-close" title="关闭提示"></a>
+    <p id="notFindErro">抱歉暂时没能帮您查到信息，请到<strong id="gocompanyUrl3"></strong></p>
+    <dl>
+      <dt>操作建议：</dt>
+      <dd>1.如单号正确，可安装手机客户端订阅「推送提醒」服务，系统一有记录即推送至您手机，<strong><a href="http://itunes.apple.com/cn/app/kuai-di100zhuan-ye-ban-tui/id488105270?mt=8" target="_blank">马上安装&gt;&gt;</a></strong></dd>
+      <dd>2.短信查询：编辑单号，如「EN829592757CS」发送到<strong class="fontblue">10665185</strong>，即可；</dd>
+      <dd>3.还没有解决问题？到<strong><a href="http://club.youshang.com/forum.php?mod=forumdisplay&fid=110&com=emserror" target="_blank">论坛</a></strong>发帖求助，请专业网友帮你查询吧。</dd>
+    </dl>
+  </div>
+  <div id="notFindTipForSF" class="tips mt10px" style="display:none;"> <a onclick="$('#notFindTipForSF').hide();return false;" href="yd.shtml#" class="tips-close" title="关闭提示"></a>
+    <p id="notFindErro">抱歉暂时没能帮您查到信息，请到<strong id="gocompanyUrl4"></strong></p>
+    <dl>
+      <dt>操作建议：</dt>
+      <dd>1.如单号正确，可安装手机客户端订阅「推送提醒」服务，系统一有记录即推送至您手机，<strong><a href="http://itunes.apple.com/cn/app/kuai-di100zhuan-ye-ban-tui/id488105270?mt=8" target="_blank">马上安装&gt;&gt;</a></strong></dd>
+      <dd>2.短信查询：编辑CD+单号，如「CD535010216440」发送至<strong class="fontblue">106980001111</strong>即可；</dd>
+      <dd>3.还没有解决问题？到<strong><a href="http://club.youshang.com/forum.php?mod=forumdisplay&fid=110&com=shunfengserror" target="_blank">论坛</a></strong>发帖求助，请专业网友帮你查询吧。</dd>
+    </dl>
+  </div>
+  <div id="BaiduAD" class="mt10px" style="height:90px;"></div>
+  <p id="queryWait" class="wait mt10px" style="display:none;">正在查询中，请稍等片刻......</p>
+  <div id="queryContext" style="display:none;margin-top:10px">
+    <table id="queryResult2" class="result-info2" cellspacing="0" style="width:580px"></table>
+    <div id="ctrlBtn" class="send-box-on ctrl-box"><div class="bdlikebutton fr"></div><span id="selectedTag" style="display:none"></span><a href="yd.shtml#" onclick="$('#sendHistory').hide();rssMsn();return false;" class="btn-rss png-fix">免费短信通知</a><a href="yd.shtml#" onclick="$('#rss-div').hide();openSenBox();return false;" class="btn-share png-fix">分享查询结果</a><a href="../user/history-from=banner.shtml" class="btn-history png-fix">查看我的快递单<span id="hisNum2" class="float-num" style="display:none"></span></a></div>
+	<div id="sendHistory" style="display:none;" class="send-box">
+		<a href="yd.shtml#" class="tips-close-2" title="关闭提示" onclick="closeHisCtrl();return false;"></a>
+		<div>转发给QQ、MSN、旺旺等好友&nbsp;&nbsp;</div>
+		转发地址：<input name="sendUrl" type="text" id="sendUrl" value="" class="inp-send" style="width:425px;" /><input type="button" value="复制" class="btn-copy" id="sendUrlBtn"/>
+		转发内容：<textarea name="sendContent" readonly class="inp-send2" style="width:425px;" id="sendContent"></textarea><input type="button" value="复制" class="btn-copy" id="sendContentBtn"/>
+		<div id="sendMsg" class="sendMsg"></div>
+	</div>
+  </div>
+  <div id="rss-div" style="display:none;z-index:3;width:580px;">
+  <div id="rss-step" class="step_state_4" style="width:578px;background-position:35px 0"></div>
+    <a id="rss-close" class="close" onclick="$('#selectedTag').hide();$('#rss-div').hide();return false;"></a>
+    <div class="step_waiting" style="padding:50px 0;text-align:center;">
+      <img src="http://cdn.kuaidi100.com/images/ajax-loader.gif" />正在处理，请稍候...
+    </div>
+    <div class="step_0 hidden" style="padding:10px 0">
+      <p class="p5px font14px">&emsp;用户名：<input name="telephone0" id="telephone0" maxlength="11" style="width:230px" /></p>
+      <p class="p5px font14px">&emsp;&emsp;密码：<input name="pwd0" id="pwd0" type="password" maxlength="20" style="width:230px" /></p>
+      <p class="p5px font14px">&emsp;&emsp;&emsp;&emsp;&emsp;<a href="yd.shtml#" class="subbtn" id="rsslogin" onclick="rsslogin();return false;">登&emsp;录</a><span class="font12px">还不是用户？<a href="yd.shtml#" onclick="gotostep1();return false;">立即注册</a></span></p>
+      <p id="step0wait" class="wait2 hidden">正在登录，请稍后...</p>
+    </div>
+    <div class="step_1 hidden">
+      <p class="p5px font14px">您的手机：<input name="telephone" id="telephone" maxlength="11" /></p>
+      <p class="p5px font14px" id="p-pwd1">输入密码：<input name="pwd1" id="pwd1" type="password" maxlength="20" /></p>
+      <p class="p5px font14px" id="p-pwd2">确认密码：<input name="pwd2" id="pwd2" type="password" maxlength="20" /></p>
+      <p class="p5px font14px" id="p-valid">&emsp;验证码：<input name="valid" id="valid" type="text" maxlength="10" style="width:115px"/><img id="valicodeImg" width="80" height="26" onclick="refreshRssCode();" class="pointer mr10px" title="点击刷新验证码" /><a href="yd.shtml#" class="font12px" onclick="refreshRssCode();return false;">看不清，换一张</a></p>
+      <p class="p5px font14px">&emsp;&emsp;&emsp;&emsp;&emsp;<a href="yd.shtml#" class="subbtn" id="gotostep2" onclick="gotostep2();return false;">下一步</a></p>
+      <p id="step1wait" class="wait2 hidden">正在提交，请稍后...</p>
+    </div>
+    <div class="step_2 hidden">
+      <p class="p5px">已向您的手机&nbsp;<span id="telephone2"></span>&nbsp;发送短信校验码，请查看您的手机短信。</p>
+      <p class="p5px">&emsp;&emsp;您的手机号码是：&nbsp;<strong id="telephone3"></strong>&nbsp;</p>
+      <p class="p5px">短信中收到的校验码：<input name="valid2" id="valid2" type="password" maxlength="20" /><span id="sendAgainSpan" class="getValidBtn"><span id="timeSpan">（<em id="minute">2</em>分<em id="second">00</em>秒后）重新发送短信</span><a href="yd.shtml#" id="sendSmsAgain" onclick="sendPwdToMobile(this);return false;" class="valid-a" style="display:none">重新发送短信</a></span></p>
+      <p class="p5px">&emsp;&emsp;&emsp;&emsp;&emsp;<a href="yd.shtml#" class="subbtn" id="gotostep3" style="margin-left:98px" onclick="gotostep3();return false;">下一步</a><a href="yd.shtml#" onclick="gotostep1();return false;">返回第一步</a></p>
+      <p id="step2wait" class="wait2 hidden">正在提交，请稍后...</p>
+    </div>
+    <div class="step_3 hidden">
+      <div class="float-tips" id="city-tips" style="display:none"><p>请设置包裹到达目的城市，别设置为寄件城市噢。</p></div>
+      <p>您正在订阅<span id="kuaidiinfo"></span>短信提醒服务，本服务免费。</p>
+      <div class="p10px" style="margin-top:5px">
+        <p>提醒内容：<label class="mr10px" for="server_1" title=""><input type="checkbox" id="server_1" name="server_1" checked="checked"/>发货提醒</label><label class="mr10px" for="server_2" title=""><input type="checkbox" id="server_2" name="server_2" checked="checked"/>派件提醒</label><label class="mr10px" for="server_3" title=""><input type="checkbox" id="server_3" name="server_3"/>签收提醒</label></p>
+        <p>收货城市：<span id="cityName_input"></span>[<a href="yd.shtml#" onclick="$('#provinces').toggle();return false;" class="selectCity">切换城市</a>]<span class="float-tips-icon" id="city-tips-switch" onmouseover="$('#city-tips').show();" onmouseout="$('#city-tips').hide();"></span><input id="cityId_input" name="cityId_input" value="" type='hidden'/></p>
+        <p><a href="yd.shtml#" class="subbtn" onclick="submitRss();return false;">完成</a><!--<a href="#" class="calbtn" onclick="$('.confirm-div').slideDown();return false;" style="display:none">取消短信订阅</a>--></p>
+      </div>
+      <!--<div class="confirm-div" style="display:none"><p>您确定要取消订阅此单号的短信提醒服务？</p><a href="yd.shtml#" id="confirm-yes-2" class="btn-ok" onclick="deleteRss();return false;">确定</a><a href="yd.shtml#" id="confirm-no-2" class="btn-cancel" onclick="$('.confirm-div').slideUp();return false;">取消</a></div>-->
+      <p id="step3wait" class="wait2 hidden">正在提交，请稍后...</p>
+    </div>
+    <div id="provinces" class="location-box" style="display:none;"></div>
+  </div>
+  <div id="errorTips" class="tips mt10px" style="display:none;"><a onclick="$('#errorTips').hide();return false;" href="yd.shtml#" class="tips-close" title="关闭提示"></a> <span class="icon"></span><p id="errorMessage">您输入的验证码错误，请重新输入！</p></div>
+  <div id="rssTips" class="tips mt10px" style="display:none;"><a onclick="$('#rssTips').hide();return false;" href="yd.shtml#" class="tips-close" title="关闭提示"></a><span id="rssTipsTxt">订阅成功，我们将以短信方式通知您。订阅查看请点击<strong><a href='../user/history.shtml'>"我的快递单"&gt;&gt;</a></strong></span></div>
+</div>
+<div id="GoogleAD" style="display:none;width:960px;height:90px;text-align:center;margin-top:10px;"></div>
+<div class="clear"></div>
+<div class="ex-info">
+  <div class="div-border" style="zoom:1">
+    <h3 class="div-n"><a href="../network/province_2.htm">实体店网点查询</a></h3>
+    <ul id="map">
+      <li class="mapr" style="margin:156px 0px 0px 366px"><a href="http://www.kuaidi100.com/network/city_2_11.htm" title="北京韵达快递网点" style="font-weight:bold;color:#ff0000">北京</a></li>
+      <li class="mapl" style="margin:103px 0px 0px 470px"><a href="http://www.kuaidi100.com/network/city_2_22.htm" title="吉林韵达快递网点">吉林省</a></li>
+      <li class="mapr" style="margin:155px 0px 0px 250px"><a href="http://www.kuaidi100.com/network/city_2_15.htm" title="内蒙古韵达快递网点">内蒙古自治区</a></li>
+      <li class="mapr" style="margin:268px 0px 0px 238px"><a href="http://www.kuaidi100.com/network/city_2_51.htm" title="四川韵达快递网点">四川省</a></li>
+      <li class="mapr" style="margin:292px 0px 0px 277px"><a href="http://www.kuaidi100.com/network/city_2_50.htm" title="重庆韵达快递网点">重庆市</a></li>
+      <li class="mapr" style="margin:355px 0px 0px 348px"><a href="http://www.kuaidi100.com/network/city_2_44.htm" title="广东韵达快递网点">广东省</a></li>
+      <li class="mapr" style="margin:324px 0px 0px 275px"><a href="http://www.kuaidi100.com/network/city_2_52.htm" title="贵州韵达快递网点">贵州省</a></li>
+      <li class="mapl" style="margin:413px 0px 0px 340px"><a href="http://www.kuaidi100.com/network/city_2_46.htm" title="海南韵达快递网点">海南省</a></li>
+      <li class="mapl" style="margin:65px  0px 0px 460px"><a href="http://www.kuaidi100.com/network/city_2_23.htm" title="黑龙江韵达快递网点">黑龙江省</a></li>
+      <li class="mapl" style="margin:294px 0px 0px 440px"><a href="http://www.kuaidi100.com/network/city_2_33.htm" title="浙江韵达快递网点">浙江省</a></li>
+      <li class="mapr" style="margin:258px 0px 0px 376px"><a href="http://www.kuaidi100.com/network/city_2_34.htm" title="安徽韵达快递网点">安徽省</a></li>
+      <li class="mapl" style="margin:206px 0px 0px 416px"><a href="http://www.kuaidi100.com/network/city_2_37.htm" title="山东韵达快递网点">山东省</a></li>
+      <li class="mapl" style="margin:350px 0px 0px 240px"><a href="http://www.kuaidi100.com/network/city_2_53.htm" title="云南韵达快递网点">云南省</a></li>
+      <li class="mapr" style="margin:160px 0px 0px 180px"><a href="http://www.kuaidi100.com/network/city_2_62.htm" title="甘肃韵达快递网点">甘肃省</a></li>
+      <li class="mapr" style="margin:198px 0px 0px 276px"><a href="http://www.kuaidi100.com/network/city_2_64.htm" title="宁夏韵达快递网点">宁夏</a></li>
+      <li class="mapl" style="margin:210px 0px 0px 190px"><a href="http://www.kuaidi100.com/network/city_2_63.htm" title="青海韵达快递网点">青海省</a></li>
+      <li class="mapr" style="margin:324px 0px 0px 334px"><a href="http://www.kuaidi100.com/network/city_2_43.htm" title="湖南韵达快递网点">湖南省</a></li>
+      <li class="mapr" style="margin:296px 0px 0px 368px"><a href="http://www.kuaidi100.com/network/city_2_36.htm" title="江西韵达快递网点">江西省</a></li>
+      <li class="mapl" style="margin:245px 0px 0px 445px"><a href="http://www.kuaidi100.com/network/city_2_32.htm" title="江苏韵达快递网点">江苏省</a></li>
+      <!--<li class="mapl" style="z-index:99;margin:366px 0px 0px 400px"><a href="yd.shtml#">深圳</a></li>-->
+      <li class="mapr" style="margin:276px 0px 0px 430px"><a href="http://www.kuaidi100.com/network/city_2_31.htm" title="上海韵达快递网点">上海</a></li>
+      <li class="mapl" style="margin:370px 0px 0px 395px"><a href="http://www.kuaidi100.com/network/city_2_81.htm" title="香港韵达快递网点">香港</a></li>
+      <li class="mapr" style="margin:375px 0px 0px 354px"><a href="http://www.kuaidi100.com/network/city_2_82.htm" title="澳门韵达快递网点">澳门</a></li>
+      <li class="mapl" style="margin:132px 0px 0px 450px"><a href="http://www.kuaidi100.com/network/city_2_21.htm" title="辽宁韵达快递网点">辽宁省</a></li>
+      <li class="mapr" style="margin:180px 0px 0px 352px"><a href="http://www.kuaidi100.com/network/city_2_13.htm" title="河北韵达快递网点">河北省</a></li>
+      <li class="mapr" style="margin:204px 0px 0px 322px"><a href="http://www.kuaidi100.com/network/city_2_14.htm" title="山西韵达快递网点">山西省</a></li>
+      <li class="mapl" style="margin:176px 0px 0px 408px"><a href="http://www.kuaidi100.com/network/city_2_12.htm" title="天津韵达快递网点">天津</a></li>
+      <li class="mapl" style="margin:130px 0px 0px  90px"><a href="http://www.kuaidi100.com/network/city_2_65.htm" title="新疆韵达快递网点">新疆维吾尔自治区</a></li>
+      <li class="mapl" style="margin:240px 0px 0px  70px"><a href="http://www.kuaidi100.com/network/city_2_54.htm" title="西藏韵达快递网点">西藏自治区</a></li>
+      <li class="mapr" style="margin:275px 0px 0px 334px"><a href="http://www.kuaidi100.com/network/city_2_42.htm" title="湖北韵达快递网点">湖北省</a></li>
+      <li class="mapr" style="margin:238px 0px 0px 280px"><a href="http://www.kuaidi100.com/network/city_2_61.htm" title="陕西韵达快递网点">陕西省</a></li>
+      <!--<li class="mapl" style="margin:343px 0px 0px 427px"><a href="yd.shtml#">厦门</a></li>-->
+      <li class="mapl" style="margin:353px 0px 0px 458px"><a href="http://www.kuaidi100.com/network/city_2_71.htm" title="台湾韵达快递网点">台湾</a></li>
+      <li class="mapl" style="margin:232px 0px 0px 373px"><a href="http://www.kuaidi100.com/network/city_2_41.htm" title="河南韵达快递网点">河南省</a></li>
+      <li class="mapl" style="margin:325px 0px 0px 430px"><a href="http://www.kuaidi100.com/network/city_2_35.htm" title="福建韵达快递网点">福建省</a></li>
+      <li class="mapr" style="margin:367px 0px 0px 300px"><a href="http://www.kuaidi100.com/network/city_2_45.htm" title="广西韵达快递网点">广西</a></li>
+    </ul>
+    <div class="maptext"> A:<a href="http://www.kuaidi100.com/network/net_5132_all_yunda_1.htm" target="_blank">阿坝</a><a href="http://www.kuaidi100.com/network/net_6529_all_yunda_1.htm" target="_blank">阿克苏</a><a href="http://www.kuaidi100.com/network/net_6109_all_yunda_1.htm" target="_blank">安康</a><a href="http://www.kuaidi100.com/network/net_3408_all_yunda_1.htm" target="_blank">安庆</a><a href="http://www.kuaidi100.com/network/net_5204_all_yunda_1.htm" target="_blank">安顺</a><a href="http://www.kuaidi100.com/network/net_4105_all_yunda_1.htm" target="_blank">安阳</a><a href="http://www.kuaidi100.com/network/net_2103_all_yunda_1.htm" target="_blank">鞍山</a> <br />
+      B:<a href="http://www.kuaidi100.com/network/net_5119_all_yunda_1.htm" target="_blank">巴中</a><a href="http://www.kuaidi100.com/network/net_4510_all_yunda_1.htm" target="_blank">百色</a><a href="http://www.kuaidi100.com/network/net_1502_all_yunda_1.htm" target="_blank">包头</a><a href="http://www.kuaidi100.com/network/net_6103_all_yunda_1.htm" target="_blank">宝鸡</a><a href="http://www.kuaidi100.com/network/net_1306_all_yunda_1.htm" target="_blank">保定</a><a href="http://www.kuaidi100.com/network/net_4505_all_yunda_1.htm" target="_blank">北海</a><a href="http://www.kuaidi100.com/network/net_1100_all_yunda_1.htm" target="_blank">北京</a><a href="http://www.kuaidi100.com/network/net_2105_all_yunda_1.htm" target="_blank">本溪</a><a href="http://www.kuaidi100.com/network/net_5224_all_yunda_1.htm" target="_blank">毕节</a><a href="http://www.kuaidi100.com/network/net_3416_all_yunda_1.htm" target="_blank">亳州</a> <br />
+      C:<a href="http://www.kuaidi100.com/network/net_5000_all_yunda_1.htm" target="_blank">重庆</a><a href="http://www.kuaidi100.com/network/net_4307_all_yunda_1.htm" target="_blank">常德</a><a href="http://www.kuaidi100.com/network/net_3204_all_yunda_1.htm" target="_blank">常州</a><a href="http://www.kuaidi100.com/network/net_4451_all_yunda_1.htm" target="_blank">潮州</a><a href="http://www.kuaidi100.com/network/net_4310_all_yunda_1.htm" target="_blank">郴州</a><a href="http://www.kuaidi100.com/network/net_5101_all_yunda_1.htm" target="_blank">成都</a><a href="http://www.kuaidi100.com/network/net_1308_all_yunda_1.htm" target="_blank">承德</a><a href="http://www.kuaidi100.com/network/net_4514_all_yunda_1.htm" target="_blank">崇左</a><a href="http://www.kuaidi100.com/network/net_2201_all_yunda_1.htm" target="_blank">长春</a><a href="http://www.kuaidi100.com/network/net_4301_all_yunda_1.htm" target="_blank">长沙</a><br />
+      D:<a href="http://www.kuaidi100.com/network/net_5117_all_yunda_1.htm" target="_blank">达州</a><a href="http://www.kuaidi100.com/network/net_5329_all_yunda_1.htm" target="_blank">大理</a><a href="http://www.kuaidi100.com/network/net_2102_all_yunda_1.htm" target="_blank">大连</a><a href="http://www.kuaidi100.com/network/net_2306_all_yunda_1.htm" target="_blank">大庆</a><a href="http://www.kuaidi100.com/network/net_1402_all_yunda_1.htm" target="_blank">大同</a><a href="http://www.kuaidi100.com/network/net_2106_all_yunda_1.htm" target="_blank">丹东</a><a href="http://www.kuaidi100.com/network/net_5106_all_yunda_1.htm" target="_blank">德阳</a><a href="http://www.kuaidi100.com/network/net_3714_all_yunda_1.htm" target="_blank">德州</a><a href="http://www.kuaidi100.com/network/net_4419_all_yunda_1.htm" target="_blank">东莞</a><a href="http://www.kuaidi100.com/network/net_3705_all_yunda_1.htm" target="_blank">东营</a> <br />
+      F:<a href="http://www.kuaidi100.com/network/net_4506_all_yunda_1.htm" target="_blank">防城港</a><a href="http://www.kuaidi100.com/network/net_4406_all_yunda_1.htm" target="_blank">佛山</a><a href="http://www.kuaidi100.com/network/net_3501_all_yunda_1.htm" target="_blank">福州</a><a href="http://www.kuaidi100.com/network/net_2104_all_yunda_1.htm" target="_blank">抚顺</a><a href="http://www.kuaidi100.com/network/net_3610_all_yunda_1.htm" target="_blank">抚州</a><a href="http://www.kuaidi100.com/network/net_2109_all_yunda_1.htm" target="_blank">阜新</a><a href="http://www.kuaidi100.com/network/net_3412_all_yunda_1.htm" target="_blank">阜阳</a> <br />
+      G:<a href="http://www.kuaidi100.com/network/net_5133_all_yunda_1.htm" target="_blank">甘孜</a><a href="http://www.kuaidi100.com/network/net_3607_all_yunda_1.htm" target="_blank">赣州</a><a href="http://www.kuaidi100.com/network/net_6404_all_yunda_1.htm" target="_blank">固原</a><a href="http://www.kuaidi100.com/network/net_5116_all_yunda_1.htm" target="_blank">广安</a><a href="http://www.kuaidi100.com/network/net_5108_all_yunda_1.htm" target="_blank">广元</a><a href="http://www.kuaidi100.com/network/net_4401_all_yunda_1.htm" target="_blank">广州</a><a href="http://www.kuaidi100.com/network/net_4508_all_yunda_1.htm" target="_blank">贵港</a><a href="http://www.kuaidi100.com/network/net_5201_all_yunda_1.htm" target="_blank">贵阳</a><!--<a href="http://www.kuaidi100.com/network/net_5200_all_yunda_1.htm" target="_blank">贵州</a>--><a href="http://www.kuaidi100.com/network/net_4503_all_yunda_1.htm" target="_blank">桂林</a> <br />
+      H:<a href="http://www.kuaidi100.com/network/net_4601_all_yunda_1.htm" target="_blank">海口</a><a href="http://www.kuaidi100.com/network/net_1304_all_yunda_1.htm" target="_blank">邯郸</a><a href="http://www.kuaidi100.com/network/net_3301_all_yunda_1.htm" target="_blank">杭州</a><a href="http://www.kuaidi100.com/network/net_3401_all_yunda_1.htm" target="_blank">合肥</a><a href="http://www.kuaidi100.com/network/net_4512_all_yunda_1.htm" target="_blank">河池</a><a href="http://www.kuaidi100.com/network/net_1311_all_yunda_1.htm" target="_blank">衡水</a><a href="http://www.kuaidi100.com/network/net_4304_all_yunda_1.htm" target="_blank">衡阳</a><a href="http://www.kuaidi100.com/network/net_1501_all_yunda_1.htm" target="_blank">呼和浩特</a><a href="http://www.kuaidi100.com/network/net_4312_all_yunda_1.htm" target="_blank">怀化</a><a href="http://www.kuaidi100.com/network/net_4413_all_yunda_1.htm" target="_blank">惠州</a> <br />
+      J:<a href="http://www.kuaidi100.com/network/net_2303_all_yunda_1.htm" target="_blank">鸡西</a><!--<a href="http://www.kuaidi100.com/network/net_2200_all_yunda_1.htm" target="_blank">吉林</a>--><a href="http://www.kuaidi100.com/network/net_3701_all_yunda_1.htm" target="_blank">济南</a><a href="http://www.kuaidi100.com/network/net_3708_all_yunda_1.htm" target="_blank">济宁</a><a href="http://www.kuaidi100.com/network/net_2308_all_yunda_1.htm" target="_blank">佳木斯</a><a href="http://www.kuaidi100.com/network/net_3304_all_yunda_1.htm" target="_blank">嘉兴</a><a href="http://www.kuaidi100.com/network/net_4407_all_yunda_1.htm" target="_blank">江门</a><a href="http://www.kuaidi100.com/network/net_4108_all_yunda_1.htm" target="_blank">焦作</a><a href="http://www.kuaidi100.com/network/net_3307_all_yunda_1.htm" target="_blank">金华</a><a href="http://www.kuaidi100.com/network/net_3604_all_yunda_1.htm" target="_blank">九江</a><br />
+      K:<a href="http://www.kuaidi100.com/network/net_6531_all_yunda_1.htm" target="_blank">喀什</a><a href="http://www.kuaidi100.com/network/net_4102_all_yunda_1.htm" target="_blank">开封</a><a href="http://www.kuaidi100.com/network/net_6502_all_yunda_1.htm" target="_blank">克拉玛依</a><a href="http://www.kuaidi100.com/network/net_5301_all_yunda_1.htm" target="_blank">昆明</a> <br />
+      L:<a href="http://www.kuaidi100.com/network/net_5401_all_yunda_1.htm" target="_blank">拉萨</a><a href="http://www.kuaidi100.com/network/net_6201_all_yunda_1.htm" target="_blank">兰州</a><a href="http://www.kuaidi100.com/network/net_3207_all_yunda_1.htm" target="_blank">连云港</a><a href="http://www.kuaidi100.com/network/net_1410_all_yunda_1.htm" target="_blank">临汾</a><a href="http://www.kuaidi100.com/network/net_3713_all_yunda_1.htm" target="_blank">临沂</a><a href="http://www.kuaidi100.com/network/net_4502_all_yunda_1.htm" target="_blank">柳州</a><a href="http://www.kuaidi100.com/network/net_4313_all_yunda_1.htm" target="_blank">娄底</a><a href="http://www.kuaidi100.com/network/net_5105_all_yunda_1.htm" target="_blank">泸州</a><a href="http://www.kuaidi100.com/network/net_4103_all_yunda_1.htm" target="_blank">洛阳</a><a href="http://www.kuaidi100.com/network/net_1411_all_yunda_1.htm" target="_blank">吕梁</a> <br />
+      M:<a href="http://www.kuaidi100.com/network/net_3405_all_yunda_1.htm" target="_blank">马鞍山</a><a href="http://www.kuaidi100.com/network/net_4409_all_yunda_1.htm" target="_blank">茂名</a><a href="http://www.kuaidi100.com/network/net_5114_all_yunda_1.htm" target="_blank">眉山</a><a href="http://www.kuaidi100.com/network/net_4414_all_yunda_1.htm" target="_blank">梅州</a><a href="http://www.kuaidi100.com/network/net_5107_all_yunda_1.htm" target="_blank">绵阳</a><a href="http://www.kuaidi100.com/network/net_2310_all_yunda_1.htm" target="_blank">牡丹江</a> <br />
+      N:<a href="http://www.kuaidi100.com/network/net_3601_all_yunda_1.htm" target="_blank">南昌</a><a href="http://www.kuaidi100.com/network/net_5113_all_yunda_1.htm" target="_blank">南充</a><a href="http://www.kuaidi100.com/network/net_3201_all_yunda_1.htm" target="_blank">南京</a><a href="http://www.kuaidi100.com/network/net_4501_all_yunda_1.htm" target="_blank">南宁</a><a href="http://www.kuaidi100.com/network/net_3507_all_yunda_1.htm" target="_blank">南平</a><a href="http://www.kuaidi100.com/network/net_3206_all_yunda_1.htm" target="_blank">南通</a><a href="http://www.kuaidi100.com/network/net_4113_all_yunda_1.htm" target="_blank">南阳</a><a href="http://www.kuaidi100.com/network/net_5110_all_yunda_1.htm" target="_blank">内江</a><a href="http://www.kuaidi100.com/network/net_3302_all_yunda_1.htm" target="_blank">宁波</a><a href="http://www.kuaidi100.com/network/net_3509_all_yunda_1.htm" target="_blank">宁德</a><br />
+      P:<a href="http://www.kuaidi100.com/network/net_5104_all_yunda_1.htm" target="_blank">攀枝花</a><a href="http://www.kuaidi100.com/network/net_2111_all_yunda_1.htm" target="_blank">盘锦</a><a href="http://www.kuaidi100.com/network/net_4104_all_yunda_1.htm" target="_blank">平顶山</a><a href="http://www.kuaidi100.com/network/net_6208_all_yunda_1.htm" target="_blank">平凉</a><a href="http://www.kuaidi100.com/network/net_3603_all_yunda_1.htm" target="_blank">萍乡</a><a href="http://www.kuaidi100.com/network/net_3503_all_yunda_1.htm" target="_blank">莆田</a><a href="http://www.kuaidi100.com/network/net_4109_all_yunda_1.htm" target="_blank">濮阳</a><a href="http://www.kuaidi100.com/network/net_5308_all_yunda_1.htm" target="_blank">普洱</a> <br />
+      Q:<a href="http://www.kuaidi100.com/network/net_2302_all_yunda_1.htm" target="_blank">齐齐哈尔</a><a href="http://www.kuaidi100.com/network/net_4507_all_yunda_1.htm" target="_blank">钦州</a><a href="http://www.kuaidi100.com/network/net_1303_all_yunda_1.htm" target="_blank">秦皇岛</a><a href="http://www.kuaidi100.com/network/net_3702_all_yunda_1.htm" target="_blank">青岛</a><a href="http://www.kuaidi100.com/network/net_4418_all_yunda_1.htm" target="_blank">清远</a><a href="http://www.kuaidi100.com/network/net_6210_all_yunda_1.htm" target="_blank">庆阳</a><a href="http://www.kuaidi100.com/network/net_3308_all_yunda_1.htm" target="_blank">衢州</a><a href="http://www.kuaidi100.com/network/net_5303_all_yunda_1.htm" target="_blank">曲靖</a><a href="http://www.kuaidi100.com/network/net_3505_all_yunda_1.htm" target="_blank">泉州</a> <br />
+      R:<a href="http://www.kuaidi100.com/network/net_5423_all_yunda_1.htm" target="_blank">日喀则</a><a href="http://www.kuaidi100.com/network/net_3711_all_yunda_1.htm" target="_blank">日照</a> <br />
+      S:<a href="http://www.kuaidi100.com/network/net_4405_all_yunda_1.htm" target="_blank">汕头</a><a href="http://www.kuaidi100.com/network/net_3100_all_yunda_1.htm" target="_blank">上海</a><a href="http://www.kuaidi100.com/network/net_4402_all_yunda_1.htm" target="_blank">韶关</a><a href="http://www.kuaidi100.com/network/net_3306_all_yunda_1.htm" target="_blank">绍兴</a><a href="http://www.kuaidi100.com/network/net_4403_all_yunda_1.htm" target="_blank">深圳</a><a href="http://www.kuaidi100.com/network/net_2101_all_yunda_1.htm" target="_blank">沈阳</a><a href="http://www.kuaidi100.com/network/net_1301_all_yunda_1.htm" target="_blank">石家庄</a><a href="http://www.kuaidi100.com/network/net_1406_all_yunda_1.htm" target="_blank">朔州</a><a href="http://www.kuaidi100.com/network/net_3205_all_yunda_1.htm" target="_blank">苏州</a><a href="http://www.kuaidi100.com/network/net_5109_all_yunda_1.htm" target="_blank">遂宁</a> <br />
+      T:<a href="http://www.kuaidi100.com/network/net_3310_all_yunda_1.htm" target="_blank">台州</a><a href="http://www.kuaidi100.com/network/net_1401_all_yunda_1.htm" target="_blank">太原</a><a href="http://www.kuaidi100.com/network/net_3709_all_yunda_1.htm" target="_blank">泰安</a><a href="http://www.kuaidi100.com/network/net_3212_all_yunda_1.htm" target="_blank">泰州</a><a href="http://www.kuaidi100.com/network/net_1302_all_yunda_1.htm" target="_blank">唐山</a><a href="http://www.kuaidi100.com/network/net_1200_all_yunda_1.htm" target="_blank">天津</a><a href="http://www.kuaidi100.com/network/net_4246_all_yunda_1.htm" target="_blank">天门</a><a href="http://www.kuaidi100.com/network/net_6205_all_yunda_1.htm" target="_blank">天水</a><a href="http://www.kuaidi100.com/network/net_2112_all_yunda_1.htm" target="_blank">铁岭</a><br />
+      W:<a href="http://www.kuaidi100.com/network/net_3710_all_yunda_1.htm" target="_blank">威海</a><a href="http://www.kuaidi100.com/network/net_3707_all_yunda_1.htm" target="_blank">潍坊</a><a href="http://www.kuaidi100.com/network/net_6105_all_yunda_1.htm" target="_blank">渭南</a><a href="http://www.kuaidi100.com/network/net_3303_all_yunda_1.htm" target="_blank">温州</a><a href="http://www.kuaidi100.com/network/net_4625_all_yunda_1.htm" target="_blank">文昌</a><a href="http://www.kuaidi100.com/network/net_3202_all_yunda_1.htm" target="_blank">无锡</a><a href="http://www.kuaidi100.com/network/net_3402_all_yunda_1.htm" target="_blank">芜湖</a><a href="http://www.kuaidi100.com/network/net_4504_all_yunda_1.htm" target="_blank">梧州</a><a href="http://www.kuaidi100.com/network/net_4201_all_yunda_1.htm" target="_blank">武汉</a><br />
+      X:<a href="http://www.kuaidi100.com/network/net_3502_all_yunda_1.htm" target="_blank">厦门</a><a href="http://www.kuaidi100.com/network/net_6101_all_yunda_1.htm" target="_blank">西安</a><a href="http://www.kuaidi100.com/network/net_4212_all_yunda_1.htm" target="_blank">咸宁</a><a href="http://www.kuaidi100.com/network/net_6104_all_yunda_1.htm" target="_blank">咸阳</a><a href="http://www.kuaidi100.com/network/net_4303_all_yunda_1.htm" target="_blank">湘潭</a><a href="http://www.kuaidi100.com/network/net_4206_all_yunda_1.htm" target="_blank">襄樊</a><a href="http://www.kuaidi100.com/network/net_4209_all_yunda_1.htm" target="_blank">孝感</a><a href="http://www.kuaidi100.com/network/net_1409_all_yunda_1.htm" target="_blank">忻州</a><a href="http://www.kuaidi100.com/network/net_4115_all_yunda_1.htm" target="_blank">信阳</a><a href="http://www.kuaidi100.com/network/net_1305_all_yunda_1.htm" target="_blank">邢台</a><br />
+      Y:<a href="http://www.kuaidi100.com/network/net_3706_all_yunda_1.htm" target="_blank">烟台</a><a href="http://www.kuaidi100.com/network/net_3210_all_yunda_1.htm" target="_blank">扬州</a><a href="http://www.kuaidi100.com/network/net_2307_all_yunda_1.htm" target="_blank">伊春</a><a href="http://www.kuaidi100.com/network/net_4205_all_yunda_1.htm" target="_blank">宜昌</a><a href="http://www.kuaidi100.com/network/net_3609_all_yunda_1.htm" target="_blank">宜春</a><a href="http://www.kuaidi100.com/network/net_6401_all_yunda_1.htm" target="_blank">银川</a><a href="http://www.kuaidi100.com/network/net_3606_all_yunda_1.htm" target="_blank">鹰潭</a><a href="http://www.kuaidi100.com/network/net_4509_all_yunda_1.htm" target="_blank">玉林</a><a href="http://www.kuaidi100.com/network/net_5304_all_yunda_1.htm" target="_blank">玉溪</a><a href="http://www.kuaidi100.com/network/net_4306_all_yunda_1.htm" target="_blank">岳阳</a><br />
+      Z:<a href="http://www.kuaidi100.com/network/net_4412_all_yunda_1.htm" target="_blank">肇庆</a><a href="http://www.kuaidi100.com/network/net_4101_all_yunda_1.htm" target="_blank">郑州</a><a href="http://www.kuaidi100.com/network/net_4404_all_yunda_1.htm" target="_blank">珠海</a><a href="http://www.kuaidi100.com/network/net_4302_all_yunda_1.htm" target="_blank">株洲</a><a href="http://www.kuaidi100.com/network/net_3703_all_yunda_1.htm" target="_blank">淄博</a><a href="http://www.kuaidi100.com/network/net_5203_all_yunda_1.htm" target="_blank">遵义</a><a href="http://www.kuaidi100.com/network/net_3704_all_yunda_1.htm" target="_blank">枣庄</a><a href="http://www.kuaidi100.com/network/net_4408_all_yunda_1.htm" target="_blank">湛江</a><a href="http://www.kuaidi100.com/network/net_4308_all_yunda_1.htm" target="_blank">张家界</a> </div>
+    <div class="box"></div>
+  </div>
+  <div class="clear"></div>
+  <div class="div-border">
+    <h3 class="div-h">公司简介</h3>
+    <p>基于web的快递管理系统主要功能有:</p>
+    <p>功能描述：管理员(administrators)用户、快递网点(Express Store)账户。</p>
+	<p>内容管理：管理公告(bulletin)、新闻(new)、公司简介(introduction)。</p>
+	<p>快件管理：网店管理/查询、快件管理/查询、邮件订阅快件(package)状态。</p>
+	<p>网上下单：根据位置自动指派快递员(courier)收件。</p>
+    <p>聚合查询：可查询其他快递公司的快件信息。</p>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="clear"></div>
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/setCookie.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/ZeroClipboard.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/areas.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/city.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/share/companyBook.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script> 
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=70060" ></script> 
+<script type="text/javascript" id="bdshell_js"></script> 
+<script type="text/javascript">document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();</script> 
+<script id="bdlike_shell"></script> 
+<script>var bdShare_config = {"type":"small","color":"blue","uid":"70060","likeText":"快递给力","likedText":"已赞过"};document.getElementById("bdlike_shell").src="http://bdimg.share.baidu.com/static/js/like_shell.js?t=" + new Date().getHours();</script> 
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script> 
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('222485','BaiduAD');BAIDU_CLB_fillSlotAsync('281219','GoogleAD');BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script> 
+<script type="text/javascript" >BAIDU_CLB_SLOT_ID = "316543";</script> 
+<script type="text/javascript" src="http://cbjs.baidu.com/js/o.js"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>

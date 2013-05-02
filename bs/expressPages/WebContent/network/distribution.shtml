@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>-查快递,寄快递,上</title>
+<meta name="Keywords" content=",快递单号查询,快递网点查询,快递电话查询,快递查询" />
+<meta name="Description" content="提供上百家常用快递、物流公司的快递单号查询、快递网点电话查询、快递价格查询、网上寄快递服务，支持手机查询快递，提供免费Open API。" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<meta http-equiv="mobile-agent" content="format=html5;url=http://m.kuaidi100.com/"> 
+<meta http-equiv="mobile-agent" content="format=wml; url=http://wap.kuaidi100.com">
+<link rel="shortcut icon" href="http://images.youshang.com/kuaidi100/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://images.youshang.com/kuaidi100/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://www.kuaidi100.com/css/base_m.css?version=201212251730" />
+<link rel="stylesheet" type="text/css" href="http://www.kuaidi100.com/css/page/index_m.css?version=201212251730" />
+
+<link  href="http://images.youshang.com/kuaidi100/css/distribution.css"  rel="stylesheet"   media="screen" />
+
+</head>
+<body>
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="../claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="applyJoin.shtml">网点发布申请</a></li><li><a href="invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="../claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="../help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="../help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="../help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="../login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="../login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="../login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="../login.html">登录</a>&nbsp;|&nbsp;<a href="../user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="distribution.shtml#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="../index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="../index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="../orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="../user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="../openapi/index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="../index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="../wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="../luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="../guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="../all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="../auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="distribution.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="distribution.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="distribution.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="distribution.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="distribution.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="distribution.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="distribution.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom--> 
+     <div class="distribution">
+	    <div class="mature">
+
+		   <div class="amazing01"> 
+		      <div class="actually">
+			      <div class="coincidence">
+				      <p class="phone_p phone_p01"><a href="applyJoin.shtml" class="shirt_a01"  target="_blank">网点申请认证</a></p>
+					  <p class="phone_p phone_p02"><a href="invite.shtml" class="shirt_a02"  target="_blank">网点激活发布网点电话</a></p>
+					  <p class="phone_p phone_p03"><a href="loginNet.shtml" class="shirt_a03"  target="_blank">网点登录</a></p>
+				  </div><!--coincidence -->
+			  </div><!--actually -->	
+		   </div><!-- amazing01-->
+
+		   <div class="amazing02">
+		   <!--六屏幻灯   --//start --> 
+	           <div	class='slidescont'>
+<ul class='slidePic'>
+     <li class='cur'><img src="../images/distribution/choose01.gif"  alt="" /></li> 
+     <li><img src="../images/distribution/choose02.gif"  alt="" /></li>
+     <li><img src="../images/distribution/choose03.gif"  alt="" /></li> 
+     <li><img src="../images/distribution/choose02.gif"  alt="" /></li> 
+     <li><img src="../images/distribution/choose05.gif"  alt="" /></li>
+	 <li><img src="../images/distribution/choose02.gif"  alt="" /></li>
+</ul>
+
+<ul class='slideTxt'>
+     <li class='cur'><span class='txtl'>1</span></li>
+    <li><span>2</span></li>
+     <li><span>3</span></li>
+    <li><span>4</span></li>
+    <li><span>5</span></li>
+	<li><span>6</span></li>
+</ul>
+</div><!--slidescont --> 
+		   
+		   <!--六屏幻灯   --//end --> 
+		   </div><!-- amazing02-->		
+
+		</div><!-- mature-->
+
+
+		<div class="surprise">
+		    <div class="consult">
+			<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2373316579&site=qq&menu=yes"><img border="0" src="../images/distribution/consult.gif" alt="点击这里给我发消息" title="点击这里给我发消息"></a>
+			</div><div class="w0h0"></div>
+		</div><!--surprise -->
+
+		<div class="route">		
+		  <img src="../images/distribution/route01.gif"  alt="" />
+		  <img src="../images/distribution/route02.gif"  alt="" />
+		  <img src="../images/distribution/route03.gif"  alt="" />
+		  <img src="../images/distribution/route04.gif"  alt="" />
+		  <img src="../images/distribution/route05.gif"  alt="" />
+		  <img src="../images/distribution/route06.gif"  alt="" />
+		  <img src="../images/distribution/route07.gif"  alt="" />
+		  <img src="../images/distribution/route08.gif"  alt="" />
+		  <img src="../images/distribution/route09.gif"  alt="" />
+		  <img src="../images/distribution/route10.gif"  alt="" />
+		  <img src="../images/distribution/route11.gif"  alt="" />
+		  <img src="../images/distribution/lawn01.gif"  alt="" />
+
+            <div class="clothing"> 
+			  <div class="tramp01">只需三步，立刻拥有您自己的网上快递网点！现在开始！</div>
+              <div class="tramp02"><a href="applyJoin.shtml" class="giggle" target="_blank">马上申请 >></a></div>			
+			</div><!-- clothing-->
+
+			<div class="supposed"><div class="national"><a href="http://club.youshang.com/forum.php?mod=forumdisplay&fid=737" class="" target="_blank">更多 ></a></div></div>
+		 
+		   <div class="guard">
+		    
+  <ul  class="awkward01">
+       <li><a href="http://blog.kuaidi100.com/?p=129" class="" 
+target="_blank">需要什么条件才可以发布快递网点电话？收费吗？</a></li>
+	 <li><a href="http://blog.kuaidi100.com/?p=137" class="" target="_blank">需要发布哪些信息才能被客户搜出快递电话？</a></li>		                  
+ </ul>
+
+
+<ul  class="awkward02">
+         <li><a href="http://blog.kuaidi100.com/?p=132" class="" target="_blank">发布快递网点电话的流程是怎样的？</a></li> 		          
+		  <li><a href="http://blog.kuaidi100.com/?p=139" class="" target="_blank">发布了电话后，在哪里可以查看自己发布的网点信息？</a></li>		        
+</ul> 
+
+		   
+		   </div><!--guard --> 
+		  <img src="../images/distribution/route15.gif"  alt="" />
+		  <div class="uncomfortable">
+		      <ul  class="juice">
+		            <li class="bought">微信号：<span class="ikd">jkd100</span>（添加时，请回复您的快递网点名称,谢谢!）</li>
+		            <li>网点QQ群：1群 <span class="ikd">221090527</span>（已满），2群 <span class="ikd">221793279</span></li>		 
+		      </ul>
+			  <div class="wei2"><img src="../images/distribution/2wei02.gif"  alt="" /></div>
+		  </div><!--uncomfortable --> 
+
+		  <!--[if lte IE 6]>
+		  <div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div><div class="w0h0"></div> 
+		  <![endif]-->
+		</div><!-- route-->
+
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 </div><!--distribution -->
+ 
+<div class="footer w960 mt10px">
+<script language="javascript" type="text/javascript" src="http://images.youshang.com/kuaidi100/js/util/footer_index.js?version=201212251730"></script> 
+</div>
+
+<script language="javascript" type="text/javascript" src="http://images.youshang.com/kuaidi100/js/util/jquery-1.4.4.min.js?version=201212251730"></script>
+<script language="javascript" type="text/javascript" src="http://www.kuaidi100.com/js/page/include/header.js?version=201212251730"></script>
+<script  src="http://www.kuaidi100.com/js/page/api/slide.js"> </script> 
+<script language="javascript" type="text/javascript" src="http://www.kuaidi100.com/js/share/count.js?version=201212251730"></script>
+</body>
+</html>
+ 
+ 

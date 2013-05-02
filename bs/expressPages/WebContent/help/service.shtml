@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>快递查询接口_</title>
+<meta name="keywords" content="快递查询接口,快递api,B2C快递接口" />
+<meta name="description" content="提供一站式的快递查询服务，涵盖近百家常用快递公司，查询无需验证码，支持手机查快递，并提供免费的快递查询接口（API）。帮助企业、网商提升物流环节的客户满意度。" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/service.css?version=201303201326" />
+</head>
+<body>
+<a href="service.shtml#" id="topShow" onclick="return false;"></a>
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="../network/distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="../claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="../network/applyJoin.shtml">网点发布申请</a></li><li><a href="../network/invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="../claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="../login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="../login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="../login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="../login.html">登录</a>&nbsp;|&nbsp;<a href="../user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="service.shtml#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="../index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="../index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="../orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="../user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="../openapi/index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="../index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="../wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="../luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="../guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="../all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="../auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="../network/clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="service.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="service.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="service.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="service.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="service.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="service.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="service.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<div class="tips-top w960"><a href="../index.html">首页</a> &gt; <a href="service.shtml" >客服中心</a> &gt; <strong>新手上路</strong> </div>
+<div class="container w960">
+  <div class="column-1">
+    <h2>操作流程</h2>
+    <div class="step-div-1">
+      <h3>我是个人用户</h3>
+      <div class="step-div">
+      	<div class="step">
+        	<h4 class="title-1-1"></h4>
+        	<ul>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=143">注册、登录有什么用？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=147">怎样用手机号进行注册？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=150">怎样用邮箱号进行注册？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=152">忘记密码了，怎么找回密码？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=155">用邮箱号注册、登录后，怎样绑定手机？</a></li>
+            </ul>
+            <a target="_blank" href="http://blog.kuaidi100.com/?tag=%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95" class="a-more link-goto">更多</a>
+        </div>
+      	<div class="step">
+        	<h4 class="title-1-2"></h4>
+        	<ul>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=33">怎样在线就能寄快递？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=84">快递员何时上门取件、收货？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=107">怎样查看我下过的订单？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=95">怎样确定重量、包装、付钱？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=86">怎样知道出发地到目的地有哪些快递公司可上门、寄到？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=88">要多久、多少钱才能寄到？</a></li>
+            </ul>
+            <a target="_blank" href="http://blog.kuaidi100.com/?p=97" class="a-more link-goto">更多</a>
+        </div>
+      	<div class="step">
+        	<h4 class="title-1-3"></h4>
+        	<ul>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=159">什么是快递单号？怎样获得？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=163">怎样查询我的快递运送状况？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=167">怎样保存我查过的快递单号？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=171">怎样订阅短信提醒服务？要不要收钱？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=176">快递单号出现异常该找谁处理？</a></li>
+            </ul>
+            <a target="_blank" href="http://club.youshang.com/forum.php?mod=viewthread&tid=314356&extra=page=1" class="a-more link-goto" style="visibility:hidden;">更多</a>
+        </div>
+      </div>
+    </div>
+    <div class="step-div-2">
+      <h3>我是商家</h3>
+      <div class="step-div">
+        <div class="step">
+            <h4 class="title-2-1"></h4>
+            <ul>
+                <li><a target="_blank" href="qa.shtml#qa03">哪一种API适合我？哪一种需要申请？</a></li>
+                <li><a target="_blank" href="qa.shtml#qa03">申请API需要什么条件？</a></li>
+                <li><a target="_blank" href="http://blog.kuaidi100.com/?p=181">怎样添加友情链接？</a></li>
+                <li><a target="_blank" href="../openapi/index.html">在哪里提交申请？</a></li>
+                <li><a target="_blank" href="qa.shtml#qa06">怎样申请超过2000次/天的API？</a></li>
+            </ul>
+            <a target="_blank" href="qa.shtml" class="a-more link-goto">更多</a>
+        </div>
+        <div class="step">
+            <h4 class="title-2-2"></h4>
+            <ul>
+                <li><a target="_blank" href="qa.shtml#qa08">申请API一般要多久才能审核？</a></li>
+                <li><a target="_blank" href="qa.shtml#qa05">怎样知道申请是否通过？</a></li>
+            </ul>
+            <a target="_blank" href="qa.shtml" class="a-more link-goto">更多</a>
+        </div>
+        <div class="step">
+            <h4 class="title-2-3"></h4>
+            <ul>
+                <li><a target="_blank" href="qa.shtml#qa09">为什么我的申请无法通过审核？</a></li>
+                <li><a target="_blank" href="http://blog.kuaidi100.com/?p=187">怎样使用API Key？</a></li>
+                <li><a target="_blank" href="http://blog.kuaidi100.com/?p=189">怎样使用API插件？</a></li>
+                <li><a target="_blank" href="qa.shtml#qa07">使用API过程怎样获得技术支持？</a></li>
+            </ul>
+            <a target="_blank" href="qa.shtml" class="a-more link-goto">更多</a>
+        </div>
+      </div>
+    </div>
+    <div class="step-div-3">
+      <h3>我是快递公司</h3>
+      <div class="step-div">
+      	<div class="step">
+        	<h4 class="title-3-1"></h4>
+        	<ul>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=192">我要入驻，有哪些可以合作的项目？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=197">入驻后有哪些好处？</a></li>            	
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=202">怎样入驻？有什么流程？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=200">入驻是否需要交费用、签订合同？</a></li>
+            </ul>
+            <a target="_blank" href="http://club.youshang.com/forum.php?mod=viewthread&tid=404870&extra=" class="a-more link-goto" style="visibility:hidden;">更多</a>
+        </div>
+      	<div class="step">
+        	<h4 class="title-3-2"></h4>
+        	<ul>
+            	<li><a target="_blank" href="../about/contact.shtml">怎样联系的商务人员？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=206">有哪些项目需要进行技术对接？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=209">怎样进行技术对接？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=211">不进行技术对接可否入驻？</a></li>
+            </ul>
+            <a target="_blank" href="http://club.youshang.com/forum.php?mod=viewthread&tid=404870&extra=" class="a-more link-goto" style="visibility:hidden;">更多</a>
+        </div>
+      	<div class="step">
+        	<h4 class="title-3-3"></h4>
+        	<ul>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=213">怎样接收、处理订单？</a></li>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=215">对订单的处理，有没有标准要求？</a></li>
+            </ul>
+            <a target="_blank" href="http://club.youshang.com/forum.php?mod=viewthread&tid=404870&extra=" class="a-more link-goto" style="visibility:hidden;">更多</a>
+        </div>
+      </div>
+    </div>
+    <div class="step-div-4">
+      <h3>我是站长</h3>
+      <div class="step-div">
+      	<div class="step">
+        	<h4 class="title-4-1"></h4>
+        	<ul>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=218">什么是快递查询iframe代码？</a></li>
+            	<li><a target="_blank" href="../app/code.shtml">有哪些iframe代码风格？</a></li>
+            	<li><a target="_blank" href="../app/code.shtml">怎样获得iframe代码？</a></li>
+            </ul>
+            <a target="_blank" href="../app/code.shtml" class="a-more link-goto">更多</a>
+        </div>
+      	<div class="step">
+        	<h4 class="title-4-2"></h4>
+        	<ul>
+            	<li><a target="_blank" href="http://blog.kuaidi100.com/?p=221">怎样使用iframe代码？</a></li>
+            </ul>
+            <a target="_blank" href="../app/code.shtml" class="a-more link-goto">更多</a>
+        </div>
+      	<div class="step">
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+ 
+  <div class="column-2">
+    <div class="div-border div-barlist">
+      <div class="div-title">基本功能和操作</div>
+      <p>&raquo;&nbsp;<a target="_blank" href="http://blog.kuaidi100.com/?tag=%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95">注册、登录和帐号管理</a></p>
+      <p>&raquo;&nbsp;<a target="_blank" href="http://blog.kuaidi100.com/?tag=%E5%BF%AB%E9%80%92%E6%9F%A5%E8%AF%A2">快递查询</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">网点查询</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">价格查询</a></p>
+      <p>&raquo;&nbsp;<a target="_blank" href="http://blog.kuaidi100.com/?cat=8">我要寄快递</a></p>
+      <p>&raquo;&nbsp;<a target="_blank" href="http://blog.kuaidi100.com/?cat=9">我的快递单、短信提醒</a></p>
+      <p>&raquo;&nbsp;<a target="_blank" href="http://blog.kuaidi100.com/?cat=6">快递查询接口（API）</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">国际货运查询</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">物流查询、快递大全</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">手机查快递</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">快递实验室、快递工具</a></p>
+    </div>
+    <div class="clear"> </div>
+    <div class="div-border div-barlist" style="line-height:24px;">
+      <div class="div-title">快递物流公司服务说明</div>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">常见快递、物流术语说明</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">各快递、物流公司服务概述</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">收件、寄件范围说明</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">上门收件时间说明</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">送达时效说明</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">计费方式与运价说明</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">称重、包装服务说明</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">费用支付方式说明</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">增值服务及资费说明</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">禁运品说明</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">特殊货物说明</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">运输方式说明</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">理赔方式说明</a></p>
+      <p>&raquo;&nbsp;<a href="javascript:void(0)">其他</a></p>
+    </div>
+    <div class="clear"></div>
+    <div class="div-border div-barlist" style="line-height:24px;">
+      <div class="div-title">其他问题</div>
+      <p>&raquo;&nbsp;<a target="_blank" href="http://blog.kuaidi100.com/">进入博客</a></p>
+      <p>&raquo;&nbsp;<a target="_blank" href="feedback.shtml">意见建议</a></p>
+      <p>&raquo;&nbsp;<a href="mailto:kuaidi@kingdee.com">邮箱：kuaidi@kingdee.com</a></p>
+    </div>
+</div>
+</div>
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div>
+<div id="PAGE_AD_469747"></div>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('469747','PAGE_AD_469747');BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>

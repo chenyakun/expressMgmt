@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="apple-itunes-app" content="app-id=458270120"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>基于web的快递管理系统</title>
+		<meta name="Keywords" content="" />
+		<meta http-equiv="X-UA-Compatible" content="IE=7" />
+		<meta http-equiv="Content-Language" content="zh-cn" />
+		<link rel="stylesheet" type="text/css" href="css/base_m.css" />
+		<link rel="stylesheet" type="text/css" href="css/index_m.css" />
+	</head>
+	<body>
+
+		<!--header-begin -->
+		 	
+			<script type="text/javascript" src="js/header_index.js"></script>
+			
+		<!--header end-->
+
+		<!--wfull-->
+
+		<div class="fix-box-middle" id="floatCtrl">
+			<a href="index.html#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+			<a href="index.html#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+		</div>
+		<a href="index.html#" id="topShow" onclick="return false;"></a>
+		<div class="tips-top w960">
+			 
+		</div>
+		<div class="container w960 mt10px">
+
+			<div class="column-2" style="overflow:visible;">
+
+				<div class="search-box">
+					<div class="input-box">
+						<input name="postid" type="text" class="inp-metro" id="postid" maxlength="26" url="true" autocomplete="off" x-webkit-speech x-webkit-grammar="builtin:translate" />
+						<a id="query" onclick="query();" class="btn-query">查询</a>
+						<p id="valideBox" style="display:none;padding-top:5px;">
+							<span style="float:left;margin-right:5px;">请您输入验证码：
+								<input name="valicode" type="text" class="inp" id="valicode" maxlength="8" style="width:120px;" />
+							</span><span class="vali-images"><img id="valiimages" src="http://cdn.kuaidi100.com/images/clear.gif" onclick="refreshCode()" alt="点击获取新验证码" /></span><a href="index.html#" class="font12px refresh-a fl" onclick="refreshCode();return false;">看不清，换一张</a>
+						</p>
+						<p id="telBox" style="display:none;padding-top:5px;">
+							请您输入电话号码：
+							<input name="valicodetel" type="text" class="inp" id="valicodetel" maxlength="18" style="width:214px;" />
+						</p>
+						<p class="box"></p>
+					</div>
+				</div>
+				<div id="inputTips" style="display:none" class="mt10px">
+					例如，您可以输入：<a onclick="useTips();return false;" href="index.html#"></a>
+				</div>
+
+				<p id="queryWait" class="wait" style="display:none;">
+					正在查询中，请稍等片刻......
+				</p>
+				<div id="queryContext" class="mt10px" style="display:none;position:relative;z-index:4">
+					<div class="tagBox">
+						<a href="index.html#" class="reusltTag a-tag-list a-tag-list-current"
+						onclick="$('#baiduMap').hide();$('#queryContext').show();return false;">列表</a>
+						<a href="index.html#" class="reusltTag a-tag-map" onclick="hideTips();$('#baiduMap').show();showMap();return false;">地图</a>
+					</div>
+					<table id="queryResult2" class="result-info2" cellspacing="0"></table>
+
+					<div id="ctrlBtn" class="send-box-on ctrl-box">
+						<div class="bdlikebutton fr"></div>
+						<span id="selectedTag" style="display:none"></span>
+						<a href="index.html#" onclick="$('#sendHistory').hide();rssMsn();return false;" class="btn-rss png-fix">免费短信通知</a>
+						<!--
+						<a href="index.html#" onclick="$('#rss-div').hide();openSenBox();return false;" class="btn-share png-fix">分享查询结果</a>
+						-->
+						<a href="user/history-from=banner.shtml" class="btn-history png-fix">查看我的快递单 <span id="hisNum2" class="float-num" style="display:none"></span> </a>
+					</div>
+
+				</div>
+
+				<!---baidu Map start-->
+				<div id="baiduMap" class="mt10px" style="display:none">
+					<div class="tagBox">
+						<a href="index.html#" class="reusltTag a-tag-list" onclick="$('#baiduMap').hide();$('#queryContext').show();return false;">列表</a>
+						<a href="index.html#" class="reusltTag a-tag-map a-tag-map-current" onclick="hideTips();$('#baiduMap').show();showMap();return false;">地图</a>
+					</div>
+					<div id="mapContent" class="map-box">
+						<div id="mapSetTips" class="map-top2" style="display:none">
+							<a href="index.html#" class="map_tips_close" onclick="$('#mapSetTips').hide();return false;"></a>
+							选择准确的到达目的城市，我们帮您预测到货时间。
+						</div>
+						<div id="mapArrCity" class="map-top" style="display:none">
+							<span>到达城市：</span><a href="index.html#" onclick="$('#provinces2').toggle();return false;" class="selectCity"><span id="cityName_input_2"></span></a>
+							<input id="cityId_input_2" name="cityId_input_2" value="" type='hidden'/>
+							<div id="provinces2" class="location-box" style="display:none;"></div>
+						</div>
+						<div id="map" class="map"></div>
+						<div id="mapWait" class="wait-box" style="display:none">
+							<img src="http://app.baidu.com/static/appstore/app-1.gif"/>
+							<p class="mt10px">
+								正在为您加载百度地图...
+							</p>
+						</div>
+					</div>
+				</div>
+				<!---baidu Map end-->
+
+				<div id="rss-div" style="display:none;z-index:3;">
+					<div id="rss-step" class="step_state_4"></div>
+					<a id="rss-close" class="close" onclick="$('#selectedTag').hide();$('#rss-div').hide();return false;"></a>
+					<div class="step_waiting" style="padding:50px 0;text-align:center;">
+						<img src="http://cdn.kuaidi100.com/images/ajax-loader.gif" />正在处理，请稍候...
+					</div>
+					<div class="step_0 hidden" style="padding:10px 0">
+						<p class="p5px font14px">
+							&emsp;用户名：
+							<input name="telephone0" id="telephone0" maxlength="11" style="width:230px" />
+						</p>
+						<p class="p5px font14px">
+							&emsp;&emsp;密码：
+							<input name="pwd0" id="pwd0" type="password" maxlength="20" style="width:230px" />
+						</p>
+						<p class="p5px font14px">
+							&emsp;&emsp;&emsp;&emsp;&emsp;<a href="index.html#" class="subbtn" id="rsslogin" onclick="rsslogin();return false;">登&emsp;录</a><span class="font12px">还不是用户？<a href="index.html#" onclick="gotostep1();return false;">立即注册</a></span>
+						</p>
+						<p id="step0wait" class="wait2 hidden">
+							正在登录，请稍后...
+						</p>
+					</div>
+					<div class="step_1 hidden">
+						<p class="p5px font14px">
+							您的邮箱：
+							<input name="telephone" id="telephone" maxlength="11" />
+						</p>
+						<p class="p5px font14px" id="p-pwd1">
+							输入密码：
+							<input name="pwd1" id="pwd1" type="password" maxlength="20" />
+						</p>
+						<p class="p5px font14px" id="p-pwd2">
+							确认密码：
+							<input name="pwd2" id="pwd2" type="password" maxlength="20" />
+						</p>
+						<p class="p5px font14px" id="p-valid">
+							&emsp;验证码：
+							<input name="valid" id="valid" type="text" maxlength="10" style="width:115px"/>
+							<img id="valicodeImg" width="80" height="26" onclick="refreshRssCode();" class="pointer mr10px" title="点击刷新验证码" /><a href="index.html#" class="font12px" onclick="refreshRssCode();return false;">看不清，换一张</a>
+						</p>
+						<p class="p5px font14px">
+							&emsp;&emsp;&emsp;&emsp;&emsp;<a href="index.html#" class="subbtn" id="gotostep2" onclick="gotostep2();return false;">下一步</a>
+						</p>
+						<p id="step1wait" class="wait2 hidden">
+							正在提交，请稍后...
+						</p>
+					</div>
+					<div class="step_2 hidden">
+						<p class="p5px">
+							已向您的手机&nbsp;<span id="telephone2"></span>&nbsp;发送短信校验码，请查看您的手机短信。
+						</p>
+						<p class="p5px">
+							&emsp;&emsp;您的手机号码是：&nbsp;<strong id="telephone3"></strong>&nbsp;
+						</p>
+						<p class="p5px">
+							短信中收到的校验码：
+							<input name="valid2" id="valid2" type="password" maxlength="20" />
+							<span id="sendAgainSpan" class="getValidBtn"><span id="timeSpan">（<em id="minute">2</em>分<em id="second">00</em>秒后）重新发送短信</span><a href="index.html#" id="sendSmsAgain" onclick="sendPwdToMobile(this);return false;" class="valid-a" style="display:none">重新发送短信</a></span>
+						</p>
+						<p class="p5px">
+							&emsp;&emsp;&emsp;&emsp;&emsp;<a href="index.html#" class="subbtn" id="gotostep3" style="margin-left:98px" onclick="gotostep3();return false;">下一步</a><a href="index.html#" onclick="gotostep1();return false;">返回第一步</a>
+						</p>
+						<p id="step2wait" class="wait2 hidden">
+							正在提交，请稍后...
+						</p>
+					</div>
+					<div class="step_3 hidden">
+						<div class="float-tips" id="city-tips" style="display:none">
+							<p>
+								请设置包裹到达目的城市，别设置为寄件城市噢。
+							</p>
+						</div>
+						<p>
+							您正在订阅<span id="kuaidiinfo"></span>短信提醒服务，本服务免费。
+						</p>
+						<div class="p10px" style="margin-top:5px">
+							<p>
+								提醒内容：<label class="mr10px" for="server_1" title="">
+									<input type="checkbox" id="server_1" name="server_1" checked="checked"/>
+									发货提醒</label><label class="mr10px" for="server_2" title="">
+									<input type="checkbox" id="server_2" name="server_2" checked="checked"/>
+									派件提醒</label><label class="mr10px" for="server_3" title="">
+									<input type="checkbox" id="server_3" name="server_3"/>
+									签收提醒</label>
+							</p>
+							<p>
+								收货城市：<span id="cityName_input"></span>[<a href="index.html#" onclick="$('#provinces').toggle();return false;" class="selectCity">切换城市</a>]<span class="float-tips-icon" id="city-tips-switch" onmouseover="$('#city-tips').show();" onmouseout="$('#city-tips').hide();"></span>
+								<input id="cityId_input" name="cityId_input" value="" type='hidden'/>
+							</p>
+							<p>
+								<a href="index.html#" class="subbtn" onclick="submitRss();return false;">完成</a><!--<a href="#" class="calbtn" onclick="$('.confirm-div').slideDown();return false;" style="display:none">取消短信订阅</a>-->
+							</p>
+						</div>
+						<!--<div class="confirm-div" style="display:none"><p>您确定要取消订阅此单号的短信提醒服务？</p><a href="index.html#" id="confirm-yes-2" class="btn-ok" onclick="deleteRss();return false;">确定</a><a href="index.html#" id="confirm-no-2" class="btn-cancel" onclick="$('.confirm-div').slideUp();return false;">取消</a></div>-->
+						<p id="step3wait" class="wait2 hidden">
+							正在提交，请稍后...
+						</p>
+					</div>
+					<div id="provinces" class="location-box" style="display:none;"></div>
+				</div>
+
+				<div id="errorTips" class="tips mt10px" style="display:none;">
+					<a onclick="$('#errorTips').hide();return false;" href="index.html#" class="tips-close" title="关闭提示"></a><span class="icon"></span>
+					<p id="errorMessage">
+						您输入的验证码错误，请重新输入！
+					</p>
+				</div>
+				<div id="rssTips" class="tips mt10px" style="display:none;">
+					<a onclick="$('#rssTips').hide();return false;" href="index.html#" class="tips-close" title="关闭提示"></a><span id="rssTipsTxt">订阅成功，我们将以短信方式通知您。订阅查看请点击<strong><a href='user/history.shtml'>"我的快递单"&gt;&gt;</a></strong></span>
+				</div>
+				<div id="notFindTip2" class="tips mt10px" style="display:none">
+					<a onclick="$('#notFindTip2').hide();return false;" href="index.html#" class="tips-close" title="关闭提示"></a>
+					<p class="tips-icon-2">
+						很抱歉，您的快递单号暂时没有查询结果！
+					</p>
+					<p class="tips-p-2">
+						请核对快递公司名称和快递单号是否正确：
+					</p>
+					<p class="tips-p-2">
+						<span id="tips-com-name"></span><span id="tips-kuaidi-num"></span><span class="copy-span" id="copyNumBox">
+							<input type="text" id="copyNumInput" style="display:none" />
+							<a href="index.html#" id="copyNumBtn">（复制单号）</a></span>
+					</p>
+					<p class="tips-p-2" id="tips-save-btn">
+						<a href="index.html#" class="tips-a-right" onclick="historyPageLink();return false;" title="过一会再查，下次查询免输入单号">正确，保存快递单号</a>
+					</p>
+					<p class="tips-p-2" id="tips-rss-btn">
+						<a href="index.html#" class="tips-a-right" onclick="rssMsn();$('#notFindTip2').hide();return false;" title="包裹状态更新，即可通过短信通知您">正确，订阅短信提醒</a><em class="fontred" style="font-size:12px;font-style:normal">（此功能免费）</em>
+					</p>
+					<div style="height:20px">
+						<a href="index.html#" class="fr" style="margin-right:20px" target="_blank" id="gocompanyUrl5">去快递公司官网试试&gt;&gt;</a>
+					</div>
+				</div>
+				<div class="box"></div>
+			</div>
+		</div>
+		<div class="box"></div>
+
+		<div class="footer w960 mt10px">
+			<script type="text/javascript" src="js/footer_index.js"></script>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-mail.js?version=201303201326"></script>
+		<script type="text/javascript" src="js/area.js"></script>
+		<script type="text/javascript" src="js/city.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+		<script type="text/javascript" src="js/header.js"></script>
+		<!-- <script type="text/javascript" src="js/base.js"></script> -->
+		<script type="text/javascript" src="js/util.js"></script>
+
+	</body>
+</html>

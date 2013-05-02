@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="apple-itunes-app" content="app-id=458270120"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>手机查快递_</title>
+<meta name="keywords" content="" />
+<meta name="description" content="随时随地查快递，wap端客户端都可以。iPhone客户端下载,Android客户端下载.wap.kuaidi100.com" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://www.kuaidi100.com/css/mobile_new.css?version=201303201326" />
+</head>
+<body>
+<input type="hidden" id="headerMenu" value="mobileQuery" />
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="../network/distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="../claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="../network/applyJoin.shtml">网点发布申请</a></li><li><a href="../network/invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="../claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="../help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="../help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="../help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="../login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="../login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="../login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="../login.html">登录</a>&nbsp;|&nbsp;<a href="../user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="iPhone.shtml#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="../index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="../index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="../orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="../user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="../openapi/index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="../index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="../wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="../luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="../guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="../all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="../auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="../network/clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="iPhone.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="iPhone.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="iPhone.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="iPhone.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="iPhone.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="iPhone.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="iPhone.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<div class="container w960">
+	<div class="banner">
+    	<div class="iPhone_banner_1"></div>
+    	<div class="iPhone_banner_2"></div>
+    	<div class="iPhone_banner_3"></div>
+    	<div class="iPhone_banner_4"></div>
+        <a href="http://itunes.apple.com/app/id458270120?ls=1&mt=8" target="_blank" class="a-iPhone-download"></a>
+        <a id="weixin" class="a-weixin"></a>
+        <img id="weixinImg" class="img-weixin hidden" src="http://www.kuaidi100.com/images/mobile/weixinImg.png" width="403" height="231" alt="微信二维码" />
+    </div>
+    <div class="menu">
+    	<a href="Android.shtml" class="a-Android"></a><a href="iPhone.shtml" class="a-iPhone-selected"></a><a href="http://www.kuaidi100.com/mobile/wap.shtml" class="a-wap"><a href="http://www.kuaidi100.com/mobile/html5.shtml" class="a-html5"></a><a href="http://www.kuaidi100.com/mobile/other.shtml" class="a-other"></a>
+    </div><!--menu --> 
+    <div class="section bbs">
+    	<div class="column fr">
+        	<h2>媒体推荐：</h2>
+            <a class="a-box">爱apps</a>
+            <a class="a-box">搜狐应用中心</a>
+            <a class="a-box">搞趣网</a>
+            <a class="a-box">网易应用中心</a>
+        </div>
+    	<div class="column">
+        	<h2>最新版本：V1.6</h2>
+            <ul>
+            	<li>1.增加全新的25家快递公司。</li>
+				<li>&emsp;增加凡客、USPS、OCS、嘉里大通、佳吉物流、共速达、GLS、华夏</li>
+                <li>&emsp;龙、海外环球、晋越快递、蓝彪快递、立即送、乐捷递、民航快递、美</li>
+                <li>&emsp;国快递、门对门、盛丰、上大国际、山东海红、赛澳递、万家物流、原</li>
+                <li>&emsp;飞航、银捷速递、中铁物流、忠信达等；</li>
+            	<li>2.按不同快递公司的单号显示不同的键盘(数字或字母)；</li>
+                <li>&emsp;如EMS的单号是由字母+9位数字组成的，顺丰的单号前三位是电话号</li>
+                <li>&emsp;码的区号等；</li>
+            	<li>3.「我的快递单」中增加4种分类标签：「所有快递单、在途、已签收、</li>
+                <li>&emsp;有更新」；</li>
+                <li>4.增加邮件转发全部快递状态；</li>
+                <li>5.部分UI以及bugs修改。</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section bbd">
+    	<div class="column fr">
+        	<h2>我的快递单：</h2>
+            <p>自动保存您查过的快递单，可点击查询明细，编辑备注，</p>
+            <p>左右滑动切换，让快递单信息一目了然。</p>
+            <img src="http://cdn.kuaidi100.com/images/mobile/eg_iPhone_02.jpg" width="320" height="480" />
+        </div>
+    	<div class="column">
+        	<h2>快递速查：</h2>
+            <p>无需输入验证码，加上方便的条码扫描，</p>
+            <p>实现真正的一键速查。</p>
+            <img src="http://cdn.kuaidi100.com/images/mobile/eg_iPhone_01.jpg" width="320" height="480" />
+        </div>
+    </div>
+    <div class="section bbd">
+    	<div class="column fr">
+        	<h2>支持百余家快递物流公司：</h2>
+            <p>支持圆通、申通、顺丰、中通、韵达等过百家快递公司，</p>
+            <p>独家支持「无需验证码」的「EMS」快递单号查询。</p>
+            <img src="http://cdn.kuaidi100.com/images/mobile/eg_iPhone_04.jpg" width="320" height="480" />
+        </div>
+    	<div class="column">
+        	<h2>快递大全：</h2>
+            <p>快递怎么还没到？打快递公司电话询问一下吧。</p>
+            <p>或者直接打开快递公司网站，查查你身边最近的网点。</p>
+            <img src="http://cdn.kuaidi100.com/images/mobile/eg_iPhone_03.jpg" width="320" height="480" />
+        </div>
+    </div>
+    <div class="section bbs">
+    	<div class="column fr" style="padding-top:100px;">
+        	<h2>推送提醒：</h2>
+            <p>可订阅你关注的快递单的在途跟踪状态，</p>
+            <p>「专业版」会把包裹的状态推送到你的设备上</p>
+            <p>（注：暂时不支持EMS、申通、顺丰的推送提醒）</p>
+            <a href="http://itunes.apple.com/us/app/kuai-di100zhuan-ye-ban-tui/id488105270?mt=8" target="_blank" class="a-ad"></a>
+        </div>
+    	<div class="column">
+            <img src="http://cdn.kuaidi100.com/images/mobile/eg_iPhone_05.jpg" width="320" height="480" />
+        </div>
+    </div>
+    <div class="section">
+    	<a href="http://itunes.apple.com/app/id458270120?ls=1&mt=8" target="_blank" class="a-iPhone-download2"></a>
+    </div>
+</div>
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script>
+<script>
+$(function(){
+	$("#weixin").mouseenter(function(){
+		$("#weixinImg").show();
+	}).mouseleave(function(){
+		$("#weixinImg").hide();
+	});
+});
+</script>
+<script type="text/javascript">function gototop(){acceleration=0.3;time=15;var x=0,y=0;if(document.documentElement){x=document.documentElement.scrollLeft||0;y=document.documentElement.scrollTop||0;}var speed=1+acceleration;window.scrollTo(Math.floor(x/speed),Math.floor(y/speed));if(x>0||y>0){var invokeFunction="gototop()";window.setTimeout(invokeFunction,time);}}</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>

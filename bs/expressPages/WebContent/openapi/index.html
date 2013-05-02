@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>快递查询接口_</title>
+<meta name="keywords" content="快递查询接口,快递查询API，快递api" />
+<meta name="description" content="快递查询接口API和物流查询接口api都出自金蝶旗下,涵盖EMS、顺丰、圆通、中通、德邦等超过100家快递物流公司,速度快,专业团队维护,最稳定可靠" /> 
+<!--[if IE 6]> 
+<script src="http://www.kuaidi100.com/js/page/api/DD_belatedPNG.js" mce_src="/js/page/api/DD_belatedPNG.js"></script> 
+<script type="text/javascript">DD_belatedPNG.fix('.png_img');</script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link  href="http://www.kuaidi100.com/css/api/mobilecheck.css?version=201303201326"  rel="stylesheet"   media="screen" />
+</head>
+<body>
+<input type="hidden" id="headerMenu" value="apiQuery" />
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="../network/distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="../claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="../network/applyJoin.shtml">网点发布申请</a></li><li><a href="../network/invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="../claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="../help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="../help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="../help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="../login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="../login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="../login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="../login.html">登录</a>&nbsp;|&nbsp;<a href="../user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="index.html#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="../index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="../index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="../orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="../user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="../index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="../wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="../luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="../guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="../all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="../auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="../network/clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="index.html#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="index.html#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="index.html#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="index.html#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="index.html#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="index.html#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="index.html#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<div class="wrapper"> 
+  
+   <!--幻灯广告开始  -->
+   <div class="huandeng">
+		  
+		<UL class="slidePic">
+		  <LI class="cur  liCur01">
+		       <div class="lantern">
+					   <IMG src="http://cdn.kuaidi100.com/images/api/adb01.gif" border="0" usemap="#Map">
+					<map name="Map">
+					  <area shape="rect" coords="47,189,322,256" href="api_2_02.shtml">
+					           
+					</map>
+					   <div class="moreDetail"><a href="api_2_02-typeid=0.shtml" class="">详情</a></div>
+			   </div> 
+		  </LI> 
+		 <LI class="liCur02" >
+		    <div class="lantern">
+		      <IMG   src="http://cdn.kuaidi100.com/images/api/adb02.gif" border="0" usemap="#Map2">
+            <map name="Map2">
+              <area shape="rect" coords="49,190,323,255" href="api_2_02.shtml"> 
+            </map>
+			  <div class="moreDetail"><a href="api_2_02-typeid=0.shtml" class="">详情</a></div> 
+			  </div>
+		  </LI> 
+		 <LI  class="liCur03">
+		    <div class="lantern">
+		  <IMG   src="http://cdn.kuaidi100.com/images/api/adb03.gif" border="0" usemap="#Map3">
+            <map name="Map3">
+              <area shape="rect" coords="50,190,323,256" href="api_2_02.shtml">            
+            </map>
+			   <div class="moreDetail"><a href="api_2_02-typeid=0.shtml" class="">详情</a></div> 
+			   </div> 
+		  </LI>  
+		 <LI class="liCur04">
+		  <div class="lantern">
+		   <IMG   src="http://cdn.kuaidi100.com/images/api/adb04.gif" border="0" usemap="#Map4">
+            <map name="Map4">
+              <area shape="rect" coords="48,180,323,247" href="api_2_02.shtml">    
+            </map>
+			   <div class="moreDetail"><a href="api_2_02-typeid=0.shtml" class="">详情</a></div>
+			    </div>
+		  </LI> 
+		  <LI class="liCur05">
+		  <div class="lantern">
+		  <IMG   src="http://cdn.kuaidi100.com/images/api/adb05.gif" border="0" usemap="#Map5">
+            <map name="Map5">
+              <area shape="rect" coords="48,180,325,247" href="../app/code.shtml">             
+            </map>
+			   <div class="moreDetail"><a href="../app/code.shtml" class="">详情</a></div>
+			   </div> 
+		  </LI>
+		  </UL>
+
+	     <UL class='slideTxt'>
+		  <LI class='cur'><span class='cor01'><a href="javascript:void(0)"   class="a_gengzhong" >物流跟踪</A></span> </LI> 
+          <LI ><span		class='cor02'><a href="javascript:void(0)"  class="a_gengzhong">订单流转</A></span> </LI>
+		  <LI ><span	  class='cor03'><a href="javascript:void(0)"    class="a_gengzhong">批量跟踪</A></span> </LI>
+		  <LI><span		class='cor04'><a href="javascript:void(0)"    class="a_gengzhong">运费结算</A></span> </LI>
+		  <LI><span	   class='cor05'><a href="javascript:void(0)"   class="a_gengzhong">查询代码</A></span> </LI>
+		  </UL> <div class="w0h0"></div><div class="w0h0"></div>
+	 
+   </div> 
+   <!-- 幻灯广告结束 --> 
+
+   <div class="div_clb"></div>
+  
+  <!--主体部分开始 -->
+  <div class="kd_main">
+    <div class="kd_main_left">
+       <div class="border01">
+      <div class="daQuan_title">快递查询接口<span class="tongGuo01">（通过API即可以获得跟综结果）</span> <div class="parameter"><a href="../help/qa.shtml#qa03" class="param_a" target="_blank">产品各项参数对比</a><span class="chanPin"> ></span></div></div>
+      <div class="daQuan_cont02">
+        <div class="daQ_six">
+
+
+          <div class="daQ_unit02">
+            <div class="daQ_icon02"><a href="api_2_02-typeid=0.shtml" class=""><img src="http://cdn.kuaidi100.com/images/api/ic03.gif" alt="" /></a></div>
+            
+            <div class="daQ_word_wra02">
+              <div class="daQ_ti"><a href="api_2_02-typeid=0.shtml" class="gongKai_a">功能简介</a></div>
+              <div class="daQ_c02">通过程序，向指定接口地址发起请求，就会返回快递单的跟踪信息。可以集成到网站或系统中，让您的网站或系统拥有自动查单的功能。</div>
+			  <div class="daQ_ti"><a href="api_2_02-typeid=0.shtml" class="gongKai_a">接口特征</a></div>
+              <div class="daQ_c02">可灵活配置快递公司，返回XML、JSON等多种格式完整结果，返回快递单状态参数。</div>
+              <div class="daQ_link" style="padding-top:10px; padding-bottom:10px;"> <span class="daQ_sp"><a href="api_2_02-typeid=0.shtml" class="">应用效果</a></span> <span class="daQ_sp"><a href="api_2_02-typeid=2.shtml" class="">技术文档</a></span> <span class=""><a href="api_2_02.shtml" class="freea">免费申请</a></span> </div>
+			  <div class="daQ_ti"><a href="api_2_02-typeid=0.shtml" class="gongKai_a">开发支持</a></div>
+              <div class="daQ_c02">提供网站插件，可以帮您省去开发工作，安装后您的网站即可拥有物流跟踪功能。</div>
+
+			  <div class="ecshopBox">
+			     <div class="epbox"><a href="http://www.kuaidi100.com/download/ecshop_v2.72_plug_v3.rar" class="epbox_a01" ><img src="http://cdn.kuaidi100.com/images/api/ecshop001.gif" alt="" /></a><p class="epbox_p01"><a href="http://www.kuaidi100.com/download/ecshop_v2.72_plug_v3.rar" class="exPlug_a" >EcShop插件</a></p></div>
+
+				 <div class="epbox"><span class="epbox_a01"><img src="http://cdn.kuaidi100.com/images/api/ecshop002.gif" alt="" /></span><p class="epbox_p01">ShopEx插件</p><p class="epbox_p01Add"><a href="http://www.kuaidi100.com/download/b2c_shopex_4.8.5.7_new(2013.3.26).rar" class="exPlug_a" style="margin-right:10px;">4.8.5.7版本</a><a href="http://www.kuaidi100.com/download/shopex_v4.85_plug_v3.rar" class="exPlug_a" >以前版本</a></p></div>
+
+				 <div class="epbox"><a href="http://www.kuaidi100.com/download/hishop_v5.3_plug_v3.rar" class="epbox_a01"><img src="http://cdn.kuaidi100.com/images/api/ecshop003.gif" alt="" /></a><p class="epbox_p01"><a href="http://www.kuaidi100.com/download/hishop_v5.3_plug_v3.rar" class="exPlug_a" >HiShop插件</a></p></div>
+
+				 <div class="epbox01" ><span class="epbox_span01" ></span><p class="epbox_p02"><a href="api_6_02-typeid=1.shtml" class="" target="_blank">其它插件</a><span class="chanPin"> ></span></p></div>
+			  
+		 
+			  </div><!-- ecshopBox-->
+            </div><!--daQ_word_wra02--> 
+          </div><!--daQ_unit02--> 
+          
+        </div> <!--daQ_six--> 
+      </div>
+      <!-- daQuan_cont02-->
+      </div><!--border01-->
+
+
+	  <div class="dianXing">
+	     <div class="spatular02">
+		   <div class="border01">
+        <div class="custom_title">页面调用<span class="tongGuo">（iframe等嵌套页面）</span></div>
+		<div class="yeMian"><a href="../app/index.html" class="param_a" target="_blank">快递工具</a>（快递单打印等小工具）<span class="chanPin">></span>&nbsp;&nbsp;&nbsp;&nbsp;  【推荐】<a href="http://fapiao.youshang.com/api.html" class="param_a" target="_blank">友商发票查询API</a> <span class="chanPin"> ></span></div><!-- yeMian-->
+		
+		
+		<div class="div_clb"></div>
+
+		    <div class="wuXuShenQing">
+			   <div class="pad_wuXuShenQing">
+		    <div class="diao_unit"  style="margin-right:20px;">
+            <div class="daQ_icon"><a href="api_3_02-typeid=0.shtml" class=""><img src="http://cdn.kuaidi100.com/images/api/ic01.gif" alt="" /></a></div>
+            <!-- daQ_icon-->
+            <div class="daQ_word_wra">
+              <div class="daQ_ti"><a href="api_3_02-typeid=0.shtml" class="gongKai_a">跳转API（Chaxun URL）</a></div>
+              <div class="daQ_co">无需申请，支持所有快递公司，可以灵活配置快递公司，弹出页面展示。</div>
+              <div class="daQ_link"> <span class="daQ_sp"><a href="api_3_02-typeid=0.shtml" class="">效果</a></span> <span class="daQ_sp"><a href="api_3_02-typeid=1.shtml" class="">示范</a></span> <span class=""><a href="api_3_02-typeid=2.shtml" class="">文档</a></span> </div>
+            </div>
+            <!--daQ_word_wra--> 
+          </div><!--diao_unit --> 
+ 
+          
+          <div class="diao_unit">
+            <div class="daQ_icon"><a href="../app/code.shtml" class=""><img src="http://cdn.kuaidi100.com/images/api/ic04.gif" alt="" /></a></div>
+            <!-- daQ_icon-->
+            <div class="daQ_word_wra">
+              <div class="daQ_ti"><a href="../app/code.shtml" class="gongKai_a">快递查询代码</a><span class="daQ_ti_ifr">（iframe页）</span></div>
+              <div class="daQ_co">无需申请，无需开发，任何网站嵌入一段html代码即可实现完整的快递查询功能。</div>
+              <div class="daQ_link"> <span class="daQ_sp"><a href="../app/code.shtml" class="">效果</a></span> <span class=""><a href="../app/code.shtml" class="">免费使用</a></span> </div>
+            </div>
+            <!--daQ_word_wra--> 
+          </div> <!--diao_unit-->
+		       </div><!--pad_wuXuShenQing -->
+              </div><!--wuXuShenQing -->
+			  </div><!-- border01-->
+		  </div><!-- spatular02-->
+      </div><!-- dianXing--> 
+
+
+      
+      <div class="dianXing">
+	     <div class="spatular">
+           <div class="border01">
+        <div class="custom_title">典型用户</div><div class="div_clb"></div>
+        <div class="custom_pad">
+          <div class="custom_icon"><span  class="smack"><img src="http://cdn.kuaidi100.com/images/api/baidu.gif" alt="" /></span><span  class="smack"><img src="http://cdn.kuaidi100.com/images/api/paipai.gif" alt="" /></span><span  class="smack"><img src="http://cdn.kuaidi100.com/images/api/360.gif" alt="" /></span><span  class="smack"><img src="http://cdn.kuaidi100.com/images/api/qqsd.gif" alt="" /></span><span  class="smack"><img src="http://cdn.kuaidi100.com/images/api/sougou.gif" alt="" /></span></div>
+          <div class="custom_icon"><span  class="smack"><img src="http://cdn.kuaidi100.com/images/api/alibaba.gif" alt="" /></span><span  class="smack"><img src="http://cdn.kuaidi100.com/images/api/youdao.gif" alt="" /></span><span  class="smack"><img src="http://cdn.kuaidi100.com/images/api/maibaobao.gif" alt="" /></span><span  class="smack"><img src="http://cdn.kuaidi100.com/images/api/jumei.gif" alt="" /></span><span  class="smack"><img src="http://cdn.kuaidi100.com/images/api/yipinhui.gif" alt="" /></span></div>
+          <div class="w0h0"></div>
+        </div>
+        <!-- custom_pad--> 
+        </div><!--border01-->
+		  </div><!-- spatular-->
+      </div><!-- dianXing--> 
+      
+      
+    </div>
+    <!--kd_main_left -->
+    
+    <div class="kd_main_right">
+	    <!--百度分享代码   --//start --> 
+        <div class="baiduShare">
+		 <!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+        <span class="bds_more"><span class="trust">分享到：</span></span>
+        <a class="bds_qzone"></a>
+		<a class="bds_tsina"></a>
+		<a class="bds_baidu"></a>
+		<a class="bds_taobao"></a>
+		<a class="bds_tqq"></a>
+		<a class="shareCount"></a>
+    </div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=3938139" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->	
+		</div><!--baiduShare -->
+	<!--百度分享代码   --//end --> 
+    
+	  <div class="problem">
+        <div class="contact_title">常见问题<span class="changjian_sp"><a href="../help/qa.shtml" >更多></a></span></div>
+        <!--contact_title -->
+        <div class="pro_content">
+          <ul >
+            <li ><a href="../help/qa.shtml#qa01" class="">1.什么是快递查询接口(API)？</a></li>
+            <li ><a href="../help/qa.shtml#qa02" class=""  >2.快递查询接口(API)有什么用途？</a></li>
+            <li ><a href="../help/qa.shtml#qa03" class="">3.有哪些类型，我该怎么选？</a></li>
+            <li ><a href="../help/qa.shtml#qa04" class="">4.支持哪些快递公司？</a></li>
+            <li ><a href="../help/qa.shtml#qa05" class="">5.怎样申请使用？有什么条件？</a></li>
+            <li ><a href="../help/qa.shtml#qa06" class="" >6.怎样获得更高级的版本？</a></li>
+            <li  style="border:none;"><a href="../help/qa.shtml#qa07" class="" >7.怎样获得技术支持？</a></li>
+            <div class="w0h0"></div>
+            <div class="w0h0"></div>
+          </ul>
+        </div><!--pro_content --> 
+      </div><!-- problem--> 
+    
+      
+      <div class="contactus">
+        <div class="contact_title">联系我们</div>
+        <!--contact_title -->
+        <div class="cont">
+          <div class="cont01"><span class="cont01_sp">邮箱：<a href="mailto:kuaidi@kingdee.com" class="">kuaidi@kingdee.com</a></span></div>
+          <!--cont01 -->
+          <div class="cont02"><a href="http://blog.kuaidi100.com/?cat=6" class=""  target="_blank">去博客看看</a></div>
+          <!--cont02 --> 
+        </div>
+        <!-- cont--> 
+      </div><!-- contactus-->
+   
+
+     <!--友商发票查询   --//start --> 
+       <div class="chuckle">
+	      <div class="contact_title">相关接口推荐</div>
+		  <div class="chuckle_pad">
+		       <div class="furious">友商网同时提供发票查询API，每天10万财务人员正在使用。<span class="total "><a href="http://fapiao.youshang.com/api.html?from=kuaidi100" class="" target="_blank">了解详情</a>></span></div><!--furious -->
+		    </div><!--chuckle_pad -->	
+            
+            <!--
+               
+			   <div class="sense">
+                 <div class="youshangfapiao">
+				     <div class="youshangfp02">
+                 <p class="yizhanshi">一站式发票真伪查询，每天10万财务人员使用！</p>
+				      </div> 
+                 </div> 
+               </div> 
+
+			   <div class="handle">
+			      <div class="decided">
+				     <div class="decided_pad">
+					     <a href="http://fapiao.youshang.com/api.html?from=kuaidi100" class="unconscious" target="_blank">申请开放接口</a>
+						 <div class="relationship"></div><div class="relationship"></div>
+					 </div> 			  
+				  </div> 		   
+			   </div> 
+             -->  
+             <div class="sense">
+			   <div class="ys01">
+			   <a href="http://fapiao.youshang.com/api.html?from=kuaidi100" class="" target="_blank"><img  src="http://cdn.kuaidi100.com/images/api/ys01.gif" alt="" /></a>
+			   </div><!--ys01 -->			 
+			 </div><!--sense -->
+             
+               
+	   </div><!--chuckle -->
+	 <!-- 友商发票查询  --//end --> 
+      
+
+      
+     
+<!--
+	    <div class="xinZhen">
+        <div class="xinZhen_title">新增功能</div>       　
+        <div class="xinZ">
+          <div  class="xZh"><span  class="chanshu"  title="在API URL返回结果中，增加一个叫condition的参数">API URL增加参数condition </span><span class="timepad01">2012-05-05</span></div>
+          <div  class="xZh"><span  class="chanshu"  title="到9月底，完全停止原来的APIOne URL的服务">撤下APIOne URL </span><span class="timepad02">2012-05-03</span></div>
+          <div  class="xZh"><span  class="chanshu"  title="增加关键开发步骤的说明与示例">升级APICode URL </span><span class="timepad03">2012-05-03</span></div>
+          <div  class="xZh"><span  class="chanshu"  title="增加返回验证码的API，以支持有验证码的快递公司">新增APICode URL</span> <span class="timepad03">2011-11-08</span></div>
+          <div  style="border:none;"  class="xZh"><span  class="chanshu" title="API URL增加参数，控制显示的顺序" >API URL增加参数</span> <span class="timepad04">2011-10-12</span></div>
+        </div> 　
+      </div>　
+-->
+
+      
+    </div>
+    <!-- kd_main_right--> 
+  </div>
+  <!--kd_main --> 
+  <!--主体部分结束 --> 
+</div>
+<!--wrapper --> 
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/page/api/slide.js"> </script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=70060" ></script> 
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+.out_box{border:1px solid #ccc;background:#fff;font:12px/20px Tahoma}
+
+.column-1{margin-top:20px;position:relative;width:960px;height:600px;}
+.column-1 h1{padding-bottom:20px;font-size:20px;font-weight:normal;color:#777777}
+.column-1 h1 strong{margin-right:10px;color:#ff7f02}
+
+.bindTag a{display:inline-block;width:478px;height:40px;line-height:40px;text-align:center;font-size:20px;color:#fff}
+.bindTag a:hover{text-decoration:none}
+.bindTag a.a-tag1{border-right:4px solid #fff;border-bottom:5px solid #fff;background:url("http://cdn.kuaidi100.com/images/user/bg_bind_tag.png") center -5px no-repeat #90bfff}
+.bindTag a.a-tag2-selected{border-bottom:5px solid #99cc66;background:url("http://cdn.kuaidi100.com/images/user/bg_bind_tag.png") center -55px no-repeat #99cc66}
+.bindTag a.a-tag1-selected{border-bottom:5px solid #90bfff;background:url("http://cdn.kuaidi100.com/images/user/bg_bind_tag.png") center -5px no-repeat #90bfff}
+.bindTag a.a-tag2{border-left:4px solid #fff;border-bottom:5px solid #fff;background:url("http://cdn.kuaidi100.com/images/user/bg_bind_tag.png") center -55px no-repeat #99cc66}
+
+.outerDiv{width:950px;overflow:hidden;border:5px solid #90bfff;background-color:#FFFFFF}
+.outerDiv .gotoReg{margin-left:165px;padding:20px 0;width:267px;text-align:center;font-size:12px;color:#878787;border-bottom:1px dashed #c7c7c7}
+.outerDiv .gotoReg a{color:#317ee7;background-position:right -105px}
+
+h2.loginTitle{width:950px;height:41px;background:url("http://cdn.kuaidi100.com/images/user/bg_loginTitle.png") 0 -2px no-repeat #90bfff}
+h2.regTitle{width:950px;height:41px;background:url("http://cdn.kuaidi100.com/images/user/bg_loginTitle.png") 0 -42px no-repeat #90bfff}
+h2.findTitle{width:950px;height:41px;background:url("http://cdn.kuaidi100.com/images/user/bg_loginTitle.png") 0 -82px no-repeat #90bfff}
+
+.innerDiv{padding:50px 155px 0px;width:640px;overflow:hidden;}
+.regTag{position:relative;height:42px;border-bottom:1px solid #90bfff}
+.regTag a{position:absolute;bottom:-1px;display:block;padding-left:25px;width:140px;height:42px;line-height:42px;font-size:14px;text-align:center;color:#317ee7;border:1px solid #a4caff}
+.regTag a:hover{text-decoration:none}
+.regTag .telReg-a,.regTag .telFind-a{left:0;background:url("http://cdn.kuaidi100.com/images/user/reg.png") 20px -780px no-repeat #e7f1ff}
+.regTag .telReg-selected,.regTag .telFind-selected{left:0;border-bottom:1px solid #fff;background:url("http://cdn.kuaidi100.com/images/user/reg.png") 20px -780px no-repeat #fff}
+.regTag .emailReg-a,.regTag .emailFind-a{left:166px;background:url("http://cdn.kuaidi100.com/images/user/reg.png") 20px -840px no-repeat #e7f1ff}
+.regTag .emailReg-selected,.regTag .emailFind-selected{left:166px;border-bottom:1px solid #fff;background:url("http://cdn.kuaidi100.com/images/user/reg.png") 20px -840px no-repeat #fff;}
+
+.inputForm{padding:10px 0;}
+.inputForm .col1{display:inline-block;height:100%;width:150px;text-align:right;}
+.inputForm p{margin:0 auto;padding:6px 0;width:500px;font-size:14px}
+.inputForm p a{font-size:12px}
+.inputForm label{font-size:12px;vertical-align:middle;color:#878787}
+.inputForm label input{margin:0 5px 0 0;vertical-align:middle;}
+.inputForm .inp-2{margin-right:10px;padding:3px 5px;width:70px;height:22px;line-height:22px;border:1px solid #cacaca;background-color:#f3f3f3;}
+.inputForm .valiImg{margin-right:10px;cursor:pointer;border:1px solid #cacaca;}
+.inputForm .regTips{padding-left:45px;font-size:12px;color:#EF7B00}
+.inputForm .telReg2Tips{text-align:center;font-size:12px;color:#878787}
+.inputForm .telFind2Tips{padding:6px 90px;text-indent:2em;text-align:left;font-size:12px;color:#878787}
+.inputForm .getValidBtn{display:inline-block;width:160px;height:28px;line-height:28px;text-align:center;vertical-align:middle;font-size:12px;color:#878787;border:1px solid #CACACA;border-left:none}
+.inputForm .getValidBtn em{font-style:normal}
+.inputForm .getValidBtn a{color:#878787}
+.inputForm a.ok_btn{display:inline-block;width:140px;height:43px;line-height:43px;font-size:18px;text-align:center;vertical-align:middle;color:#fff;background-color:#317ee7}
+.inputForm a.ok_btn:hover{text-decoration:none;background-color:#6ca8fa}
+.inputForm .inp-reg{padding:3px 5px;width:200px;height:22px;line-height:22px;color:#878787;background-color:#f3f3f3;border:1px solid #cacaca}
+.inputForm input.focus{border:1px solid #098FCE}
+.inputForm .gotoLog{font-size:12px;color:#878787;}
+.inputForm .gotoLog a{color:#317ee7;background-position:right -105px}
+.inputForm .a-forget{margin-left:20px;font-size:12px;vertical-align:middle}
+.inputForm .t-wait{display:inline-block;padding:4px 25px;font-size:12px;vertical-align:middle;background:url("http://cdn.kuaidi100.com/images/ajax-loader.gif") no-repeat left center}
+.inputForm .t-error{font-size:12px;color:#db0000}
+
+.inputForm .successTips{padding-top:30px;margin-left:200px;font-size:36px;color:#737373}
+.inputForm .successTips2{margin-left:200px;font-size:14px;color:#9A9A9A}
+.inputForm .successTips2 span{margin:0 3px;color:#FF7F02}
+.inputForm .successLogo{position:absolute;top:100px;left:135px;width:60px;height:60px;background:url("http://cdn.kuaidi100.com/images/user/reg.png") -447px -806px no-repeat}
+.inputForm dl{margin-top:20px;margin-left:200px}
+.inputForm dl dt{color:#333333}
+.inputForm dl dd a{color:#347EE9;background-position:right -105px;}
+
+.step{padding:10px 0;height:40px}
+.stepEmailReg-1{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center -180px no-repeat}
+.stepEmailReg-2{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center -240px no-repeat}
+.stepTelReg-1{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center 0 no-repeat}
+.stepTelReg-2{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center -60px no-repeat}
+.stepTelReg-3{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center -120px no-repeat}
+
+/*------------------  找回密码  --------------------*/
+
+.stepTelFind-1{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center -300px no-repeat}
+.stepTelFind-2{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center -360px no-repeat}
+.stepTelFind-3{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center -420px no-repeat}
+.stepTelFind-4{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center -480px no-repeat}
+
+.stepEmailFind-1{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center -540px no-repeat}
+.stepEmailFind-2{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center -600px no-repeat}
+.stepEmailFind-3{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center -660px no-repeat}
+.stepEmailFind-4{background:url("http://cdn.kuaidi100.com/images/user/reg.png") center -720px no-repeat}
+
+.t-sns{line-height:20px;font-size:12px;color:#878787}
+.sns-qq,.sns-tb,.sns-wb,.sns-bd{display:inline-block;width:20px;height:20px;vertical-align:middle;margin-right:5px;}
+.sns-qq{background:url("http://cdn.kuaidi100.com/images/user/ico_sns.png") -5px -5px no-repeat}
+.sns-tb{background:url("http://cdn.kuaidi100.com/images/user/ico_sns.png") -5px -35px no-repeat}
+.sns-wb{background:url("http://cdn.kuaidi100.com/images/user/ico_sns.png") -5px -65px no-repeat}
+.sns-bd{background:url("http://cdn.kuaidi100.com/images/user/ico_sns.png") -5px -95px no-repeat}
+
+/*-----------------------------新增的淘宝卖家入口的css   20121030------------------------------------------------*/
+.taoBaoSeller{
+width:950px;
+height:120px;
+float:left; 
+}
+.pad_taoBaoSeller{
+float:left;
+padding-left:375px;
+padding-top:18px;
+}
+.tb01{
+float:left;
+width:241px;
+height:40px;
+background:url(/images/user/tao01.gif) no-repeat 0 0;
+}
+.tao_seller_a{
+display:block;
+width:180px;
+height:32px;
+padding-left:61px;
+padding-top:8px;
+float:left; 
+text-decoration:none;
+font-size:14px;
+color:#333;
+background:url(/images/user/taoArrow01.gif) no-repeat 203px 13px;
+height:30px\9;
+padding-top:10px\9;
+
+}
+.tao_seller_a:hover{
+text-decoration:none;
+background:url(/images/user/taoArrow01.gif) no-repeat 206px 13px;
+}

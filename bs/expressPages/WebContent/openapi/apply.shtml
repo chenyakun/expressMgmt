@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>快递查询接口_</title>
+<meta name="keywords" content="快递查询接口,快递api,B2C快递接口" />
+<meta name="description" content="提供一站式的快递查询服务，涵盖近百家常用快递公司，查询无需验证码，支持手机查快递，并提供免费的快递查询接口（API）。帮助企业、网商提升物流环节的客户满意度。" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<link rel="shortcut icon" href="http://cdn.kuaidi100.com/favicon.ico" />
+<link rel="icon" type="image/gif" href="http://cdn.kuaidi100.com/images/favicon.gif" />
+<link rel="stylesheet" type="text/css" href="http://cdn.kuaidi100.com/css/base_m.css?version=201303201326" />
+<link rel="stylesheet" type="text/css" href="http://www.kuaidi100.com/css/app.css?version=201303201326" />
+</head>
+<body>
+<a href="apply.shtml#" id="topShow" onclick="return false;"></a>
+<input type="hidden" id="headerMenu" value="apiQuery" />
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+	<div class="fr" id="weiboLink"  style="display:none;"><a href="../network/distribution.shtml" target="_blank">免费发布网点电话</a></div>
+    <div class="fr tabSpan" id="freeDiv"><a class="service-link02" href="javascript:void(0)">快递网点专区</a><ul id="serviceList02" style="display:none"><li><a href="../claim/clmReg.shtml" target="_blank">网点注册</a></li><!--<li><a target="_blank" href="../network/applyJoin.shtml">网点发布申请</a></li><li><a href="../network/invite.shtml" target="_blank">网点激活</a></li>--><li><a target="_blank" href="../claim/loginNet.shtml">网点登录</a></li></ul></div>
+    <div class="fr tabSpan" style="margin-right:25px"><a class="service-link" href="../help/service.shtml">客服中心</a><ul id="serviceList" style="display:none"><li><a href="../help/service.shtml">新手上路</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/?p=236">常见问题</a></li><li><a href="../help/feedback.shtml">意见建议</a></li><li><a target="_blank" href="http://blog.kuaidi100.com/">博客</a></li></ul></div>
+    <div class="fr tabSpan tabSpan-w" style="margin-right:25px"><a class="more-link" href="../login.html" onclick="historyPageLink();return false;">我的快递单<span id="cookieTips2" style="display:none;color:#f26100"></span></a><ul id="moreList" style="display:none"><li><a href="../login.html" onclick="historyPageLink();return false;">我的查询记录</a><span id="uncheckTips2" style="display:none;color:#f26100"></span></li><li><a href="../login.html" onclick="orderPageLink();return false;">我的订单</a></li></ul></div>
+    <div class="fr mr10px"><span id="welcome">[&nbsp;<a href="../login.html">登录</a>&nbsp;|&nbsp;<a href="../user/regByTel.shtml">注册</a>&nbsp;]</span></div>
+    <div class="fr" style="margin-right:15px"><a onclick="addFavorites();return false;" href="apply.shtml#">收藏本站</a></div>
+    <img src="http://cdn.kuaidi100.com/images/distribution/subtle.gif"  alt="" class="phoneIconDis"/>
+  </div><!-- menu-top --> 
+  <div class="logo"><a href="../index.html"><img src="http://cdn.kuaidi100.com/images/logo.gif" alt="" /></a></div>
+  <div class="top468-60" id="PAGE_AD_323605"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1" id="cookieTips" style="display:none"></div>
+  <div class="top-float-tips2" id="uncheckTips" style="display:none"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="../index.html" class="fl">快递查询</a>
+        <a id="networkQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="orderIndex" href="../orderIndex.jsp-orderSource=orderIndex.html" class="fl">查价寄快递</a>
+        <a id="historyQuery" href="../user/history.shtml" class="fl" onclick="historyPageLink();return false;">我的快递单</a>
+        <a id="apiQuery" href="index.html" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960" id="kuaidiQuerySubMenu" style="display:none;position:relative;">
+        <a id="kuaijianQuery" href="../index.html" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="../wuliu.shtml" class="fl">物流查询</a>
+        <a id="luodipeiQuery" href="../luodipei.shtml" class="fl">落地配查询</a>
+        <a id="guojiQuery" href="../guoji.shtml" class="fl">国际货运查询</a>
+        <a id="kuaidiAll" href="../all/index.html" class="fl menu-goto">快递大全</a>
+        <a id="kuaijianAuto" href="../auto.shtml" class="fl a-auto">智能单号识别</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="../network.shtml" class="fl">网点查询</a>
+        <a id="networkAll" href="../network/clist.shtml" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+    
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="apply.shtml#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="apply.shtml#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="apply.shtml#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="apply.shtml#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="apply.shtml#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="apply.shtml#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="apply.shtml#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom-->
+<div class="tips-top w960"><a href="../index.html">首页</a> &gt; <strong>申请合作</strong> </div>
+<div class="container w960">    
+  <div class="column-1">    	  
+  <div class="div-border prob" >
+       <div class="fasked">
+	       <dl >
+			<dt class="">常见问题</dt>
+			<dd ><span class="f_arow">>></span><a href="http://blog.kuaidi100.com/?p=192" class="" target="_blank">有哪些可以合作的项目？</a></dd>
+			<dd ><span class="f_arow">>></span><a href="http://blog.kuaidi100.com/?p=197" class="" target="_blank">这些合作项目对我有什么帮助？</a></dd>
+			<dd ><span class="f_arow">>></span><a href="http://blog.kuaidi100.com/?p=202" class="" target="_blank">怎样加入？</a></dd>
+			<dd  ><span class="f_arow">>></span><a href="http://blog.kuaidi100.com/?page_id=10" class="" target="_blank">怎样快速联系的商务人员？</a></dd>
+			<dd><a href="http://blog.kuaidi100.com/?cat=10" class="" target="_blank">更多</a><span class="faq_arrow"><img src="http://cdn.kuaidi100.com/images/api/faq_arrow.gif" /></span></dd>
+			<dd  ><script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODAzNTE3OV8xNDg0MV80MDA4ODAwODk4Xw"></script> <span class="apEmail">E-mail: <a href="mailto:kuaidi@kingdee.com " style="font-size:16px;font-family:Arial, Helvetica, sans-serif;">kuaidi@kingdee.com </a></span></dd>
+	       </dl>
+   
+	  </div><!-- fasked-->
+    </div> <!--div-border -->
+    
+     <div class="div_clb"></div>
+     
+     
+     <!--
+    <div class="div-border xboxcontent_a">
+      <h2 class="div-title">快递、物流公司合作申请</h2>
+      <div style="line-height:28px;">
+        <div class="api-apply-form">
+          <form method="post" name="apiform" id="apiform" onsubmit="sendapply();return false;">
+            <input type="hidden" id="fapplysrc" name="fapplysrc" value="kuaidi100"/>
+            <table width="576" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="576" colspan="3" style="padding:0 20px;line-height:1.5em">致力于成为一流的快递、物流信息服务商，为用户提供查快递和在线寄快递等服务，帮助商家提升物流环节的客户满意度，帮助快递、物流公司提升品牌影响力和业务量。现诚邀快递、物流公司合作。</br>
+                  请先填写并提交以下资料，提交后会有专门人员与您沟通。</td>
+              </tr>
+              <tr>
+                <td width="104" align="right" class="a-right"><font color="red">*</font> 公司名称：&nbsp;&nbsp;</td>
+                <td width="350"><input name="comname" type="text" class="inp-a" maxlength="50" id="comname" onclick="$('#showmessage').hide();"/></td>
+                <td width="122"><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right"><font color="red">*</font> 公司类型：&nbsp;&nbsp;</td>
+                <td><label for="ch01">
+                    <input type="checkbox" class="checkbox" name="comtype" id="ch01" value="1"/>
+                    国际快递</label>
+                  <label for="ch02">
+                    <input type="checkbox" class="checkbox" name="comtype" id="ch02" value="2"/>
+                    全国配送</label>
+                  <label for="ch07">
+                    <input type="checkbox" class="checkbox" name="comtype" id="ch07" value="7"/>
+                    货代</label>
+                  <label for="ch03">
+                    <input type="checkbox" class="checkbox" name="comtype" id="ch03" value="3"/>
+                    干线运输（整车）</label>
+                  <label for="ch04">
+                    <input type="checkbox" class="checkbox" name="comtype" id="ch04" value="4"/>
+                    干线运输（零担）</label>
+                  <label for="ch05">
+                    <input type="checkbox" class="checkbox" name="comtype" id="ch05" value="5"/>
+                    区域配送/快递</label>
+                  <label for="ch06">
+                    <input type="checkbox" class="checkbox" name="comtype" id="ch06" value="6"/>
+                    同城配送/快递</label></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right"><font color="red">*</font> 保证金缴纳：&nbsp;&nbsp;</td>
+                <td><input type="radio" name="bailPay" id="ra01" value="1"/>
+                  <label for="ra01">同意缴纳</label>
+                  <input type="radio" name="bailPay" id="ra02" value="2"/>
+                  <label for="ra02">不同意缴纳</label>
+                  <input type="radio" name="bailPay" id="ra03" value="3"/>
+                  <label for="ra03">需要进行沟通后确定</label></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right">企业资质：&nbsp;&nbsp;</td>
+                <td><input type="radio" name="comqua" id="ra11" value="1"/>
+                  <label for="ra11">AAAAA</label>
+                  <input type="radio" name="comqua" id="ra12" value="2"/>
+                  <label for="ra12">AAAA</label>
+                  <input type="radio" name="comqua" id="ra13" value="3"/>
+                  <label for="ra13">AAA</label>
+                  <input type="radio" name="comqua" id="ra14" value="4"/>
+                  <label for="ra14">AA</label>
+                  <input type="radio" name="comqua" id="ra15" value="5"/>
+                  <label for="ra15">其他</label></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right"><font color="red">*</font> 员工人数：&nbsp;&nbsp;</td>
+                <td><select id="staffnum" name="staffnum" class="inp-a2" style="z-index:9999;">
+                    <option value="1">100人以下</option>
+                    <option value="2">100-499人</option>
+                    <option value="3">500-999人</option>
+                    <option value="4">1000-2999人</option>
+                    <option value="5">3000-9999人</option>
+                    <option value="6">10000人</option>
+                  </select></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right">公司网址：&nbsp;&nbsp;</td>
+                <td><input name="website" type="text" class="inp-a" id="website" onclick="$('#showmessage').hide();" value="http://" maxlength="100" /></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right">公司地址：&nbsp;&nbsp;</td>
+                <td><input  name="comaddr" type="text" class="inp-a" id="comaddr" onclick="$('#showmessage').hide();" maxlength="25" /></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right">邮编：&nbsp;&nbsp;</td>
+                <td><input  name="zipcode" type="text" class="inp-a" id="zipcode" onclick="$('#showmessage').hide();" maxlength="15" /></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right"><font color="red">*</font> 网点分布：&nbsp;&nbsp;</td>
+                <td><input  name="network" type="text" class="inp-a" id="network" maxlength="100" onclick="$('#showmessage').hide();"/></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right"><font color="red">*</font> 网点数量：&nbsp;&nbsp;</td>
+                <td><input  name="nodenum" type="text" class="inp-a" id="nodenum" onclick="$('#showmessage').hide();" maxlength="20" /></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right"><font color="red">*</font> 联系人：&nbsp;&nbsp;</td>
+                <td><input  name="contact" type="text" class="inp-a" id="contact" onclick="$('#showmessage').hide();" maxlength="20" /></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right"><font color="red">*</font> 职位：&nbsp;&nbsp;</td>
+                <td><input  name="post" type="text" class="inp-a" id="post" onclick="$('#showmessage').hide();" maxlength="64" /></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right"><font color="red">*</font> 联系电话：&nbsp;&nbsp;</td>
+                <td><input  name="teleno" type="text" class="inp-a" id="teleno" onclick="$('#showmessage').hide();" maxlength="20" /></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right"><font color="red">*</font> 邮箱：&nbsp;&nbsp;</td>
+                <td><input name="email" type="text" class="inp-a" id="email" maxlength="64"  /></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right">QQ：&nbsp;&nbsp;</td>
+                <td><input  name="qqno" type="text" class="inp-a" id="qqno" onclick="$('#showmessage').hide();" maxlength="15" /></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right">传真号码：&nbsp;&nbsp;</td>
+                <td><input  name="faxno" type="text" class="inp-a" id="faxno" onclick="$('#showmessage').hide();" maxlength="15" /></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right"><font color="red">*</font> 合作方向：&nbsp;&nbsp;</td>
+                <td width="350"><label for="ch11">
+                    <input type="checkbox" class="checkbox" name="codirec" id="ch11" value="1"/>
+                    快递查询</label>
+                  <label for="ch12">
+                    <input type="checkbox" class="checkbox" name="codirec" id="ch12" value="2"/>
+                    网点查询</label>
+                  <label for="ch13">
+                    <input type="checkbox" class="checkbox" name="codirec" id="ch13" value="3"/>
+                    运价查询</label>
+                  <label for="ch14">
+                    <input type="checkbox" class="checkbox" name="codirec" id="ch14" value="4"/>
+                    在线发货</label>
+                  <label for="ch15">
+                    <input type="checkbox" class="checkbox" name="codirec" id="ch15" value="5"/>
+                    其他</label>
+                  <input name="coother" type="text" class="inp-a inp-a1" id="coother" onclick="$('#showmessage').hide();" value="" maxlength="100" /></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right">提供增值服务：&nbsp;&nbsp;</td>
+                <td width="340"><label for="ch21">
+                    <input type="checkbox" class="checkbox" name="valueadd" id="ch21" value="1"/>
+                    上门接货</label>
+                  <label for="ch22">
+                    <input type="checkbox" class="checkbox" name="valueadd" id="ch22" value="2"/>
+                    送货上门</label>
+                  <label for="ch23">
+                    <input type="checkbox" class="checkbox" name="valueadd" id="ch23" value="3"/>
+                    包装服务</label>
+                  <label for="ch24">
+                    <input type="checkbox" class="checkbox" name="valueadd" id="ch24" value="4"/>
+                    货物报价</label>
+                  <label for="ch25">
+                    <input type="checkbox" class="checkbox" name="valueadd" id="ch25" value="5"/>
+                    短信通知</label>
+                  <label for="ch26">
+                    <input type="checkbox" class="checkbox" name="valueadd" id="ch26" value="6"/>
+                    签收回单</label>
+                  <label for="ch27">
+                    <input type="checkbox" class="checkbox" name="valueadd" id="ch27" value="7"/>
+                    代收货款</label>
+                  <label for="ch28">
+                    <input type="checkbox" class="checkbox" name="valueadd" id="ch28" value="8"/>
+                    等通知放货</label>
+                  <label for="ch29">
+                    <input type="checkbox" class="checkbox" name="valueadd" id="ch29" value="9"/>
+                    其他</label>
+                  <input name="valueother" type="text" class="inp-a inp-a1" id="valueother" onclick="$('#showmessage').hide();" value="" maxlength="100" /></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td align="right" class="a-right">备注：&nbsp;&nbsp;</td>
+                <td><textarea rows="5" class="inp-b" id="remark" name="remark" style="width:320px;height:90px;"></textarea></td>
+                <td><span class="error_tips"></span></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="2"><a href="/openapi/" class="btn-default" style="display:inline-block" onclick="sendapply();return false;">提交申请</a></td>
+              </tr>
+            </table>
+          </form>
+          <div class="clear"></div>
+        </div>
+        <div id="showmessage" class="tips" style="display:none;"> <a onclick="$('#showmessage').hide();return false;" href="#" class="tips-close" title="关闭提示"></a>
+          <p id="message"></p>
+        </div>
+      </div>
+    </div> -->
+    
+    
+    
+    
+    
+    <div class="clear"></div>
+  </div>  <!--column-1-->
+  <div class="column-2">
+    
+    <div class="div-border"   style="float:left;">
+      <div class="div-title">已合作物流快递企业</div>
+      <a href="../all/tdhy.shtml" class="companyimg"><img src="http://cdn.kuaidi100.com/images/all/tdhy_logo.gif" width="130" height="42" alt="天地华宇" /></a> <a href="../all/yd.shtml" class="companyimg"><img src="http://cdn.kuaidi100.com/images/all/yd_logo.gif" width="130" height="42" alt="韵达快运" /></a> <a href="../all/dbwl.shtml" class="companyimg"><img src="http://cdn.kuaidi100.com/images/all/dbwl_logo.gif" width="130" height="42" alt="德邦物流" /></a> <a href="../all/tt.shtml" class="companyimg"><img src="http://cdn.kuaidi100.com/images/all/tt_logo.gif" width="130" height="42" alt="天天快递" /></a> <a href="../all/xbwl.shtml" class="companyimg"><img src="http://cdn.kuaidi100.com/images/all/xbwl_logo.gif" width="130" height="42" alt="新邦物流" /></a> </div>
+    <!--div-border --> 
+  </div>
+  <!--column-2 --> 
+</div>
+<div class="footer w960 mt10px">
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/footer_index.js?version=201303201326"></script> 
+</div> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/security_valid.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-mail.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jQselect.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/page/include/header.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://www.kuaidi100.com/js/page/api/apply.js?version=201303201326"></script> 
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/loginLogout.js?version=201303201326"></script> 
+<script type="text/javascript">var form = document.getElementById("apiform");clearForm(form);</script> 
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('323605','PAGE_AD_323605');</script>
+<script type="text/javascript" src="http://cdn.kuaidi100.com/js/share/count.js?version=201303201326"></script>
+</body>
+</html>
