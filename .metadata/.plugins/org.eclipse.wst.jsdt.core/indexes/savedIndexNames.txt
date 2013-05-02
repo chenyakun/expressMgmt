@@ -1,0 +1,9 @@
+INDEX VERSION 1.122+/Users/ME/Documents/work/expressMgmt/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2089348824.index
+2247468090.index
+3080941103.index
+10932302.index
+2833004621.index
+1575487711.index
+265351489.index
+3328610773.index
