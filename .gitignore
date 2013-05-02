@@ -3,3 +3,7 @@
 Servers/
  
 .metadata/*
+
+bs/Express/*
+*.launch
+.DS_Store
