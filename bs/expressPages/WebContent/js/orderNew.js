@@ -274,7 +274,7 @@ function isLogined() {
 	}
 	$("#queryForm").attr("target", "_self");
 	$("#queryForm").attr("action",
-			"order.do?action=addNewOrder&t=" + new Date().getTime());
+			"PackageOrderServlet");
 	if ($("#sender_company").val() == gCompanySug) {
 		$("#sender_company").val("");
 	}
@@ -288,21 +288,29 @@ function isLogined() {
 	$("#submitOrder").hide();
 	$("#submiting").show();
 	$("#queryForm").submit();
-	/*
-	 * $.ajax({ type:"POST", url:"order.do?action=isLogined",
-	 * data:{isPost:"true"},
-	 * contentType:"application/x-www-form-urlencoded;charset=utf-8",
-	 * success:function(responseText){ if(responseText=="Y"){
-	 * $("#queryForm").attr("target","_self");
-	 * $("#queryForm").attr("action","order.do?action=addNewOrder");
-	 * if($("#sender_company").val()==gCompanySug){
-	 * $("#sender_company").val(""); }
-	 * if($("#receive_company").val()==gCompanySug){
-	 * $("#receive_company").val(""); }
-	 * if($("#sender_mobile").val()==gMobileSug){ $("#sender_mobile").val(""); }
-	 * if($("#receive_mobile").val()==gMobileSug){ $("#receive_mobile").val(""); }
-	 * $("#queryForm").submit(); }else{ showEleCenter("loginIframe"); } } });
-	 */
+	
+	if (window.confirm("订单已发送,查看订单信息? ")) { 
+	    
+	    window.location.href="http://localhost:8080/expressPages/history.html";
+	}else{
+		
+		   window.location.href="http://localhost:8080/expressPages/";
+	}
+	
+//	  $.ajax({ type:"POST", url:"order.do?action=isLogined",
+//	  data:{isPost:"true"},
+//	  contentType:"application/x-www-form-urlencoded;charset=utf-8",
+//	  success:function(responseText){ if(responseText=="Y"){
+//	  $("#queryForm").attr("target","_self");
+//	  $("#queryForm").attr("action","order.do?action=addNewOrder");
+//	  if($("#sender_company").val()==gCompanySug){
+//	  $("#sender_company").val(""); }
+//	  if($("#receive_company").val()==gCompanySug){
+//	  $("#receive_company").val(""); }
+//	  if($("#sender_mobile").val()==gMobileSug){ $("#sender_mobile").val(""); }
+//	  if($("#receive_mobile").val()==gMobileSug){ $("#receive_mobile").val(""); }
+//	  $("#queryForm").submit(); }else{ showEleCenter("loginIframe"); } } });
+	 
 }
 
 /* 查看网点详情 */

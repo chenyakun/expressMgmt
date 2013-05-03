@@ -33,7 +33,6 @@ document.writeln("<input type=\"hidden\" id=\"headerMenu\" value=\"kuaidiQuery k
 		"		<div class=\"fr mr10px\">" +
 		"			<span id=\"welcome\">[&nbsp;<a href=\"login.html\">登录</a>&nbsp;|&nbsp;<a href=\"regByTel.shtml\">注册</a>&nbsp;]</span>" +
 		"		</div>" +
-		"		<img src=\"http://cdn.kuaidi100.com/images/distribution/subtle.gif\"  alt=\"\" class=\"phoneIconDis\"/>" +
 		"	</div><!-- menu-top -->" +
 		"	<div class=\"logo\">" +
 		"		<a href=\"index.html\"><img src=\"images/logo.jpg\" alt=\"\" /></a>" +

@@ -239,12 +239,14 @@ function addQuerysFromCookie(){
 
 /* 登录 - 验证账号 */
 function logValidateAccount(account,pwd){
-	if(securityValid(account)){
-		$("#logBox").find("#errorTips").html("用户名有非法字符，请重新输入")
-		$("#logBox").find("#error").show();
-		$('#email').select();
-		return false;		
-	}else if(checkEmail(account)){
+
+	//	if(ityValidaccount){
+//		$("#logBox").find("#errorTips").html("用户名有非法字符，请重新输入")
+//		$("#logBox").find("#error").show();
+//		$('#email').select();
+//		return false;		
+//	}else
+	if(checkEmail(account)){
 		if(account.length >= 64){
 			$("#logBox").find("#errorTips").html("这个Email的长度大于64个字符...")
 			$("#logBox").find("#error").show();
