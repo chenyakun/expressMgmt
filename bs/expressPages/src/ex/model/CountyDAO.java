@@ -58,7 +58,7 @@ public class CountyDAO extends BaseHibernateDAO {
 	public List<County> findByExample(County instance) {
 		log.debug("finding County instance by example");
 		try {
-			List<County> results = (List<County>) getSession()
+			List<County> results = getSession()
 					.createCriteria("ex.model.County").add(create(instance))
 					.list();
 			log.debug("find by example successful, result size: "

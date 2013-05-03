@@ -1,7 +1,7 @@
 /*补全运单css*/
 em{font-style:normal;}
 .orderNew-title{font:20px Tahoma,Arial,sans-serif;margin:10px;font-weight:bold;}
-.orderNew-top{width:960px;height:44px;background:url("../images/orderNew.gif?vesion=201206201100") 0px 0px;margin-bottom:10px;}
+.orderNew-top{width:960px;height:44px;background:url("../images/orderNew.gif") 0px 0px;margin-bottom:10px;}
 
 .orderNew-left{float:left;display:inline;width:248px;background-color:#f7f7f7;border:1px solid #e9e9e9;margin-left:10px;margin-right:10px;}
 .orderNew-left .left-title{height:28px;line-height:28px;background-color:#f9fdff;}

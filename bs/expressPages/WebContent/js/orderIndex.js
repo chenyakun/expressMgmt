@@ -1,5 +1,10 @@
 var gStartPlaceTip = "选择发件地";
 var gEndPlaceTip = "选择收件地";
+var g_endPlace_input;
+var g_startPlace;
+var g_endPlace_input;
+var g_endPlace;
+var g_weight;
 /* 图片切换轮播 */
 function pictureOn(picId) {
 	$("#second-right-4").find("a").removeClass("cur");
@@ -610,6 +615,13 @@ function queryPrice() {
 
 	setcookie("startPlace_input", $("#startPlace_input").val());
 	setcookie("startPlace", $("#startPlace").val());
+ 
+	setcookie("endPlace_input", $("#endPlace_input").val());
+	setcookie("endPlace", $("#endPlace").val());
+
+	setcookie("weight", $("#weight").val());
+
+ 	 
 
 	var queryHref = "trans.html?orderSource="
 			+ orderSource + "&headerMenu=orderIndex&startPlace_input="

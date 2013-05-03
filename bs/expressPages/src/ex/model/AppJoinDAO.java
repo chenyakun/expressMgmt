@@ -47,7 +47,7 @@ public class AppJoinDAO extends BaseHibernateDAO {
 	public List<AppJoin> findByExample(AppJoin instance) {
 		log.debug("finding AppJoin instance by example");
 		try {
-			List<AppJoin> results = (List<AppJoin>) getSession()
+			List<AppJoin> results = getSession()
 					.createCriteria("ex.model.AppJoin").add(create(instance))
 					.list();
 			log.debug("find by example successful, result size: "

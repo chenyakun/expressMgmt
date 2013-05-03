@@ -38,6 +38,7 @@ public class ApplyJoinServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -49,6 +50,7 @@ public class ApplyJoinServlet extends HttpServlet {
 	 *      startPlace: startPlace_input:河北省-石家庄市 headName:123 mobile:123
 	 *      password:123 imgCode:123
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("utf-8");

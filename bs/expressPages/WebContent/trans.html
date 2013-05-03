@@ -7,11 +7,36 @@
 		<meta name="Description" content="">
 		<meta http-equiv="X-UA-Compatible" content="IE=7">
 		<meta http-equiv="Content-Language" content="zh-cn">
-		<link rel="stylesheet" type="text/css" href="css/base.css">
-		<link rel="stylesheet" type="text/css" href="css/orderNew.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css"> 
+		<link rel="stylesheet" type="text/css" href="css/orderNew.css"> 
 		<link rel="stylesheet" type="text/css" href="css/base_m.css" />
 		<link rel="stylesheet" type="text/css" href="css/index_m.css" />
+		<link rel="stylesheet" type="text/css" href="css/orderIndex.css" />
 		
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/base.js"></script>
+		<script type="text/javascript" src="js/orderNew.js"></script>
+		<script type="text/javascript" src="js/orderIndex.js"></script>
+ 
+ 		<style type="text/css" media="screen">
+			span {
+			font-weight:bold;
+			color:#ff9955;
+			margin: 10px ,20px,20px,20px;
+		} 
+	 
+		</style>
+		
+		
+		<script type="text/javascript" charset="utf-8">
+			$(function(){
+				
+				$("#left-price").css({"fontSize":"30px" ,"margin": "10px ,20px,20px,20px" , "height":"40px" });
+			 
+
+			});	
+			
+		</script>
 	</head>
 	<body>
 
@@ -24,63 +49,70 @@
 	 
 	<div class="container w960 pt10px">
 	
+	 
 		<div class="main">
-			<div class="orderNew-top"></div>
+		<!--<div class="orderNew-top"></div>-->
+		 
+			
 			<div class="orderNew-left">
 				<div class="left-info">
 				 
 					<div class="left-totle">
-						预计费用<em class="color-org"><strong>16.0元</strong></em>(按重量计价)=运费<em class="color-org">16.0元</em>+增值服务费<em class="color-org">0.0元</em>
+						<br> 
+						    <span>预计费用</span><br><br>
+						<div id="left-price">
+							<em class="color-org"><strong>
+							
+							 16.0 元
+								
+							</strong></em>
+						</div>
+				 
 					</div>
+					 
 					<div class="left-detai-title">
-						运价明细
+						 
 					</div>
 					<table>
 						<tbody>
 							<tr>
 								<td class="left-td1">出发地：</td>
-								<td>北京市,市辖区,朝阳区</td>
+								<td>
+									<script type="text/javascript">
+										document.writeln(getcookie("startPlace_input"));
+									</script>
+								</td>
 							</tr>
 							<tr>
 								<td class="left-td1">到达地：</td>
-								<td>上海市,市辖区,宝山区</td>
+								<td>
+									<script type="text/javascript">
+										document.writeln(getcookie("endPlace_input"));
+									</script>
+								</td>
 							</tr>
 							<tr>
 								<td class="left-td1">重量：</td>
-								<td>2.0公斤</td>
+								<td>
+									<script type="text/javascript">
+										document.writeln(getcookie("weight")+"千克");
+									</script>
+								</td>
 							</tr>
-							<tr>
-								<td class="left-td1">体积：</td>
-								<td>0.0立方米</td>
-							</tr>
+							 
 							<tr>
 								<td class="left-td1">时间：</td>
-								<td>2-3天</td>
+								<td>大约1-3天</td>
 							</tr>
-							<tr>
-								<td class="left-td1">运输方式：</td>
-								<td>普通快递</td>
-							</tr>
-							<tr>
-								<td class="left-td1">首重：</td>
-								<td>10元/公斤</td>
-							</tr>
-							<tr>
-								<td class="left-td1">续重：</td>
-								<td>6元/公斤</td>
-							</tr>
-							<tr>
-								<td class="left-td1">增值服务：</td>
-								<td class="addService"><span>上门接货&nbsp;&nbsp;<em class="color-org">必选，0.0元</em>&nbsp;&nbsp;(免费上门接货。)</span><span>送货上门&nbsp;&nbsp;<em class="color-org">必选，0.0元</em>&nbsp;&nbsp;(免费送货上门。)</span></td>
-							</tr>
+							 
 
 						</tbody>
 					</table>
 				</div>
 			</div>
 			<div class="orderNew-right">
-				<form id="queryForm" action="order.do?action=addNewOrder" method="post">
-					<input type="hidden" id="source" name="source" value="kuaidi100">
+				<form id="queryForm" action="PackageOrderServlet" method="post">
+					<input type="hidden" id="source" name="source" value="kuaidi">
 					<input type="hidden" id="orderSource" name="orderSource" value="orderIndex">
 					<input type="hidden" id="priceId" name="priceId" value="2233273">
 					<input type="hidden" id="type" name="type" value="EXPRESS">
@@ -105,7 +137,11 @@
 								</tr>
 								<tr>
 									<td class="info-td1"><span class="color-red">*</span>详细发货地址：</td>
-									<td class="info-td2">&nbsp;&nbsp;北京市,市辖区,朝阳区&nbsp;
+									<td class="info-td2">&nbsp;&nbsp;
+									<script type="text/javascript">
+										document.writeln(getcookie("startPlace_input"));
+									</script>
+									&nbsp;
 									<input type="text" id="sender_address1" name="sender_address1" maxlength="64" class="inp-info watermark" style="width:105px;" autocomplete="off">
 									&nbsp;
 									<input type="text" id="sender_address2" name="sender_address2" maxlength="64" class="inp-info watermark" style="width:205px;" autocomplete="off">
@@ -148,7 +184,11 @@
 								</tr>
 								<tr>
 									<td class="info-td1"><span class="color-red">*</span>详细收货地址：</td>
-									<td class="info-td2">&nbsp;&nbsp;上海市,市辖区,宝山区&nbsp;
+									<td class="info-td2">&nbsp;&nbsp;
+									<script type="text/javascript">
+										document.writeln(getcookie("endPlace_input"));
+									</script>
+									&nbsp;
 									<input type="text" id="receive_address1" name="receive_address1" maxlength="64" class="inp-info watermark" style="width:105px;" autocomplete="off">
 									&nbsp;
 									<input type="text" id="receive_address2" name="receive_address2" maxlength="64" class="inp-info watermark" style="width:205px;" autocomplete="off">
@@ -229,9 +269,8 @@
 		<div class="footer w960 mt10px">
 			<script type="text/javascript" src="js/footer_index.js"></script>
 		</div>
-		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="js/base.js"></script>
-		<script type="text/javascript" src="js/orderNew.js"></script>
+		
+
 			
 	</div>			
 	</body>
